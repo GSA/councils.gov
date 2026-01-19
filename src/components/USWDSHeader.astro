@@ -1,0 +1,55 @@
+---
+interface Props {
+  currentPage?: string;
+}
+
+const { currentPage = "" } = Astro.props;
+---
+
+<div class="usa-overlay"></div>
+
+<header class="usa-header usa-header--extended" role="banner">
+  <div class="usa-navbar">
+    <div class="usa-logo" id="extended-logo">
+      <em class="usa-logo__text">
+        <a href="/" title="Home" aria-label="Home">
+          Federal Executive Councils
+        </a>
+      </em>
+    </div>
+    <button class="usa-menu-btn">Menu</button>
+  </div>
+  <nav id="extended-nav" class="usa-nav" aria-label="Primary navigation">
+    <div class="usa-nav__inner">
+      <button class="usa-nav__close" aria-label="Close">
+        ×
+      </button>
+      <ul class="usa-nav__primary usa-accordion">
+        <li class="usa-nav__primary-item">
+          <a class={`usa-nav__link ${currentPage === "home" ? "usa-current" : ""}`} href="/">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="usa-nav__primary-item">
+          <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="councils-menu">
+            <span>Councils</span>
+          </button>
+          <ul id="councils-menu" class="usa-nav__submenu">
+            <li class="usa-nav__submenu-item">
+              <a href="/cioc/about">CIOC</a>
+            </li>
+            <li class="usa-nav__submenu-item">
+              <a href="/coffa/about">COFFA</a>
+            </li>
+          </ul>
+        </li>
+        <li class="usa-nav__primary-item">
+          <a class={`usa-nav__link ${currentPage === "resources" ? "usa-current" : ""}`} href="/resources">
+            <span>Resources</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+

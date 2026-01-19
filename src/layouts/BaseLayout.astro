@@ -1,0 +1,290 @@
+---
+import USWDSBanner from '../components/USWDSBanner.astro';
+import USWDSHeader from '../components/USWDSHeader.astro';
+import USWDSFooter from '../components/USWDSFooter.astro';
+import USWDSIdentifier from '../components/USWDSIdentifier.astro';
+import '@uswds/uswds/css/uswds.css';
+
+interface Props {
+  title?: string;
+  currentPage?: string;
+}
+
+const { title = "Federal Executive Councils", currentPage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Councils.gov - Official website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="usa-skipnav" href="#main-content">
+      Skip to main content
+    </a>
+    <USWDSBanner />
+    <USWDSHeader currentPage={currentPage} />
+    <slot />
+    <USWDSFooter />
+    <USWDSIdentifier />
+    <script>
+      // Initialize USWDS JavaScript according to USWDS documentation
+      // https://designsystem.digital.gov/documentation/getting-started-for-developers/
+      (function() {
+        'use strict';
+        
+        function initUSWDS() {
+          import('@uswds/uswds').then((uswds) => {
+            // USWDS 3.x uses uswds.on(window) to initialize
+            if (uswds.on && typeof uswds.on === 'function') {
+              uswds.on(window);
+            } else if (uswds.default && typeof uswds.default.on === 'function') {
+              uswds.default.on(window);
+            }
+          }).catch(() => {
+            console.warn('USWDS JavaScript could not be loaded');
+          });
+        }
+
+        // Initialize immediately if DOM is ready, otherwise wait for DOMContentLoaded
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initUSWDS);
+        } else {
+          // DOM is already ready, initialize immediately
+          initUSWDS();
+        }
+
+        // Reinitialize after Astro View Transitions
+        document.addEventListener('astro:after-swap', function() {
+          setTimeout(initUSWDS, 0);
+        });
+        document.addEventListener('astro:page-load', function() {
+          setTimeout(initUSWDS, 0);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Make all cards in a grid row the same height */
+  .grid-row > [class*="grid-col"] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-row > [class*="grid-col"] > .usa-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Remove default ul/li padding and margin (but not for navigation) */
+  ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-sidenav__sublist):not(.usa-list):not(.usa-footer__primary-content):not(.usa-identifier__required-links-list) {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__item):not(.usa-footer__secondary-link):not(.usa-identifier__required-links-list-item) {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  /* Remove bottom border from side navigation */
+  .usa-sidenav {
+    border-bottom: none;
+  }
+
+  .usa-sidenav__item {
+    border-bottom: none;
+  }
+
+  .usa-sidenav__item a {
+    border-bottom: none;
+  }
+
+  /* Font stack - Inter with Public Sans as fallback */
+  *,
+  *::before,
+  *::after {
+    font-family: 'Inter', 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
+  }
+
+  body {
+    font-family: 'Inter', 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
+  }
+
+  /* Heading font sizes */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.9375rem;
+  }
+
+  h6 {
+    font-size: 0.875rem;
+  }
+
+  /* Increase line height for paragraphs */
+  p {
+    line-height: 1.5;
+  }
+
+  /* Force banner to be closed by default to prevent flash */
+  .usa-banner__content.usa-accordion__content {
+    display: none !important;
+  }
+
+  .usa-banner__content.usa-accordion__content[aria-hidden="false"] {
+    display: block !important;
+  }
+
+  /* Ensure accordion buttons start collapsed */
+  .usa-accordion__button[aria-expanded="false"] + .usa-accordion__content,
+  .usa-accordion__button[aria-expanded="false"] ~ .usa-accordion__content {
+    display: none !important;
+  }
+
+  .usa-accordion__button[aria-expanded="true"] + .usa-accordion__content,
+  .usa-accordion__button[aria-expanded="true"] ~ .usa-accordion__content {
+    display: block !important;
+  }
+
+  /* Make clickable cards have hover effect */
+  .usa-card.display-block {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Remove margins from card containers - spacing handled by grid-gap */
+  .usa-card__container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .usa-card.display-block:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .usa-card.display-block:hover .usa-card__heading {
+    color: #005ea2;
+  }
+
+  /* Remove padding from grid columns when no gap */
+  .grid-row:not(.grid-gap) > [class*="grid-col"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Footer single list grid layout */
+  .single-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Ensure footer links with display: contents work properly */
+  .usa-footer__nav ul[style*="display: contents"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Skip link styling - USWDS default */
+  .usa-skipnav {
+    background: transparent;
+    color: #1b1b1b;
+    left: 0;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    top: -4.2rem;
+    z-index: 100;
+    text-decoration: underline;
+  }
+
+  .usa-skipnav:focus {
+    background: #f0f0f0;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  /* Increase max-width to desktop-lg breakpoint (1200px) */
+  .grid-container {
+    max-width: 1200px;
+  }
+
+  /* Apply wider max-width to header navigation */
+  .usa-header--extended .usa-navbar {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .usa-header--extended .usa-nav__inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .usa-header--extended .usa-navbar,
+    .usa-header--extended .usa-nav__inner {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Apply wider max-width to identifier container */
+  .usa-identifier__container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Apply wider max-width to banner inner container */
+  .usa-banner__inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Apply wider max-width to footer primary section and return to top */
+  .usa-footer__primary-section,
+  .usa-footer__return-to-top {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+

@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ResourceFilter from '../components/ResourceFilter';
+import Papa from 'papaparse';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// Helper function to parse CSV and convert to resources format
+function parseCSVToResources(csvPath: string): any[] {
+  try {
+    const csvContent = readFileSync(csvPath, 'utf-8');
+    const parseResult = Papa.parse(csvContent, {
+      header: true,
+      skipEmptyLines: true,
+      transformHeader: (header: string) => {
+        // Remove quotes from header names if present
+        return header.trim().replace(/^["']|["']$/g, '');
+      },
+    });
+
+    return parseResult.data
+      .filter((row: any) => row && Object.keys(row).length > 0) // Filter out completely empty rows
+      .map((row: any, index: number) => {
+        // Map CSV columns to expected resource structure - try multiple possible column name variations
+        const resourceName = String(
+          row['Resource name'] || 
+          row['resource name'] || 
+          row['Resource Name'] || 
+          ''
+        ).trim();
+        const council = String(
+          row['Council'] || 
+          row['council'] || 
+          ''
+        ).trim();
+        const focusArea = String(
+          row['Focus Area'] || 
+          row['focus area'] || 
+          row['Focus area'] || 
+          ''
+        ).trim();
+        const type = String(
+          row['Type'] || 
+          row['type'] || 
+          ''
+        ).trim();
+        const year = String(
+          row['Year'] || 
+          row['year'] || 
+          ''
+        ).trim().replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+        const docLink = String(
+          row['Document name or external link'] || 
+          row['document name or external link'] || 
+          ''
+        ).trim();
+        const websiteLink = String(
+          row['If the document is already posted on an existing council website, provide the link here:'] || 
+          row['if the document is already posted on an existing council website, provide the link here:'] || 
+          ''
+        ).trim();
+        
+        // Use website link if available, otherwise use document link
+        const link = websiteLink || docLink;
+        
+        // Convert year to date format (YYYY-MM-DD, defaulting to January 1st)
+        let date = '';
+        if (year && year !== 'Unknown' && year !== '') {
+          date = `${year}-01-01`;
+        } else {
+          date = '1900-01-01'; // Default for unknown dates
+        }
+
+        // Only return if we have at least a title and council
+        if (!resourceName || !council) {
+          return null;
+        }
+
+        return {
+          id: `${council}-${index + 1}`,
+          title: resourceName,
+          description: '', // CSV doesn't have description, leaving empty
+          type: type,
+          focusArea: focusArea,
+          councilAcronym: council,
+          date: date,
+          link: link,
+        };
+      })
+      .filter((item: any) => item !== null); // Remove null entries
+  } catch (error) {
+    console.error(`Error parsing CSV file ${csvPath}:`, error);
+    return [];
+  }
+}
+
+// Read and parse both CSV files
+const ciocPath = join(process.cwd(), 'src/data/CIOC_Resources.csv');
+const coffaPath = join(process.cwd(), 'src/data/COFFA_resources.csv');
+
+const ciocResources = parseCSVToResources(ciocPath);
+const coffaResources = parseCSVToResources(coffaPath);
+
+// Combine resources from both files
+const resources = [...ciocResources, ...coffaResources];
+
+// Ensure resources is always an array (fallback to empty array if parsing fails)
+if (!Array.isArray(resources) || resources.length === 0) {
+  console.warn('No resources loaded from CSV files');
+}
+---
+
+<BaseLayout title="Resources - Councils.gov" currentPage="resources">
+
+  <main id="main-content">
+    <section class="grid-container usa-section">
+      <h1>Resources</h1>
+      
+      <p class="usa-intro">
+        Access valuable resources, tools, and documentation to support your initiatives 
+        and improve agency practices across all councils.
+      </p>
+
+      <ResourceFilter client:load resources={resources} />
+    </section>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .resource-card-link,
+  .resource-card-link *,
+  .resource-card-link .usa-card,
+  .resource-card-link .usa-card__container,
+  .resource-card-link .usa-card__header,
+  .resource-card-link .usa-card__body,
+  .resource-card-link .usa-card__heading {
+    border-radius: 0 !important;
+  }
+
+  .resource-card-link {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    overflow: visible !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+  }
+
+  .resource-card-link:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .resource-card-link .usa-card__container {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    border-top: none !important;
+  }
+
+  .resource-date {
+    font-size: 0.875rem;
+    color: #565c65;
+    font-weight: normal;
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .resource-card-link .usa-card__heading {
+    font-size: 1.25rem !important;
+  }
+
+  .resource-card-link .usa-card__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resource-card-link .usa-card__body .resource-tags {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .resource-card-link .usa-card__body .resource-tags .usa-tag {
+    flex-shrink: 0;
+  }
+</style>
+

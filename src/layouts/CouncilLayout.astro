@@ -1,0 +1,76 @@
+---
+interface Props {
+  title?: string;
+  currentPage?: string;
+  councilName: string;
+  councilSlug: string;
+  logoPath?: string;
+  logoAlt?: string;
+  logoClass?: string;
+}
+
+import BaseLayout from './BaseLayout.astro';
+
+const { title, currentPage = "about", councilName, councilSlug, logoPath, logoAlt, logoClass } = Astro.props;
+
+const navItems = [
+  { href: `/${councilSlug}/about`, label: "About", id: "about" },
+  { href: `/${councilSlug}/members-leaders`, label: "Leadership and Members", id: "members-leaders" },
+  { href: "/resources", label: "Resources", id: "resources" },
+];
+---
+
+<BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>
+
+  <main id="main-content">
+    <div class="usa-section">
+      <div class="grid-container">
+        <div class="grid-row grid-gap">
+          <aside class="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+            <nav aria-label="Side navigation" class="sticky-nav">
+              <ul class="usa-sidenav">
+                {navItems.map((item) => (
+                  <li class="usa-sidenav__item">
+                    <a
+                      href={item.href}
+                      class={currentPage === item.id ? "usa-current" : ""}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          <div class="tablet:grid-col-9">
+            {logoPath && (
+              <div class="margin-bottom-4">
+                <img src={logoPath} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-logo-large"} />
+              </div>
+            )}
+            <slot />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .sticky-nav {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+
+  .council-logo-large,
+  .cioc-logo-about {
+    max-height: 250px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
