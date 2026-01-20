@@ -14,8 +14,8 @@ import BaseLayout from './BaseLayout.astro';
 const { title, currentPage = "about", councilName, councilSlug, logoPath, logoAlt, logoClass } = Astro.props;
 
 const navItems = [
-  { href: `/${councilSlug}/about`, label: "About", id: "about" },
-  { href: `/${councilSlug}/members-leaders`, label: "Leadership and Members", id: "members-leaders" },
+  { href: `/councils/${councilSlug}/about`, label: "About", id: "about" },
+  { href: `/councils/${councilSlug}/members-leaders`, label: "Leadership and Members", id: "members-leaders" },
   { href: "/resources", label: "Resources", id: "resources" },
 ];
 ---
@@ -23,6 +23,41 @@ const navItems = [
 <BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>
 
   <main id="main-content">
+    <nav class="council-breadcrumb" aria-label="Breadcrumb">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a href="/" class="usa-breadcrumb__link">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span class="usa-breadcrumb__current" aria-current="page">{councilName}</span>
+        </li>
+      </ol>
+    </nav>
+    {logoPath && (
+      <section class="council-hero usa-section">
+        <div class="grid-container">
+          <div class="grid-row grid-gap">
+            <div class="tablet:grid-col-3">
+              <div class="council-hero__logo-container">
+                <img src={logoPath} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
+              </div>
+            </div>
+            <div class="tablet:grid-col-9 flex-justify-center">
+              <div class="council-hero__content">
+                <p class="council-hero__brow">{councilName}</p>
+                <h1 class="council-hero__title">
+                  {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
+                   currentPage === "members-leaders" ? `Leadership and Members` : 
+                   title || `${councilName}`}
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
     <div class="usa-section">
       <div class="grid-container">
         <div class="grid-row grid-gap">
@@ -43,11 +78,6 @@ const navItems = [
             </nav>
           </aside>
           <div class="tablet:grid-col-9">
-            {logoPath && (
-              <div class="margin-bottom-4">
-                <img src={logoPath} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-logo-large"} />
-              </div>
-            )}
             <slot />
           </div>
         </div>
@@ -63,6 +93,114 @@ const navItems = [
     align-self: start;
   }
 
+  /* Council breadcrumb */
+  .council-breadcrumb {
+    background-color: var(--primary-color);
+    padding: 0.75rem 0;
+  }
+
+  .council-breadcrumb .usa-breadcrumb__list {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .council-breadcrumb .usa-breadcrumb__list {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .council-breadcrumb .usa-breadcrumb__link,
+  .council-breadcrumb .usa-breadcrumb__current {
+    color: white;
+  }
+
+  .council-breadcrumb .usa-breadcrumb__link:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .council-hero {
+    background-color: var(--primary-color);
+    background-image: url('/assets/img/backgrounds/waves_2.svg');
+    background-repeat: repeat;
+    /* Scale options: 
+       - Use percentage: background-size: 50%; (smaller) or 200%; (larger)
+       - Use pixels: background-size: 1000px 400px; (width height)
+       - Use cover/contain: background-size: cover; (fills area) or contain; (fits area)
+    */
+    background-size: 30%;
+    /* Blend mode options: overlay, multiply, screen, soft-light, or normal */
+    background-blend-mode: multiply;
+  }
+
+  .council-hero__logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 1.5rem;
+  }
+
+  .council-hero__logo {
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    display: block;
+  }
+
+  .council-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+  }
+
+  .council-hero__brow {
+    color: white;
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .council-hero__title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+  }
+
+  @media (min-width: 640px) {
+    .council-hero__logo {
+      max-height: 250px;
+    }
+
+    .council-hero__title {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Remove top margin from all h2s, then add back to subsequent ones */
+  .tablet\:grid-col-9 h2 {
+    margin-top: 0 !important;
+  }
+  
+  /* Add margin back to h2s that follow other elements */
+  .tablet\:grid-col-9 h2:not(:first-of-type),
+  .tablet\:grid-col-9 > div h2:not(:first-of-type),
+  .tablet\:grid-col-9 p + h2,
+  .tablet\:grid-col-9 > div p + h2 {
+    margin-top: 2rem !important;
+  }
+
+  /* Legacy logo classes for backward compatibility */
   .council-logo-large,
   .cioc-logo-about {
     max-height: 250px;
@@ -72,5 +210,6 @@ const navItems = [
     margin-left: auto;
     margin-right: auto;
   }
+
 </style>
 

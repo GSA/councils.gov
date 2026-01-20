@@ -1,13 +1,13 @@
 ---
 title: About COFFA
-councilName: COFFA
+councilName: Council on Federal Financial Assistance
 councilSlug: coffa
 logoPath: /assets/img/councils/COFFA.png
 logoAlt: COFFA Logo
 logoClass: council-logo-large
 ---
 
-# About COFFA
+## Welcome
 
 The Chief Financial Officers Council (COFFA) is a principal interagency forum for improving financial management practices across the Federal Government.
 

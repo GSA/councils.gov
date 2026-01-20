@@ -17,11 +17,11 @@ interface ResourceFilterProps {
 
 // Color mapping for resource types
 const typeColors: Record<string, string> = {
-  'Playbook': '#005ea2',        // Blue
+  'Playbook': '#112849',        // Blue
   'Guidance': '#b50909',        // Red
   'Quick Reference': '#54278f', // Purple
   'Memorandum': '#981b1e',       // Dark Red
-  'DEFAULT': '#005ea2',         // Default blue
+  'DEFAULT': '#112849',         // Default blue
 };
 
 export default function ResourceFilter({ resources }: ResourceFilterProps) {

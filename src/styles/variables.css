@@ -1,0 +1,8 @@
+:root {
+  --primary-color: #112849;
+  --max-width: 75rem;
+  --breakpoint-mobile: 0;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-desktop: 64rem;
+  --breakpoint-desktop-lg: 75rem;
+}

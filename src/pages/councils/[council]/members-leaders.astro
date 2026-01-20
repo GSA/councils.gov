@@ -1,0 +1,155 @@
+---
+import CouncilLayout from '../../../layouts/CouncilLayout.astro';
+import matter from 'gray-matter';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// Get all council members-leaders pages
+export async function getStaticPaths() {
+  const contentDir = join(process.cwd(), 'src/content/councils');
+  const fs = await import('fs');
+  const councils = fs.readdirSync(contentDir);
+  
+  return councils.map((councilSlug) => {
+    const filePath = join(contentDir, councilSlug, 'members-leaders.md');
+    if (!fs.existsSync(filePath)) return null;
+    
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontmatter } = matter(fileContents);
+    
+    // Get logo info from about.md
+    const aboutPath = join(contentDir, councilSlug, 'about.md');
+    let logoPath, logoAlt, logoClass;
+    if (fs.existsSync(aboutPath)) {
+      const aboutContents = fs.readFileSync(aboutPath, 'utf-8');
+      const { data: aboutFrontmatter } = matter(aboutContents);
+      logoPath = aboutFrontmatter.logoPath;
+      logoAlt = aboutFrontmatter.logoAlt;
+      logoClass = aboutFrontmatter.logoClass;
+    }
+    
+    return {
+      params: { council: councilSlug },
+      props: {
+        frontmatter,
+        logoPath,
+        logoAlt,
+        logoClass,
+      },
+    };
+  }).filter(Boolean);
+}
+
+const { frontmatter, logoPath, logoAlt, logoClass } = Astro.props;
+---
+
+<CouncilLayout 
+  title={`${frontmatter.title} - Councils.gov`} 
+  currentPage="members-leaders" 
+  councilName={frontmatter.councilName} 
+  councilSlug={frontmatter.councilSlug}
+  logoPath={logoPath}
+  logoAlt={logoAlt}
+  logoClass={logoClass}
+>
+  <h1>{frontmatter.title}</h1>
+  
+  <p class="usa-intro">
+    {frontmatter.intro}
+  </p>
+
+  {frontmatter.leaders && frontmatter.leaders.length > 0 && (
+    <>
+      <h2 class="margin-top-4">Leadership</h2>
+      <div class="grid-row grid-gap margin-top-2">
+        {frontmatter.leaders.map((leader: any) => (
+          <div class="tablet:grid-col-6">
+            <div class="usa-card">
+              <div class="usa-card__container">
+                {leader.image && (
+                  <div class="usa-card__media">
+                    <div class="usa-card__img">
+                      <img src={leader.image} alt={leader.name} />
+                    </div>
+                  </div>
+                )}
+                <div class="usa-card__body">
+                  <h3 class="margin-top-0">{leader.role}</h3>
+                  <p class="font-heading-lg margin-top-0"><strong>{leader.name}</strong></p>
+                  {leader.agency && <p class="margin-top-0">{leader.agency}</p>}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+
+  {frontmatter.coChairs && frontmatter.coChairs.length > 0 && (
+    <>
+      <h2 class="margin-top-4">Co-Chairs</h2>
+      <div class="grid-row grid-gap margin-top-2">
+        {frontmatter.coChairs.map((leader: any) => (
+          <div class="tablet:grid-col-6">
+            <div class="usa-card">
+              <div class="usa-card__container">
+                {leader.image && (
+                  <div class="usa-card__media">
+                    <div class="usa-card__img">
+                      <img src={leader.image} alt={leader.name} />
+                    </div>
+                  </div>
+                )}
+                <div class="usa-card__body">
+                  <h3 class="margin-top-0">{leader.role}</h3>
+                  <p class="font-heading-lg margin-top-0"><strong>{leader.name}</strong></p>
+                  {leader.agency && <p class="margin-top-0">{leader.agency}</p>}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+
+  <h2 class="margin-top-4">Members</h2>
+  
+  {frontmatter.members && frontmatter.members.length > 0 && (
+    <div class="members-grid margin-top-2">
+      {frontmatter.members.map((member: any) => (
+        <div class="usa-card">
+          <div class="usa-card__container">
+            <div class="usa-card__body">
+              <h3 class="margin-top-0">{member.agency}</h3>
+              <p class="margin-top-0"><strong>{member.name}</strong></p>
+              <p class="margin-top-0">{member.title}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+</CouncilLayout>
+
+<style>
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Reduce bottom margin/padding on text areas in horizontal cards */
+  .usa-card__body h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .usa-card__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .usa-card__body p {
+    margin-bottom: 0.5rem;
+  }
+</style>

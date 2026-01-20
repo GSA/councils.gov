@@ -1,74 +1,175 @@
 ---
-// USWDS Footer Component
-// Based on: https://designsystem.digital.gov/components/footer/
 ---
 
 <footer class="usa-footer" role="contentinfo">
-  <div class="grid-container usa-footer__return-to-top">
+  <div class="grid-container footer-grid-container usa-footer__return-to-top">
     <a href="#">Return to top</a>
   </div>
   <div class="usa-footer__primary-section">
-    <div class="grid-container">
-      <div class="grid-row grid-gap">
-        <div class="grid-col-12">
-          <nav class="usa-footer__nav margin-0 padding-0 margin-x-2 margin-bottom-4" aria-label="Pre-footer links">
-            <div class="grid-row grid-gap-4">
-              <section class="tablet:grid-col-4 usa-footer__primary-content usa-footer__primary-content--collapsible">
-                <h4 class="usa-footer__primary-link">Federal Executive Councils</h4>
-                <ul class="usa-list usa-list--unstyled">
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Chief AI Officers Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Chief Acquisition Officers Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Chief Data Officers Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="/coffa/about" class="usa-footer__secondary-link">Chief Financial Officers Council</a>
-                  </li>
-                </ul>
-              </section>
-              <section class="tablet:grid-col-4 usa-footer__primary-content usa-footer__primary-content--collapsible">
-                <h4 class="usa-footer__primary-link" style="visibility: hidden;">Federal Executive Councils</h4>
-                <ul class="usa-list usa-list--unstyled">
-                  <li class="usa-footer__secondary-link">
-                    <a href="/cioc/about" class="usa-footer__secondary-link">Chief Information Officers Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="/coffa/about" class="usa-footer__secondary-link">Council on Federal Financial Assistance</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Evaluation Officer Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Made in America Council</a>
-                  </li>
-                </ul>
-              </section>
-              <section class="tablet:grid-col-4 usa-footer__primary-content usa-footer__primary-content--collapsible">
-                <h4 class="usa-footer__primary-link" style="visibility: hidden;">Federal Executive Councils</h4>
-                <ul class="usa-list usa-list--unstyled">
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Federal Real Property Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Federal Privacy Council</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Interagency Council on Statistical Policy</a>
-                  </li>
-                  <li class="usa-footer__secondary-link">
-                    <a href="https://gsa.gov" class="usa-footer__secondary-link">Performance Improvement Council</a>
-                  </li>
-                </ul>
-              </section>
-            </div>
-          </nav>
+    <div class="grid-container footer-grid-container">
+      <nav class="usa-footer__nav" aria-label="Pre-footer links">
+        <div class="footer-councils-grid">
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Chief AI Officers Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Chief Acquisition Officers Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CDOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Chief Data Officers Council</div>
+              </div>
+            </a>
+          <a href="/councils/coffa/about" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/COFFA.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Chief Financial Officers Council</div>
+              </div>
+            </a>
+          <a href="/councils/cioc/about" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Chief Information Officers Council</div>
+              </div>
+            </a>
+          <a href="/councils/coffa/about" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/COFFA.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Council on Federal Financial Assistance</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Evaluation Officer Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Made in America Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Federal Real Property Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Federal Privacy Council</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Interagency Council on Statistical Policy</div>
+              </div>
+            </a>
+          <a href="https://gsa.gov" class="footer-council-card">
+              <div class="footer-council-card__content">
+                <div class="footer-council-card__logo">
+                  <img src="/assets/img/councils/CIOC.png" alt="" class="footer-council-card__logo-img" />
+                </div>
+                <div class="footer-council-card__name">Performance Improvement Council</div>
+              </div>
+            </a>
         </div>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-councils-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  @media (min-width: 40rem) {
+    .footer-councils-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .footer-council-card {
+    display: block;
+    background-color: white;
+    border-bottom: 5px solid #e52207;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: #1b1b1b;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    height: 100%;
+  }
+
+  .footer-council-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: #1b1b1b;
+  }
+
+  .footer-council-card__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-council-card__logo {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-council-card__logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .footer-council-card__name {
+    flex: 1;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+</style>
 

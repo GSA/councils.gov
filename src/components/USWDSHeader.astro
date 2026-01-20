@@ -7,39 +7,36 @@ const { currentPage = "" } = Astro.props;
 ---
 
 <div class="usa-overlay"></div>
-
-<header class="usa-header usa-header--extended" role="banner">
-  <div class="usa-navbar">
-    <div class="usa-logo" id="extended-logo">
-      <em class="usa-logo__text">
-        <a href="/" title="Home" aria-label="Home">
-          Federal Executive Councils
-        </a>
-      </em>
+<header class="usa-header usa-header--basic">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo">
+        <em class="usa-logo__text">
+          <a href="/" title="Federal Executive Councils">Federal Executive Councils</a>
+        </em>
+      </div>
+      <button type="button" class="usa-menu-btn">Menu</button>
     </div>
-    <button class="usa-menu-btn">Menu</button>
-  </div>
-  <nav id="extended-nav" class="usa-nav" aria-label="Primary navigation">
-    <div class="usa-nav__inner">
-      <button class="usa-nav__close" aria-label="Close">
-        ×
+    <nav aria-label="Primary navigation" class="usa-nav">
+      <button type="button" class="usa-nav__close">
+        <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
       </button>
       <ul class="usa-nav__primary usa-accordion">
         <li class="usa-nav__primary-item">
-          <a class={`usa-nav__link ${currentPage === "home" ? "usa-current" : ""}`} href="/">
-            <span>Home</span>
-          </a>
-        </li>
-        <li class="usa-nav__primary-item">
-          <button class="usa-accordion__button usa-nav__link" aria-expanded="false" aria-controls="councils-menu">
+          <button
+            type="button"
+            class="usa-accordion__button usa-nav__link"
+            aria-expanded="false"
+            aria-controls="councils-menu"
+          >
             <span>Councils</span>
           </button>
           <ul id="councils-menu" class="usa-nav__submenu">
             <li class="usa-nav__submenu-item">
-              <a href="/cioc/about">CIOC</a>
+              <a href="/councils/cioc/about"><span>CIOC</span></a>
             </li>
             <li class="usa-nav__submenu-item">
-              <a href="/coffa/about">COFFA</a>
+              <a href="/councils/coffa/about"><span>COFFA</span></a>
             </li>
           </ul>
         </li>
@@ -49,7 +46,25 @@ const { currentPage = "" } = Astro.props;
           </a>
         </li>
       </ul>
-    </div>
-  </nav>
+      <section aria-label="Search component">
+        <form class="usa-search usa-search--small" role="search">
+          <label class="usa-sr-only" for="search-field">Search</label>
+          <input
+            class="usa-input"
+            id="search-field"
+            type="search"
+            name="search"
+            placeholder="Search"
+          />
+          <button class="usa-button" type="submit">
+            <span class="usa-sr-only">Search</span>
+            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </section>
+    </nav>
+  </div>
 </header>
 
