@@ -1,5 +1,7 @@
 :root {
   --primary-color: #112849;
+  --secondary-color: #005EA2;
+  --accent-color: #8B0A03;
   --max-width: 75rem;
   --breakpoint-mobile: 0;
   --breakpoint-tablet: 40rem;
