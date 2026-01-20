@@ -3,29 +3,30 @@ $breakpoint-tablet: 40rem;
 $breakpoint-desktop: 64rem;
 $breakpoint-desktop-lg: 75rem;
 
+/* Base typography */
 *,
 *::before,
 *::after {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 p {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif !important;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
 
 h1 { font-size: 2.5rem; }
@@ -35,10 +36,34 @@ h4 { font-size: 1rem; }
 h5 { font-size: 0.9375rem; }
 h6 { font-size: 0.875rem; }
 
-.usa-hero__text {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif !important;
+/* Hero typography */
+.usa-hero h1,
+.resources-hero h1,
+.council-hero__title {
+  font-size: 3rem;
 }
 
+/* Header + navigation */
+.usa-logo__text,
+.usa-nav__link,
+.usa-nav__submenu-item a,
+.usa-menu-btn {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.usa-header--basic .usa-logo__text,
+.usa-header--basic .usa-logo__text a,
+.usa-header--basic .usa-nav__link,
+.usa-header--basic .usa-nav__submenu-item a,
+.usa-header--basic .usa-menu-btn {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.usa-hero__text {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+/* List resets */
 ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-sidenav__sublist):not(.usa-list):not(.usa-footer__primary-content):not(.usa-identifier__required-links-list) {
   padding-left: 0;
   margin: 0;
@@ -49,6 +74,7 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   margin: 0;
 }
 
+/* Layout helpers */
 .grid-container {
   max-width: var(--max-width);
   width: 100%;
@@ -83,6 +109,7 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   flex: 1;
 }
 
+/* Header layout */
 .usa-header--basic {
   max-width: var(--max-width);
   margin-left: auto;
@@ -131,6 +158,7 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   }
 }
 
+/* Side navigation */
 .usa-sidenav {
   border-bottom: none;
 }
@@ -138,8 +166,10 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 .usa-sidenav__item,
 .usa-sidenav__item a {
   border-bottom: none;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
 
+/* Cards */
 .usa-card.display-block {
   cursor: pointer;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -148,8 +178,8 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 }
 
 .usa-card__container {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .usa-card.display-block:hover {
@@ -165,30 +195,37 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   font-size: 2rem;
 }
 
+/* Banner accordion */
 .usa-banner__content.usa-accordion__content {
-  display: none !important;
+  display: none;
 }
 
 .usa-banner__content.usa-accordion__content[aria-hidden="false"] {
-  display: block !important;
+  display: block;
 }
 
 .usa-accordion__button[aria-expanded="false"] + .usa-accordion__content,
 .usa-accordion__button[aria-expanded="false"] ~ .usa-accordion__content {
-  display: none !important;
+  display: none;
 }
 
 .usa-accordion__button[aria-expanded="true"] + .usa-accordion__content,
 .usa-accordion__button[aria-expanded="true"] ~ .usa-accordion__content {
-  display: block !important;
+  display: block;
 }
 
+.usa-nav__primary-item span  {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Banner layout */
 .usa-banner__inner {
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Identifier */
 .usa-identifier__container {
   max-width: var(--max-width);
   width: 100%;
@@ -206,13 +243,14 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   }
 }
 
+/* Footer */
 .usa-footer {
   margin: 0;
   padding: 0;
 }
 
 .usa-footer__primary-section {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   width: 100%;
   margin: 0;
   padding: 0;
@@ -256,6 +294,7 @@ footer.usa-footer .footer-grid-container,
   gap: 1rem;
 }
 
+/* Skip link */
 .usa-skipnav {
   background: transparent;
   color: #1b1b1b;
@@ -272,4 +311,344 @@ footer.usa-footer .footer-grid-container,
   left: 0;
   position: absolute;
   top: 0;
+}
+
+/* Home: councils grid */
+.council-logo,
+.council-logo-large,
+.cioc-logo-about,
+.coffa-logo-fullwidth {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.council-logo,
+.coffa-logo-fullwidth {
+  margin: 0 auto;
+  max-height: 200px;
+}
+
+.council-logo-large,
+.cioc-logo-about {
+  max-width: 200px;
+}
+
+.cioc-logo-about {
+  width: 200px;
+  height: 200px;
+}
+
+.coffa-logo-fullwidth {
+  width: 100%;
+}
+
+.usa-card__media {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.usa-card__img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usa-card__img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.councils-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+
+  a {
+    border-bottom: 8px solid var(--secondary-color);
+  }
+}
+
+@media (min-width: 640px) {
+  .councils-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.councils-grid .usa-card__container {
+  background-color: white;
+  border-radius: 0;
+}
+
+.councils-section {
+  width: 100%;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.councils-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--councils-waves-url);
+  background-size: 30%;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.councils-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+/* Councils: hero + breadcrumb */
+.council-breadcrumb {
+  background-color: var(--primary-color);
+  padding: 0.75rem 0;
+}
+
+.council-breadcrumb .usa-breadcrumb__list {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .council-breadcrumb .usa-breadcrumb__list {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.council-breadcrumb .usa-breadcrumb__link,
+.council-breadcrumb .usa-breadcrumb__current {
+  color: white;
+}
+
+.council-breadcrumb .usa-breadcrumb__link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.council-hero {
+  background-color: var(--primary-color);
+  background-image: var(--council-waves-url);
+  background-repeat: repeat;
+  border-bottom: 6px solid var(--accent-color);
+  background-size: 30%;
+  background-blend-mode: multiply;
+}
+
+.council-hero__logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.council-hero__logo {
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.council-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+.council-hero__brow {
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.council-hero__title {
+  color: white;
+  font-weight: 400;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .council-hero__logo {
+    max-height: 250px;
+  }
+}
+
+.tablet\:grid-col-9 h2 {
+  margin-top: 0;
+}
+
+.tablet\:grid-col-9 h2:not(:first-of-type),
+.tablet\:grid-col-9 > div h2:not(:first-of-type),
+.tablet\:grid-col-9 p + h2,
+.tablet\:grid-col-9 > div p + h2 {
+  margin-top: 2rem;
+}
+
+.council-logo-large,
+.cioc-logo-about {
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Resources */
+.resource-card-link,
+.resource-card-link .usa-card,
+.resource-card-link .usa-card__container,
+.resource-card-link .usa-card__header,
+.resource-card-link .usa-card__body,
+.resource-card-link .usa-card__heading {
+  border-radius: 0;
+}
+
+.resource-card-link {
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  overflow: visible;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.resource-card-link:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.resource-card-link .usa-card__container {
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+  border-top: none;
+}
+
+.resource-date {
+  font-size: 0.875rem;
+  color: #565c65;
+  font-weight: normal;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.resource-card-link .usa-card__heading {
+  font-size: 1.25rem;
+}
+
+.resource-card-link .usa-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card-link .usa-card__body .resource-tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.resource-card-link .usa-card__body .resource-tags .usa-tag {
+  flex-shrink: 0;
+}
+
+.resources-hero {
+  background: var(--primary-color);
+  color: #ffffff;
+  padding: 4rem 0 0;
+  border-bottom: 6px solid var(--accent-color);
+  display: flex;
+  align-items: flex-end;
+}
+
+.resources-hero h1 {
+  color: #ffffff;
+  margin: 0;
+  font-weight: 400;
+}
+
+.resource-tags .usa-tag {
+  border-radius: 8px;
+}
+
+.resource-tags .resource-tag--type {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  border: 1px solid var(--resource-tag-color);
+  color: var(--resource-tag-text, #ffffff);
+  background-color: var(--resource-tag-color);
+  border-radius: 8px;
+}
+
+/* Home: hero */
+.usa-hero {
+  background: var(--primary-color);
+  position: relative;
+  border-bottom: 6px solid var(--accent-color);
+}
+
+.usa-hero::before {
+  display: none;
+}
+
+.usa-hero__callout {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  text-align: center;
+  padding: 0;
+  max-width: 100%;
+}
+
+.usa-hero__heading {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.usa-hero__text {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 640px) {
+  .usa-hero__text {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

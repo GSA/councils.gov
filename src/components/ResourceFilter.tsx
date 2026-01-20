@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, type CSSProperties } from 'react';
 
 interface Resource {
   id: string;
@@ -17,11 +17,12 @@ interface ResourceFilterProps {
 
 // Color mapping for resource types
 const typeColors: Record<string, string> = {
-  'Playbook': '#112849',        // Blue
-  'Guidance': '#b50909',        // Red
-  'Quick Reference': '#54278f', // Purple
-  'Memorandum': '#981b1e',       // Dark Red
-  'DEFAULT': '#112849',         // Default blue
+  Guidance: '#4D8055',
+  Memorandum: '#E5A000',
+  Reference: '#8168B3',
+  'Quick Reference': '#8168B3',
+  Playbook: '#005EA2',
+  DEFAULT: '#005EA2',
 };
 
 export default function ResourceFilter({ resources }: ResourceFilterProps) {
@@ -102,11 +103,13 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       const focusAreaMatch = selectedFocusArea === 'all' || resource.focusArea === selectedFocusArea;
       return councilMatch && typeMatch && focusAreaMatch;
     });
-    const uniqueYears = Array.from(new Set(
-      filtered
-        .map(r => r.date ? r.date.split('-')[0] : null)
-        .filter(year => year !== null && year !== '1900') // Filter out default/unknown years
-    ));
+    const uniqueYears = Array.from(
+      new Set(
+        filtered
+          .map((resource) => (resource.date ? resource.date.split('-')[0] : null))
+          .filter((year): year is string => Boolean(year) && year !== '1900')
+      )
+    );
     return uniqueYears.sort().reverse();
   }, [safeResources, selectedCouncil, selectedType, selectedFocusArea]);
 
@@ -230,7 +233,19 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                     <div className="margin-top-2 resource-tags">
                       <span className="usa-tag">{resource.councilAcronym}</span>
                       {resource.type && (
-                        <span className="usa-tag">{resource.type}</span>
+                        <span
+                          className="usa-tag resource-tag--type"
+                          style={
+                            {
+                              ['--resource-tag-color' as string]:
+                                typeColors[resource.type] || typeColors.DEFAULT,
+                              ['--resource-tag-text' as string]:
+                                resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
+                            } as CSSProperties
+                          }
+                        >
+                          {resource.type}
+                        </span>
                       )}
                       {resource.focusArea && (
                         <span className="usa-tag">{resource.focusArea}</span>

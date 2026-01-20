@@ -1,8 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import matter from 'gray-matter';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+const baseUrl = import.meta.env.BASE_URL;
+const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+
+const homeContentPath = join(process.cwd(), 'src/content/home.md');
+const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
+const {
+  title = 'Councils.gov - Home',
+  heroText = '',
+  councilsHeading = 'Federal Executive Councils',
+  councils = [],
+} = homeData as {
+  title?: string;
+  heroText?: string;
+  councilsHeading?: string;
+  councils?: Array<{
+    title: string;
+    href: string;
+    logo: string;
+    logoAlt?: string;
+    logoClass?: string;
+    description: string;
+  }>;
+};
+const councilsList = Array.isArray(councils) ? councils : [];
+const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 ---
 
-<BaseLayout title="Councils.gov - Home" currentPage="home">
+<BaseLayout title={title} currentPage="home">
 
   <main id="main-content">
     <section class="usa-hero" aria-label="Introduction">
@@ -10,221 +38,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="usa-hero__callout">
           <h1 class="usa-sr-only">Federal Executive Councils</h1>
           <p class="usa-hero__text padding-y-2">
-            The Federal Executive Councils bring together policy makers and practitioners to provide input on policy, address challenges collaboratively, and share best practices.
+            {heroText}
           </p>
         </div>
       </div>
     </section>
 
-    <section class="usa-section councils-section">
+    <section class="usa-section councils-section" style={`--councils-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
-        <h2>Federal Executive Councils</h2>
+        <h2>{councilsHeading}</h2>
         <div class="councils-grid">
-        <a href="/councils/cioc/about" class="usa-card display-block text-no-underline">
-          <div class="usa-card__container">
-            <div class="usa-card__media">
-              <div class="usa-card__img">
-                <img src="/assets/img/councils/CIOC.png" alt="CIOC Logo" class="council-logo" />
+        {councilsList.map((council) => (
+          <a href={withBase(council.href)} class="usa-card display-block text-no-underline">
+            <div class="usa-card__container">
+              <div class="usa-card__media">
+                <div class="usa-card__img">
+                  <img
+                    src={withBase(council.logo)}
+                    alt={council.logoAlt || ''}
+                    class={council.logoClass || 'council-logo'}
+                  />
+                </div>
+              </div>
+              <header class="usa-card__header">
+                <h3 class="usa-card__heading">{council.title}</h3>
+              </header>
+              <div class="usa-card__body">
+                <p>{council.description}</p>
               </div>
             </div>
-            <header class="usa-card__header">
-              <h3 class="usa-card__heading">Chief Information Officers Council (CIOC)
-              </h3>
-            </header>
-            <div class="usa-card__body">
-              <p>
-                The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="/councils/coffa/about" class="usa-card display-block text-no-underline">
-          <div class="usa-card__container">
-            <div class="usa-card__media">
-              <div class="usa-card__img">
-                <img src="/assets/img/councils/COFFA.png" alt="COFFA Logo" class="coffa-logo-fullwidth" />
-              </div>
-            </div>
-            <header class="usa-card__header">
-              <h3 class="usa-card__heading">Council on Federal Financial Assistance</h3>
-            </header>
-            <div class="usa-card__body">
-              <p>
-                The COFFA provides OMB with strategic direction, policy recommendations, and priority-setting advice by serving as a unified partnership of all federal financial assistance-making agencies on policy, management, and technology matters.
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="#" class="usa-card display-block text-no-underline">
-          <div class="usa-card__container">
-            <div class="usa-card__media">
-              <div class="usa-card__img">
-                <img src="/assets/img/councils/CDOC.png" alt="CDOC Logo" class="coffa-logo-fullwidth" />
-              </div>
-            </div>
-            <header class="usa-card__header">
-              <h3 class="usa-card__heading">Federal Chief Data Officers Council</h3>
-            </header>
-            <div class="usa-card__body">
-              <p>
-                The Council’s vision is to improve government mission achievement and increase the benefits to the Nation through improvement in the management, use, protection, dissemination, and generation of data in government decision-making and operations.              </p>
-            </div>
-          </div>
-        </a>
+          </a>
+        ))}
         </div>
       </div>
     </section>
   </main>
 </BaseLayout>
 
-<style>
-  .usa-hero {
-    background: var(--primary-color);
-    position: relative;
-  }
-
-  .usa-hero::before {
-    display: none;
-  }
-
-  .usa-hero__callout {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-    text-align: center;
-    padding: 0;
-    max-width: 100%;
-  }
-
-  .usa-hero__heading {
-    color: #ffffff;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  .usa-hero__text {
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 1.5;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  @media (min-width: 640px) {
-    .usa-hero__text {
-      max-width: 50rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  /* Council logos */
-  .council-logo,
-  .council-logo-large,
-  .cioc-logo-about,
-  .coffa-logo-fullwidth {
-    display: block;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .council-logo,
-  .coffa-logo-fullwidth {
-    margin: 0 auto;
-    max-height: 200px;
-  }
-
-  .council-logo-large,
-  .cioc-logo-about {
-    max-width: 200px;
-  }
-
-  .cioc-logo-about {
-    width: 200px;
-    height: 200px;
-  }
-
-  .coffa-logo-fullwidth {
-    width: 100%;
-  }
-
-  /* Make image containers same height for alignment */
-  .usa-card__media {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-  }
-
-  .usa-card__img {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .usa-card__img img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  /* CSS Grid layout for council cards */
-  .councils-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  @media (min-width: 640px) {
-    .councils-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Make card background white */
-  .councils-grid .usa-card__container {
-    background-color: white;
-  }
-
-  /* Dark background for councils section */
-  .councils-section {
-    width: 100%;
-    padding: 3rem 0;
-    position: relative;
-  }
-
-  .councils-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/assets/img/backgrounds/waves_2.svg');
-    background-size: 30%;
-    background-repeat: repeat;
-    background-blend-mode: multiply;
-    opacity: 0.1;
-    z-index: -1;
-  }
-
-  .councils-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-  }
-
-  @media (min-width: 640px) {
-    .councils-section {
-      padding: 4rem 0;
-    }
-  }
-
-</style>
 
 
