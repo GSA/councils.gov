@@ -214,6 +214,15 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   display: block;
 }
 
+/* Nav submenu flash-of-unstyled-content guard */
+.usa-accordion__button[aria-expanded="false"] + .usa-nav__submenu {
+  display: none;
+}
+
+.usa-accordion__button[aria-expanded="true"] + .usa-nav__submenu {
+  display: block;
+}
+
 .usa-nav__primary-item span  {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
