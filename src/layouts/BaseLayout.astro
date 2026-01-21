@@ -3,31 +3,54 @@ import USWDSBanner from '../components/USWDSBanner.astro';
 import USWDSHeader from '../components/USWDSHeader.astro';
 import USWDSFooter from '../components/USWDSFooter.astro';
 import USWDSIdentifier from '../components/USWDSIdentifier.astro';
+import Meta from '../components/Meta.astro';
 import '@uswds/uswds/css/uswds.css';
 import '../styles/variables.css';
-import '../styles/fonts.css';
 import '../styles/global.scss';
 
 interface Props {
   title?: string;
+  description?: string;
   currentPage?: string;
+  noIndex?: boolean;
 }
 
-const { title = "Federal Executive Councils", currentPage } = Astro.props;
+const { title, description, currentPage, noIndex } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Councils.gov - Official website" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <Meta title={title} description={description} noIndex={noIndex} />
+    <style>
+      html.no-js .usa-nav__submenu { display: none; }
+    </style>
+    <script>
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      type="application/javascript"
+      id="_fed_an_ua_tag"
+      src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA&subagency=TTS">
+    </script>
     
-    <link rel="preload" href="/assets/fonts/playfair-display-regular-400.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-    <link rel="preload" href="/assets/fonts/inter/inter-regular-400.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <script>
+      var usasearch_config = { siteHandle: "councils.gov" };
+    </script>
+    <script async src="https://search.usa.gov/javascripts/remote.loader.js" type="text/javascript"></script>
   </head>
   <body>
     <a class="usa-skipnav" href="#main-content">

@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { currentPage = "" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="usa-overlay"></div>
@@ -12,16 +13,16 @@ const { currentPage = "" } = Astro.props;
     <div class="usa-navbar">
       <div class="usa-logo">
         <em class="usa-logo__text">
-          <a href="/" title="Federal Executive Councils">Federal Executive Councils</a>
+          <a href={baseUrl} title="Federal Executive Councils">Federal Executive Councils</a>
         </em>
       </div>
       <button type="button" class="usa-menu-btn">Menu</button>
     </div>
     <nav aria-label="Primary navigation" class="usa-nav">
       <button type="button" class="usa-nav__close">
-        <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
+        <img src={`${baseUrl}assets/img/usa-icons/close.svg`} role="img" alt="Close" />
       </button>
-      <ul class="usa-nav__primary usa-accordion">
+      <ul class="usa-nav__primary usa-accordion margin-right-2">
         <li class="usa-nav__primary-item">
           <button
             type="button"
@@ -33,15 +34,15 @@ const { currentPage = "" } = Astro.props;
           </button>
           <ul id="councils-menu" class="usa-nav__submenu">
             <li class="usa-nav__submenu-item">
-              <a href="/councils/cioc/about"><span>CIOC</span></a>
+              <a href={`${baseUrl}councils/cioc/about`}><span>CIOC</span></a>
             </li>
             <li class="usa-nav__submenu-item">
-              <a href="/councils/coffa/about"><span>COFFA</span></a>
+              <a href={`${baseUrl}councils/coffa/about`}><span>COFFA</span></a>
             </li>
           </ul>
         </li>
         <li class="usa-nav__primary-item">
-          <a class={`usa-nav__link ${currentPage === "resources" ? "usa-current" : ""}`} href="/resources">
+          <a class={`usa-nav__link ${currentPage === "resources" ? "usa-current" : ""}`} href={`${baseUrl}resources`}>
             <span>Resources</span>
           </a>
         </li>

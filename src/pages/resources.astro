@@ -113,9 +113,12 @@ if (!Array.isArray(resources) || resources.length === 0) {
 <BaseLayout title="Resources - Councils.gov" currentPage="resources">
 
   <main id="main-content">
+    <section class="usa-hero resources-hero" aria-label="Resources">
+      <div class="grid-container">
+        <h1>Resources</h1>
+      </div>
+    </section>
     <section class="grid-container usa-section">
-      <h1>Resources</h1>
-      
       <p class="usa-intro">
         Access valuable resources, tools, and documentation to support your initiatives 
         and improve agency practices across all councils.
@@ -126,63 +129,4 @@ if (!Array.isArray(resources) || resources.length === 0) {
   </main>
 </BaseLayout>
 
-<style is:global>
-  .resource-card-link,
-  .resource-card-link *,
-  .resource-card-link .usa-card,
-  .resource-card-link .usa-card__container,
-  .resource-card-link .usa-card__header,
-  .resource-card-link .usa-card__body,
-  .resource-card-link .usa-card__heading {
-    border-radius: 0 !important;
-  }
-
-  .resource-card-link {
-    cursor: pointer;
-    transition: box-shadow 0.2s ease;
-    overflow: visible !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-bottom: none !important;
-  }
-
-  .resource-card-link:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .resource-card-link .usa-card__container {
-    position: relative;
-    margin-left: 0;
-    margin-right: 0;
-    border-top: none !important;
-  }
-
-  .resource-date {
-    font-size: 0.875rem;
-    color: #565c65;
-    font-weight: normal;
-    display: block;
-    margin-top: 0.5rem;
-  }
-
-  .resource-card-link .usa-card__heading {
-    font-size: 1.25rem !important;
-  }
-
-  .resource-card-link .usa-card__body {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .resource-card-link .usa-card__body .resource-tags {
-    margin-top: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .resource-card-link .usa-card__body .resource-tags .usa-tag {
-    flex-shrink: 0;
-  }
-</style>
 

@@ -1,0 +1,42 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  noIndex?: boolean;
+}
+
+const { 
+  title = "Federal Executive Councils", 
+  description = "The Federal Executive Councils bring together policy makers and practitioners to provide input on policy, address challenges collaboratively, and share best practices.",
+  noIndex = false 
+} = Astro.props;
+
+const siteTitle = "Federal Executive Councils";
+const fullTitle = title !== siteTitle ? `${title} | ${siteTitle}` : siteTitle;
+const baseUrl = import.meta.env.BASE_URL;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const imageUrl = Astro.site ? `${Astro.site}assets/img/logo-img.png` : `${baseUrl}assets/img/logo-img.png`;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+{noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={imageUrl} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+
+<link rel="canonical" href={canonicalUrl} />
+
+<base href={import.meta.env.BASE_URL} />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
