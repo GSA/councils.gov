@@ -6,7 +6,7 @@ import { join } from 'path';
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
-const homeContentPath = join(process.cwd(), 'src/content/home.md');
+const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
 const {
   title = 'Councils.gov - Home',
