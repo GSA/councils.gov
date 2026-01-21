@@ -129,6 +129,17 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   padding-bottom: 3px;
 }
 
+/* Stabilize header search width to avoid layout shift */
+.usa-header--basic .usa-nav .usa-search {
+  max-width: 16rem;
+  width: 100%;
+}
+
+.usa-header--basic .usa-nav .usa-search .usa-input {
+  width: 100%;
+  min-width: 0;
+}
+
 .usa-nav__link,
 .usa-nav__link span,
 .usa-nav__primary-item .usa-nav__link,

@@ -1,18 +1,29 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
+const isPreviewBranch = Boolean(process.env.BRANCH && process.env.BRANCH !== 'main');
+const baseEnv = process.env.BASEURL;
+const baseEnvIsUrl = Boolean(baseEnv && /^https?:\/\//.test(baseEnv));
+
 let siteUrl = 'http://localhost:4321';
-if (process.env?.BRANCH === "main") {
-  siteUrl = "https://councils.gov";
-} else if (process.env?.BRANCH) {
-  siteUrl = `${process.env.FEDERALIST_URL}/preview/${process.env.OWNER}/${process.env.REPOSITORY}/${process.env.BRANCH}/`
-} else if (process.env.BASEURL) {
-  siteUrl = process.env.BASEURL;
+if (process.env.BRANCH === 'main') {
+  siteUrl = 'https://councils.gov';
+} else if (isPreviewBranch && process.env.FEDERALIST_URL) {
+  siteUrl = process.env.FEDERALIST_URL;
+} else if (baseEnvIsUrl) {
+  siteUrl = baseEnv;
 }
 
-const baseUrl = siteUrl.startsWith('http://') || siteUrl.startsWith('https://')
-  ? new URL(siteUrl).pathname
-  : (siteUrl.startsWith('/') ? siteUrl : `/${siteUrl}`);
+let baseUrl = '/';
+if (isPreviewBranch && process.env.OWNER && process.env.REPOSITORY && process.env.BRANCH) {
+  baseUrl = `/preview/${process.env.OWNER}/${process.env.REPOSITORY}/${process.env.BRANCH}/`;
+} else if (baseEnv) {
+  baseUrl = baseEnvIsUrl ? new URL(baseEnv).pathname : baseEnv;
+}
+
+if (!baseUrl.startsWith('/')) {
+  baseUrl = `/${baseUrl}`;
+}
 
 
 export default defineConfig({
