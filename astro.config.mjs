@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
 let siteUrl = 'http://localhost:4321';
 if (process.env?.BRANCH === "main") {
@@ -15,11 +14,12 @@ const baseUrl = siteUrl.startsWith('http://') || siteUrl.startsWith('https://')
   ? new URL(siteUrl).pathname
   : (siteUrl.startsWith('/') ? siteUrl : `/${siteUrl}`);
 
+
 export default defineConfig({
   outDir: '_site',
   site: siteUrl,
   base: baseUrl.endsWith('/') ? baseUrl : baseUrl + '/',
-  integrations: [react(), sitemap()],
+  integrations: [react()],
   vite: {
     ssr: {
       noExternal: ['@uswds/uswds'],
