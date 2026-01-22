@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
+// If BASEURL env variable exists, update base to the BASEURL
 let base = "/";
 
-// If BASEURL env variable exists, update pathPrefix to the BASEURL
 if (process.env.BASEURL) {
   base = process.env.BASEURL;
 }
