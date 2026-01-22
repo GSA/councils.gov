@@ -22,7 +22,7 @@ leaders:
     imageAlt: Jay Teitelbaum
 
 members:
-  - name: Department of Agriculture
+  - name: Department of Energy
   - name: Department of Commerce
   - name: Department of Education
   - name: Department of Energy

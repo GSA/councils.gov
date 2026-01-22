@@ -1,28 +1,18 @@
 ---
 title: COFFA Leadership and Members
-councilName: COFFA
+councilName: Council on Federal Financial Assistance
 councilSlug: coffa
 intro: The COFFA is composed of Chief Financial Officers and senior financial executives from Federal agencies who work together to improve government financial management practices.
 leaders:
-  - name: David Shive
-    description: Chief Financial Officer. Leading the COFFA's strategic initiatives and coordination efforts.
-    image: /assets/img/leaders/David Shive.png
-    imageAlt: David Shive
-  - name: Gregory Barbaccia
-    description: Deputy Chief Financial Officer. Supporting council operations and member engagement.
-    image: /assets/img/leaders/Gregory Barbaccia.png
-    imageAlt: Gregory Barbaccia
-  - name: Jay Teitelbaum
-    description: Chief Financial Officer. Overseeing documentation and meeting coordination.
-    image: /assets/img/leaders/Jay Teitelbaum.png
-    imageAlt: Jay Teitelbaum
-  - name: Michael Duffy
-    description: Chief Financial Officer. Managing financial oversight and budget planning.
-    image: /assets/img/leaders/Michael Duffy.png
-    imageAlt: Michael Duffy
+  - name: Margaret Pearson
+    description: COFFA Co-Chair, Deputy Controller, Office of Federal Financial Management
+  - name: Dale Bell
+    description: COFFA, Co-Chair, Deputy Assistant Secretary, Office of Grants
 members:
-  - name: Department of Agriculture
-  - name: Department of Commerce
+  - name: Whitney Tyson
+    agency: Department of Agriculture
+  - name: Molly Shea
+    agency: Department of Commerce
   - name: Department of Education
   - name: Department of Energy
   - name: Department of War
