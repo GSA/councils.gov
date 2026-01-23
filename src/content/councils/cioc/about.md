@@ -7,22 +7,31 @@ logoAlt: CIOC Logo
 logoClass: cioc-logo-about
 ---
 
-## Welcome
+## Our Purpose
 
-The Chief Information Officers Council (CIOC) is a principal interagency forum for improving practices in the design, modernization, use, sharing, and performance of Federal Government agency information resources.
+The Chief Information Officers (CIO) Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal information resources.
 
-## Mission
+The U.S. CIO and the CIO Council establish standards against which the success of all agency programs can be measured, including:
 
-The CIOC's mission is to improve agency practices related to the design, acquisition, development, modernization, use, operation, sharing, and performance of Federal Government information resources. The Council serves as a focal point for Federal agency efforts to improve information technology management and practices.
+- Monitoring the year-to-year performance improvement of Federal Government programs
+- Attracting and retaining a high-performance IT workforce
+- Optimizing Federal Government information resources and investments
+- Aligning IT solutions with Federal enterprise business processes
+- Adopting and sharing best IT management practices
+- Managing risk and ensuring privacy and security
 
-## Goals
+You can learn about the policies and priorities we’re currently focused on by browsing our [Policy and Priority Catalog](https://www.cio.gov/policies-and-priorities/).
 
-- Promote effective information resources management practices
-- Improve the acquisition and use of information technology
-- Enhance information security and privacy protections
-- Foster collaboration and information sharing among agencies
-- Support the development of a skilled IT workforce
+## Our Statutory Requirements
 
-## History
+- Developing recommendations for the Director of OMB on government information resources management policies and requirements;
+- Sharing experiences, ideas, best practices, and innovative approaches related to information resources management;
+- Assisting the Federal CIO in the identification, development, and coordination of multi-agency projects and other innovative initiatives to improve Government performance through the use of information technology;
+- Promoting the development and use of common performances for agency information resources management; and
+- Working with the Office of Personnel Management to assess and address the hiring, training, classification, and professional development of the [Federal IT workforce](https://www.cio.gov/government-technology-jobs/).
 
-The CIOC was established to provide a forum for Chief Information Officers and other senior IT executives to collaborate on government-wide IT initiatives and share best practices. Since its inception, the Council has played a vital role in shaping Federal IT policy and improving government services.
+## Our Vision
+
+The CIO Council aspires to promote a bright and prosperous future for the United States through the strategic use of Federal Information Technology. It seeks to drive efficiency and effectiveness across Government, spurring innovation, protecting and defending our resources and more effectively bringing Government services to Americans.
+
+You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/PLAW-107publ347/pdf/PLAW-107publ347.pdf) in detail or the [CIO Council Charter](https://www.cio.gov/assets/files/CIOC-Charter-Dec-2020.pdf) to learn more about us.

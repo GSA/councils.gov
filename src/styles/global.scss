@@ -167,6 +167,8 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 .usa-sidenav__item a {
   border-bottom: none;
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600; 
+  font-size: 1.125rem;
 }
 
 /* Cards */
@@ -193,6 +195,28 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 
 .usa-card.display-block .usa-nav__primary-item {
   font-size: 2rem;
+}
+
+.leadership-grid,
+.members-grid {
+  .usa-card {
+    border-bottom: 8px solid var(--primary-color);
+  }
+  .usa-card__container {   
+    border-radius: 0;
+    background-color: #F5F5F5;
+    .usa-card__media {
+      background-color: #F5F5F5;
+      height: auto;
+      justify-content: flex-start;
+      padding: 2rem 2rem 0.5rem 2rem; 
+      .usa-card__img {
+        width: 100px; 
+        height: 100px;
+        border-radius: 0; 
+      }
+    }
+  }
 }
 
 /* Banner accordion */
