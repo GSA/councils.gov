@@ -12,7 +12,7 @@ export default defineConfig({
   outDir: "_site",
   site: "https://councils.gov",
   base,
-  trailingSlash: "ignore",
+  trailingSlash: "always",
   integrations: [react()],
   vite: {
     ssr: {
