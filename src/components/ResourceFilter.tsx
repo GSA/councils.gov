@@ -206,7 +206,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       <div className="grid-row grid-gap">
         {filteredResources.length > 0 ? (
           filteredResources.map(resource => (
-            <div key={resource.id} className="tablet:grid-col-4">
+            <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
               <a 
                 href={resource.link} 
                 className="usa-card display-block text-no-underline resource-card-link"

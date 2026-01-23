@@ -1,5 +1,8 @@
 ---
+import { footerCouncils } from "../data/footerCouncils";
+
 const baseUrl = import.meta.env.BASE_URL;
+const withBase = (path: string) => (path.startsWith("/") ? `${baseUrl}${path.slice(1)}` : path);
 ---
 
 <footer class="usa-footer" role="contentinfo">
@@ -10,167 +13,23 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="grid-container footer-grid-container">
       <nav class="usa-footer__nav" aria-label="Pre-footer links">
         <div class="footer-councils-grid">
-          <a href="https://gsa.gov" class="footer-council-card">
+          {footerCouncils.map((council) => (
+            <a href={withBase(council.href)} class="footer-council-card">
               <div class="footer-council-card__content">
                 <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
+                  <img
+                    src={withBase(council.logo)}
+                    alt=""
+                    class="footer-council-card__logo-img"
+                  />
                 </div>
-                <div class="footer-council-card__name">Chief AI Officers Council</div>
+                <div class="footer-council-card__name">{council.name}</div>
               </div>
             </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Chief Acquisition Officers Council</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CDOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Chief Data Officers Council</div>
-              </div>
-            </a>
-          <a href={`${baseUrl}councils/coffa/about`} class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/COFFA.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Chief Financial Officers Council</div>
-              </div>
-            </a>
-          <a href={`${baseUrl}councils/cioc/about`} class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Chief Information Officers Council</div>
-              </div>
-            </a>
-          <a href={`${baseUrl}councils/coffa/about`} class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/COFFA.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Council on Federal Financial Assistance</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Evaluation Officer Council</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Made in America Council</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Federal Real Property Council</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Federal Privacy Council</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Interagency Council on Statistical Policy</div>
-              </div>
-            </a>
-          <a href="https://gsa.gov" class="footer-council-card">
-              <div class="footer-council-card__content">
-                <div class="footer-council-card__logo">
-                  <img src={`${baseUrl}assets/img/councils/CIOC.png`} alt="" class="footer-council-card__logo-img" />
-                </div>
-                <div class="footer-council-card__name">Performance Improvement Council</div>
-              </div>
-            </a>
+          ))}
         </div>
       </nav>
     </div>
   </div>
 </footer>
-
-<style>
-  .footer-councils-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  @media (min-width: 40rem) {
-    .footer-councils-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .footer-council-card {
-    display: block;
-    background-color: white;
-    border-bottom: 5px solid #8B0A03;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: #1b1b1b;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    height: 100%;
-  }
-
-  .footer-council-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-    text-decoration: none;
-    color: #1b1b1b;
-  }
-
-  .footer-council-card__content {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .footer-council-card__logo {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-council-card__logo-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  .footer-council-card__name {
-    flex: 1;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-</style>
 
