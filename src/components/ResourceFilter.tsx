@@ -34,6 +34,19 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedYear, setSelectedYear] = useState<string>('all');
 
+  const resetAllFilters = () => {
+    setSelectedCouncil('all');
+    setSelectedFocusArea('all');
+    setSelectedType('all');
+    setSelectedYear('all');
+  };
+
+  const isAnyFilterSelected =
+    selectedCouncil !== 'all' ||
+    selectedFocusArea !== 'all' ||
+    selectedType !== 'all' ||
+    selectedYear !== 'all';
+
   // Filter resources based on selected filters (for dynamic filter options)
   const filteredForOptions = useMemo(() => {
     return safeResources.filter(resource => {
@@ -196,11 +209,18 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           </select>
         </div>
       </div>
-
-      <div className="margin-bottom-2">
-        <p className="font-sans-md text-bold">
+      <div className="margin-bottom-2 display-flex flex-justify flex-align-center">
+        <p className="font-sans-md text-bold margin-0">
           {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
         </p>
+        <button
+          type="button"
+          className="usa-button usa-button--secondary"
+          onClick={resetAllFilters}
+          disabled={!isAnyFilterSelected}
+        >
+          Clear all filters
+        </button>
       </div>
 
       <div className="grid-row grid-gap">

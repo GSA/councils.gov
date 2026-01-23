@@ -158,6 +158,17 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   }
 }
 
+/* Stabilize header search width to avoid layout shift */
+.usa-header--basic .usa-nav .usa-search {
+  max-width: 16rem;
+  width: 100%;
+}
+
+.usa-header--basic .usa-nav .usa-search .usa-input {
+  width: 100%;
+  min-width: 0;
+}
+
 /* Side navigation */
 .usa-sidenav {
   border-bottom: none;
