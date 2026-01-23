@@ -209,10 +209,10 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           </select>
         </div>
       </div>
-      <div className="margin-bottom-4 display-flex flex-justify flex-align-end">
+      <div className="grid-row margin-bottom-4 display-flex flex-row tablet:flex-column flex-justify flex-align-end">
         <button
           type="button"
-          className="usa-button usa-button--secondary"
+          className="usa-button usa-button--secondary margin-bottom-1 tablet:margin-bottom-0"
           onClick={resetAllFilters}
           disabled={!isAnyFilterSelected}
         >
