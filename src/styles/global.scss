@@ -29,6 +29,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
 
+/* UI controls */
+.usa-button,
+.usa-input,
+.usa-select,
+.usa-textarea,
+.usa-label,
+.usa-hint,
+.usa-tag,
+input,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.usa-button {
+  font-size: 1rem;
+}
+
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
@@ -618,7 +636,9 @@ footer.usa-footer .footer-grid-container,
 }
 
 .resource-tags .usa-tag {
-  border-radius: 8px;
+  border-radius: 16px;
+  display: flex; 
+  align-items: center;
 }
 
 .resource-tags .resource-tag--type {
@@ -626,7 +646,6 @@ footer.usa-footer .footer-grid-container,
   border: 1px solid var(--resource-tag-color);
   color: var(--resource-tag-text, #ffffff);
   background-color: var(--resource-tag-color);
-  border-radius: 8px;
 }
 
 /* Home: hero */

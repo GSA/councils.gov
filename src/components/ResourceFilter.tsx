@@ -141,7 +141,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
 
   return (
     <div>
-      <div className="grid-row grid-gap margin-bottom-4">
+      <div className="grid-row grid-gap margin-bottom-2">
         <div className="tablet:grid-col-6 desktop:grid-col-3">
           <label htmlFor="council-filter" className="usa-label">
             Filter by Council Acronym
@@ -209,10 +209,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           </select>
         </div>
       </div>
-      <div className="margin-bottom-2 display-flex flex-justify flex-align-center">
-        <p className="font-sans-md text-bold margin-0">
-          {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
-        </p>
+      <div className="margin-bottom-4 display-flex flex-justify flex-align-end">
         <button
           type="button"
           className="usa-button usa-button--secondary"
@@ -221,6 +218,9 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
         >
           Clear all filters
         </button>
+        <p className="text-bold margin-0">
+          {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
+        </p>
       </div>
 
       <div className="grid-row grid-gap">
