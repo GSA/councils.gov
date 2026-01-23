@@ -722,7 +722,21 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-hero::before {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-waves-url, none);
+  background-repeat: repeat;
+  background-size: 30%;
+  background-blend-mode: multiply;
+  opacity: var(--hero-waves-opacity, 0.03);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.usa-hero .grid-container {
+  position: relative;
+  z-index: 1;
 }
 
 .usa-hero__callout {
