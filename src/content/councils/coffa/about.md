@@ -9,20 +9,20 @@ logoClass: council-logo-large
 
 ## Welcome
 
-The Chief Financial Officers Council (COFFA) is a principal interagency forum for improving financial management practices across the Federal Government.
+Welcome to the Council on Federal Financial Assistance (COFFA), a dedicated community of professionals committed to enhancing the effectiveness and transparency of federal financial assistance programs.
 
-## Mission
+## Purpose
 
-The COFFA's mission is to improve agency practices related to financial management, accounting, budgeting, and financial reporting. The Council serves as a focal point for Federal agency efforts to improve financial management practices and ensure accountability and transparency in government financial operations.
+The COFFA convenes agency Senior Financial Assistance Officials to meet with OMB on all federal financial assistance related matters and is a partnership among all federal financial assistance making agencies to provide a single voice on federal financial assistance policy, management, and technology activities. The COFFA goals are to:
 
-## Goals
+- Ensure more consistent application and interpretation of government-wide federal financial assistance policy, management, and business data standards.
+- Establish direction and guidance for successful implementation of all government-wide federal financial assistance initiatives, including high-priority programs with governmentwide synergies.
+- Improve engagement with other governmental stakeholders, Congress, and the oversight community.
+- Create a standardized forum for agencies to proactively communicate issues and challenges to inform and recommend new federal financial assistance policy and changes to existing policy.
+- Support the continuous development of the skills and capacity of the federal financial assistance workforce.
+- Ensure more consistent application and interpretation of government-wide federal financial assistance policy, management, and business data standards.
+- Establish direction and guidance for successful implementation of all government-wide federal financial assistance initiatives, including high-priority programs with governmentwide synergies.
+- Improve engagement with other governmental stakeholders, Congress, and the oversight community.
+- Create a standardized forum for agencies to proactively communicate issues and challenges to inform and recommend new federal financial assistance policy and changes to existing policy.
+- Support the continuous development of the skills and capacity of the federal financial assistance workforce.
 
-- Promote effective financial management practices across Federal agencies
-- Improve financial reporting and accountability
-- Enhance budget formulation and execution processes
-- Foster collaboration and information sharing among financial officers
-- Support the development of a skilled financial management workforce
-
-## History
-
-The COFFA was established to provide a forum for Chief Financial Officers and other senior financial executives to collaborate on government-wide financial management initiatives and share best practices. Since its inception, the Council has played a vital role in shaping Federal financial policy and improving government financial operations.

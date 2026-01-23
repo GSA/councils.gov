@@ -43,6 +43,77 @@ export async function getStaticPaths() {
 const { frontmatter, logoPath, logoAlt, logoClass } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+
+// Function to get member logo image path
+function getMemberImage(member: any): string | null {
+  // If image is explicitly set, use it
+  if (member.image) {
+    return member.image;
+  }
+  
+  // Extract agency name from agency/description/name
+  const text = (member.agency || member.description || member.name || '').toLowerCase();
+  
+  // Map agency names to image filenames
+  const agencyMap: Record<string, string> = {
+    'department of agriculture': 'Department of Agriculture.png',
+    'department of commerce': 'Department of Commerce.png',
+    'department of education': 'Department of Education.png',
+    'department of energy': 'Department of Energy.png',
+    'department of health and human services': 'Department of Health and Human Services.png',
+    'hhs': 'Department of Health and Human Services.png',
+    'department of homeland security': 'Department of Homeland Security.png',
+    'department of housing and urban development': 'Department of Housing and Urban Development.png',
+    'hud': 'Department of Housing and Urban Development.png',
+    'department of justice': 'Department of Justice.png',
+    'department of labor': 'Department of Labor.png',
+    'department of state': 'Department of State.png',
+    'department of the air force': 'Department of the Air Force.png',
+    'department of the army': 'Department of the Army.png',
+    'department of the interior': 'Department of the Interior.png',
+    'department of the navy': 'Department of the Navy.png',
+    'department of the treasury': 'Department of the Treasury.png',
+    'department of transportation': 'Department of Transportation.png',
+    'department of veterans affairs': 'Department of Veterans Affairs.png',
+    'va': 'Department of Veterans Affairs.png',
+    'department of war': 'Department of War.png',
+    'environmental protection agency': 'Environmental Protection Agency.png',
+    'epa': 'Environmental Protection Agency.png',
+    'federal deposit insurance corporation': 'Federal Deposit Insurance Corporation.png',
+    'fdic': 'Federal Deposit Insurance Corporation.png',
+    'general services administration': 'General Services Administration.png',
+    'gsa': 'General Services Administration.png',
+    'national archives and records administration': 'National Archives and Records Administration.png',
+    'national aeronautics and space administration': 'National Aeronautics and Space Administration.png',
+    'nasa': 'National Aeronautics and Space Administration.png',
+    'national science foundation': 'National Science Foundation.png',
+    'nsf': 'National Science Foundation.png',
+    'nuclear regulatory commission': 'Nuclear Regulatory Commission.png',
+    'nrc': 'Nuclear Regulatory Commission.png',
+    'office of the director of national intelligence': 'Office of the Director of National Intelligence.png',
+    'odni': 'Office of the Director of National Intelligence.png',
+    'office of personnel management': 'Office of Personnel Management.png',
+    'opm': 'Office of Personnel Management.png',
+    'small business administration': 'Small Business Administration.png',
+    'sba': 'Small Business Administration.png',
+    'social security administration': 'Social Security Administration.png',
+    'ssa': 'Social Security Administration.png',
+    'appraisal subcommittee': 'Appraisal Subcommittee of the Federal Financial Institutions Examination Council.png',
+  };
+  
+  // Try to find a match (guard short acronyms with word boundaries)
+  for (const [key, filename] of Object.entries(agencyMap)) {
+    const isAcronym = key.length <= 4;
+    const matches = isAcronym
+      ? new RegExp(`\\b${key}\\b`, 'i').test(text)
+      : text.includes(key);
+    if (matches) {
+      return `/assets/img/members/${filename}`;
+    }
+  }
+  
+  return null;
+}
 ---
 
 <CouncilLayout 
@@ -54,7 +125,7 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
   logoAlt={logoAlt}
   logoClass={logoClass}
 >
-  <h1>{frontmatter.title}</h1>
+  <h2>{frontmatter.title}</h2>
   
   <p class="usa-intro">
     {frontmatter.intro}
@@ -63,8 +134,11 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
   {frontmatter.leaders && frontmatter.leaders.length > 0 && (
     <>
       <h2 class="margin-top-4">Leadership</h2>
-      <div class="grid-row grid-gap margin-top-2">
-        {frontmatter.leaders.map((leader: any) => (
+      <div class="grid-row grid-gap margin-top-2 leadership-grid">
+        {frontmatter.leaders.map((leader: any) => {
+          const description =
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+          return (
           <div class="tablet:grid-col-6">
             <div class="usa-card">
               <div class="usa-card__container">
@@ -76,14 +150,14 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.role}</h3>
-                  <p class="font-heading-lg margin-top-0"><strong>{leader.name}</strong></p>
-                  {leader.agency && <p class="margin-top-0">{leader.agency}</p>}
+                  <h3 class="margin-top-0">{leader.name}</h3>
+                  {description && <p class="margin-top-0">{description}</p>}
                 </div>
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </>
   )}
@@ -91,8 +165,11 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
   {frontmatter.coChairs && frontmatter.coChairs.length > 0 && (
     <>
       <h2 class="margin-top-4">Co-Chairs</h2>
-      <div class="grid-row grid-gap margin-top-2">
-        {frontmatter.coChairs.map((leader: any) => (
+      <div class="grid-row grid-gap margin-top-2 members-grid">
+        {frontmatter.coChairs.map((leader: any) => {
+          const description =
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+          return (
           <div class="tablet:grid-col-6">
             <div class="usa-card">
               <div class="usa-card__container">
@@ -104,14 +181,14 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.role}</h3>
-                  <p class="font-heading-lg margin-top-0"><strong>{leader.name}</strong></p>
-                  {leader.agency && <p class="margin-top-0">{leader.agency}</p>}
+                  <h3 class="margin-top-0">{leader.name}</h3>
+                  {description && <p class="margin-top-0">{description}</p>}
                 </div>
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </>
   )}
@@ -120,17 +197,27 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
   
   {frontmatter.members && frontmatter.members.length > 0 && (
     <div class="members-grid margin-top-2">
-      {frontmatter.members.map((member: any) => (
+      {frontmatter.members.map((member: any) => {
+        const department = member.agency ?? member.department ?? member.description ?? member.title ?? '';
+        const memberImage = getMemberImage(member);
+        return (
         <div class="usa-card">
           <div class="usa-card__container">
+            {memberImage && (
+              <div class="usa-card__media">
+                <div class="usa-card__img">
+                  <img src={withBase(memberImage)} alt={member.name} />
+                </div>
+              </div>
+            )}
             <div class="usa-card__body">
-              <h3 class="margin-top-0">{member.agency}</h3>
-              <p class="margin-top-0"><strong>{member.name}</strong></p>
-              <p class="margin-top-0">{member.title}</p>
+              <h3 class="margin-top-0">{member.name}</h3>
+              {department && <p class="margin-top-0">{department}</p>}
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </div>
   )}
 </CouncilLayout>
