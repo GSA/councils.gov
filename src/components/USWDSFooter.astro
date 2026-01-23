@@ -16,6 +16,7 @@ const withBase = (path: string) => (path.startsWith("/") ? `${baseUrl}${path.sli
           {footerCouncils.map((council) => (
             <a href={withBase(council.href)} class="footer-council-card">
               <div class="footer-council-card__content">
+                <div class="footer-council-card__name">{council.name}</div>
                 <div class="footer-council-card__logo">
                   <img
                     src={withBase(council.logo)}
@@ -23,7 +24,6 @@ const withBase = (path: string) => (path.startsWith("/") ? `${baseUrl}${path.sli
                     class="footer-council-card__logo-img"
                   />
                 </div>
-                <div class="footer-council-card__name">{council.name}</div>
               </div>
             </a>
           ))}
