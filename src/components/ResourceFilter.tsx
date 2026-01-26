@@ -169,11 +169,21 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       <div className="resource-filter-top margin-bottom-4">
         <div className="grid-row grid-gap">
           <div className="tablet:grid-col-3">
-            <details className="resource-filter-dropdown">
-              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
-                Council
-              </summary>
-              <div className="resource-filter-dropdown__panel">
+            <div
+              className="usa-accordion resource-filter-accordion"
+              aria-multiselectable="false"
+            >
+              <h3 className="usa-accordion__heading">
+                <button
+                  type="button"
+                  className="usa-accordion__button"
+                  aria-expanded="false"
+                  aria-controls="filter-councils"
+                >
+                  Council
+                </button>
+              </h3>
+              <div id="filter-councils" className="usa-accordion__content usa-prose">
                 <div className="resource-filter-options">
                   {councils.map((council) => {
                     const id = `filter-council-${slugify(council)}`;
@@ -194,14 +204,24 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                   })}
                 </div>
               </div>
-            </details>
+            </div>
           </div>
           <div className="tablet:grid-col-3">
-            <details className="resource-filter-dropdown">
-              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
-                Focus Area
-              </summary>
-              <div className="resource-filter-dropdown__panel">
+            <div
+              className="usa-accordion resource-filter-accordion"
+              aria-multiselectable="false"
+            >
+              <h3 className="usa-accordion__heading">
+                <button
+                  type="button"
+                  className="usa-accordion__button"
+                  aria-expanded="false"
+                  aria-controls="filter-focus-areas"
+                >
+                  Focus Area
+                </button>
+              </h3>
+              <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
                 <div className="resource-filter-options">
                   {focusAreas.map((area) => {
                     const id = `filter-focus-area-${slugify(area)}`;
@@ -222,14 +242,24 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                   })}
                 </div>
               </div>
-            </details>
+            </div>
           </div>
           <div className="tablet:grid-col-3">
-            <details className="resource-filter-dropdown">
-              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
-                Type
-              </summary>
-              <div className="resource-filter-dropdown__panel">
+            <div
+              className="usa-accordion resource-filter-accordion"
+              aria-multiselectable="false"
+            >
+              <h3 className="usa-accordion__heading">
+                <button
+                  type="button"
+                  className="usa-accordion__button"
+                  aria-expanded="false"
+                  aria-controls="filter-types"
+                >
+                  Type
+                </button>
+              </h3>
+              <div id="filter-types" className="usa-accordion__content usa-prose">
                 <div className="resource-filter-options">
                   {types.map((type) => {
                     const id = `filter-type-${slugify(type)}`;
@@ -250,14 +280,24 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                   })}
                 </div>
               </div>
-            </details>
+            </div>
           </div>
           <div className="tablet:grid-col-3">
-            <details className="resource-filter-dropdown">
-              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
-                Year
-              </summary>
-              <div className="resource-filter-dropdown__panel">
+            <div
+              className="usa-accordion resource-filter-accordion"
+              aria-multiselectable="false"
+            >
+              <h3 className="usa-accordion__heading">
+                <button
+                  type="button"
+                  className="usa-accordion__button"
+                  aria-expanded="false"
+                  aria-controls="filter-years"
+                >
+                  Year
+                </button>
+              </h3>
+              <div id="filter-years" className="usa-accordion__content usa-prose">
                 <div className="resource-filter-options">
                   {years.map((year) => {
                     const id = `filter-year-${slugify(year)}`;
@@ -278,11 +318,11 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                   })}
                 </div>
               </div>
-            </details>
+            </div>
           </div>
         </div>
         <div className="resource-filter-actions margin-top-2">
-          <button
+        <button
             type="button"
             className="usa-button usa-button--outline"
             onClick={() => {

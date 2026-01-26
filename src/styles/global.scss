@@ -653,6 +653,11 @@ footer.usa-footer .footer-grid-container,
 
 .resource-filter-top {
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #ffffff;
+  padding: 1rem;
 }
 
 .resource-filter-actions {
@@ -663,62 +668,47 @@ footer.usa-footer .footer-grid-container,
   justify-content: space-between;
 }
 
-.resource-filter-dropdown {
-  width: 100%;
-  border: 0;
-  position: relative;
-}
-
-.resource-filter-dropdown__summary {
-  width: 100%;
+.resource-filter-reset {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding-right: 2.25rem;
+  justify-content: flex-end;
+}
+
+.resource-filter-reset .usa-link {
+  padding: 0;
+  font-weight: 600;
+}
+
+.resource-filter-accordion {
+  width: 100%;
   position: relative;
-  box-sizing: border-box;
-  max-width: 100%;
 }
 
-.resource-filter-dropdown__summary::-webkit-details-marker {
-  display: none;
+.resource-filter-accordion .usa-accordion__heading {
+  margin: 0;
 }
 
-.resource-filter-dropdown__summary::after {
-  content: '';
-  position: absolute;
-  right: 0.9rem;
-  width: 0;
-  height: 0;
-  border-left: 0.3rem solid transparent;
-  border-right: 0.3rem solid transparent;
-  border-top: 0.4rem solid currentColor;
-  transition: transform 0.2s ease;
+.resource-filter-accordion .usa-accordion__button {
+  width: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: transparent;
+  border: 2px solid #1b1b1b;
+  box-shadow: none;
 }
 
-.resource-filter-dropdown[open] .resource-filter-dropdown__summary::after {
-  transform: rotate(180deg);
-}
-
-.resource-filter-dropdown__panel {
-  margin-top: 0.5rem;
-  border: 1px solid #dfe1e2;
-  background: #ffffff;
-  padding: 0.75rem 0.9rem;
-  max-height: 16rem;
-  overflow-y: auto;
+.resource-filter-accordion .usa-accordion__content {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border: 2px solid #1b1b1b;
+  background-color: #ffffff;
+  border-top: 0;
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(100% + 0.25rem);
-  z-index: 5;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+  top: calc(100% - 2px);
+  z-index: 10;
 }
 
-.resource-filter-dropdown__summary,
-.resource-filter-dropdown__panel,
-.resource-filter-dropdown .usa-checkbox__label {
+.resource-filter-accordion .usa-checkbox__label {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
