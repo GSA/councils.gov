@@ -4,13 +4,13 @@ heroText: The Federal Executive Councils bring together policy makers and practi
 councilsHeading: Federal Executive Councils
 councils:
   - title: Chief Information Officers Council (CIOC)
-    href: /councils/cioc/about
+    href: /councils/cioc/about/
     logo: /assets/img/councils/CIOC.png
     logoAlt: CIOC Logo
     logoClass: council-logo
     description: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
   - title: Council on Federal Financial Assistance
-    href: /councils/coffa/about
+    href: /councils/coffa/about/
     logo: /assets/img/councils/COFFA.png
     logoAlt: COFFA Logo
     logoClass: coffa-logo-fullwidth
