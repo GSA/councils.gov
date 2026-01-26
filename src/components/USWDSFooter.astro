@@ -9,6 +9,7 @@ const baseUrl = import.meta.env.BASE_URL;
   <div class="usa-footer__primary-section">
     <div class="grid-container footer-grid-container">
       <nav class="usa-footer__nav" aria-label="Pre-footer links">
+        <h3 class="footer-councils-heading">Quick links</h3>
         <div class="footer-councils-grid">
           <a href="https://gsa.gov" class="footer-council-card">
               <div class="footer-council-card__content">
@@ -121,6 +122,12 @@ const baseUrl = import.meta.env.BASE_URL;
     padding-bottom: 2rem;
   }
 
+  .footer-councils-heading {
+    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+  }
+
   @media (min-width: 40rem) {
     .footer-councils-grid {
       grid-template-columns: repeat(3, 1fr);
@@ -171,6 +178,7 @@ const baseUrl = import.meta.env.BASE_URL;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.4;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
   }
 </style>
 
