@@ -319,6 +319,12 @@ footer.usa-footer .footer-grid-container,
   padding: 0;
 }
 
+.footer-councils-heading {
+  margin: 1.5rem 0 1rem;
+  color: #ffffff;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
 .footer-councils-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -329,6 +335,27 @@ footer.usa-footer .footer-grid-container,
 
 @media (min-width: 40rem) {
   .footer-councils-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer-quick-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 2rem;
+}
+
+@media (min-width: 40rem) {
+  .footer-quick-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .footer-quick-links {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -377,6 +404,20 @@ footer.usa-footer .footer-grid-container,
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.4;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer-quick-link {
+  color: #f0f0f0;
+  text-decoration: underline;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.footer-quick-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .single-list-grid {
