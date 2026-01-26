@@ -165,146 +165,126 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
   };
 
   return (
-    <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
-        <div className="resource-filter-sidebar sticky-nav">
-          <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
-          <div
-            className="usa-accordion"
-            aria-multiselectable="true"
-            data-allow-multiple="true"
-          >
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-councils"
-              >
+    <div>
+      <div className="resource-filter-top margin-bottom-4">
+        <div className="grid-row grid-gap">
+          <div className="tablet:grid-col-3">
+            <details className="resource-filter-dropdown">
+              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
                 Council
-              </button>
-            </h3>
-            <div id="filter-councils" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {councils.map((council) => {
-                  const id = `filter-council-${slugify(council)}`;
-                  return (
-                    <div className="usa-checkbox" key={council}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedCouncils.includes(council)}
-                        onChange={() => toggleSelection(council, setSelectedCouncils)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {council}
-                      </label>
-                    </div>
-                  );
-                })}
+              </summary>
+              <div className="resource-filter-dropdown__panel">
+                <div className="resource-filter-options">
+                  {councils.map((council) => {
+                    const id = `filter-council-${slugify(council)}`;
+                    return (
+                      <div className="usa-checkbox" key={council}>
+                        <input
+                          className="usa-checkbox__input"
+                          id={id}
+                          type="checkbox"
+                          checked={selectedCouncils.includes(council)}
+                          onChange={() => toggleSelection(council, setSelectedCouncils)}
+                        />
+                        <label className="usa-checkbox__label" htmlFor={id}>
+                          {council}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-focus-areas"
-              >
-                Focus Area
-              </button>
-            </h3>
-            <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {focusAreas.map((area) => {
-                  const id = `filter-focus-area-${slugify(area)}`;
-                  return (
-                    <div className="usa-checkbox" key={area}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedFocusAreas.includes(area)}
-                        onChange={() => toggleSelection(area, setSelectedFocusAreas)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {area}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-types"
-              >
-                Type
-              </button>
-            </h3>
-            <div id="filter-types" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {types.map((type) => {
-                  const id = `filter-type-${slugify(type)}`;
-                  return (
-                    <div className="usa-checkbox" key={type}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedTypes.includes(type)}
-                        onChange={() => toggleSelection(type, setSelectedTypes)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {type}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-years"
-              >
-                Year
-              </button>
-            </h3>
-            <div id="filter-years" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {years.map((year) => {
-                  const id = `filter-year-${slugify(year)}`;
-                  return (
-                    <div className="usa-checkbox" key={year}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedYears.includes(year)}
-                        onChange={() => toggleSelection(year, setSelectedYears)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {year}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            </details>
           </div>
+          <div className="tablet:grid-col-3">
+            <details className="resource-filter-dropdown">
+              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
+                Focus Area
+              </summary>
+              <div className="resource-filter-dropdown__panel">
+                <div className="resource-filter-options">
+                  {focusAreas.map((area) => {
+                    const id = `filter-focus-area-${slugify(area)}`;
+                    return (
+                      <div className="usa-checkbox" key={area}>
+                        <input
+                          className="usa-checkbox__input"
+                          id={id}
+                          type="checkbox"
+                          checked={selectedFocusAreas.includes(area)}
+                          onChange={() => toggleSelection(area, setSelectedFocusAreas)}
+                        />
+                        <label className="usa-checkbox__label" htmlFor={id}>
+                          {area}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </details>
+          </div>
+          <div className="tablet:grid-col-3">
+            <details className="resource-filter-dropdown">
+              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
+                Type
+              </summary>
+              <div className="resource-filter-dropdown__panel">
+                <div className="resource-filter-options">
+                  {types.map((type) => {
+                    const id = `filter-type-${slugify(type)}`;
+                    return (
+                      <div className="usa-checkbox" key={type}>
+                        <input
+                          className="usa-checkbox__input"
+                          id={id}
+                          type="checkbox"
+                          checked={selectedTypes.includes(type)}
+                          onChange={() => toggleSelection(type, setSelectedTypes)}
+                        />
+                        <label className="usa-checkbox__label" htmlFor={id}>
+                          {type}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </details>
+          </div>
+          <div className="tablet:grid-col-3">
+            <details className="resource-filter-dropdown">
+              <summary className="usa-button usa-button--outline resource-filter-dropdown__summary">
+                Year
+              </summary>
+              <div className="resource-filter-dropdown__panel">
+                <div className="resource-filter-options">
+                  {years.map((year) => {
+                    const id = `filter-year-${slugify(year)}`;
+                    return (
+                      <div className="usa-checkbox" key={year}>
+                        <input
+                          className="usa-checkbox__input"
+                          id={id}
+                          type="checkbox"
+                          checked={selectedYears.includes(year)}
+                          onChange={() => toggleSelection(year, setSelectedYears)}
+                        />
+                        <label className="usa-checkbox__label" htmlFor={id}>
+                          {year}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div className="resource-filter-actions margin-top-2">
           <button
             type="button"
-            className="usa-button usa-button--outline margin-top-2"
+            className="usa-button usa-button--outline"
             onClick={() => {
               setSelectedCouncils([]);
               setSelectedFocusAreas([]);
@@ -314,102 +294,95 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           >
             Reset filters
           </button>
-        </div>
-      </aside>
-
-      <div className="tablet:grid-col-9">
-        <div className="margin-bottom-2">
           <p className="font-sans-md margin-0 text-bold">
             {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
           </p>
         </div>
+      </div>
 
-        <div
-          className={`resource-filter-pills margin-bottom-2 ${
-            activeFilters.length === 0 ? 'resource-filter-pills--empty' : ''
-          }`}
-        >
-          {activeFilters.map((filter) => (
-            <button
-              key={`${filter.type}-${filter.value}`}
-              type="button"
-              className="usa-tag resource-filter-pill"
-              aria-label={`Remove ${filter.value}`}
-              onClick={() => {
-                if (filter.type === 'Council') {
-                  setSelectedCouncils((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Focus Area') {
-                  setSelectedFocusAreas((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Type') {
-                  setSelectedTypes((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Year') {
-                  setSelectedYears((prev) => prev.filter((value) => value !== filter.value));
-                }
-              }}
-            >
-              <span className="resource-filter-pill__label">{filter.value}</span>
-              <span aria-hidden="true" className="resource-filter-pill__icon">
-                ×
-              </span>
-            </button>
-          ))}
-        </div>
+      <div
+        className={`resource-filter-pills margin-bottom-2 ${
+          activeFilters.length === 0 ? 'resource-filter-pills--empty' : ''
+        }`}
+      >
+        {activeFilters.map((filter) => (
+          <button
+            key={`${filter.type}-${filter.value}`}
+            type="button"
+            className="usa-tag resource-filter-pill"
+            aria-label={`Remove ${filter.value}`}
+            onClick={() => {
+              if (filter.type === 'Council') {
+                setSelectedCouncils((prev) => prev.filter((value) => value !== filter.value));
+              } else if (filter.type === 'Focus Area') {
+                setSelectedFocusAreas((prev) => prev.filter((value) => value !== filter.value));
+              } else if (filter.type === 'Type') {
+                setSelectedTypes((prev) => prev.filter((value) => value !== filter.value));
+              } else if (filter.type === 'Year') {
+                setSelectedYears((prev) => prev.filter((value) => value !== filter.value));
+              }
+            }}
+          >
+            <span className="resource-filter-pill__label">{filter.value}</span>
+            <span aria-hidden="true" className="resource-filter-pill__icon">
+              ×
+            </span>
+          </button>
+        ))}
+      </div>
 
-        <div className="grid-row grid-gap">
-          {filteredResources.length > 0 ? (
-            filteredResources.map((resource) => (
-              <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
-                <a
-                  href={resource.link}
-                  className="usa-card display-block text-no-underline resource-card-link"
-                  style={{
-                    borderTop: `8px solid ${typeColors[resource.type] || typeColors.DEFAULT}`,
-                  }}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  <div className="usa-card__container">
-                    <header className="usa-card__header">
-                      <h3 className="usa-card__heading">
-                        {resource.title}
-                        <span className="usa-sr-only"> (opens in a new tab)</span>
-                      </h3>
-                      <div className="resource-date margin-top-1">
-                        {formatDate(resource.date)}
-                      </div>
-                    </header>
-                    <div className="usa-card__body">
-                      <p>{resource.description}</p>
-                      <div className="margin-top-2 resource-tags">
-                        <span className="usa-tag">{resource.councilAcronym}</span>
-                        {resource.type && (
-                          <span
-                            className="usa-tag resource-tag--type"
-                            style={
-                              {
-                                ['--resource-tag-color' as string]:
-                                  typeColors[resource.type] || typeColors.DEFAULT,
-                                ['--resource-tag-text' as string]:
-                                  resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
-                              } as CSSProperties
-                            }
-                          >
-                            {resource.type}
-                          </span>
-                        )}
-                        {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
-                      </div>
+      <div className="grid-row grid-gap">
+        {filteredResources.length > 0 ? (
+          filteredResources.map((resource) => (
+            <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
+              <a
+                href={resource.link}
+                className="usa-card display-block text-no-underline resource-card-link"
+                style={{
+                  borderTop: `8px solid ${typeColors[resource.type] || typeColors.DEFAULT}`,
+                }}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <div className="usa-card__container">
+                  <header className="usa-card__header">
+                    <h3 className="usa-card__heading">
+                      {resource.title}
+                      <span className="usa-sr-only"> (opens in a new tab)</span>
+                    </h3>
+                    <div className="resource-date margin-top-1">{formatDate(resource.date)}</div>
+                  </header>
+                  <div className="usa-card__body">
+                    <p>{resource.description}</p>
+                    <div className="margin-top-2 resource-tags">
+                      <span className="usa-tag">{resource.councilAcronym}</span>
+                      {resource.type && (
+                        <span
+                          className="usa-tag resource-tag--type"
+                          style={
+                            {
+                              ['--resource-tag-color' as string]:
+                                typeColors[resource.type] || typeColors.DEFAULT,
+                              ['--resource-tag-text' as string]:
+                                resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
+                            } as CSSProperties
+                          }
+                        >
+                          {resource.type}
+                        </span>
+                      )}
+                      {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                     </div>
                   </div>
-                </a>
-              </div>
-            ))
-          ) : (
-            <div className="tablet:grid-col-12">
-              <p className="usa-intro">No resources match the selected filters.</p>
+                </div>
+              </a>
             </div>
-          )}
-        </div>
+          ))
+        ) : (
+          <div className="tablet:grid-col-12">
+            <p className="usa-intro">No resources match the selected filters.</p>
+          </div>
+        )}
       </div>
     </div>
   );
