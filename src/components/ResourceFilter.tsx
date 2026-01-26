@@ -34,6 +34,19 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedYear, setSelectedYear] = useState<string>('all');
 
+  const resetAllFilters = () => {
+    setSelectedCouncil('all');
+    setSelectedFocusArea('all');
+    setSelectedType('all');
+    setSelectedYear('all');
+  };
+
+  const isAnyFilterSelected =
+    selectedCouncil !== 'all' ||
+    selectedFocusArea !== 'all' ||
+    selectedType !== 'all' ||
+    selectedYear !== 'all';
+
   // Filter resources based on selected filters (for dynamic filter options)
   const filteredForOptions = useMemo(() => {
     return safeResources.filter(resource => {
@@ -128,7 +141,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
 
   return (
     <div>
-      <div className="grid-row grid-gap margin-bottom-4">
+      <div className="grid-row grid-gap margin-bottom-2">
         <div className="tablet:grid-col-6 desktop:grid-col-3">
           <label htmlFor="council-filter" className="usa-label">
             Filter by Council Acronym
@@ -196,9 +209,16 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           </select>
         </div>
       </div>
-
-      <div className="margin-bottom-2">
-        <p className="font-sans-md text-bold">
+      <div className="grid-row margin-bottom-4 display-flex flex-row tablet:flex-column flex-justify flex-align-end">
+        <button
+          type="button"
+          className="usa-button usa-button--secondary margin-bottom-1 tablet:margin-bottom-0"
+          onClick={resetAllFilters}
+          disabled={!isAnyFilterSelected}
+        >
+          Clear all filters
+        </button>
+        <p className="text-bold margin-0">
           {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
         </p>
       </div>
