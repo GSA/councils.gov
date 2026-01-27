@@ -1,4 +1,12 @@
-import { useState, useMemo, type CSSProperties, type Dispatch, type SetStateAction } from 'react';
+import {
+  useState,
+  useMemo,
+  useLayoutEffect,
+  useRef,
+  type CSSProperties,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
 
 interface Resource {
   id: string;
@@ -61,6 +69,8 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
   const [selectedFocusAreas, setSelectedFocusAreas] = useState<string[]>([]);
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<string[]>([]);
+  const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const hasMountedRef = useRef(false);
 
   const toggleSelection = (
     value: string,
@@ -163,6 +173,20 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
     }
     return dateString;
   };
+
+  useLayoutEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
+    if (resultsTopRef.current) {
+      const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY > targetTop) {
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      }
+    }
+  }, [selectedCouncils, selectedFocusAreas, selectedTypes, selectedYears]);
 
   return (
     <div className="grid-row grid-gap">
@@ -317,7 +341,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
         </div>
       </aside>
 
-      <div className="tablet:grid-col-9">
+      <div className="tablet:grid-col-9" ref={resultsTopRef}>
         <div className="margin-bottom-2">
           <p className="font-sans-md margin-0 text-bold">
             {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
