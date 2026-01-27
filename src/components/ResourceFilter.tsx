@@ -191,7 +191,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
   return (
     <div className="grid-row grid-gap">
       <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
-        <div className="resource-filter-sidebar sticky-nav">
+        <div className="resource-filter-sidebar">
           <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
           <div
             className="usa-accordion"
