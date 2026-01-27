@@ -89,7 +89,7 @@ h6 { font-size: 0.875rem; }
 
   .usa-nav__link,
   .usa-nav__primary button {
-    color: #1b1b1b;
+    color: var(--ink);
   }
 }
 
@@ -202,6 +202,12 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 .usa-nav__submenu-item a,
 .usa-nav__submenu-item span {
   font-size: 1rem;
+}
+
+@media (min-width: 64em) {
+  .usa-header--basic .usa-nav__primary > .usa-nav__primary-item > a {
+    color: var(--ink);
+  }
 }
 
 @media (min-width: $breakpoint-tablet) {
@@ -323,7 +329,7 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
     }
 
     button[aria-expanded=true] {
-      color: #1b1b1b;
+      color: var(--ink);
     }
   }
 }
