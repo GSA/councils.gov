@@ -18,8 +18,6 @@ const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}$
 
 const navItems = [
   { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
-  { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership and Members", id: "members-leaders" },
-  { href: `${baseUrl}resources/`, label: "Resources", id: "resources" },
 ];
 ---
 
@@ -51,9 +49,7 @@ const navItems = [
               <div class="council-hero__content">
                 <p class="council-hero__brow">{councilName}</p>
                 <h1 class="council-hero__title">
-                  {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
-                   currentPage === "members-leaders" ? `Leadership and Members` : 
-                   title || `${councilName}`}
+                  {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : title || `${councilName}`}
                 </h1>
               </div>
             </div>

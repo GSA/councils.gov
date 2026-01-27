@@ -15,10 +15,4 @@ councils:
     logoAlt: COFFA Logo
     logoClass: coffa-logo-fullwidth
     description: The COFFA provides OMB with strategic direction, policy recommendations, and priority-setting advice by serving as a unified partnership of all federal financial assistance-making agencies on policy, management, and technology matters.
-  - title: Federal Chief Data Officers Council
-    href: "#"
-    logo: /assets/img/councils/CDOC.png
-    logoAlt: CDOC Logo
-    logoClass: coffa-logo-fullwidth
-    description: The Council's vision is to improve government mission achievement and increase the benefits to the Nation through improvement in the management, use, protection, dissemination, and generation of data in government decision-making and operations.
 ---
