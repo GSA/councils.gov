@@ -68,6 +68,10 @@ h6 { font-size: 0.875rem; }
     padding-bottom: 0;
     margin-bottom: -1px;
 
+    .usa-nav__primary button:hover[aria-expanded="false"], .usa-nav__primary > .usa-nav__primary-item > a:hover {
+      color: var(--primary-color);
+    }
+
     .usa-nav__primary-item > .usa-current::after,
     .usa-nav__link:hover::after {
       bottom: 0;
@@ -81,6 +85,11 @@ h6 { font-size: 0.875rem; }
   .usa-nav__submenu-item a,
   .usa-menu-btn {
     font-family: $font-serif;
+  }
+
+  .usa-nav__link,
+  .usa-nav__primary button {
+    color: #1b1b1b;
   }
 }
 
@@ -166,6 +175,7 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
     max-width: none;
     width: auto;
     margin-top: 1rem;
+    margin-bottom: 0.8rem; 
   }
 
   .usa-logo__text,
@@ -297,6 +307,27 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   }
 }
 
+@media (min-width: $breakpoint-tablet) {
+  .usa-nav__primary {
+    button[aria-expanded=true] {
+      color: #ffffff;
+    }
+  }
+}
+
+.usa-nav.is-visible {
+  .usa-nav__primary {
+    button[aria-expanded=true],
+    .usa-nav__submenu {
+      background-color: transparent;
+    }
+
+    button[aria-expanded=true] {
+      color: #1b1b1b;
+    }
+  }
+}
+
 .usa-nav__submenu {
   li a span {
     font-family: $font-sans;
@@ -380,7 +411,7 @@ footer.usa-footer .footer-grid-container,
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  padding-top: 2rem;
+  padding-top: 0.5rem;;
   padding-bottom: 2rem;
 }
 
