@@ -254,11 +254,11 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 
 /* Banner accordion */
 .usa-banner__content.usa-accordion__content {
-  display: none;
+  display: block;
 }
 
-.usa-banner__content.usa-accordion__content[aria-hidden="false"] {
-  display: block;
+.usa-banner__content.usa-accordion__content[hidden] {
+  display: none;
 }
 
 .usa-accordion__button[aria-expanded="false"] + .usa-accordion__content,
@@ -291,7 +291,28 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   margin-right: auto;
 }
 
+.usa-banner__content {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .usa-banner__content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 /* Identifier */
+.usa-identifier__section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .usa-identifier__container {
   max-width: var(--max-width);
   width: 100%;
