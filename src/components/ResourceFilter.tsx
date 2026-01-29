@@ -1,7 +1,7 @@
 import {
   useState,
   useMemo,
-  useLayoutEffect,
+  useEffect,
   useRef,
   type CSSProperties,
   type Dispatch,
@@ -174,7 +174,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
     return dateString;
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!hasMountedRef.current) {
       hasMountedRef.current = true;
       return;
