@@ -192,7 +192,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
     <div className="grid-row grid-gap">
       <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
         <div className="resource-filter-sidebar">
-          <div className="resource-filter-sidebar__header display-flex flex-justify">
+          <div className="resource-filter-sidebar__header display-flex flex-column">
             <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
             <button
               type="button"
@@ -344,8 +344,8 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       </aside>
 
       <div className="tablet:grid-col-9" ref={resultsTopRef}>
-        <div className="margin-bottom-2">
-          <p className="font-sans-md margin-0 text-bold">
+        <div className="margin-bottom-1">
+          <p className="font-sans-lg margin-0 text-bold">
             {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
           </p>
         </div>
