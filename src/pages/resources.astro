@@ -5,6 +5,9 @@ import Papa from 'papaparse';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+const baseUrl = import.meta.env.BASE_URL;
+const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+
 // Helper function to parse CSV and convert to resources format
 function parseCSVToResources(csvPath: string): any[] {
   try {
@@ -113,7 +116,7 @@ if (!Array.isArray(resources) || resources.length === 0) {
 <BaseLayout title="Resources - Councils.gov" currentPage="resources">
 
   <main id="main-content">
-    <section class="usa-hero resources-hero" aria-label="Resources">
+    <section class="usa-hero resources-hero" aria-label="Resources" style={`--hero-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
         <h1>Resources</h1>
       </div>
@@ -128,5 +131,3 @@ if (!Array.isArray(resources) || resources.length === 0) {
     </section>
   </main>
 </BaseLayout>
-
-

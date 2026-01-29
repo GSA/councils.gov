@@ -193,6 +193,18 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
         <div className="resource-filter-sidebar">
           <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
+          <button
+            type="button"
+            className="usa-link margin-bottom-2"
+            onClick={() => {
+              setSelectedCouncils([]);
+              setSelectedFocusAreas([]);
+              setSelectedTypes([]);
+              setSelectedYears([]);
+            }}
+          >
+            Reset filters
+          </button>
           <div
             className="usa-accordion"
             aria-multiselectable="true"
@@ -326,18 +338,6 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
               </div>
             </div>
           </div>
-          <button
-            type="button"
-            className="usa-button usa-button--outline margin-top-2"
-            onClick={() => {
-              setSelectedCouncils([]);
-              setSelectedFocusAreas([]);
-              setSelectedTypes([]);
-              setSelectedYears([]);
-            }}
-          >
-            Reset filters
-          </button>
         </div>
       </aside>
 

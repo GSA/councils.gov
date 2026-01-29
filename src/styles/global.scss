@@ -29,6 +29,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
 }
 
+/* UI controls */
+.usa-button,
+.usa-input,
+.usa-select,
+.usa-textarea,
+.usa-label,
+.usa-hint,
+.usa-tag,
+input,
+select,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.usa-button {
+  font-size: 1rem;
+}
+
 h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
@@ -49,6 +67,10 @@ h6 { font-size: 0.875rem; }
 .usa-nav__submenu-item a,
 .usa-menu-btn {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.usa-navbar {
+  justify-content: space-between;
 }
 
 .usa-header--basic .usa-logo__text,
@@ -158,6 +180,17 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
   }
 }
 
+/* Stabilize header search width to avoid layout shift */
+.usa-header--basic .usa-nav .usa-search {
+  max-width: 16rem;
+  width: 100%;
+}
+
+.usa-header--basic .usa-nav .usa-search .usa-input {
+  width: 100%;
+  min-width: 0;
+}
+
 /* Side navigation */
 .usa-sidenav {
   border-bottom: none;
@@ -167,6 +200,8 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 .usa-sidenav__item a {
   border-bottom: none;
   font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 600; 
+  font-size: 1.125rem;
 }
 
 /* Cards */
@@ -193,6 +228,28 @@ li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__ite
 
 .usa-card.display-block .usa-nav__primary-item {
   font-size: 2rem;
+}
+
+.leadership-grid,
+.members-grid {
+  .usa-card {
+    border-bottom: 8px solid var(--primary-color);
+  }
+  .usa-card__container {   
+    border-radius: 0;
+    background-color: #F5F5F5;
+    .usa-card__media {
+      background-color: #F5F5F5;
+      height: auto;
+      justify-content: flex-start;
+      padding: 2rem 2rem 0.5rem 2rem; 
+      .usa-card__img {
+        width: 100px; 
+        height: 100px;
+        border-radius: 0; 
+      }
+    }
+  }
 }
 
 /* Banner accordion */
@@ -271,8 +328,7 @@ footer.usa-footer .footer-grid-container,
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 1rem; 
   box-sizing: border-box;
 }
 
@@ -289,6 +345,107 @@ footer.usa-footer .footer-grid-container,
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.footer-councils-heading {
+  margin: 1.5rem 0 1rem;
+  color: #ffffff;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer-councils-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 40rem) {
+  .footer-councils-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer-quick-links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem 2rem;
+}
+
+@media (min-width: 40rem) {
+  .footer-quick-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .footer-quick-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer-council-card {
+  display: block;
+  background-color: white;
+  border-bottom: 5px solid #8b0a03;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: #1b1b1b;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  height: 100%;
+}
+
+.footer-council-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+.footer-council-card__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-council-card__logo {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-council-card__logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.footer-council-card__name {
+  flex: 1;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.4;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer-quick-link {
+  color: #f0f0f0;
+  text-decoration: underline;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.footer-quick-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .single-list-grid {
@@ -357,7 +514,8 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #f5f5f5;
+  padding: 1.5rem;
 }
 
 .usa-card__img {
@@ -366,6 +524,7 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #FFFFFF;
 }
 
 .usa-card__img img {
@@ -376,7 +535,7 @@ footer.usa-footer .footer-grid-container,
 
 .councils-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 2rem;
 
   a {
@@ -384,14 +543,20 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 40rem) {
+  .councils-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
   .councils-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .councils-grid .usa-card__container {
-  background-color: white;
+  background-color: #F5F5F5;
   border-radius: 0;
 }
 
@@ -602,7 +767,9 @@ footer.usa-footer .footer-grid-container,
 }
 
 .resource-tags .usa-tag {
-  border-radius: 8px;
+  border-radius: 16px;
+  display: flex; 
+  align-items: center;
 }
 
 .resource-tags .resource-tag--type {
@@ -610,7 +777,6 @@ footer.usa-footer .footer-grid-container,
   border: 1px solid var(--resource-tag-color);
   color: var(--resource-tag-text, #ffffff);
   background-color: var(--resource-tag-color);
-  border-radius: 8px;
 }
 
 .resource-filter-pills {
@@ -672,7 +838,21 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-hero::before {
-  display: none;
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-waves-url, none);
+  background-repeat: repeat;
+  background-size: 30%;
+  background-blend-mode: multiply;
+  opacity: var(--hero-waves-opacity, 0.03);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.usa-hero .grid-container {
+  position: relative;
+  z-index: 1;
 }
 
 .usa-hero__callout {
