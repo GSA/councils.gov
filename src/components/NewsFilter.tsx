@@ -113,14 +113,14 @@ export default function NewsFilter({ items }: NewsFilterProps) {
               <li key={item.id} className="usa-collection__item">
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
-                    <a className="usa-link" href={item.link} target="_blank" rel="noreferrer noopener">
+                    {/* <a className="usa-link" href={item.link} target="_blank" rel="noreferrer noopener"> */}
                       {item.title}
-                    </a>
+                    {/* </a> */}
                   </h3>
                   <div className="resource-date margin-top-05">
                     <time dateTime={item.date}>{formatDate(item.date)}</time>
                   </div>
-                  <p className="usa-collection__description">{item.description}</p>
+                  <p className="usa-collection__description margin-bottom-2">{item.description}</p>
                   {(item.councilAcronym || item.tags.length > 0) && (
                     <ul className="usa-collection__meta content-tags" aria-label="Topics">
                       {item.councilAcronym && (
