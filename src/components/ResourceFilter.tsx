@@ -4,11 +4,18 @@ import {
   useEffect,
   useRef,
   type CSSProperties,
-  type Dispatch,
-  type SetStateAction,
 } from 'react';
+import { FilterPanel, FilterPills } from './FilterPanel';
+import {
+  buildActiveFilters,
+  buildFilterOptions,
+  createEmptyFilters,
+  filterItems,
+  type Filters,
+  type FilterableItem,
+} from './filters';
 
-interface Resource {
+interface Resource extends FilterableItem {
   id: string;
   title: string;
   description: string;
@@ -33,136 +40,46 @@ const typeColors: Record<string, string> = {
   DEFAULT: '#005EA2',
 };
 
-type Filters = {
-  councils: string[];
-  focusAreas: string[];
-  types: string[];
-  years: string[];
-};
-
-const getResourceYear = (resource: Resource) =>
-  resource.date ? resource.date.split('-')[0].trim() : '';
-
-const slugify = (value: string) =>
-  value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-+|-+$)/g, '') || 'item';
-
-const matchesFilters = (resource: Resource, filters: Filters) => {
-  const resourceYear = getResourceYear(resource);
-  const councilMatch =
-    filters.councils.length === 0 || filters.councils.includes(resource.councilAcronym);
-  const focusAreaMatch =
-    filters.focusAreas.length === 0 || filters.focusAreas.includes(resource.focusArea);
-  const typeMatch = filters.types.length === 0 || filters.types.includes(resource.type);
-  const yearMatch = filters.years.length === 0 || filters.years.includes(resourceYear);
-
-  return councilMatch && focusAreaMatch && typeMatch && yearMatch;
-};
-
 export default function ResourceFilter({ resources }: ResourceFilterProps) {
   // Ensure resources is always an array
-  const safeResources = Array.isArray(resources) ? resources : [];
+  const safeResources: Resource[] = Array.isArray(resources) ? resources : [];
   
-  const [selectedCouncils, setSelectedCouncils] = useState<string[]>([]);
-  const [selectedFocusAreas, setSelectedFocusAreas] = useState<string[]>([]);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedYears, setSelectedYears] = useState<string[]>([]);
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(createEmptyFilters());
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 
-  const toggleSelection = (
-    value: string,
-    setSelected: Dispatch<SetStateAction<string[]>>
-  ) => {
-    setSelected((prev) =>
-      prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]
-    );
+  const toggleSelection = (group: keyof Filters, value: string) => {
+    setSelectedFilters((prev) => {
+      const current = prev[group];
+      const next = current.includes(value)
+        ? current.filter((item) => item !== value)
+        : [...current, value];
+      return { ...prev, [group]: next };
+    });
   };
 
-  const councils = useMemo(() => {
-    const filtered = safeResources.filter((resource) =>
-      matchesFilters(resource, {
-        councils: [],
-        focusAreas: selectedFocusAreas,
-        types: selectedTypes,
-        years: selectedYears,
-      })
-    );
-    const values = Array.from(
-      new Set([...filtered.map((r) => r.councilAcronym), ...selectedCouncils])
-    );
-    return values.filter(Boolean).sort();
-  }, [safeResources, selectedFocusAreas, selectedTypes, selectedYears, selectedCouncils]);
+  const removeSelection = (group: keyof Filters, value: string) => {
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [group]: prev[group].filter((item) => item !== value),
+    }));
+  };
 
-  const focusAreas = useMemo(() => {
-    const filtered = safeResources.filter((resource) =>
-      matchesFilters(resource, {
-        councils: selectedCouncils,
-        focusAreas: [],
-        types: selectedTypes,
-        years: selectedYears,
-      })
-    );
-    const values = Array.from(
-      new Set([...filtered.map((r) => r.focusArea), ...selectedFocusAreas])
-    );
-    return values.filter(Boolean).sort();
-  }, [safeResources, selectedCouncils, selectedTypes, selectedYears, selectedFocusAreas]);
+  const resetFilters = () => {
+    setSelectedFilters(createEmptyFilters());
+  };
 
-  const types = useMemo(() => {
-    const filtered = safeResources.filter((resource) =>
-      matchesFilters(resource, {
-        councils: selectedCouncils,
-        focusAreas: selectedFocusAreas,
-        types: [],
-        years: selectedYears,
-      })
-    );
-    const values = Array.from(new Set([...filtered.map((r) => r.type), ...selectedTypes]));
-    return values.filter(Boolean).sort();
-  }, [safeResources, selectedCouncils, selectedFocusAreas, selectedYears, selectedTypes]);
-
-  const years = useMemo(() => {
-    const filtered = safeResources.filter((resource) =>
-      matchesFilters(resource, {
-        councils: selectedCouncils,
-        focusAreas: selectedFocusAreas,
-        types: selectedTypes,
-        years: [],
-      })
-    );
-    const values = Array.from(
-      new Set([
-        ...filtered
-          .map((resource) => getResourceYear(resource))
-          .filter((year) => Boolean(year) && year !== '1900'),
-        ...selectedYears,
-      ])
-    );
-    return values.filter(Boolean).sort().reverse();
-  }, [safeResources, selectedCouncils, selectedFocusAreas, selectedTypes, selectedYears]);
-
-  const filteredResources = useMemo(
-    () =>
-      safeResources.filter((resource) =>
-        matchesFilters(resource, {
-          councils: selectedCouncils,
-          focusAreas: selectedFocusAreas,
-          types: selectedTypes,
-          years: selectedYears,
-        })
-      ),
-    [safeResources, selectedCouncils, selectedFocusAreas, selectedTypes, selectedYears]
+  const filterOptions = useMemo(
+    () => buildFilterOptions(safeResources, selectedFilters),
+    [safeResources, selectedFilters]
   );
 
-  const activeFilters = [
-    ...selectedCouncils.map((value) => ({ type: 'Council', value })),
-    ...selectedFocusAreas.map((value) => ({ type: 'Focus Area', value })),
-    ...selectedTypes.map((value) => ({ type: 'Type', value })),
-    ...selectedYears.map((value) => ({ type: 'Year', value })),
-  ];
+  const filteredResources = useMemo(
+    () => filterItems(safeResources, selectedFilters),
+    [safeResources, selectedFilters]
+  );
+
+  const activeFilters = useMemo(() => buildActiveFilters(selectedFilters), [selectedFilters]);
 
   const formatDate = (dateString: string) => {
     // Extract year from date string (format: YYYY-MM-DD)
@@ -186,161 +103,17 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
         window.scrollTo({ top: targetTop, behavior: 'smooth' });
       }
     }
-  }, [selectedCouncils, selectedFocusAreas, selectedTypes, selectedYears]);
+  }, [selectedFilters]);
 
   return (
     <div className="grid-row grid-gap">
       <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
-        <div className="resource-filter-sidebar">
-          <div className="resource-filter-sidebar__header display-flex flex-column">
-            <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
-            <button
-              type="button"
-              className="usa-button--unstyled usa-link margin-bottom-2"
-              onClick={() => {
-                setSelectedCouncils([]);
-                setSelectedFocusAreas([]);
-                setSelectedTypes([]);
-                setSelectedYears([]);
-              }}
-            >
-              Reset filters
-            </button>
-          </div>
-          <div
-            className="usa-accordion"
-            aria-multiselectable="true"
-            data-allow-multiple="true"
-          >
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-councils"
-              >
-                Council
-              </button>
-            </h3>
-            <div id="filter-councils" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {councils.map((council) => {
-                  const id = `filter-council-${slugify(council)}`;
-                  return (
-                    <div className="usa-checkbox" key={council}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedCouncils.includes(council)}
-                        onChange={() => toggleSelection(council, setSelectedCouncils)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {council}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-focus-areas"
-              >
-                Focus Area
-              </button>
-            </h3>
-            <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {focusAreas.map((area) => {
-                  const id = `filter-focus-area-${slugify(area)}`;
-                  return (
-                    <div className="usa-checkbox" key={area}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedFocusAreas.includes(area)}
-                        onChange={() => toggleSelection(area, setSelectedFocusAreas)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {area}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-types"
-              >
-                Type
-              </button>
-            </h3>
-            <div id="filter-types" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {types.map((type) => {
-                  const id = `filter-type-${slugify(type)}`;
-                  return (
-                    <div className="usa-checkbox" key={type}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedTypes.includes(type)}
-                        onChange={() => toggleSelection(type, setSelectedTypes)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {type}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <h3 className="usa-accordion__heading">
-              <button
-                type="button"
-                className="usa-accordion__button"
-                aria-expanded="true"
-                aria-controls="filter-years"
-              >
-                Year
-              </button>
-            </h3>
-            <div id="filter-years" className="usa-accordion__content usa-prose">
-              <div className="resource-filter-options">
-                {years.map((year) => {
-                  const id = `filter-year-${slugify(year)}`;
-                  return (
-                    <div className="usa-checkbox" key={year}>
-                      <input
-                        className="usa-checkbox__input"
-                        id={id}
-                        type="checkbox"
-                        checked={selectedYears.includes(year)}
-                        onChange={() => toggleSelection(year, setSelectedYears)}
-                      />
-                      <label className="usa-checkbox__label" htmlFor={id}>
-                        {year}
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
+        <FilterPanel
+          options={filterOptions}
+          selected={selectedFilters}
+          onToggle={toggleSelection}
+          onReset={resetFilters}
+        />
       </aside>
 
       <div className="tablet:grid-col-9" ref={resultsTopRef}>
@@ -350,36 +123,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
           </p>
         </div>
 
-        <div
-          className={`resource-filter-pills margin-bottom-2 ${
-            activeFilters.length === 0 ? 'resource-filter-pills--empty' : ''
-          }`}
-        >
-          {activeFilters.map((filter) => (
-            <button
-              key={`${filter.type}-${filter.value}`}
-              type="button"
-              className="usa-tag resource-filter-pill"
-              aria-label={`Remove ${filter.value}`}
-              onClick={() => {
-                if (filter.type === 'Council') {
-                  setSelectedCouncils((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Focus Area') {
-                  setSelectedFocusAreas((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Type') {
-                  setSelectedTypes((prev) => prev.filter((value) => value !== filter.value));
-                } else if (filter.type === 'Year') {
-                  setSelectedYears((prev) => prev.filter((value) => value !== filter.value));
-                }
-              }}
-            >
-              <span className="resource-filter-pill__label">{filter.value}</span>
-              <span aria-hidden="true" className="resource-filter-pill__icon">
-                ×
-              </span>
-            </button>
-          ))}
-        </div>
+        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
 
         <div className="grid-row grid-gap">
           {filteredResources.length > 0 ? (

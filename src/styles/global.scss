@@ -96,11 +96,6 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   margin: 0;
 }
 
-li:not(.usa-nav__primary-item):not(.usa-nav__submenu-item):not(.usa-sidenav__item):not(.usa-footer__secondary-link):not(.usa-identifier__required-links-list-item) {
-  padding-left: 0;
-  margin: 0;
-}
-
 /* Layout helpers */
 .grid-container {
   max-width: var(--max-width);
@@ -806,14 +801,14 @@ footer.usa-footer .footer-grid-container,
   background-color: var(--resource-tag-color);
 }
 
-.resource-filter-pills {
+.filter-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   min-height: 1rem;
 }
 
-.resource-filter-pills--empty {
+.filter-pills--empty {
   visibility: hidden;
 }
 
@@ -866,6 +861,16 @@ footer.usa-footer .footer-grid-container,
 .resource-filter-sidebar .usa-accordion__content,
 .resource-filter-sidebar .usa-checkbox__label {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* News & Events */
+
+.usa-collection {
+  .usa-collection__item {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 

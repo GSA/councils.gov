@@ -1,0 +1,46 @@
+[
+  {
+    "id": "cio-news-2025-09-26",
+    "title": "AI Transparency Listening Session with the White House Office of Management and Budget",
+    "description": "The White House Office of Management and Budget (OMB) is leading a series of listening sessions to learn more from industry about their approaches to AI transparency and auditable risk management.",
+    "date": "2025-09-26",
+    "link": "https://www.cio.gov/ai-transparency-listening-session/",
+    "tags": ["Artificial-Intelligence", "guidance"],
+    "type": "Guidance",
+    "focusArea": "Artificial Intelligence",
+    "councilAcronym": "CIOC"
+  },
+  {
+    "id": "cio-news-2025-01-15",
+    "title": "AI in Action: 5 Essential Findings from the 2024 Federal AI Use Case Inventory",
+    "description": "This year, agencies publicly reported more than 1,700 ways they are using Artificial Intelligence (AI) to advance their missions and deliver better experiences to the public.",
+    "date": "2025-01-15",
+    "link": "https://www.cio.gov/ai-in-action/",
+    "tags": ["Artificial-Intelligence", "policy", "AI"],
+    "type": "Policy",
+    "focusArea": "Artificial Intelligence",
+    "councilAcronym": "CIOC"
+  },
+  {
+    "id": "cio-news-2024-10-31",
+    "title": "CISO Council and CDO Council Release Joint Guide on Federal Zero Trust Data Security",
+    "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09.",
+    "date": "2024-10-31",
+    "link": "https://www.cio.gov/federal-zero-trust-data-security-guide/",
+    "tags": ["cybersecurity", "data", "collaboration", "guidance"],
+    "type": "Guidance",
+    "focusArea": "Cybersecurity",
+    "councilAcronym": "CISO"
+  },
+  {
+    "id": "cio-news-2023-12-11",
+    "title": "The Top 10 Things Federal Technology Leaders Should Know About OMB’s Draft AI Policy",
+    "description": "In October 2023, President Biden signed Executive Order 14110 on safe, secure, and trustworthy AI. This article outlines key considerations for AI policy and risk management.",
+    "date": "2023-12-11",
+    "link": "https://www.cio.gov/ai-policy/",
+    "tags": ["Artificial-Intelligence", "policy", "AI"],
+    "type": "Policy",
+    "focusArea": "AI Policy",
+    "councilAcronym": "OMB"
+  }
+]

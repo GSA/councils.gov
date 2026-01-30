@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsFilter from '../components/NewsFilter';
+import newsItems from '../data/news.json';
+
+const baseUrl = import.meta.env.BASE_URL;
+const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+---
+
+<BaseLayout title="News & Events - Councils.gov" currentPage="news-events">
+  <main id="main-content">
+    <section
+      class="usa-hero resources-hero"
+      aria-label="News and Events"
+      style={`--hero-waves-url: url(${wavesUrl})`}
+    >
+      <div class="grid-container">
+        <h1>News & Events</h1>
+        <p class="usa-intro font-md margin-top-2 margin-bottom-2">
+          Browse updates, guidance, and announcements from the CIO Council and partner groups.
+        </p>
+      </div>
+    </section>
+    <section class="grid-container usa-section">
+      <NewsFilter client:load items={newsItems} />
+    </section>
+  </main>
+</BaseLayout>
