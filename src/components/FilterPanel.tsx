@@ -21,8 +21,8 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
   const { councils, focusAreas, types, years } = options;
 
   return (
-    <div className="resource-filter-sidebar">
-      <div className="resource-filter-sidebar__header display-flex flex-column">
+    <div className="filter-sidebar">
+      <div className="filter-sidebar__header display-flex flex-column">
         <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
         <button
           type="button"
@@ -44,7 +44,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           </button>
         </h3>
         <div id="filter-councils" className="usa-accordion__content usa-prose">
-          <div className="resource-filter-options">
+          <div className="filter-options">
             {councils.map((council) => {
               const id = `filter-council-${slugify(council)}`;
               return (
@@ -76,7 +76,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           </button>
         </h3>
         <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
-          <div className="resource-filter-options">
+          <div className="filter-options">
             {focusAreas.map((area) => {
               const id = `filter-focus-area-${slugify(area)}`;
               return (
@@ -108,7 +108,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           </button>
         </h3>
         <div id="filter-types" className="usa-accordion__content usa-prose">
-          <div className="resource-filter-options">
+          <div className="filter-options">
             {types.map((type) => {
               const id = `filter-type-${slugify(type)}`;
               return (
@@ -140,7 +140,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           </button>
         </h3>
         <div id="filter-years" className="usa-accordion__content usa-prose">
-          <div className="resource-filter-options">
+          <div className="filter-options">
             {years.map((year) => {
               const id = `filter-year-${slugify(year)}`;
               return (
@@ -185,12 +185,12 @@ export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
           <button
             key={`${filter.type}-${filter.value}`}
             type="button"
-            className="usa-tag resource-filter-pill"
+            className="usa-tag filter-pill"
             aria-label={`Remove ${filter.value}`}
             onClick={() => onRemove(group, filter.value)}
           >
-            <span className="resource-filter-pill__label">{filter.value}</span>
-            <span aria-hidden="true" className="resource-filter-pill__icon">
+            <span className="filter-pill__label">{filter.value}</span>
+            <span aria-hidden="true" className="filter-pill__icon">
               ×
             </span>
           </button>

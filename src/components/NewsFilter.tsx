@@ -117,19 +117,17 @@ export default function NewsFilter({ items }: NewsFilterProps) {
                       {item.title}
                     </a>
                   </h3>
+                  <div className="resource-date margin-top-05">
+                    <time dateTime={item.date}>{formatDate(item.date)}</time>
+                  </div>
                   <p className="usa-collection__description">{item.description}</p>
-                  <ul className="usa-collection__meta" aria-label="More information">
-                    <li className="usa-collection__meta-item">
-                      <time dateTime={item.date}>{formatDate(item.date)}</time>
-                    </li>
-                    {item.councilAcronym && (
-                      <li className="usa-collection__meta-item">{item.councilAcronym}</li>
-                    )}
-                  </ul>
-                  {item.tags.length > 0 && (
-                    <ul className="usa-collection__meta" aria-label="Topics">
+                  {(item.councilAcronym || item.tags.length > 0) && (
+                    <ul className="usa-collection__meta content-tags" aria-label="Topics">
+                      {item.councilAcronym && (
+                        <li className="usa-tag">{item.councilAcronym}</li>
+                      )}
                       {item.tags.map((tag) => (
-                        <li key={tag} className="usa-collection__meta-item usa-tag">
+                        <li key={tag} className="usa-tag">
                           {tag}
                         </li>
                       ))}

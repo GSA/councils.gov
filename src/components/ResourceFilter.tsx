@@ -150,7 +150,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                     </header>
                     <div className="usa-card__body">
                       <p>{resource.description}</p>
-                      <div className="margin-top-2 resource-tags">
+                      <div className="margin-top-2 content-tags">
                         <span className="usa-tag">{resource.councilAcronym}</span>
                         {resource.type && (
                           <span
