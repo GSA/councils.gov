@@ -97,15 +97,17 @@ function parseCSVToResources(csvPath: string): any[] {
   }
 }
 
-// Read and parse both CSV files
+// Read and parse CSV files
 const ciocPath = join(process.cwd(), 'src/data/CIOC_Resources.csv');
 const coffaPath = join(process.cwd(), 'src/data/COFFA_resources.csv');
+const frpcPath = join(process.cwd(), 'src/data/FRPC_Resources.csv');
 
 const ciocResources = parseCSVToResources(ciocPath);
 const coffaResources = parseCSVToResources(coffaPath);
+const frpcResources = parseCSVToResources(frpcPath);
 
-// Combine resources from both files
-const resources = [...ciocResources, ...coffaResources];
+// Combine resources from all files
+const resources = [...ciocResources, ...coffaResources, ...frpcResources];
 
 // Ensure resources is always an array (fallback to empty array if parsing fails)
 if (!Array.isArray(resources) || resources.length === 0) {
