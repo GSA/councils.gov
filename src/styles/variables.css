@@ -3,11 +3,14 @@
   --secondary-color: #005EA2;
   --accent-color: #8B0A03;
   --color-white: #ffffff;
+  --color-white-80: rgba(255, 255, 255, 0.8);
   --color-ink: #1b1b1b;
   --color-gray-5: #f5f5f5;
   --color-gray-10: #f0f0f0;
   --color-gray-60: #565c65;
+  --blue-warm-10v: #D4E5ff; 
   --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --gray-cool-60: #565c65;
   --max-width: 75rem;
   --breakpoint-mobile: 0;
   --breakpoint-tablet: 40rem;

@@ -4,18 +4,21 @@ heroText: The Federal Executive Councils bring together policy makers and practi
 councilsHeading: Federal Executive Councils
 councils:
   - title: Chief Information Officers Council (CIOC)
+    acronym: CIOC
     href: /councils/cioc/about/
     logo: /assets/img/councils/CIOC.png
     logoAlt: CIOC Logo
     logoClass: council-logo
     description: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
   - title: Council on Federal Financial Assistance
+    acronym: COFFA
     href: /councils/coffa/about/
     logo: /assets/img/councils/COFFA.png
     logoAlt: COFFA Logo
     logoClass: coffa-logo-fullwidth
     description: The COFFA provides OMB with strategic direction, policy recommendations, and priority-setting advice by serving as a unified partnership of all federal financial assistance-making agencies on policy, management, and technology matters.
   - title: Federal Real Property Council (FRPC)
+    acronym: FRPC
     href: /councils/frpc/about/
     logo: /assets/img/councils/FRPC_homepage.png
     logoAlt: FRPC Logo

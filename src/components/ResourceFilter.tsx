@@ -1,6 +1,21 @@
-import { useState, useMemo, type CSSProperties } from 'react';
+import {
+  useState,
+  useMemo,
+  useEffect,
+  useRef,
+  type CSSProperties,
+} from 'react';
+import { FilterPanel, FilterPills } from './FilterPanel';
+import {
+  buildActiveFilters,
+  buildFilterOptions,
+  createEmptyFilters,
+  filterItems,
+  type Filters,
+  type FilterableItem,
+} from './filters';
 
-interface Resource {
+interface Resource extends FilterableItem {
   id: string;
   title: string;
   description: string;
@@ -27,107 +42,44 @@ const typeColors: Record<string, string> = {
 
 export default function ResourceFilter({ resources }: ResourceFilterProps) {
   // Ensure resources is always an array
-  const safeResources = Array.isArray(resources) ? resources : [];
+  const safeResources: Resource[] = Array.isArray(resources) ? resources : [];
   
-  const [selectedCouncil, setSelectedCouncil] = useState<string>('all');
-  const [selectedFocusArea, setSelectedFocusArea] = useState<string>('all');
-  const [selectedType, setSelectedType] = useState<string>('all');
-  const [selectedYear, setSelectedYear] = useState<string>('all');
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(createEmptyFilters());
+  const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const hasMountedRef = useRef(false);
 
-  const resetAllFilters = () => {
-    setSelectedCouncil('all');
-    setSelectedFocusArea('all');
-    setSelectedType('all');
-    setSelectedYear('all');
+  const toggleSelection = (group: keyof Filters, value: string) => {
+    setSelectedFilters((prev) => {
+      const current = prev[group];
+      const next = current.includes(value)
+        ? current.filter((item) => item !== value)
+        : [...current, value];
+      return { ...prev, [group]: next };
+    });
   };
 
-  const isAnyFilterSelected =
-    selectedCouncil !== 'all' ||
-    selectedFocusArea !== 'all' ||
-    selectedType !== 'all' ||
-    selectedYear !== 'all';
+  const removeSelection = (group: keyof Filters, value: string) => {
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [group]: prev[group].filter((item) => item !== value),
+    }));
+  };
 
-  // Filter resources based on selected filters (for dynamic filter options)
-  const filteredForOptions = useMemo(() => {
-    return safeResources.filter(resource => {
-      const councilMatch = selectedCouncil === 'all' || resource.councilAcronym === selectedCouncil;
-      const typeMatch = selectedType === 'all' || resource.type === selectedType;
-      // Extract year from date string and compare as strings (strict equality with trimming)
-      const resourceYear = resource.date ? resource.date.split('-')[0].trim() : '';
-      const selectedYearTrimmed = String(selectedYear).trim();
-      const yearMatch = selectedYearTrimmed === 'all' || resourceYear === selectedYearTrimmed;
-      const focusAreaMatch = selectedFocusArea === 'all' || resource.focusArea === selectedFocusArea;
-      return councilMatch && typeMatch && yearMatch && focusAreaMatch;
-    });
-  }, [safeResources, selectedCouncil, selectedType, selectedYear, selectedFocusArea]);
+  const resetFilters = () => {
+    setSelectedFilters(createEmptyFilters());
+  };
 
-  // Get unique values for filters (dynamic based on other filters)
-  // First, filter by council, type, and year to get intermediate results
-  const intermediateFiltered = useMemo(() => {
-    return safeResources.filter(resource => {
-      const councilMatch = selectedCouncil === 'all' || resource.councilAcronym === selectedCouncil;
-      const typeMatch = selectedType === 'all' || resource.type === selectedType;
-      const resourceYear = resource.date ? resource.date.split('-')[0].trim() : '';
-      const selectedYearTrimmed = String(selectedYear).trim();
-      const yearMatch = selectedYearTrimmed === 'all' || resourceYear === selectedYearTrimmed;
-      return councilMatch && typeMatch && yearMatch;
-    });
-  }, [safeResources, selectedCouncil, selectedType, selectedYear]);
+  const filterOptions = useMemo(
+    () => buildFilterOptions(safeResources, selectedFilters),
+    [safeResources, selectedFilters]
+  );
 
-  // Then filter by focus area to get final results
-  const councils = useMemo(() => {
-    // Show councils that exist in resources matching other filters
-    const filtered = safeResources.filter(resource => {
-      const typeMatch = selectedType === 'all' || resource.type === selectedType;
-      const resourceYear = resource.date ? resource.date.split('-')[0].trim() : '';
-      const selectedYearTrimmed = String(selectedYear).trim();
-      const yearMatch = selectedYearTrimmed === 'all' || resourceYear === selectedYearTrimmed;
-      const focusAreaMatch = selectedFocusArea === 'all' || resource.focusArea === selectedFocusArea;
-      return typeMatch && yearMatch && focusAreaMatch;
-    });
-    const uniqueCouncils = Array.from(new Set(filtered.map(r => r.councilAcronym)));
-    return uniqueCouncils.sort();
-  }, [safeResources, selectedType, selectedYear, selectedFocusArea]);
+  const filteredResources = useMemo(
+    () => filterItems(safeResources, selectedFilters),
+    [safeResources, selectedFilters]
+  );
 
-  const focusAreas = useMemo(() => {
-    const uniqueAreas = Array.from(new Set(intermediateFiltered.map(r => r.focusArea)));
-    return uniqueAreas.sort();
-  }, [intermediateFiltered]);
-
-  const types = useMemo(() => {
-    // Show types that exist in resources matching other filters
-    const filtered = safeResources.filter(resource => {
-      const councilMatch = selectedCouncil === 'all' || resource.councilAcronym === selectedCouncil;
-      const resourceYear = resource.date ? resource.date.split('-')[0].trim() : '';
-      const selectedYearTrimmed = String(selectedYear).trim();
-      const yearMatch = selectedYearTrimmed === 'all' || resourceYear === selectedYearTrimmed;
-      const focusAreaMatch = selectedFocusArea === 'all' || resource.focusArea === selectedFocusArea;
-      return councilMatch && yearMatch && focusAreaMatch;
-    });
-    const uniqueTypes = Array.from(new Set(filtered.map(r => r.type)));
-    return uniqueTypes.sort();
-  }, [safeResources, selectedCouncil, selectedYear, selectedFocusArea]);
-
-  const years = useMemo(() => {
-    // Show years that exist in resources matching other filters
-    const filtered = safeResources.filter(resource => {
-      const councilMatch = selectedCouncil === 'all' || resource.councilAcronym === selectedCouncil;
-      const typeMatch = selectedType === 'all' || resource.type === selectedType;
-      const focusAreaMatch = selectedFocusArea === 'all' || resource.focusArea === selectedFocusArea;
-      return councilMatch && typeMatch && focusAreaMatch;
-    });
-    const uniqueYears = Array.from(
-      new Set(
-        filtered
-          .map((resource) => (resource.date ? resource.date.split('-')[0] : null))
-          .filter((year): year is string => Boolean(year) && year !== '1900')
-      )
-    );
-    return uniqueYears.sort().reverse();
-  }, [safeResources, selectedCouncil, selectedType, selectedFocusArea]);
-
-  // Filter resources based on all selected filters (already includes all filters)
-  const filteredResources = filteredForOptions;
+  const activeFilters = useMemo(() => buildActiveFilters(selectedFilters), [selectedFilters]);
 
   const formatDate = (dateString: string) => {
     // Extract year from date string (format: YYYY-MM-DD)
@@ -139,150 +91,96 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
     return dateString;
   };
 
-  return (
-    <div>
-      <div className="grid-row grid-gap margin-bottom-2">
-        <div className="tablet:grid-col-6 desktop:grid-col-3">
-          <label htmlFor="council-filter" className="usa-label">
-            Filter by Council Acronym
-          </label>
-          <select
-            id="council-filter"
-            className="usa-select"
-            value={selectedCouncil}
-            onChange={(e) => {
-              setSelectedCouncil(e.target.value);
-            }}
-          >
-            <option value="all">All Councils</option>
-            {councils.map(council => (
-              <option key={council} value={council}>{council}</option>
-            ))}
-          </select>
-        </div>
-        <div className="tablet:grid-col-6 desktop:grid-col-3">
-          <label htmlFor="focus-area-filter" className="usa-label">
-            Filter by Focus Area
-          </label>
-          <select
-            id="focus-area-filter"
-            className="usa-select"
-            value={selectedFocusArea}
-            onChange={(e) => setSelectedFocusArea(e.target.value)}
-          >
-            <option value="all">All Focus Areas</option>
-            {focusAreas.map(area => (
-              <option key={area} value={area}>{area}</option>
-            ))}
-          </select>
-        </div>
-        <div className="tablet:grid-col-6 desktop:grid-col-3">
-          <label htmlFor="type-filter" className="usa-label">
-            Filter by Type
-          </label>
-          <select
-            id="type-filter"
-            className="usa-select"
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-          >
-            <option value="all">All Types</option>
-            {types.map(type => (
-              <option key={type} value={type}>{type}</option>
-            ))}
-          </select>
-        </div>
-        <div className="tablet:grid-col-6 desktop:grid-col-3">
-          <label htmlFor="year-filter" className="usa-label">
-            Filter by Year
-          </label>
-          <select
-            id="year-filter"
-            className="usa-select"
-            value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
-          >
-            <option value="all">All Years</option>
-            {years.map(year => (
-              <option key={year} value={year}>{year}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="grid-row margin-bottom-4 display-flex flex-row tablet:flex-column flex-justify flex-align-end">
-        <button
-          type="button"
-          className="usa-button usa-button--secondary margin-bottom-1 tablet:margin-bottom-0"
-          onClick={resetAllFilters}
-          disabled={!isAnyFilterSelected}
-        >
-          Clear all filters
-        </button>
-        <p className="text-bold margin-0">
-          {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
-        </p>
-      </div>
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
 
-      <div className="grid-row grid-gap">
-        {filteredResources.length > 0 ? (
-          filteredResources.map(resource => (
-            <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
-              <a 
-                href={resource.link} 
-                className="usa-card display-block text-no-underline resource-card-link"
-                style={{ 
-                  borderTop: `8px solid ${typeColors[resource.type] || typeColors.DEFAULT}` 
-                }}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <div 
-                  className="usa-card__container"
+    if (resultsTopRef.current) {
+      const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY > targetTop) {
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      }
+    }
+  }, [selectedFilters]);
+
+  return (
+    <div className="grid-row grid-gap">
+      <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+        <FilterPanel
+          options={filterOptions}
+          selected={selectedFilters}
+          onToggle={toggleSelection}
+          onReset={resetFilters}
+        />
+      </aside>
+
+      <div className="tablet:grid-col-9" ref={resultsTopRef}>
+        <div className="margin-bottom-1">
+          <p className="font-sans-md margin-0 text-bold">
+            {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
+          </p>
+        </div>
+
+        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
+
+        <div className="grid-row grid-gap">
+          {filteredResources.length > 0 ? (
+            filteredResources.map((resource) => (
+              <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
+                <a
+                  href={resource.link}
+                  className="usa-card display-block text-no-underline resource-card-link"
+                  style={{
+                    borderTop: `8px solid ${typeColors[resource.type] || typeColors.DEFAULT}`,
+                  }}
+                  target="_blank"
+                  rel="noreferrer noopener"
                 >
-                  <header className="usa-card__header">
-                    <h3 className="usa-card__heading">
-                      {resource.title}
-                      <span className="usa-sr-only"> (opens in a new tab)</span>
-                    </h3>
-                    <div className="resource-date margin-top-1">
-                      {formatDate(resource.date)}
-                    </div>
-                  </header>
-                  <div className="usa-card__body">
-                    <p>{resource.description}</p>
-                    <div className="margin-top-2 resource-tags">
-                      <span className="usa-tag">{resource.councilAcronym}</span>
-                      {resource.type && (
-                        <span
-                          className="usa-tag resource-tag--type"
-                          style={
-                            {
-                              ['--resource-tag-color' as string]:
-                                typeColors[resource.type] || typeColors.DEFAULT,
-                              ['--resource-tag-text' as string]:
-                                resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
-                            } as CSSProperties
-                          }
-                        >
-                          {resource.type}
-                        </span>
-                      )}
-                      {resource.focusArea && (
-                        <span className="usa-tag">{resource.focusArea}</span>
-                      )}
+                  <div className="usa-card__container">
+                    <header className="usa-card__header">
+                      <h3 className="usa-card__heading">
+                        {resource.title}
+                        <span className="usa-sr-only"> (opens in a new tab)</span>
+                      </h3>
+                      <div className="resource-date margin-top-1">
+                        {formatDate(resource.date)}
+                      </div>
+                    </header>
+                    <div className="usa-card__body">
+                      <p>{resource.description}</p>
+                      <div className="margin-top-2 content-tags">
+                        <span className="usa-tag">{resource.councilAcronym}</span>
+                        {resource.type && (
+                          <span
+                            className="usa-tag resource-tag--type"
+                            style={
+                              {
+                                ['--resource-tag-color' as string]:
+                                  typeColors[resource.type] || typeColors.DEFAULT,
+                                ['--resource-tag-text' as string]:
+                                  resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
+                              } as CSSProperties
+                            }
+                          >
+                            {resource.type}
+                          </span>
+                        )}
+                        {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
+            ))
+          ) : (
+            <div className="tablet:grid-col-12">
+              <p className="usa-intro">No resources match the selected filters.</p>
             </div>
-          ))
-        ) : (
-          <div className="tablet:grid-col-12">
-            <p className="usa-intro">No resources match the selected filters.</p>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-
     </div>
   );
 }
