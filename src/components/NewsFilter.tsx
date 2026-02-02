@@ -100,7 +100,7 @@ export default function NewsFilter({ items }: NewsFilterProps) {
 
       <div className="tablet:grid-col-9" ref={resultsTopRef}>
         <div className="margin-bottom-1">
-          <p className="font-sans-lg margin-0 text-bold">
+          <p className="font-sans-md margin-0 text-bold">
             {filteredItems.length} {filteredItems.length === 1 ? 'Item' : 'Items'}
           </p>
         </div>
