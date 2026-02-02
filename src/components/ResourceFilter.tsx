@@ -345,7 +345,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
 
       <div className="tablet:grid-col-9" ref={resultsTopRef}>
         <div className="margin-bottom-1">
-          <p className="font-sans-lg margin-0 text-bold">
+          <p className="font-sans-md margin-0 text-bold">
             {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
           </p>
         </div>
