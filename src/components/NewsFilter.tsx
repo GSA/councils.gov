@@ -1,4 +1,3 @@
-// gitleaks:allow
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
 import {
