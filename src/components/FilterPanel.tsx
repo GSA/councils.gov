@@ -24,13 +24,18 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
     <div className="filter-sidebar">
       <div className="filter-sidebar__header display-flex flex-column">
         <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
-        <button
-          type="button"
-          className="usa-button--unstyled usa-link margin-bottom-2"
-          onClick={onReset}
-        >
-          Reset filters
-        </button>
+        {(selected.councils.length > 0 ||
+          selected.focusAreas.length > 0 ||
+          selected.types.length > 0 ||
+          selected.years.length > 0) && (
+          <button
+            type="button"
+            className="usa-button--unstyled usa-link margin-bottom-2"
+            onClick={onReset}
+          >
+            Reset filters
+          </button>
+        )}
       </div>
       <div className="usa-accordion" aria-multiselectable="true" data-allow-multiple="true">
         <h3 className="usa-accordion__heading">

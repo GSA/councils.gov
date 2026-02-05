@@ -19,6 +19,7 @@ const {
   councilsHeading?: string;
   councils?: Array<{
     title: string;
+    acronym?: string;
     href: string;
     logo: string;
     logoAlt?: string;
@@ -33,7 +34,7 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
 <BaseLayout title={title} currentPage="home">
 
   <main id="main-content">
-    <section class="usa-hero" aria-label="Introduction">
+    <section class="usa-hero" aria-label="Introduction" style={`--hero-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
         <div class="usa-hero__callout">
           <h1 class="usa-sr-only">Federal Executive Councils</h1>
@@ -60,11 +61,14 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
                   />
                 </div>
               </div>
-              <header class="usa-card__header">
+              <header class="usa-card__header text-center padding-top-0">
                 <h3 class="usa-card__heading">{council.title}</h3>
               </header>
-              <div class="usa-card__body">
+              {/* <div class="usa-card__body">
                 <p>{council.description}</p>
+              </div> */}
+              <div class="usa-card__footer text-center margin-top-2 margin-bottom-1">
+                <span class="usa-button">About {council.acronym}</span>
               </div>
             </div>
           </a>

@@ -39,10 +39,16 @@ const baseUrl = import.meta.env.BASE_URL;
             <li class="usa-nav__submenu-item">
               <a href={`${baseUrl}councils/coffa/about/`}><span>COFFA</span></a>
             </li>
+            <li class="usa-nav__submenu-item">
+              <a href={`${baseUrl}councils/frpc/about/`}><span>FRPC</span></a>
+            </li>
           </ul>
         </li>
         <li class="usa-nav__primary-item">
-          <a class={`usa-nav__link ${currentPage === "news-events" ? "usa-current" : ""}`} href={`${baseUrl}news-events/`}>
+          <a
+            class={`usa-nav__link ${currentPage === "news-events" ? "usa-current" : ""}`}
+            href={`${baseUrl}news-events/`}
+          >
             <span>News & Events</span>
           </a>
         </li>

@@ -1,32 +1,27 @@
-$breakpoint-mobile: 0;
-$breakpoint-tablet: 40rem;
-$breakpoint-desktop: 64rem;
-$breakpoint-desktop-lg: 75rem;
-
 /* Base typography */
 *,
 *::before,
 *::after {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 p {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
 }
 
 /* UI controls */
@@ -63,6 +58,7 @@ textarea {
 
 .usa-button {
   font-size: 1rem;
+  background-color: var(--primary-color);
 }
 
 h1 { font-size: 2.5rem; }
@@ -80,11 +76,14 @@ h6 { font-size: 0.875rem; }
 }
 
 /* Header + navigation */
-.usa-logo__text,
+.usa-logo__text {
+  font-family: var(--font-serif);
+}
+
 .usa-nav__link,
 .usa-nav__submenu-item a,
 .usa-menu-btn {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-sans);
 }
 
 .usa-navbar {
@@ -92,15 +91,18 @@ h6 { font-size: 0.875rem; }
 }
 
 .usa-header--basic .usa-logo__text,
-.usa-header--basic .usa-logo__text a,
+.usa-header--basic .usa-logo__text a {
+  font-family: var(--font-serif);
+}
+
 .usa-header--basic .usa-nav__link,
 .usa-header--basic .usa-nav__submenu-item a,
 .usa-header--basic .usa-menu-btn {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-sans);
 }
 
 .usa-hero__text {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
 }
 
 /* List resets */
@@ -120,7 +122,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   box-sizing: border-box;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var(--breakpoint-tablet)) {
   .grid-container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -147,10 +149,12 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 /* Header layout */
 .usa-header--basic {
   max-width: var(--max-width);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  box-sizing: border-box;
   display: flex;
 }
 
@@ -161,7 +165,11 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 }
 
 .usa-header--basic .usa-nav {
-  padding-bottom: 3px;
+  padding-bottom: 4px;
+}
+
+.usa-header--basic .usa-nav__primary-item > .usa-current::after, .usa-header--basic .usa-nav__link:hover::after {
+  background-color: var(--accent-color);
 }
 
 .usa-nav__link,
@@ -170,6 +178,14 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 .usa-nav__submenu-item a,
 .usa-nav__submenu-item span {
   font-size: 1rem;
+  font-weight: 400;
+}
+
+.usa-nav__primary {
+  button[aria-expanded=true],
+  .usa-nav__submenu {
+    background-color: var(--accent-color);
+  }
 }
 
 .usa-header--basic .usa-logo {
@@ -186,7 +202,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   display: inline-block;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var(--breakpoint-tablet)) {
   .usa-header--basic {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -212,9 +228,16 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 .usa-sidenav__item,
 .usa-sidenav__item a {
   border-bottom: none;
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
-  font-weight: 600; 
+  font-family: var(--font-sans);
+  font-weight: 400; 
   font-size: 1.125rem;
+}
+
+.usa-sidenav .usa-current {
+  color: 3px solid var(--primary-color);
+  &:after {
+    background-color: var(--accent-color);
+  }
 }
 
 /* Cards */
@@ -231,12 +254,12 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 }
 
 .usa-card.display-block:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
 
 .usa-card.display-block:hover .usa-card__heading {
-  color: #112849;
+  color: var(--primary-color);
 }
 
 .usa-card.display-block .usa-nav__primary-item {
@@ -247,12 +270,15 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 .members-grid {
   .usa-card {
     border-bottom: 8px solid var(--primary-color);
+    .usa-card__img {
+      background: transparent;
+    }
   }
   .usa-card__container {   
     border-radius: 0;
-    background-color: #F5F5F5;
+    background-color: var(--color-gray-5);
     .usa-card__media {
-      background-color: #F5F5F5;
+      background-color: var(--color-gray-5);
       height: auto;
       justify-content: flex-start;
       padding: 2rem 2rem 0.5rem 2rem; 
@@ -294,18 +320,22 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 }
 
 .usa-nav__primary-item span  {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-sans);
 }
 
 /* Banner layout */
 .usa-banner__inner {
   max-width: var(--max-width);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
+  padding: 0 1rem; 
 }
 
 .usa-banner__content {
   max-width: var(--max-width);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -313,7 +343,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   box-sizing: border-box;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var(--breakpoint-tablet)) {
   .usa-banner__content {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -336,7 +366,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   box-sizing: border-box;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var(--breakpoint-tablet)) {
   .usa-identifier__container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -362,11 +392,11 @@ footer.usa-footer .footer-grid-container,
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem; 
   box-sizing: border-box;
+  padding: 1rem; 
 }
 
-@media (min-width: $breakpoint-tablet) {
+@media (min-width: var(--breakpoint-tablet)) {
   footer.usa-footer .footer-grid-container,
   .usa-footer .footer-grid-container {
     padding-left: 2rem;
@@ -383,8 +413,8 @@ footer.usa-footer .footer-grid-container,
 
 .footer-councils-heading {
   margin: 1.5rem 0 1rem;
-  color: #ffffff;
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  color: var(--color-white);
+  font-family: var(--font-serif);
 }
 
 .footer-councils-grid {
@@ -424,20 +454,19 @@ footer.usa-footer .footer-grid-container,
 
 .footer-council-card {
   display: block;
-  background-color: white;
-  border-bottom: 5px solid #8b0a03;
+  background-color: var(--color-white);
+  border-bottom: 5px solid var(--accent-color);
   padding: 1.5rem;
-  text-decoration: none;
-  color: #1b1b1b;
+  color: var(--color-ink);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
   height: 100%;
 }
 
 .footer-council-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
   text-decoration: none;
-  color: #1b1b1b;
+  color: var(--color-ink);
 }
 
 .footer-council-card__content {
@@ -466,19 +495,19 @@ footer.usa-footer .footer-grid-container,
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.4;
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
 }
 
 .footer-quick-link {
-  color: #f0f0f0;
+  color: var(--color-gray-10);
   text-decoration: underline;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 500;
   line-height: 1.4;
 }
 
 .footer-quick-link:hover {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: underline;
 }
 
@@ -497,7 +526,7 @@ footer.usa-footer .footer-grid-container,
 /* Skip link */
 .usa-skipnav {
   background: transparent;
-  color: #1b1b1b;
+  color: var(--color-ink);
   left: 0;
   padding: 1rem 1.5rem;
   position: absolute;
@@ -507,7 +536,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-skipnav:focus {
-  background: #f0f0f0;
+  background: var(--color-gray-10);
   left: 0;
   position: absolute;
   top: 0;
@@ -529,10 +558,6 @@ footer.usa-footer .footer-grid-container,
   max-height: 200px;
 }
 
-.council-logo-large,
-.cioc-logo-about {
-  max-width: 200px;
-}
 
 .cioc-logo-about {
   width: 200px;
@@ -548,7 +573,7 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
+  background-color: var(--color-white);
   padding: 1.5rem;
 }
 
@@ -558,7 +583,7 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
+  background-color: #FFF; 
 }
 
 .usa-card__img img {
@@ -573,8 +598,35 @@ footer.usa-footer .footer-grid-container,
   gap: 2rem;
 
   a {
-    border-bottom: 8px solid var(--secondary-color);
+    border-bottom: 8px solid transparent;
   }
+
+  a:hover,
+  a:focus-visible {
+    border-bottom-color: var(--secondary-color);
+  }
+
+  .usa-card__heading {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .usa-card__footer {
+    .usa-button {
+      background-color: var(--blue-warm-10v);
+      color: var(--color-ink);
+      border: none;
+      padding: 1rem 1.5rem; 
+      font-weight: 500;
+    }
+  }
+}
+
+.councils-grid a:hover .usa-button,
+.councils-grid a:focus-visible .usa-button {
+  background-color: var(--blue-warm-20v);
 }
 
 @media (min-width: 40rem) {
@@ -590,7 +642,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .councils-grid .usa-card__container {
-  background-color: #F5F5F5;
+  background-color: var(--color-white);
   border-radius: 0;
 }
 
@@ -630,10 +682,12 @@ footer.usa-footer .footer-grid-container,
 
 .council-breadcrumb .usa-breadcrumb__list {
   max-width: var(--max-width);
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -649,7 +703,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .council-breadcrumb .usa-breadcrumb__link:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-white-80);
 }
 
 .council-hero {
@@ -666,11 +720,12 @@ footer.usa-footer .footer-grid-container,
   align-items: center;
   justify-content: center;
   background-color: white;
-  padding: 1.5rem;
+  padding: 0.5rem;
+  min-height: 250px;
 }
 
 .council-hero__logo {
-  max-height: 200px;
+  max-height: 250px;
   width: auto;
   height: auto;
   display: block;
@@ -690,7 +745,7 @@ footer.usa-footer .footer-grid-container,
   font-weight: 400;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--font-serif);
 }
 
 .council-hero__title {
@@ -719,8 +774,8 @@ footer.usa-footer .footer-grid-container,
 
 .council-logo-large,
 .cioc-logo-about {
-  max-height: 250px;
-  width: auto;
+  height: 250px;
+  width: 100%;
   height: auto;
   display: block;
   margin-left: auto;
@@ -747,7 +802,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .resource-card-link:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-hover);
 }
 
 .resource-card-link .usa-card__container {
@@ -759,7 +814,7 @@ footer.usa-footer .footer-grid-container,
 
 .resource-date {
   font-size: 0.875rem;
-  color: var(--gray-cool-60);
+  color: var(--color-gray-60);
   font-weight: normal;
   display: block;
   margin-top: 0.5rem;
@@ -776,15 +831,15 @@ footer.usa-footer .footer-grid-container,
 
 .resources-hero {
   background: var(--primary-color);
-  color: #ffffff;
-  padding: 2rem 0 0;
+  color: var(--color-white);
+  padding: 4rem 0 0;
   border-bottom: 6px solid var(--accent-color);
   display: flex;
   align-items: flex-end;
 }
 
 .resources-hero h1 {
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0;
   font-weight: 400;
 }
@@ -801,18 +856,22 @@ footer.usa-footer .footer-grid-container,
   border-radius: 16px;
   display: flex; 
   align-items: center;
+  color: var(--color-white);
+  background-color: var(--color-gray-60);
   font-size: 0.75rem;
-  color: #FFFFFF; 
-  background-color: var(--gray-cool-60);
   padding: 1px 0.5rem;
   flex-shrink: 0;
   margin-right: 0;
 }
 
+.resource-tags .resource-tag--type {
+  font-family: var(--font-sans);
+}
+
 .content-tags .resource-tag--type {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   border: 1px solid var(--resource-tag-color);
-  color: var(--resource-tag-text, #ffffff);
+  color: var(--resource-tag-text, var(--color-white));
   background-color: var(--resource-tag-color);
 }
 
@@ -852,7 +911,7 @@ footer.usa-footer .footer-grid-container,
 .filter-sidebar {
   width: 100%;
   h2 {
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
   }
 }
 
@@ -863,7 +922,7 @@ footer.usa-footer .footer-grid-container,
   }
   .usa-accordion__button {  
     background-color: var(--secondary-color);
-    color: #ffffff;
+    color: var(--color-white);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9 4h2v12H9zM4 9h12v2H4z' fill='%23fff'/%3E%3C/svg%3E");
   }
   .usa-accordion__button[aria-expanded="true"] {
@@ -875,7 +934,7 @@ footer.usa-footer .footer-grid-container,
 .filter-sidebar .usa-accordion__button,
 .filter-sidebar .usa-accordion__content,
 .filter-sidebar .usa-checkbox__label {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* News & Events */
@@ -886,7 +945,7 @@ footer.usa-footer .footer-grid-container,
     }
   }
   .usa-collection__heading {
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+    font-family: var(--font-serif);
     font-size: 1.5rem;
   }
 }
@@ -926,14 +985,14 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-hero__heading {
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .usa-hero__text {
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 40px;
   font-weight: 400;
   line-height: 1.5;
