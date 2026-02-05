@@ -254,7 +254,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 }
 
 .usa-card.display-block:hover {
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
 
@@ -463,7 +463,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .footer-council-card:hover {
-  box-shadow: var(--shadow-footer-card);
+  box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
   text-decoration: none;
   color: var(--color-ink);
