@@ -2,10 +2,10 @@
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<div class="usa-identifier">
+<div id="ogp-identifier" class="usa-identifier">
   <section
     class="usa-identifier__section usa-identifier__section--masthead"
-    aria-label="Agency identifier"
+    aria-label="Agency identifier,"
   >
     <div class="usa-identifier__container">
       <div class="usa-identifier__logos">
@@ -20,50 +20,65 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="usa-identifier__identity" aria-label="Agency description">
         <p class="usa-identifier__identity-domain">Councils.gov</p>
         <p class="usa-identifier__identity-disclaimer">
-          An official website of the <a href="https://www.usa.gov/">United States government</a>
+          An Official website of the Federal Government
         </p>
       </div>
     </div>
   </section>
   <nav
     class="usa-identifier__section usa-identifier__section--required-links"
-    aria-label="Important links"
+    aria-label="Important links,,"
   >
     <div class="usa-identifier__container">
       <ul class="usa-identifier__required-links-list">
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/about-us" class="usa-identifier__required-link usa-link">
-            About USAGov
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a href="https://www.whitehouse.gov/omb/" class="usa-identifier__required-link usa-link usa-link--external">
+            About OMB
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/accessibility" class="usa-identifier__required-link usa-link">
-            Accessibility support
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a
+            href="https://www.gsa.gov/website-information/accessibility-aids"
+            class="usa-identifier__required-link usa-link usa-link--external"
+          >
+            Accessibility Support
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/foia" class="usa-identifier__required-link usa-link">
-            FOIA requests
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a
+            href="https://www.gsa.gov/reference/freedom-of-information-act-foia"
+            class="usa-identifier__required-link usa-link usa-link--external"
+          >
+            FOIA Requests
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/no-fear-act" class="usa-identifier__required-link usa-link">
-            No FEAR Act data
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a
+            href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
+            class="usa-identifier__required-link usa-link usa-link--external"
+          >
+            No FEAR Act Data
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/office-of-inspector-general" class="usa-identifier__required-link usa-link">
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a href="https://www.gsaig.gov/" class="usa-identifier__required-link usa-link usa-link--external">
             Office of the Inspector General
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/performance" class="usa-identifier__required-link usa-link">
-            Performance reports
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a
+            href="https://www.gsa.gov/reference/reports/budget-performance"
+            class="usa-identifier__required-link usa-link usa-link--external"
+          >
+            Performance Reports
           </a>
         </li>
-        <li class="usa-identifier__required-links-item">
-          <a href="https://www.usa.gov/privacy-policy" class="usa-identifier__required-link usa-link">
-            Privacy policy
+        <li class="usa-identifier__required-links-item usa-link--external-white">
+          <a
+            href="https://www.gsa.gov/website-information/website-policies"
+            class="usa-identifier__required-link usa-link usa-link--external"
+          >
+            Privacy Policy
           </a>
         </li>
       </ul>
@@ -71,13 +86,15 @@ const baseUrl = import.meta.env.BASE_URL;
   </nav>
   <section
     class="usa-identifier__section usa-identifier__section--usagov"
-    aria-label="U.S. government information and services"
+    aria-label="U.S. government information and services,,"
   >
     <div class="usa-identifier__container">
       <div class="usa-identifier__usagov-description">
         Looking for U.S. government information and services?
       </div>
-      <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+      <a class="usa-link--external-white" href="https://www.usa.gov/">
+        Visit USA.gov
+      </a>
     </div>
   </section>
 </div>

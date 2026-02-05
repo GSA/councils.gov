@@ -33,7 +33,7 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
 
 <BaseLayout title={title} currentPage="home">
 
-  <main id="main-content">
+  <main id="main-content" class="home-page">
     <section class="usa-hero" aria-label="Introduction" style={`--hero-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
         <div class="usa-hero__callout">
@@ -47,10 +47,23 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
 
     <section class="usa-section councils-section" style={`--councils-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
-        <h2>{councilsHeading}</h2>
-        <div class="councils-grid">
+        <div class="grid-row grid-gap padding-bottom-2">
+          <div class="tablet:grid-col-12">
+            <div class="grid-row grid-gap">
+              <div class="tablet:grid-col-3">
+                <h2 class="margin-top-0">Leveraging federal expertise to improve government function.</h2>
+              </div>
+              <div class="tablet:grid-col-9">
+                <p class="margin-top-0">The federal executive councils are comprised of senior level representatives from departments and agencies that span the breadth of the federal government.</p>
+                <p class="margin-top-0">By leveraging the collective expertise of their members, the councils strengthen core functional areas within the government and implement administrative priorities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="councils-grid padding-top-4">
         {councilsList.map((council) => (
-          <a href={withBase(council.href)} class="usa-card display-block text-no-underline">
+          <a href={withBase(council.href)} class="usa-card display-block text-no-underline margin-0">
             <div class="usa-card__container">
               <div class="usa-card__media">
                 <div class="usa-card__img">
@@ -61,8 +74,10 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
                   />
                 </div>
               </div>
-              <header class="usa-card__header text-center padding-top-0">
-                <h3 class="usa-card__heading">{council.title}</h3>
+              <header class="usa-card__header text-center padding-top-1">
+                <h3 class="usa-card__heading">
+                  {council.acronym ? `${council.title} (${council.acronym})` : council.title}
+                </h3>
               </header>
               {/* <div class="usa-card__body">
                 <p>{council.description}</p>
