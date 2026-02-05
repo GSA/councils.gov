@@ -58,6 +58,7 @@ textarea {
 
 .usa-button {
   font-size: 1rem;
+  background-color: var(--primary-color);
 }
 
 h1 { font-size: 2.5rem; }
@@ -164,7 +165,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
 }
 
 .usa-header--basic .usa-nav {
-  padding-bottom: 3px;
+  padding-bottom: 4px;
 }
 
 .usa-header--basic .usa-nav__primary-item > .usa-current::after, .usa-header--basic .usa-nav__link:hover::after {
@@ -230,6 +231,13 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   font-family: var(--font-sans);
   font-weight: 400; 
   font-size: 1.125rem;
+}
+
+.usa-sidenav .usa-current {
+  color: 3px solid var(--primary-color);
+  &:after {
+    background-color: var(--accent-color);
+  }
 }
 
 /* Cards */
@@ -590,7 +598,12 @@ footer.usa-footer .footer-grid-container,
   gap: 2rem;
 
   a {
-    border-bottom: 8px solid var(--secondary-color);
+    border-bottom: 8px solid transparent;
+  }
+
+  a:hover,
+  a:focus-visible {
+    border-bottom-color: var(--secondary-color);
   }
 
   .usa-card__heading {
@@ -609,6 +622,11 @@ footer.usa-footer .footer-grid-container,
       font-weight: 500;
     }
   }
+}
+
+.councils-grid a:hover .usa-button,
+.councils-grid a:focus-visible .usa-button {
+  background-color: var(--blue-warm-20v);
 }
 
 @media (min-width: 40rem) {

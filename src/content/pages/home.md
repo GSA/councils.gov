@@ -10,7 +10,7 @@ councils:
     logoAlt: CIOC Logo
     logoClass: council-logo
     description: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
-  - title: Council on Federal Financial Assistance
+  - title: Council on Federal Financial Assistance (COFFA)
     acronym: COFFA
     href: /councils/coffa/about/
     logo: /assets/img/councils/COFFA.png

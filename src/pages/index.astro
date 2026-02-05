@@ -61,14 +61,14 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
                   />
                 </div>
               </div>
-              <header class="usa-card__header text-center margin-y-2">
+              <header class="usa-card__header text-center padding-top-0">
                 <h3 class="usa-card__heading">{council.title}</h3>
               </header>
               {/* <div class="usa-card__body">
                 <p>{council.description}</p>
               </div> */}
-              <div class="usa-card__footer text-center margin-y-2">
-                <button class="usa-button">About {council.acronym}</button>
+              <div class="usa-card__footer text-center margin-top-2 margin-bottom-1">
+                <span class="usa-button">About {council.acronym}</span>
               </div>
             </div>
           </a>
