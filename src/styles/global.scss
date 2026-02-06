@@ -76,7 +76,7 @@ h3 {
   font-size: 1.5rem;
 }
 h4 {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 h5 {
   font-size: 0.9375rem;
@@ -741,7 +741,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .council-breadcrumb .usa-breadcrumb__link:hover {
-  color: var(--color-white-80);
+  color: transparent;
 }
 
 .council-hero {
@@ -956,7 +956,7 @@ footer.usa-footer .footer-grid-container,
 .filter-sidebar .usa-accordion {
   width: 100%;
   .usa-accordion__content {
-    overflow: visible;
+    overflow: auto
   }
   .usa-accordion__button {
     background-color: var(--secondary-color);
