@@ -598,12 +598,7 @@ footer.usa-footer .footer-grid-container,
   gap: 2rem;
 
   a {
-    border-bottom: 8px solid transparent;
-  }
-
-  a:hover,
-  a:focus-visible {
-    border-bottom-color: var(--secondary-color);
+    border-bottom: 8px solid var(--secondary-color);
   }
 
   .usa-card__heading {
@@ -648,7 +643,7 @@ footer.usa-footer .footer-grid-container,
 
 .councils-section {
   width: 100%;
-  padding: 3rem 0;
+  padding: 3rem 0 1rem;
   position: relative;
 }
 

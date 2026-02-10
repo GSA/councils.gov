@@ -48,7 +48,7 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
     <section class="usa-section councils-section" style={`--councils-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
         <h2>{councilsHeading}</h2>
-        <div class="councils-grid">
+        <div class="councils-grid margin-bottom-2">
         {councilsList.map((council) => (
           <a href={withBase(council.href)} class="usa-card display-block text-no-underline">
             <div class="usa-card__container">
@@ -74,6 +74,9 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
           </a>
         ))}
         </div>
+      </div>
+      <div class="grid-container footer-grid-container usa-footer__return-to-top">
+        <a href="#">Return to top</a>
       </div>
     </section>
   </main>
