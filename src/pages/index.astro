@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
-const heroImageUrl = `${baseUrl}assets/img/white_house_south_lawn.png`;
+const heroImageUrl = `${baseUrl}assets/img/white_house_hero.jpg`;
 
 const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
