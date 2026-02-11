@@ -1,6 +1,6 @@
 ---
 title: Councils.gov - Home
-heroText: We bring together policy makers and practitioners to provide input on policy, address challenges collaboratively, and share best practices.
+heroText: Bringing together policy makers and practitioners to advance the President's agenda collaboratively, and share best practices.
 councilsHeading: Federal Executive Councils
 councils:
   - title: Chief Information Officers Council

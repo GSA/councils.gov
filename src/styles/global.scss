@@ -344,6 +344,29 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
       }
     }
   }
+  .usa-card__body h3 {
+    margin-bottom: 0.5rem;
+  }
+  .usa-card__body p {
+    margin-bottom: 0.5rem;
+  }
+  .usa-card__body p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.members-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 64rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* Banner accordion */
@@ -731,7 +754,7 @@ footer.usa-footer .footer-grid-container,
 
 .home-page .usa-section {
   padding-top: 3rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0;
 }
 
 .home-page .usa-section hr {
@@ -808,18 +831,18 @@ footer.usa-footer .footer-grid-container,
 
 .council-hero__brow {
   color: white;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-serif);
+  margin: 0; 
+  font-family: var(--font-sans);
+  line-height: 1;
 }
 
 .council-hero__title {
   color: white;
   font-weight: 400;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 @media (min-width: 640px) {
