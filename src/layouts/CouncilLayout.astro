@@ -45,15 +45,15 @@ const navItems = hasMembersLeaders
       </ol>
     </nav>
     {logoPath && (
-      <section class="council-hero usa-section" style={`--council-waves-url: url(${wavesUrl})`}>
+      <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
         <div class="grid-container">
           <div class="grid-row grid-gap">
-            <div class="tablet:grid-col-3">
+            <div class="tablet:grid-col-3 desktop:grid-col-2">
               <div class="council-hero__logo-container">
                 <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
               </div>
             </div>
-            <div class="tablet:grid-col-9 flex-justify-center">
+            <div class="tablet:grid-col-9 desktop:grid-col-10 flex-justify-center">
               <div class="council-hero__content">
                 <p class="council-hero__brow">{councilName}</p>
                 <h1 class="council-hero__title">
@@ -70,7 +70,7 @@ const navItems = hasMembersLeaders
     <div class="usa-section">
       <div class="grid-container">
         <div class="grid-row grid-gap">
-          <aside class="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+          <aside class="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
             <nav aria-label="Side navigation" class="sticky-nav">
               <ul class="usa-sidenav">
                 {navItems.map((item) => (
@@ -86,7 +86,7 @@ const navItems = hasMembersLeaders
               </ul>
             </nav>
           </aside>
-          <div class="tablet:grid-col-9">
+          <div class="tablet:grid-col-9 desktop:grid-col-10">
             <slot />
           </div>
         </div>

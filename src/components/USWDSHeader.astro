@@ -1,4 +1,6 @@
 ---
+import { navCouncils } from "../data/navCouncils";
+
 interface Props {
   currentPage?: string;
 }
@@ -33,21 +35,11 @@ const baseUrl = import.meta.env.BASE_URL;
             <span>Councils</span>
           </button>
           <ul id="councils-menu" class="usa-nav__submenu">
-            <li class="usa-nav__submenu-item">
-              <a href={`${baseUrl}councils/cioc/about/`}><span>CIOC</span></a>
-            </li>
-            <li class="usa-nav__submenu-item">
-              <a href={`${baseUrl}councils/cdoc/about/`}><span>CDOC</span></a>
-            </li>
-            <li class="usa-nav__submenu-item">
-              <a href={`${baseUrl}councils/coffa/about/`}><span>COFFA</span></a>
-            </li>
-            <li class="usa-nav__submenu-item">
-              <a href={`${baseUrl}councils/frpc/about/`}><span>FRPC</span></a>
-            </li>
-            <li class="usa-nav__submenu-item">
-              <a href={`${baseUrl}councils/eoc/about/`}><span>EOC</span></a>
-            </li>
+            {navCouncils.map((council) => (
+              <li class="usa-nav__submenu-item">
+                <a href={`${baseUrl}councils/${council.slug}/about/`}><span>{council.acronym}</span></a>
+              </li>
+            ))}
           </ul>
         </li>
         <li class="usa-nav__primary-item">

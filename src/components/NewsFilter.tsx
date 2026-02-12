@@ -116,7 +116,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
 
   return (
     <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -125,7 +125,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
         />
       </aside>
 
-      <div className="tablet:grid-col-9" ref={resultsTopRef}>
+      <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
         <div className="margin-bottom-1">
           <p className="font-sans-md margin-0 text-bold">
             {filteredItems.length} {filteredItems.length === 1 ? 'Item' : 'Items'}
