@@ -177,7 +177,7 @@ function getMemberImage(member: any): string | null {
           const description =
             leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
           return (
-          <div class="tablet:grid-col-6">
+          <div class="tablet:grid-col-6 desktop:grid-col-4">
             <div class="usa-card">
               <div class="usa-card__container">
                 {leader.image && (
@@ -228,23 +228,3 @@ function getMemberImage(member: any): string | null {
     </div>
   )}
 </CouncilLayout>
-
-<style>
-  .members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .usa-card__body h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  .usa-card__body p:last-child {
-    margin-bottom: 0;
-  }
-
-  .usa-card__body p {
-    margin-bottom: 0.5rem;
-  }
-</style>
