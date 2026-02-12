@@ -10,6 +10,13 @@ councils:
     logoAlt: CIOC Logo
     logoClass: council-logo
     description: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
+  - title: Chief Data Officers Council
+    acronym: CDOC
+    href: /councils/cdoc/about/
+    logo: /assets/img/councils/CDOC.png
+    logoAlt: CDOC Logo
+    logoClass: council-logo
+    description: The Chief Data Officers Council advances the use of data to support mission delivery and evidence-based decision-making across the federal government.
   - title: Council on Federal Financial Assistance
     acronym: COFFA
     href: /councils/coffa/about/

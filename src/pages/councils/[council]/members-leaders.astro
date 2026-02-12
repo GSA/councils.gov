@@ -28,6 +28,11 @@ export async function getStaticPaths() {
       logoClass = aboutFrontmatter.logoClass;
     }
     
+    const members = frontmatter.members ?? [];
+    const leaders = frontmatter.leaders ?? [];
+    const coChairs = frontmatter.coChairs ?? [];
+    const hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
+
     return {
       params: { council: councilSlug },
       props: {
@@ -35,12 +40,13 @@ export async function getStaticPaths() {
         logoPath,
         logoAlt,
         logoClass,
+        hasMembersLeaders,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, hasMembersLeaders } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
@@ -124,6 +130,7 @@ function getMemberImage(member: any): string | null {
   logoPath={logoPath}
   logoAlt={logoAlt}
   logoClass={logoClass}
+  hasMembersLeaders={hasMembersLeaders}
 >
   <h2>{frontmatter.title}</h2>
   

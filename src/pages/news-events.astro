@@ -22,7 +22,7 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
       </div>
     </section>
     <section class="grid-container usa-section">
-      <NewsFilter client:load items={newsItems} />
+      <NewsFilter client:load items={newsItems} baseUrl={baseUrl} />
     </section>
   </main>
 </BaseLayout>

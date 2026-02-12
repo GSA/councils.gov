@@ -378,5 +378,55 @@
     "councilAcronym": "EOC",
     "date": "",
     "link": "https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A94/a094.pdf"
+  },
+  {
+    "id": "CDOC-1",
+    "title": "Resources",
+    "description": "",
+    "type": "Hyperlink",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "",
+    "link": "https://resources.data.gov/"
+  },
+  {
+    "id": "CDOC-2",
+    "title": "Annual CDOC Survey 2024",
+    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2024-01-01",
+    "link": "https://www.cdo.gov/cdo-council-2024-survey/"
+  },
+  {
+    "id": "CDOC-3",
+    "title": "Annual CDOC Survey 2023",
+    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2023-01-01",
+    "link": "https://www.cdo.gov/2023-cdoc-survey/"
+  },
+  {
+    "id": "CDOC-4",
+    "title": "Annual CDOC Survey 2022",
+    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2022-01-01",
+    "link": "https://www.cdo.gov/news/survey-results-2022/"
+  },
+  {
+    "id": "CDOC-5",
+    "title": "CDOC Awards Program",
+    "description": "",
+    "type": "TBD",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "",
+    "link": "https://www.cdo.gov/awards-program/"
   }
 ]
