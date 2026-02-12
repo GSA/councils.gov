@@ -143,7 +143,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
                     {href ? (
-                      <a className="usa-link" href={href}>
+                      <a className="usa-link font-serif" href={href}>
                         {item.title}
                       </a>
                     ) : (
