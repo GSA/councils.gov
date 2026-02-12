@@ -48,50 +48,38 @@ textarea {
   font-family: var(--font-serif);
 }
 
-/* USWDS font-sans utilities */
-.font-sans,
-.font-sans-2xs,
-.font-sans-xs,
-.font-sans-sm,
-.font-sans-md,
-.font-sans-lg,
-.font-sans-xl,
-.font-sans-2xl,
-.font-sans-3xl {
+/* Type scale: single source of truth for font-size utilities */
+$type-scale: (
+  '2xs': 0.875rem,
+  'xs': 0.9375rem,
+  'sm': 1rem,
+  'md': 1.0625rem,
+  'lg': 1.375rem,
+  '24': 1.5rem,
+  'xl': 2rem,
+  '2xl': 2.5rem,
+  '3xl': 3rem,
+);
+
+/* Base font-stack utilities (size-agnostic) */
+.font-sans {
   font-family: var(--font-sans);
 }
-
-.font-sans-2xs { font-size: 0.875rem; }    /* 14px */
-.font-sans-xs { font-size: 0.9375rem; }    /* 15px */
-.font-sans-sm { font-size: 1rem; }         /* 16px */
-.font-sans-md { font-size: 1.0625rem; }    /* 17px */
-.font-sans-lg { font-size: 1.375rem; }     /* 22px */
-.font-sans-xl { font-size: 2rem; }         /* 32px */
-.font-sans-2xl { font-size: 2.5rem; }     /* 40px */
-.font-sans-3xl { font-size: 3rem; }       /* 48px */
-
-/* Font-serif (Playfair) utilities – same sizes as sans */
-.font-serif,
-.font-serif-2xs,
-.font-serif-xs,
-.font-serif-sm,
-.font-serif-md,
-.font-serif-lg,
-.font-serif-xl,
-.font-serif-2xl,
-.font-serif-3xl {
+.font-serif {
   font-family: var(--font-serif);
 }
 
-.font-serif-2xs { font-size: 0.875rem; }
-.font-serif-xs { font-size: 0.9375rem; }
-.font-serif-sm { font-size: 1rem; }
-.font-serif-md { font-size: 1.0625rem; }
-.font-serif-lg { font-size: 1.375rem; }
-.font-serif-24 { font-size: 1.5rem; }
-.font-serif-xl { font-size: 2rem; }
-.font-serif-2xl { font-size: 2.5rem; }
-.font-serif-3xl { font-size: 3rem; }
+/* Font-sans + font-serif size utilities – generated from $type-scale */
+@each $size, $rem in $type-scale {
+  .font-sans-#{$size} {
+    font-family: var(--font-sans);
+    font-size: $rem;
+  }
+  .font-serif-#{$size} {
+    font-family: var(--font-serif);
+    font-size: $rem;
+  }
+}
 
 .usa-button {
   font-size: 1rem;
