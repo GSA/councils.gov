@@ -170,6 +170,9 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                         {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                       </div>
                     </div>
+                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-2">
+                      <span className="usa-link usa-link--external">View resource</span>
+                    </div>
                   </div>
                 </a>
               </div>
