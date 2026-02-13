@@ -5,6 +5,7 @@ import {
   buildFilterOptions,
   createEmptyFilters,
   filterItems,
+  getInitialFiltersFromUrl,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -63,7 +64,7 @@ function getItemHref(item: NewsItem, baseUrl: string): string | null {
 
 export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const safeItems = Array.isArray(items) ? items : [];
-  const [selectedFilters, setSelectedFilters] = useState<Filters>(createEmptyFilters());
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(getInitialFiltersFromUrl);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 
@@ -126,12 +127,6 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
       </aside>
 
       <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
-        <div className="margin-bottom-1">
-          <p className="font-sans-md margin-0 text-bold">
-            {filteredItems.length} {filteredItems.length === 1 ? 'Item' : 'Items'}
-          </p>
-        </div>
-
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
 
         {filteredItems.length > 0 ? (

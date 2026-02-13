@@ -45,7 +45,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-councils"
           >
-            Council
+            Councils ({selected.councils.length})
           </button>
         </h3>
         <div id="filter-councils" className="usa-accordion__content usa-prose">
@@ -77,7 +77,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-focus-areas"
           >
-            Focus Area
+            Focus Area ({selected.focusAreas.length})
           </button>
         </h3>
         <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
@@ -109,7 +109,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-types"
           >
-            Type
+            Type ({selected.types.length})
           </button>
         </h3>
         <div id="filter-types" className="usa-accordion__content usa-prose">
@@ -141,7 +141,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-years"
           >
-            Year
+            Year ({selected.years.length})
           </button>
         </h3>
         <div id="filter-years" className="usa-accordion__content usa-prose">
@@ -173,7 +173,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
 export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
   return (
     <div
-      className={`filter-pills margin-bottom-2 ${
+      className={`filter-pills ${
         activeFilters.length === 0 ? 'filter-pills--empty' : ''
       }`}
     >
@@ -195,9 +195,12 @@ export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
             onClick={() => onRemove(group, filter.value)}
           >
             <span className="filter-pill__label">{filter.value}</span>
-            <span aria-hidden="true" className="filter-pill__icon">
-              ×
-            </span>
+            <img
+              src="/assets/img/usa-icons/close.svg"
+              alt=""
+              aria-hidden
+              className="filter-pill__icon"
+            />
           </button>
         );
       })}

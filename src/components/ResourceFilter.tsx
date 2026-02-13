@@ -1,16 +1,11 @@
-import {
-  useState,
-  useMemo,
-  useEffect,
-  useRef,
-  type CSSProperties,
-} from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
 import {
   buildActiveFilters,
   buildFilterOptions,
   createEmptyFilters,
   filterItems,
+  getInitialFiltersFromUrl,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -30,21 +25,11 @@ interface ResourceFilterProps {
   resources: Resource[];
 }
 
-// Color mapping for resource types
-const typeColors: Record<string, string> = {
-  Guidance: '#4D8055',
-  Memorandum: '#E5A000',
-  Reference: '#8168B3',
-  'Quick Reference': '#8168B3',
-  Playbook: '#005EA2',
-  DEFAULT: '#005EA2',
-};
-
 export default function ResourceFilter({ resources }: ResourceFilterProps) {
   // Ensure resources is always an array
   const safeResources: Resource[] = Array.isArray(resources) ? resources : [];
   
-  const [selectedFilters, setSelectedFilters] = useState<Filters>(createEmptyFilters());
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(getInitialFiltersFromUrl);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 
@@ -117,12 +102,6 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       </aside>
 
       <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
-        <div className="margin-bottom-1">
-          <p className="font-sans-md margin-0 text-bold">
-            {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
-          </p>
-        </div>
-
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
 
         <div className="grid-row grid-gap">
@@ -131,10 +110,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
                 <a
                   href={resource.link}
-                  className="usa-card display-block text-no-underline resource-card-link"
-                  style={{
-                    borderTop: `8px solid ${typeColors[resource.type] || typeColors.DEFAULT}`,
-                  }}
+                  className="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
@@ -153,25 +129,13 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                       <div className="margin-top-2 content-tags">
                         <span className="usa-tag">{resource.councilAcronym}</span>
                         {resource.type && (
-                          <span
-                            className="usa-tag resource-tag--type"
-                            style={
-                              {
-                                ['--resource-tag-color' as string]:
-                                  typeColors[resource.type] || typeColors.DEFAULT,
-                                ['--resource-tag-text' as string]:
-                                  resource.type === 'Memorandum' ? '#1b1b1b' : '#ffffff',
-                              } as CSSProperties
-                            }
-                          >
-                            {resource.type}
-                          </span>
+                          <span className="usa-tag resource-tag--type">{resource.type}</span>
                         )}
                         {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                       </div>
                     </div>
-                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-2">
-                      <span className="usa-link usa-link--external">View resource</span>
+                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-3">
+                      <span className="usa-link usa-link--external font-sans-sm">View resource</span>
                     </div>
                   </div>
                 </a>

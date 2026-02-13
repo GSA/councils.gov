@@ -4,6 +4,8 @@ interface Props {
   currentPage?: string;
   councilName: string;
   councilSlug: string;
+  /** Council acronym for filter (e.g. CIOC). When set, Resources and News & Events links include ?council= for pre-filtering. */
+  councilAcronym?: string;
   logoPath?: string;
   logoAlt?: string;
   logoClass?: string;
@@ -13,16 +15,17 @@ interface Props {
 
 import BaseLayout from './BaseLayout.astro';
 
-const { title, currentPage = "about", councilName, councilSlug, logoPath, logoAlt, logoClass, hasMembersLeaders = true } = Astro.props;
+const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, hasMembersLeaders = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
+const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
 const allNavItems = [
   { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
   { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership and Members", id: "members-leaders" },
-  { href: `${baseUrl}news-events/`, label: "News & Events", id: "news-events" },
-  { href: `${baseUrl}resources/`, label: "Resources", id: "resources" },
+  { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
+  { href: `${baseUrl}resources/${councilQuery}`, label: "Resources", id: "resources" },
 ];
 const navItems = hasMembersLeaders
   ? allNavItems
