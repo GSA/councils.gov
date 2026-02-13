@@ -45,7 +45,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-councils"
           >
-            Councils ({selected.councils.length})
+            {selected.councils.length > 0 ? `Councils (${selected.councils.length})` : 'Councils'}
           </button>
         </h3>
         <div id="filter-councils" className="usa-accordion__content usa-prose">
@@ -77,7 +77,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-focus-areas"
           >
-            Focus Area ({selected.focusAreas.length})
+            {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
           </button>
         </h3>
         <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
@@ -109,7 +109,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-types"
           >
-            Type ({selected.types.length})
+            {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
           </button>
         </h3>
         <div id="filter-types" className="usa-accordion__content usa-prose">
@@ -141,7 +141,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-years"
           >
-            Year ({selected.years.length})
+            {selected.years.length > 0 ? `Year (${selected.years.length})` : 'Year'}
           </button>
         </h3>
         <div id="filter-years" className="usa-accordion__content usa-prose">
