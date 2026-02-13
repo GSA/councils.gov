@@ -14,6 +14,7 @@ interface Props {
 }
 
 import BaseLayout from './BaseLayout.astro';
+import ReturnToTop from '../components/ReturnToTop.astro';
 
 const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, hasMembersLeaders = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
@@ -95,9 +96,7 @@ const navItems = hasMembersLeaders
         </div>
       </div>
     </div>
-    <div class="grid-container footer-grid-container usa-footer__return-to-top">
-      <a href="#">Return to top</a>
-    </div>
+    <ReturnToTop />
   </main>
 </BaseLayout>
 

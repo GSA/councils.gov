@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ReturnToTop from '../components/ReturnToTop.astro';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -80,9 +81,7 @@ const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.sli
         ))}
         </div>
       </div>
-      <div class="grid-container footer-grid-container usa-footer__return-to-top">
-        <a href="#">Return to top</a>
-      </div>
+      <ReturnToTop />
     </section>
   </main>
 </BaseLayout>

@@ -15,6 +15,8 @@ type FilterPanelProps = {
 type FilterPillsProps = {
   activeFilters: { type: string; value: string }[];
   onRemove: (group: keyof Filters, value: string) => void;
+  /** Base URL for assets (e.g. import.meta.env.BASE_URL) so close icon works in all environments */
+  baseUrl?: string;
 };
 
 export function FilterPanel({ options, selected, onToggle, onReset }: FilterPanelProps) {
@@ -170,7 +172,8 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
   );
 }
 
-export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
+export function FilterPills({ activeFilters, onRemove, baseUrl = '' }: FilterPillsProps) {
+  const closeIconSrc = `${baseUrl}assets/img/usa-icons/close.svg`.replace(/\/+/g, '/');
   return (
     <div
       className={`filter-pills ${
@@ -196,7 +199,7 @@ export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
           >
             <span className="filter-pill__label">{filter.value}</span>
             <img
-              src="/assets/img/usa-icons/close.svg"
+              src={closeIconSrc}
               alt=""
               aria-hidden
               className="filter-pill__icon"

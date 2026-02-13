@@ -127,7 +127,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
       </aside>
 
       <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
-        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
+        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
           <ul className="usa-collection">

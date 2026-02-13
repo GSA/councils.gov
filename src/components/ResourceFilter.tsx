@@ -23,9 +23,11 @@ interface Resource extends FilterableItem {
 
 interface ResourceFilterProps {
   resources: Resource[];
+  /** Base URL for assets (e.g. import.meta.env.BASE_URL) so assets work in all environments */
+  baseUrl?: string;
 }
 
-export default function ResourceFilter({ resources }: ResourceFilterProps) {
+export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilterProps) {
   // Ensure resources is always an array
   const safeResources: Resource[] = Array.isArray(resources) ? resources : [];
   
@@ -102,7 +104,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
       </aside>
 
       <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
-        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} />
+        <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         <div className="grid-row grid-gap">
           {filteredResources.length > 0 ? (

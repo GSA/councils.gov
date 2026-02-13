@@ -926,11 +926,21 @@ footer.usa-footer .footer-grid-container,
 
 .resource-card-link .usa-card__heading {
   font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
 }
 
 .resource-card-link .usa-card__body {
   display: flex;
   flex-direction: column;
+}
+
+.resource-card-link .usa-card__container,
+.resource-card-link .usa-card__body,
+.resource-card-link .usa-card__footer,
+.resource-card-link .resource-date,
+.resource-card-link .content-tags {
+  font-family: var(--font-sans);
 }
 
 .resources-hero {
@@ -961,6 +971,10 @@ footer.usa-footer .footer-grid-container,
   color: var(--color-white);
   margin: 0;
   font-weight: 400;
+}
+
+.resources-hero .usa-intro {
+  font-family: var(--font-sans);
 }
 
 /* General filtering */
@@ -1086,6 +1100,10 @@ footer.usa-footer .footer-grid-container,
 
 .filter-sidebar .usa-checkbox__label::before {
   background-color: transparent;
+}
+
+.filter-sidebar .usa-checkbox__input:checked + .usa-checkbox__label::before {
+  background-color: var(--primary-color);
 }
 
 /* News & Events */
