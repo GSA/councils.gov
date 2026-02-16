@@ -93,8 +93,8 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
   }, [selectedFilters]);
 
   return (
-    <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
+    <div className="grid-row grid-gap sidebar-layout">
+      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -103,7 +103,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
         />
       </aside>
 
-      <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
+      <div className="sidebar-layout__main" ref={resultsTopRef}>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         <div className="grid-row grid-gap">

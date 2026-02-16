@@ -46,6 +46,7 @@ textarea {
 .usa-intro,
 .usa-card__heading {
   font-family: var(--font-serif);
+  line-height: 1.4;
 }
 
 /* Type scale: single source of truth for font-size utilities */
@@ -809,12 +810,19 @@ footer.usa-footer .footer-grid-container,
   background-repeat: repeat;
   border-bottom: 6px solid var(--accent-color);
   background-size: 30%;
-  background-blend-mode: multiply;
+  background-blend-mode: color;
 }
 
 /* Consistent top spacing for main content below council hero (fixes uneven spacing e.g. EOC) */
 .council-hero + .usa-section {
   padding-top: 3rem;
+}
+
+/* Vertically center brow + title in the hero (sidebar-layout main column) */
+.council-hero .sidebar-layout__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .council-hero__logo-container {
@@ -863,10 +871,15 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+.sidebar-layout__main h2,
 .tablet\:grid-col-9 h2 {
   margin-top: 0;
 }
 
+.sidebar-layout__main h2:not(:first-of-type),
+.sidebar-layout__main > div h2:not(:first-of-type),
+.sidebar-layout__main p + h2,
+.sidebar-layout__main > div p + h2,
 .tablet\:grid-col-9 h2:not(:first-of-type),
 .tablet\:grid-col-9 > div h2:not(:first-of-type),
 .tablet\:grid-col-9 p + h2,
@@ -948,7 +961,7 @@ footer.usa-footer .footer-grid-container,
   background-image: var(--hero-waves-url, none);
   background-repeat: repeat;
   background-size: 30%;
-  background-blend-mode: multiply;
+  background-blend-mode: color;
   color: var(--color-white);
   border-bottom: 6px solid var(--accent-color);
   min-height: unset;
@@ -1041,6 +1054,21 @@ footer.usa-footer .footer-grid-container,
   filter: brightness(0) invert(1);
 }
 
+/* Sidebar + main layout: sidebar has min-width, main area flexes. Used on council pages, resources, news/events. */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: minmax(14rem, 16rem) 1fr;
+
+    & > * {
+      min-width: 0;
+    }
+  }
+}
+
 .filter-sidebar .filter-options {
   padding-left: 0;
 }
@@ -1118,6 +1146,11 @@ footer.usa-footer .footer-grid-container,
     font-family: var(--font-serif);
     font-size: 1.5rem;
   }
+}
+
+.news-tags.content-tags .usa-tag {
+  background-color: var(--color-gray-60);
+  color: var(--color-white);
 }
 
 /* Hero: image background, callout on left — min-height and flex only on home */

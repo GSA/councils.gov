@@ -116,8 +116,8 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   }, [selectedFilters]);
 
   return (
-    <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
+    <div className="grid-row grid-gap sidebar-layout">
+      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -126,7 +126,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
         />
       </aside>
 
-      <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
+      <div className="sidebar-layout__main" ref={resultsTopRef}>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
@@ -152,7 +152,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                   </div>
                   <p className="usa-collection__description margin-bottom-2">{truncateDescription(item.description)}</p>
                   {(item.councilAcronym || (item.tags?.length ?? 0) > 0) && (
-                    <ul className="usa-collection__meta content-tags" aria-label="Topics">
+                    <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
                       {item.councilAcronym && (
                         <li className="usa-tag">{item.councilAcronym}</li>
                       )}
