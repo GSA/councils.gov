@@ -344,6 +344,18 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   }
 }
 
+.leadership-grid .usa-card__container {
+  flex-direction: row;
+  .usa-card__media {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem 0 1rem 1rem;   
+  }
+  @media (max-width: 64rem) {
+    flex-direction: column;
+  }
+}
+
 .members-grid {
   display: grid;
   gap: 1.5rem;
