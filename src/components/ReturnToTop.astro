@@ -1,0 +1,29 @@
+---
+/**
+ * Return to top link and scroll behavior. Encapsulates scrolling so it works
+ * regardless of which element is the scroll container (window, documentElement, or body).
+ */
+---
+<div class="grid-container footer-grid-container usa-footer__return-to-top">
+  <a href="#" class="return-to-top" role="button" aria-label="Return to top of page">
+    Return to top
+  </a>
+</div>
+
+<script>
+  function scrollToTop() {
+    const opts = { top: 0, left: 0, behavior: 'smooth' as ScrollBehavior };
+    window.scrollTo(opts);
+    document.documentElement.scrollTo(opts);
+    if (document.body.scrollTo) {
+      document.body.scrollTo(opts);
+    }
+  }
+
+  document.addEventListener('click', (e) => {
+    const link = (e.target as Element).closest?.('.return-to-top');
+    if (!link) return;
+    e.preventDefault();
+    scrollToTop();
+  });
+</script>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NewsFilter from '../components/NewsFilter';
+import ReturnToTop from '../components/ReturnToTop.astro';
 import newsItems from '../data/news.json';
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -8,7 +9,7 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 ---
 
 <BaseLayout title="News & Events - Councils.gov" currentPage="news-events">
-  <main id="main-content">
+  <main id="main-content" class="filter-page-main">
     <section
       class="usa-hero resources-hero"
       aria-label="News and Events"
@@ -24,8 +25,6 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
     <section class="grid-container usa-section">
       <NewsFilter client:load items={newsItems} baseUrl={baseUrl} />
     </section>
-    <div class="grid-container footer-grid-container usa-footer__return-to-top">
-      <a href="#">Return to top</a>
-    </div>
+    <ReturnToTop />
   </main>
 </BaseLayout>

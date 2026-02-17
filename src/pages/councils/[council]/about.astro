@@ -57,6 +57,7 @@ export async function getStaticPaths() {
 }
 
 const { frontmatter, htmlContent, hasMembersLeaders } = Astro.props;
+const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 // Prepend base URL to asset paths in markdown-rendered HTML (e.g. /assets/img/ICSP_chart.jpg) for production
 const htmlWithBaseUrl = htmlContent.replace(
@@ -69,7 +70,8 @@ const htmlWithBaseUrl = htmlContent.replace(
   title={`${frontmatter.title} - Councils.gov`} 
   currentPage="about" 
   councilName={frontmatter.councilName} 
-  councilSlug={frontmatter.councilSlug} 
+  councilSlug={frontmatter.councilSlug}
+  councilAcronym={councilAcronym}
   logoPath={frontmatter.logoPath} 
   logoAlt={frontmatter.logoAlt} 
   logoClass={frontmatter.logoClass}

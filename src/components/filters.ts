@@ -19,6 +19,14 @@ export const createEmptyFilters = (): Filters => ({
   years: [],
 });
 
+/** Initial filters from URL ?council= (for when navigating from a council page). Client-only. */
+export const getInitialFiltersFromUrl = (): Filters => {
+  if (typeof window === 'undefined') return createEmptyFilters();
+  const council = new URLSearchParams(window.location.search).get('council');
+  if (!council?.trim()) return createEmptyFilters();
+  return { ...createEmptyFilters(), councils: [council.trim()] };
+};
+
 export const getItemYear = (item: FilterableItem) =>
   item.date ? item.date.split('-')[0].trim() : '';
 

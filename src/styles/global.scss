@@ -46,6 +46,7 @@ textarea {
 .usa-intro,
 .usa-card__heading {
   font-family: var(--font-serif);
+  line-height: 1.4;
 }
 
 /* Type scale: single source of truth for font-size utilities */
@@ -809,12 +810,19 @@ footer.usa-footer .footer-grid-container,
   background-repeat: repeat;
   border-bottom: 6px solid var(--accent-color);
   background-size: 30%;
-  background-blend-mode: multiply;
+  background-blend-mode: color;
 }
 
 /* Consistent top spacing for main content below council hero (fixes uneven spacing e.g. EOC) */
 .council-hero + .usa-section {
   padding-top: 3rem;
+}
+
+/* Vertically center brow + title in the hero (sidebar-layout main column) */
+.council-hero .sidebar-layout__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .council-hero__logo-container {
@@ -863,10 +871,15 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+.sidebar-layout__main h2,
 .tablet\:grid-col-9 h2 {
   margin-top: 0;
 }
 
+.sidebar-layout__main h2:not(:first-of-type),
+.sidebar-layout__main > div h2:not(:first-of-type),
+.sidebar-layout__main p + h2,
+.sidebar-layout__main > div p + h2,
 .tablet\:grid-col-9 h2:not(:first-of-type),
 .tablet\:grid-col-9 > div h2:not(:first-of-type),
 .tablet\:grid-col-9 p + h2,
@@ -909,7 +922,11 @@ footer.usa-footer .footer-grid-container,
   position: relative;
   margin-left: 0;
   margin-right: 0;
-  border-top: none;
+  border-bottom: none;
+}
+
+.resource-card-link--bordered {
+  border-bottom: 4px solid var(--secondary-color);
 }
 
 .resource-date {
@@ -922,6 +939,8 @@ footer.usa-footer .footer-grid-container,
 
 .resource-card-link .usa-card__heading {
   font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
 }
 
 .resource-card-link .usa-card__body {
@@ -929,12 +948,20 @@ footer.usa-footer .footer-grid-container,
   flex-direction: column;
 }
 
+.resource-card-link .usa-card__container,
+.resource-card-link .usa-card__body,
+.resource-card-link .usa-card__footer,
+.resource-card-link .resource-date,
+.resource-card-link .content-tags {
+  font-family: var(--font-sans);
+}
+
 .resources-hero {
   background-color: var(--primary-color);
   background-image: var(--hero-waves-url, none);
   background-repeat: repeat;
   background-size: 30%;
-  background-blend-mode: multiply;
+  background-blend-mode: color;
   color: var(--color-white);
   border-bottom: 6px solid var(--accent-color);
   min-height: unset;
@@ -948,10 +975,19 @@ footer.usa-footer .footer-grid-container,
   padding-bottom: 2rem;
 }
 
+/* Applied to <main> on Resources and News/Events pages */
+.filter-page-main {
+  background-color: var(--color-gray-5);
+}
+
 .resources-hero h1 {
   color: var(--color-white);
   margin: 0;
   font-weight: 400;
+}
+
+.resources-hero .usa-intro {
+  font-family: var(--font-sans);
 }
 
 /* General filtering */
@@ -966,53 +1002,78 @@ footer.usa-footer .footer-grid-container,
   border-radius: 16px;
   display: flex;
   align-items: center;
-  color: var(--color-white);
-  background-color: var(--color-gray-60);
+  color: var(--color-ink);
+  background-color: var(--color-gray-10);
   font-size: 0.75rem;
-  padding: 1px 0.5rem;
+  padding: 0.25rem 0.5rem;
   flex-shrink: 0;
   margin-right: 0;
 }
 
-.resource-tags .resource-tag--type {
-  font-family: var(--font-sans);
-}
-
+.resource-tags .resource-tag--type,
 .content-tags .resource-tag--type {
   font-family: var(--font-sans);
-  border: 1px solid var(--resource-tag-color);
-  color: var(--resource-tag-text, var(--color-white));
-  background-color: var(--resource-tag-color);
+  background-color: var(--color-gray-10);
+  color: var(--color-ink);
 }
 
+/* Active filter pills (selected filters with remove) — same on Resources and News/Events */
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   min-height: 1rem;
+  margin-bottom: 1rem;
 }
 
 .filter-pills--empty {
   visibility: hidden;
+  margin-bottom: 0;
 }
 
+.filter-pills .usa-tag.filter-pill,
 .filter-pill {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  border-radius: 12px;
-  border: 0;
+  gap: 0.5rem;
+  border-radius: 1rem;
   padding: 0.25rem 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
 }
 
+.filter-pills .filter-pill__icon,
 .filter-pill__icon {
-  font-weight: 700;
-  line-height: 1;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+/* Sidebar + main layout: sidebar has min-width, main area flexes. Used on council pages, resources, news/events. */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 40rem) {
+    grid-template-columns: minmax(14rem, 16rem) 1fr;
+
+    & > * {
+      min-width: 0;
+    }
+  }
+}
+
+.filter-sidebar .filter-options {
+  padding-left: 0;
 }
 
 .filter-options {
-  max-height: 16rem;
   overflow-y: auto;
   padding-right: 0.25rem;
   padding-bottom: 0.25rem;
@@ -1029,15 +1090,28 @@ footer.usa-footer .footer-grid-container,
 .filter-sidebar .usa-accordion {
   width: 100%;
   .usa-accordion__content {
-    overflow: auto
+    overflow: auto;
+    background-color: transparent;
+    padding: 0 0.5rem 1rem;
   }
   .usa-accordion__button {
-    background-color: var(--secondary-color);
-    color: var(--color-white);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M9 4h2v12H9zM4 9h12v2H4z' fill='%23fff'/%3E%3C/svg%3E");
+    background-color: transparent;
+    color: var(--color-ink);
+    border-top: 1px solid var(--color-ink);
+    background-image: url("/assets/img/usa-icons/expand%20arrow.svg");
+    background-size: 1.25rem;
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    padding: 1rem 0;
   }
   .usa-accordion__button[aria-expanded="true"] {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 9h12v2H4z' fill='%23fff'/%3E%3C/svg%3E");
+    background-image: url("/assets/img/usa-icons/collapse%20arrow.svg");
+  }
+  .usa-checkbox {
+    background-color: transparent;
+  }
+  .usa-accordion__heading:not(:first-child), .usa-prose .usa-accordion__heading:not(:first-child) {
+    margin-top: 0;
   }
 }
 
@@ -1048,17 +1122,35 @@ footer.usa-footer .footer-grid-container,
   font-family: var(--font-sans);
 }
 
+.filter-sidebar .usa-checkbox__input {
+  background-color: transparent;
+}
+
+.filter-sidebar .usa-checkbox__label::before {
+  background-color: transparent;
+}
+
+.filter-sidebar .usa-checkbox__input:checked + .usa-checkbox__label::before {
+  background-color: var(--primary-color);
+}
+
 /* News & Events */
 .usa-collection {
   .usa-collection__item {
     &:first-child {
       margin-top: 0;
+      border-top: none;
     }
   }
   .usa-collection__heading {
     font-family: var(--font-serif);
     font-size: 1.5rem;
   }
+}
+
+.news-tags.content-tags .usa-tag {
+  background-color: var(--color-gray-60);
+  color: var(--color-white);
 }
 
 /* Hero: image background, callout on left — min-height and flex only on home */

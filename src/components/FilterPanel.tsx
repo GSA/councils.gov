@@ -15,6 +15,8 @@ type FilterPanelProps = {
 type FilterPillsProps = {
   activeFilters: { type: string; value: string }[];
   onRemove: (group: keyof Filters, value: string) => void;
+  /** Base URL for assets (e.g. import.meta.env.BASE_URL) so close icon works in all environments */
+  baseUrl?: string;
 };
 
 export function FilterPanel({ options, selected, onToggle, onReset }: FilterPanelProps) {
@@ -45,7 +47,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-councils"
           >
-            Council
+            {selected.councils.length > 0 ? `Councils (${selected.councils.length})` : 'Councils'}
           </button>
         </h3>
         <div id="filter-councils" className="usa-accordion__content usa-prose">
@@ -77,7 +79,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-focus-areas"
           >
-            Focus Area
+            {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
           </button>
         </h3>
         <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
@@ -109,7 +111,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-types"
           >
-            Type
+            {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
           </button>
         </h3>
         <div id="filter-types" className="usa-accordion__content usa-prose">
@@ -141,7 +143,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
             aria-expanded="true"
             aria-controls="filter-years"
           >
-            Year
+            {selected.years.length > 0 ? `Year (${selected.years.length})` : 'Year'}
           </button>
         </h3>
         <div id="filter-years" className="usa-accordion__content usa-prose">
@@ -170,10 +172,11 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
   );
 }
 
-export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
+export function FilterPills({ activeFilters, onRemove, baseUrl = '' }: FilterPillsProps) {
+  const closeIconSrc = `${baseUrl}assets/img/usa-icons/close.svg`.replace(/\/+/g, '/');
   return (
     <div
-      className={`filter-pills margin-bottom-2 ${
+      className={`filter-pills ${
         activeFilters.length === 0 ? 'filter-pills--empty' : ''
       }`}
     >
@@ -195,9 +198,12 @@ export function FilterPills({ activeFilters, onRemove }: FilterPillsProps) {
             onClick={() => onRemove(group, filter.value)}
           >
             <span className="filter-pill__label">{filter.value}</span>
-            <span aria-hidden="true" className="filter-pill__icon">
-              ×
-            </span>
+            <img
+              src={closeIconSrc}
+              alt=""
+              aria-hidden
+              className="filter-pill__icon"
+            />
           </button>
         );
       })}
