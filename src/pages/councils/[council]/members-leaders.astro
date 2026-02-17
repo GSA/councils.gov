@@ -1,5 +1,6 @@
 ---
 import CouncilLayout from '../../../layouts/CouncilLayout.astro';
+import { getAgencyUrl } from '../../../data/agencyUrls';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -28,6 +29,11 @@ export async function getStaticPaths() {
       logoClass = aboutFrontmatter.logoClass;
     }
     
+    const members = frontmatter.members ?? [];
+    const leaders = frontmatter.leaders ?? [];
+    const coChairs = frontmatter.coChairs ?? [];
+    const hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
+
     return {
       params: { council: councilSlug },
       props: {
@@ -35,12 +41,13 @@ export async function getStaticPaths() {
         logoPath,
         logoAlt,
         logoClass,
+        hasMembersLeaders,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, hasMembersLeaders } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
@@ -96,13 +103,14 @@ function getMemberImage(member: any): string | null {
     'opm': 'Office of Personnel Management.png',
     'small business administration': 'Small Business Administration.png',
     'sba': 'Small Business Administration.png',
-    'social security administration': 'Social Security Administration.png',
-    'ssa': 'Social Security Administration.png',
+    'social security administration': 'Social Security Administration.svg',
+    'ssa': 'Social Security Administration.svg',
     'appraisal subcommittee': 'Appraisal Subcommittee of the Federal Financial Institutions Examination Council.png',
   };
   
-  // Try to find a match (guard short acronyms with word boundaries)
-  for (const [key, filename] of Object.entries(agencyMap)) {
+  // Try longest keys first so e.g. "social security administration" matches SSA, not a substring
+  const entries = Object.entries(agencyMap).sort((a, b) => b[0].length - a[0].length);
+  for (const [key, filename] of entries) {
     const isAcronym = key.length <= 4;
     const matches = isAcronym
       ? new RegExp(`\\b${key}\\b`, 'i').test(text)
@@ -111,7 +119,7 @@ function getMemberImage(member: any): string | null {
       return `/assets/img/members/${filename}`;
     }
   }
-  
+
   return null;
 }
 ---
@@ -124,6 +132,7 @@ function getMemberImage(member: any): string | null {
   logoPath={logoPath}
   logoAlt={logoAlt}
   logoClass={logoClass}
+  hasMembersLeaders={hasMembersLeaders}
 >
   <h2>{frontmatter.title}</h2>
   
@@ -153,6 +162,14 @@ function getMemberImage(member: any): string | null {
                   <h3 class="margin-top-0">{leader.name}</h3>
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
+                {getAgencyUrl(leader) && (
+                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+                    <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                      View Agency Webpage
+                      <span class="usa-sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -184,6 +201,14 @@ function getMemberImage(member: any): string | null {
                   <h3 class="margin-top-0">{leader.name}</h3>
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
+                {getAgencyUrl(leader) && (
+                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+                    <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                      View Agency Webpage
+                      <span class="usa-sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -214,6 +239,14 @@ function getMemberImage(member: any): string | null {
               <h3 class="margin-top-0">{member.name}</h3>
               {department && <p class="margin-top-0">{department}</p>}
             </div>
+            {getAgencyUrl(member) && (
+              <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+                <a href={getAgencyUrl(member)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                  View Agency Webpage
+                  <span class="usa-sr-only"> (opens in a new tab)</span>
+                </a>
+              </div>
+            )}
           </div>
         </div>
         );

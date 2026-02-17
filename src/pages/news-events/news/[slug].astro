@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import newsItems from '../../../data/news.json';
+
+export async function getStaticPaths() {
+  const items = (newsItems as any[]).filter((item) => item.kind === 'news');
+  return items.map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+
+const formatDate = (dateString: string) => {
+  const parsed = new Date(dateString);
+  if (Number.isNaN(parsed.getTime())) return dateString;
+  return parsed.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+};
+
+const body = Array.isArray(item.body) ? item.body : [];
+---
+
+<BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
+  <main id="main-content">
+    <nav class="council-breadcrumb" aria-label="Breadcrumb">
+      <ol class="usa-breadcrumb__list">
+        <li class="usa-breadcrumb__list-item">
+          <a href={baseUrl} class="usa-breadcrumb__link">
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <a href={`${baseUrl}news-events/`} class="usa-breadcrumb__link">
+            <span>News & Events</span>
+          </a>
+        </li>
+        <li class="usa-breadcrumb__list-item">
+          <span class="usa-breadcrumb__current" aria-current="page">{item.title}</span>
+        </li>
+      </ol>
+    </nav>
+    <section
+      class="usa-hero resources-hero"
+      aria-label="News"
+      style={`--hero-waves-url: url(${wavesUrl})`}
+    >
+      <div class="grid-container">
+        <h1>{item.title}</h1>
+        <p class="usa-intro margin-top-2 margin-bottom-0">
+          {item.author && (
+            <span class="display-block">By {item.author}</span>
+          )}
+          <time datetime={item.date}>{formatDate(item.date)}</time>
+        </p>
+      </div>
+    </section>
+    <article class="grid-container usa-section">
+      <div class="usa-prose maxw-72 margin-bottom-4">
+        {body.map((paragraph: string) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+      {(item.tags?.length > 0 || item.councilAcronym) && (
+        <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
+          {item.councilAcronym && (
+            <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
+          )}
+          {item.tags?.map((tag: string) => (
+            <li class="usa-tag margin-bottom-1">{tag}</li>
+          ))}
+        </ul>
+      )}
+    </article>
+  </main>
+</BaseLayout>

@@ -11,7 +11,7 @@ export const footerCouncils = [
   },
   {
     name: "Chief Data Officers Council",
-    href: "https://gsa.gov",
+    href: "/councils/cdoc/about/",
     logo: "/assets/img/councils/CDOC.png",
   },
   {
@@ -51,7 +51,7 @@ export const footerCouncils = [
   },
   {
     name: "Interagency Council on Statistical Policy",
-    href: "https://gsa.gov",
+    href: "/councils/icsp/about/",
     logo: "/assets/img/councils/ICSP.png",
   },
   {

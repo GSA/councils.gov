@@ -18,6 +18,18 @@ export async function getStaticPaths() {
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const { data: frontmatter, content } = matter(fileContents);
     
+    // Check if this council has any leadership/members content for the side nav
+    const membersLeadersPath = join(contentDir, councilSlug, 'members-leaders.md');
+    let hasMembersLeaders = false;
+    if (fs.existsSync(membersLeadersPath)) {
+      const mlContents = fs.readFileSync(membersLeadersPath, 'utf-8');
+      const { data: mlFrontmatter } = matter(mlContents);
+      const members = mlFrontmatter.members ?? [];
+      const leaders = mlFrontmatter.leaders ?? [];
+      const coChairs = mlFrontmatter.coChairs ?? [];
+      hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
+    }
+    
     // Configure marked to add usa-list class to ul elements
     const renderer = new marked.Renderer();
     const originalList = renderer.list.bind(renderer);
@@ -38,12 +50,19 @@ export async function getStaticPaths() {
       props: {
         frontmatter,
         htmlContent,
+        hasMembersLeaders,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, htmlContent } = Astro.props;
+const { frontmatter, htmlContent, hasMembersLeaders } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+// Prepend base URL to asset paths in markdown-rendered HTML (e.g. /assets/img/ICSP_chart.jpg) for production
+const htmlWithBaseUrl = htmlContent.replace(
+  / (src|href)="\/assets\//g,
+  (_, attr) => ` ${attr}="${baseUrl}assets/`
+);
 ---
 
 <CouncilLayout 
@@ -54,6 +73,7 @@ const { frontmatter, htmlContent } = Astro.props;
   logoPath={frontmatter.logoPath} 
   logoAlt={frontmatter.logoAlt} 
   logoClass={frontmatter.logoClass}
+  hasMembersLeaders={hasMembersLeaders}
 >
-  <div set:html={htmlContent} />
+  <div set:html={htmlWithBaseUrl} />
 </CouncilLayout>

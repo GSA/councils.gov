@@ -107,7 +107,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
 
   return (
     <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -116,7 +116,7 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
         />
       </aside>
 
-      <div className="tablet:grid-col-9" ref={resultsTopRef}>
+      <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
         <div className="margin-bottom-1">
           <p className="font-sans-md margin-0 text-bold">
             {filteredResources.length} {filteredResources.length === 1 ? 'Item' : 'Items'}
@@ -169,6 +169,9 @@ export default function ResourceFilter({ resources }: ResourceFilterProps) {
                         )}
                         {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                       </div>
+                    </div>
+                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-2">
+                      <span className="usa-link usa-link--external">View resource</span>
                     </div>
                   </div>
                 </a>

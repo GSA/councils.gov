@@ -14,12 +14,18 @@ interface NewsItem extends FilterableItem {
   title: string;
   description: string;
   date: string;
-  link: string;
-  tags: string[];
+  /** Optional display date (e.g. "September 24-25, 2025" for events) */
+  dateDisplay?: string;
+  link?: string;
+  slug?: string;
+  kind?: 'news' | 'event';
+  tags?: string[];
 }
 
 interface NewsFilterProps {
   items: NewsItem[];
+  /** Base URL for the site (e.g. from import.meta.env.BASE_URL) for internal links */
+  baseUrl?: string;
 }
 
 const formatDate = (dateString: string) => {
@@ -34,7 +40,28 @@ const formatDate = (dateString: string) => {
   });
 };
 
-export default function NewsFilter({ items }: NewsFilterProps) {
+const DESCRIPTION_MAX_LENGTH = 160;
+
+function truncateDescription(text: string, maxLength: number = DESCRIPTION_MAX_LENGTH): string {
+  if (!text || text.length <= maxLength) return text;
+  const trimmed = text.slice(0, maxLength).trim();
+  const lastSpace = trimmed.lastIndexOf(' ');
+  if (lastSpace > maxLength * 0.7) {
+    return trimmed.slice(0, lastSpace) + '…';
+  }
+  return trimmed + '…';
+}
+
+function getItemHref(item: NewsItem, baseUrl: string): string | null {
+  const base = baseUrl ?? '';
+  if (item.slug && item.kind) {
+    const segment = item.kind === 'event' ? 'events' : 'news';
+    return `${base}news-events/${segment}/${item.slug}/`;
+  }
+  return item.link ?? null;
+}
+
+export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const safeItems = Array.isArray(items) ? items : [];
   const [selectedFilters, setSelectedFilters] = useState<Filters>(createEmptyFilters());
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
@@ -89,7 +116,7 @@ export default function NewsFilter({ items }: NewsFilterProps) {
 
   return (
     <div className="grid-row grid-gap">
-      <aside className="tablet:grid-col-3 margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="tablet:grid-col-3 desktop:grid-col-2 margin-bottom-4 tablet:margin-bottom-0">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -98,7 +125,7 @@ export default function NewsFilter({ items }: NewsFilterProps) {
         />
       </aside>
 
-      <div className="tablet:grid-col-9" ref={resultsTopRef}>
+      <div className="tablet:grid-col-9 desktop:grid-col-10" ref={resultsTopRef}>
         <div className="margin-bottom-1">
           <p className="font-sans-md margin-0 text-bold">
             {filteredItems.length} {filteredItems.length === 1 ? 'Item' : 'Items'}
@@ -109,24 +136,32 @@ export default function NewsFilter({ items }: NewsFilterProps) {
 
         {filteredItems.length > 0 ? (
           <ul className="usa-collection">
-            {filteredItems.map((item) => (
+            {filteredItems.map((item) => {
+              const href = getItemHref(item, baseUrl);
+              return (
               <li key={item.id} className="usa-collection__item">
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
-                    {/* <a className="usa-link" href={item.link} target="_blank" rel="noreferrer noopener"> */}
-                      {item.title}
-                    {/* </a> */}
+                    {href ? (
+                      <a className="usa-link font-serif" href={href}>
+                        {item.title}
+                      </a>
+                    ) : (
+                      item.title
+                    )}
                   </h3>
                   <div className="resource-date margin-top-05">
-                    <time dateTime={item.date}>{formatDate(item.date)}</time>
+                    <time dateTime={item.date}>
+                      {item.dateDisplay ?? formatDate(item.date)}
+                    </time>
                   </div>
-                  <p className="usa-collection__description margin-bottom-2">{item.description}</p>
-                  {(item.councilAcronym || item.tags.length > 0) && (
+                  <p className="usa-collection__description margin-bottom-2">{truncateDescription(item.description)}</p>
+                  {(item.councilAcronym || (item.tags?.length ?? 0) > 0) && (
                     <ul className="usa-collection__meta content-tags" aria-label="Topics">
                       {item.councilAcronym && (
                         <li className="usa-tag">{item.councilAcronym}</li>
                       )}
-                      {item.tags.map((tag) => (
+                      {(item.tags ?? []).map((tag) => (
                         <li key={tag} className="usa-tag">
                           {tag}
                         </li>
@@ -135,7 +170,8 @@ export default function NewsFilter({ items }: NewsFilterProps) {
                   )}
                 </div>
               </li>
-            ))}
+              );
+            })}
           </ul>
         ) : (
           <p className="usa-intro">No news or events match the selected filters.</p>
