@@ -381,7 +381,7 @@
   },
   {
     "id": "CDOC-1",
-    "title": "Resources",
+    "title": "Resources.data.gov",
     "description": "",
     "type": "Hyperlink",
     "focusArea": "Data",
@@ -391,42 +391,92 @@
   },
   {
     "id": "CDOC-2",
-    "title": "Annual CDOC Survey 2024",
-    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "title": "2024 Annual CDOC Survey - Anonymized Responses",
+    "description": "",
     "type": "PDF Files",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2024-01-01",
-    "link": "https://www.cdo.gov/cdo-council-2024-survey/"
+    "link": "/pdf/2024-annual-cdoc-survey-anonymized-responses.pdf"
   },
   {
     "id": "CDOC-3",
-    "title": "Annual CDOC Survey 2023",
-    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "title": "2024 Annual CDOC Survey - Survey Instrument",
+    "description": "",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2024-01-01",
+    "link": "/pdf/2024-annual-cdoc-survey-survey-instrument.pdf"
+  },
+  {
+    "id": "CDOC-4",
+    "title": "2024 Annual CDOC Survey - Slides Analyzing the Data",
+    "description": "",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2024-01-01",
+    "link": "/pdf/2024-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+  },
+  {
+    "id": "CDOC-5",
+    "title": "2023 Annual CDOC Survey - Anonymized Responses",
+    "description": "",
     "type": "PDF Files",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2023-01-01",
-    "link": "https://www.cdo.gov/2023-cdoc-survey/"
+    "link": "/pdf/2023-annual-cdoc-survey-anonymized-responses.pdf"
   },
   {
-    "id": "CDOC-4",
-    "title": "Annual CDOC Survey 2022",
-    "description": "anonmyzed responses, survey instrument,and slides analyzing the data",
+    "id": "CDOC-6",
+    "title": "2023 Annual CDOC Survey - Survey Instrument",
+    "description": "",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2023-01-01",
+    "link": "/pdf/2023-annual-cdoc-survey-survey-instrument.pdf"
+  },
+  {
+    "id": "CDOC-7",
+    "title": "2023 Annual CDOC Survey - Slides Analyzing the Data",
+    "description": "",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2023-01-01",
+    "link": "/pdf/2023-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+  },
+  {
+    "id": "CDOC-8",
+    "title": "2022 Annual CDOC Survey - Anonymized Responses",
+    "description": "",
     "type": "PDF Files",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2022-01-01",
-    "link": "https://www.cdo.gov/news/survey-results-2022/"
+    "link": "/pdf/2022-annual-cdoc-survey-anonymized-responses.pdf"
   },
   {
-    "id": "CDOC-5",
-    "title": "CDOC Awards Program",
+    "id": "CDOC-9",
+    "title": "2022 Annual CDOC Survey - Survey Instrument",
     "description": "",
-    "type": "TBD",
+    "type": "PDF Files",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
-    "date": "",
-    "link": "https://www.cdo.gov/awards-program/"
+    "date": "2022-01-01",
+    "link": "/pdf/2022-annual-cdoc-survey-survey-instrument.pdf"
+  },
+  {
+    "id": "CDOC-10",
+    "title": "2022 Annual CDOC Survey - Slides Analyzing the Data",
+    "description": "",
+    "type": "PDF Files",
+    "focusArea": "Data",
+    "councilAcronym": "CDOC",
+    "date": "2022-01-01",
+    "link": "/pdf/2022-annual-cdoc-survey-slides-analyzing-the-data.pdf"
   }
 ]

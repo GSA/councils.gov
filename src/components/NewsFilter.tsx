@@ -64,7 +64,13 @@ function getItemHref(item: NewsItem, baseUrl: string): string | null {
 
 export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const safeItems = Array.isArray(items) ? items : [];
-  const [selectedFilters, setSelectedFilters] = useState<Filters>(getInitialFiltersFromUrl);
+  const allowedCouncilAcronyms = useMemo(
+    () => Array.from(new Set(safeItems.map((i) => i.councilAcronym).filter(Boolean))),
+    [safeItems]
+  );
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(() => 
+    getInitialFiltersFromUrl(allowedCouncilAcronyms as string[])
+  );
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 

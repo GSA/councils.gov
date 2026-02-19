@@ -1,5 +1,5 @@
 ---
-title: COFFA Leadership and Members
+title: COFFA Leadership & Members
 councilName: Council on Federal Financial Assistance
 councilSlug: coffa
 intro: The COFFA is composed of Chief Financial Officers and senior financial executives from Federal agencies who work together to improve government financial management practices.
