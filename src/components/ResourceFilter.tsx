@@ -30,8 +30,16 @@ interface ResourceFilterProps {
 export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilterProps) {
   // Ensure resources is always an array
   const safeResources: Resource[] = Array.isArray(resources) ? resources : [];
-  
-  const [selectedFilters, setSelectedFilters] = useState<Filters>(getInitialFiltersFromUrl);
+
+  // Only allow ?council= to pre-select when it matches a council that exists in the data
+  const allowedCouncilAcronyms = useMemo(
+    () => Array.from(new Set(safeResources.map((r) => r.councilAcronym).filter(Boolean))),
+    [safeResources]
+  );
+
+  const [selectedFilters, setSelectedFilters] = useState<Filters>(() =>
+    getInitialFiltersFromUrl(allowedCouncilAcronyms)
+  );
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 

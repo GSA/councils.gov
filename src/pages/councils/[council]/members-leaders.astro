@@ -89,7 +89,7 @@ function getMemberImage(member: any): string | null {
     'epa': 'Environmental Protection Agency.png',
     'federal deposit insurance corporation': 'Federal Deposit Insurance Corporation.png',
     'fdic': 'Federal Deposit Insurance Corporation.png',
-    'general services administration': 'General Services Administration.png',
+    'general services administration': 'General Services Administration Seal.png',
     'gsa': 'General Services Administration.png',
     'national archives and records administration': 'National Archives and Records Administration.png',
     'national aeronautics and space administration': 'National Aeronautics and Space Administration.png',
@@ -165,7 +165,7 @@ function getMemberImage(member: any): string | null {
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
                 {getAgencyUrl(leader) && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
                     <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -204,7 +204,7 @@ function getMemberImage(member: any): string | null {
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
                 {getAgencyUrl(leader) && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
                     <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -242,7 +242,7 @@ function getMemberImage(member: any): string | null {
               {department && <p class="margin-top-0">{department}</p>}
             </div>
             {getAgencyUrl(member) && (
-              <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-2">
+              <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
                 <a href={getAgencyUrl(member)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                   View Agency Webpage
                   <span class="usa-sr-only"> (opens in a new tab)</span>
