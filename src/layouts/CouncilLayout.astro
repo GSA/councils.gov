@@ -25,7 +25,7 @@ const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcro
 const allNavItems = [
   { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
   { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership and Members", id: "members-leaders" },
-  // { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
+  { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
   { href: `${baseUrl}resources/${councilQuery}`, label: "Resources", id: "resources" },
 ];
 const navItems = hasMembersLeaders
