@@ -19,12 +19,18 @@ export const createEmptyFilters = (): Filters => ({
   years: [],
 });
 
-/** Initial filters from URL ?council= (for when navigating from a council page). Client-only. */
-export const getInitialFiltersFromUrl = (): Filters => {
+/**
+ * Initial filters from URL ?council= (e.g. when navigating from a council About page).
+ * Only applies the param if it is in allowedCouncils, so arbitrary values (e.g. ?council=BUTTS) are ignored.
+ * Client-only.
+ */
+export const getInitialFiltersFromUrl = (allowedCouncils: string[]): Filters => {
   if (typeof window === 'undefined') return createEmptyFilters();
-  const council = new URLSearchParams(window.location.search).get('council');
-  if (!council?.trim()) return createEmptyFilters();
-  return { ...createEmptyFilters(), councils: [council.trim()] };
+  const council = new URLSearchParams(window.location.search).get('council')?.trim();
+  if (!council || allowedCouncils.length === 0) return createEmptyFilters();
+  const allowedSet = new Set(allowedCouncils.map((c) => c.trim()).filter(Boolean));
+  if (!allowedSet.has(council)) return createEmptyFilters();
+  return { ...createEmptyFilters(), councils: [council] };
 };
 
 export const getItemYear = (item: FilterableItem) =>
