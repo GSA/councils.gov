@@ -111,7 +111,7 @@ function renderBodyBlock(block: string): string {
         </div>
         {relatedItems.length > 0 && (
         <aside class="tablet:grid-col-3 related-links-sidebar" aria-label="Related News & Events">
-          <h2 class="font-sans-lg margin-top-0 margin-bottom-2">Related News & Events</h2>
+          <h2 class="font-sans-lg margin-y-2">Related News & Events</h2>
           <ul class="usa-collection usa-collection--condensed">
             {relatedItems.map((related: any) => {
               const segment = related.kind === 'event' ? 'events' : 'news';
