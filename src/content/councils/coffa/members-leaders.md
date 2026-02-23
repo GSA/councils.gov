@@ -56,6 +56,6 @@ members:
   - name: Social Security Administration
     url: https://www.ssa.gov/oag/grants/
   - name: Appraisal Subcommittee of the Federal Financial Institutions Examination Council
-    url: https://www.asc.gov
+    url: https://asc.gov/?state_id=69&state=WV
 membersIntro: The COFFA includes representatives from major Federal agencies, each bringing expertise and perspective to improve government financial management.
 ---
