@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
 export async function getStaticPaths() {
@@ -15,6 +16,19 @@ const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
 const dateDisplay = item.dateDisplay || item.date;
+
+/** Other news & events from the dataset (excludes current item). */
+const relatedItems = (newsItems as any[]).filter(
+  (i) => i.slug && i.slug !== item.slug && (i.kind === 'news' || i.kind === 'event')
+);
+
+/** Render a body block (plain text or markdown) as HTML; prepend baseUrl to internal links. */
+function renderBodyBlock(block: string): string {
+  const html = marked.parse(block, { async: false }) as string;
+  if (!baseUrl || baseUrl === '/') return html;
+  const base = baseUrl.replace(/\/$/, '');
+  return html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
+}
 ---
 
 <BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
@@ -46,13 +60,43 @@ const dateDisplay = item.dateDisplay || item.date;
       </div>
     </section>
     <article class="grid-container padding-top-4 usa-section">
+      <div class="grid-row grid-gap">
+        <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
+      {item.summaryBox?.items?.length > 0 && (
+        <div
+          class="usa-summary-box margin-bottom-4"
+          role="region"
+          aria-labelledby={`summary-box-${item.slug}`}
+        >
+          <div class="usa-summary-box__body">
+            <h4 class="usa-summary-box__heading" id={`summary-box-${item.slug}`}>
+              {item.summaryBox.heading || 'Event details'}
+            </h4>
+            <div class="usa-summary-box__text">
+              <ul class="usa-list">
+                {item.summaryBox.items.map((row: { label: string; value: string; link?: string }) => (
+                  <li>
+                    <strong>{row.label}:</strong>{' '}
+                    {row.link ? (
+                      <a class="usa-summary-box__link" href={row.link}>{row.value}</a>
+                    ) : (
+                      row.value
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
       <div class="usa-prose maxw-72 margin-bottom-4">
         <p>
           <time datetime={item.date}>{dateDisplay}</time>
         </p>
-        {Array.isArray(item.body) && item.body.map((paragraph: string) => (
-          <p>{paragraph}</p>
-        ))}
+        {Array.isArray(item.body) &&
+          item.body.map((block: string) => (
+            <div set:html={renderBodyBlock(block)} class="event-body-block" />
+          ))}
       </div>
       {(item.tags?.length > 0 || item.councilAcronym) && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
@@ -64,6 +108,46 @@ const dateDisplay = item.dateDisplay || item.date;
           ))}
         </ul>
       )}
+        </div>
+        {relatedItems.length > 0 && (
+        <aside class="tablet:grid-col-3 related-links-sidebar" aria-label="Related News & Events">
+          <h2 class="font-sans-lg margin-top-0 margin-bottom-2">Related News & Events</h2>
+          <ul class="usa-collection usa-collection--condensed">
+            {relatedItems.map((related: any) => {
+              const segment = related.kind === 'event' ? 'events' : 'news';
+              const href = `${baseUrl}news-events/${segment}/${related.slug}/`;
+              const dateStr = related.dateDisplay || (related.date ? new Date(related.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '');
+              const hasMeta = dateStr || related.author;
+              return (
+                <li class="usa-collection__item">
+                  <div class="usa-collection__body">
+                    <h4 class="usa-collection__heading">
+                      <a class="usa-link" href={href}>{related.title}</a>
+                    </h4>
+                    {hasMeta && (
+                      <ul class="usa-collection__meta" aria-label="More information">
+                        {related.author && (
+                          <li class="usa-collection__meta-item">By {related.author}</li>
+                        )}
+                        {dateStr && (
+                          <li class="usa-collection__meta-item">
+                            {related.date ? (
+                              <time datetime={related.date}>{dateStr}</time>
+                            ) : (
+                              dateStr
+                            )}
+                          </li>
+                        )}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </aside>
+        )}
+      </div>
     </article>
   </main>
 </BaseLayout>

@@ -25,6 +25,11 @@ const formatDate = (dateString: string) => {
 };
 
 const body = Array.isArray(item.body) ? item.body : [];
+
+/** Other news & events from the dataset (excludes current item). */
+const relatedItems = (newsItems as any[]).filter(
+  (i) => i.slug && i.slug !== item.slug && (i.kind === 'news' || i.kind === 'event')
+);
 ---
 
 <BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
@@ -56,6 +61,8 @@ const body = Array.isArray(item.body) ? item.body : [];
       </div>
     </section>
     <article class="grid-container padding-top-4 usa-section">
+      <div class="grid-row grid-gap">
+        <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
       <div class="usa-prose maxw-72 margin-bottom-4">
         <p>
           {item.author && (
@@ -77,6 +84,46 @@ const body = Array.isArray(item.body) ? item.body : [];
           ))}
         </ul>
       )}
+        </div>
+        {relatedItems.length > 0 && (
+        <aside class="tablet:grid-col-3 related-links-sidebar" aria-label="Related News & Events">
+          <h2 class="font-sans-lg margin-top-0 margin-bottom-2">Related News & Events</h2>
+          <ul class="usa-collection usa-collection--condensed">
+            {relatedItems.map((related: any) => {
+              const segment = related.kind === 'event' ? 'events' : 'news';
+              const href = `${baseUrl}news-events/${segment}/${related.slug}/`;
+              const dateStr = related.dateDisplay || (related.date ? new Date(related.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '');
+              const hasMeta = dateStr || related.author;
+              return (
+                <li class="usa-collection__item">
+                  <div class="usa-collection__body">
+                    <h4 class="usa-collection__heading">
+                      <a class="usa-link" href={href}>{related.title}</a>
+                    </h4>
+                    {hasMeta && (
+                      <ul class="usa-collection__meta" aria-label="More information">
+                        {related.author && (
+                          <li class="usa-collection__meta-item">By {related.author}</li>
+                        )}
+                        {dateStr && (
+                          <li class="usa-collection__meta-item">
+                            {related.date ? (
+                              <time datetime={related.date}>{dateStr}</time>
+                            ) : (
+                              dateStr
+                            )}
+                          </li>
+                        )}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </aside>
+        )}
+      </div>
     </article>
   </main>
 </BaseLayout>
