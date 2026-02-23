@@ -1,5 +1,5 @@
 ---
-title: CIOC Leadership and Members
+title: CIOC Leadership & Members
 councilName: Chief Information Officers Council
 councilSlug: cioc
 intro: The CIOC is composed of Chief Information Officers and senior IT executives from Federal agencies who work together to improve government IT practices.

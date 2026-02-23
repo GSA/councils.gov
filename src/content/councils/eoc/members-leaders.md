@@ -1,5 +1,5 @@
 ---
-title: EOC Leadership and Members
+title: EOC Leadership & Members
 councilName: Evaluation Officer Council
 councilSlug: eoc
 intro: The EOC includes evaluation leaders from Federal agencies working together to promote evidence, learning, and impact.

@@ -65,7 +65,7 @@ Mission statement...
 - Goal 3
 ```
 
-## Leadership and Members Pages
+## Leadership & Members Pages
 
 The `members-leaders.md` file uses frontmatter for all structured data.
 
@@ -92,7 +92,7 @@ The `members-leaders.md` file uses frontmatter for all structured data.
 Example:
 ```markdown
 ---
-title: CIOC Leadership and Members
+title: CIOC Leadership & Members
 councilName: CIOC
 councilSlug: cioc
 intro: The CIOC is composed of...

@@ -76,7 +76,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           <button
             type="button"
             className="usa-accordion__button"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="filter-focus-areas"
           >
             {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
@@ -108,7 +108,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           <button
             type="button"
             className="usa-accordion__button"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="filter-types"
           >
             {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
@@ -140,7 +140,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           <button
             type="button"
             className="usa-accordion__button"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="filter-years"
           >
             {selected.years.length > 0 ? `Year (${selected.years.length})` : 'Year'}
