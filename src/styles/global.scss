@@ -320,9 +320,9 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   }
   .usa-card__container {
     border-radius: 0;
-    background-color: var(--color-gray-5);
+    background-color: var(--color-gray-3);
     .usa-card__media {
-      background-color: var(--color-gray-5);
+      background-color: var(--color-gray-3);
       height: auto;
       justify-content: flex-start;
       padding: 2rem 2rem 0.5rem 2rem;
@@ -616,7 +616,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-skipnav:focus {
-  background: var(--color-gray-10);
+  background: var(--color-gray-5);
   left: 0;
   position: absolute;
   top: 0;
@@ -946,7 +946,7 @@ footer.usa-footer .footer-grid-container,
   color: var(--color-gray-60);
   font-weight: normal;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .resource-card-link .usa-card__heading {
@@ -989,7 +989,7 @@ footer.usa-footer .footer-grid-container,
 
 /* Applied to <main> on Resources and News/Events pages */
 .filter-page-main {
-  background-color: var(--color-gray-5);
+  background-color: var(--color-gray-1);
 }
 
 .resources-hero h1 {
@@ -1034,7 +1034,6 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  min-height: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -1151,6 +1150,7 @@ footer.usa-footer .footer-grid-container,
   .usa-collection__item {
     &:first-child {
       margin-top: 0;
+      padding-top: 0; 
       border-top: none;
     }
   }
@@ -1161,8 +1161,8 @@ footer.usa-footer .footer-grid-container,
 }
 
 .news-tags.content-tags .usa-tag {
-  background-color: var(--color-gray-60);
-  color: var(--color-white);
+  background-color: var(--color-gray-10);
+  color: var(--color-ink);
 }
 
 /* Hero: image background, callout on left — min-height and flex only on home */

@@ -43,13 +43,13 @@ const dateDisplay = item.dateDisplay || item.date;
     >
       <div class="grid-container">
         <h1>{item.title}</h1>
-        <p class="usa-intro margin-top-2 margin-bottom-0">
-          <time datetime={item.date}>{dateDisplay}</time>
-        </p>
       </div>
     </section>
-    <article class="grid-container usa-section">
+    <article class="grid-container padding-top-4 usa-section">
       <div class="usa-prose maxw-72 margin-bottom-4">
+        <p>
+          <time datetime={item.date}>{dateDisplay}</time>
+        </p>
         {Array.isArray(item.body) && item.body.map((paragraph: string) => (
           <p>{paragraph}</p>
         ))}
