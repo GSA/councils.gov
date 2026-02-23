@@ -34,7 +34,6 @@ members:
   - name: Department of State
     url: https://www.state.gov/bureaus-offices/under-secretary-for-management/bureau-of-the-comptroller-and-global-financial-services/
   - name: Department of Transportation
-    hideLink: true
   - name: Department of the Treasury
     url: https://home.treasury.gov/services/treasury-financial-assistance
   - name: Department of Veterans Affairs
@@ -50,7 +49,6 @@ members:
   - name: Nuclear Regulatory Commission
     url: https://www.nrc.gov/about-nrc/grants
   - name: Office of Personnel Management
-    hideLink: true
   - name: Small Business Administration
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
   - name: Social Security Administration

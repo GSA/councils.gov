@@ -24,7 +24,6 @@ members:
   - name: Department of Housing and Urban Development
     url: https://www.hud.gov/
   - name: Department of the Interior
-    hideLink: true
   - name: Department of Justice
     url: https://www.ojp.gov/about/offices/office-chief-financial-officer-ocfo
   - name: Department of Labor
@@ -44,7 +43,6 @@ members:
   - name: National Aeronautics and Space Administration
     url: https://www.nasa.gov/ocfo/
   - name: National Science Foundation
-    hideLink: true
   - name: Nuclear Regulatory Commission
     url: https://www.nrc.gov/about-nrc/organization/ocfofuncdesc
   - name: Office of Personnel Management
