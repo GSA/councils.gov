@@ -1,13 +1,17 @@
 [
   {
     "id": "cdo-summit-2025",
-    "kind": "event",
+    "kind": "news",
     "slug": "2025-cdo-summit",
     "title": "2025 CDO Summit",
     "description": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components.",
     "date": "2025-09-24",
     "dateDisplay": "September 24-25, 2025",
-    "tags": ["Data", "CDOC", "Summit"],
+    "tags": [
+      "Data",
+      "CDOC",
+      "Summit"
+    ],
     "type": "Event",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
@@ -25,7 +29,12 @@
     "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09.",
     "date": "2024-10-31",
     "author": "Kirsten Dalboe, Federal Energy Regulatory Commission CDO, Chair of CDO Council and Steven Hernandez, Department of Education CISO, Co-Chair of CISO Council",
-    "tags": ["Zero Trust", "data security", "cybersecurity", "M-22-09"],
+    "tags": [
+      "Zero Trust",
+      "data security",
+      "cybersecurity",
+      "M-22-09"
+    ],
     "type": "Guidance",
     "focusArea": "Cybersecurity",
     "councilAcronym": "CDOC",

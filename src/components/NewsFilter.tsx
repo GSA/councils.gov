@@ -10,7 +10,7 @@ import {
   type FilterableItem,
 } from './filters';
 
-interface NewsItem extends FilterableItem {
+export interface NewsItem extends FilterableItem {
   id: string;
   title: string;
   description: string;
@@ -151,12 +151,11 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       item.title
                     )}
                   </h3>
-                  <div className="resource-date margin-top-05">
+                  <div className="resource-date margin-bottom-2">
                     <time dateTime={item.date}>
                       {item.dateDisplay ?? formatDate(item.date)}
                     </time>
                   </div>
-                  <p className="usa-collection__description margin-bottom-2">{truncateDescription(item.description)}</p>
                   {(item.councilAcronym || (item.tags?.length ?? 0) > 0) && (
                     <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
                       {item.councilAcronym && (
@@ -169,6 +168,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       ))}
                     </ul>
                   )}
+                  <p className="usa-collection__description margin-y-2">{truncateDescription(item.description)}</p>
                 </div>
               </li>
               );

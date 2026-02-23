@@ -1,4 +1,8 @@
-/* Base typography */
+/* Base typography – Inter as default, override USWDS Source Sans Pro */
+html {
+  font-family: var(--font-sans);
+}
+
 *,
 *::before,
 *::after {
@@ -6,6 +10,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
 }
 
 body {
@@ -29,6 +41,11 @@ h6 {
   font-family: var(--font-serif);
 }
 
+/* Override all USWDS components – replace Source Sans Pro with Inter */
+[class*='usa-'] {
+  font-family: var(--font-sans);
+}
+
 /* UI controls */
 .usa-button,
 .usa-input,
@@ -43,9 +60,25 @@ textarea {
   font-family: var(--font-sans);
 }
 
+/* USWDS elements that use serif – keep Playfair Display */
+.usa-intro,
+.usa-card__heading,
+.usa-display,
+.usa-hero__heading,
+.usa-sign-up__heading,
+.usa-footer--big .usa-footer__primary-link,
+.usa-icon-list__content .usa-icon-list__title,
+.usa-prose h1,
+.usa-prose h2,
+.usa-prose h3,
+.usa-prose h4,
+.usa-prose h5,
+.usa-prose h6 {
+  font-family: var(--font-serif);
+}
+
 .usa-intro,
 .usa-card__heading {
-  font-family: var(--font-serif);
   line-height: 1.4;
 }
 
@@ -320,9 +353,9 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   }
   .usa-card__container {
     border-radius: 0;
-    background-color: var(--color-gray-5);
+    background-color: var(--color-gray-3);
     .usa-card__media {
-      background-color: var(--color-gray-5);
+      background-color: var(--color-gray-3);
       height: auto;
       justify-content: flex-start;
       padding: 2rem 2rem 0.5rem 2rem;
@@ -616,7 +649,7 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-skipnav:focus {
-  background: var(--color-gray-10);
+  background: var(--color-gray-5);
   left: 0;
   position: absolute;
   top: 0;
@@ -946,7 +979,7 @@ footer.usa-footer .footer-grid-container,
   color: var(--color-gray-60);
   font-weight: normal;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .resource-card-link .usa-card__heading {
@@ -989,7 +1022,7 @@ footer.usa-footer .footer-grid-container,
 
 /* Applied to <main> on Resources and News/Events pages */
 .filter-page-main {
-  background-color: var(--color-gray-5);
+  background-color: var(--color-gray-1);
 }
 
 .resources-hero h1 {
@@ -1034,7 +1067,6 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  min-height: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -1158,6 +1190,7 @@ footer.usa-footer .footer-grid-container,
   .usa-collection__item {
     &:first-child {
       margin-top: 0;
+      padding-top: 0; 
       border-top: none;
     }
   }
@@ -1167,9 +1200,18 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+.related-links-sidebar .usa-collection__heading {
+  font-size: 1.125rem;
+}
+
+.usa-summary-box__heading {
+  font-family: var(--font-sans); 
+  font-size: 1.375rem;
+}
+
 .news-tags.content-tags .usa-tag {
-  background-color: var(--color-gray-60);
-  color: var(--color-white);
+  background-color: var(--color-gray-10);
+  color: var(--color-ink);
 }
 
 /* Hero: image background, callout on left — min-height and flex only on home */
