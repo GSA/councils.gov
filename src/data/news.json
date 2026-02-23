@@ -1,36 +1,5 @@
 [
   {
-    "id": "cdo-symposium-2024",
-    "kind": "event",
-    "slug": "2024-cdo-council-symposium",
-    "title": "2024 CDO Council Symposium",
-    "description": "The 2024 CDO Council Symposium brought together federal leaders to explore how data powers mission and transforms business.",
-    "date": "2024-11-21",
-    "dateDisplay": "Thursday, November 21, 2024",
-    "tags": ["Data", "CDOC", "Symposium"],
-    "type": "Event",
-    "focusArea": "Data",
-    "councilAcronym": "CDOC",
-    "summaryBox": {
-      "heading": "Event details",
-      "items": [
-        { "label": "Theme", "value": "Data Powers Mission: Transforming Business and Mission with Data" },
-        { "label": "Date", "value": "Thursday | November 21, 2024" },
-        { "label": "Time", "value": "8:00 AM to 3:30 PM ET" },
-        { "label": "Event type", "value": "In-Person" },
-        { "label": "Location", "value": "GSA Auditorium at 1800 F St NW, Washington, DC, 20405, Floor 1, Wing 0" },
-        { "label": "Format", "value": "One-Time" },
-        { "label": "Audience", "value": "Leaders from across the federal government from a diverse group of mission functions (CDOs, CFOs, CIOs, CHCOs, etc.) and other parties who use federal data (industry, academia, etc.)" },
-        { "label": "Point of Contact", "value": "Lauren Ipsum", "link": "mailto:lauren.ipsum@example.gov" }
-      ]
-    },
-    "body": [
-      "**Symposium Overview:**\n\nOur attendees had the opportunity to discover the transformative power of data in modernizing agency missions and enhancing organizational capabilities. Federal leaders shared exclusive insights on how data drives mission delivery transformation and unlocks untapped potential. Participants also gained a deeper understanding of how the alignment of AI and data management can unleash sustained and responsible value within federal agencies. Please see below for more information regarding the agenda, including the special speakers who provided great insights and discussion.",
-      "**2024 CDOC Symposium Program Book:** [Click here](/pdf/2024-cdoc-symposium-program-book.pdf) for the Program Book for the 2024 CDO Council's \"Data Powers Mission: Transforming Business and Mission with Data\" Symposium.",
-      "**Keynote Address**\n\n[Click here](/pdf/2024-cdoc-symposium-keynote-omalley.pdf) to view remarks from Commissioner Martin O'Malley, Commissioner of the Social Security Administration, as provided as a keynote address during the November 21st, 2024 CDO Council Symposium."
-    ]
-  },
-  {
     "id": "cdo-summit-2025",
     "kind": "event",
     "slug": "2025-cdo-summit",
@@ -38,7 +7,11 @@
     "description": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components.",
     "date": "2025-09-24",
     "dateDisplay": "September 24-25, 2025",
-    "tags": ["Data", "CDOC", "Summit"],
+    "tags": [
+      "Data",
+      "CDOC",
+      "Summit"
+    ],
     "type": "Event",
     "focusArea": "Data",
     "councilAcronym": "CDOC",
@@ -56,7 +29,12 @@
     "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09.",
     "date": "2024-10-31",
     "author": "Kirsten Dalboe, Federal Energy Regulatory Commission CDO, Chair of CDO Council and Steven Hernandez, Department of Education CISO, Co-Chair of CISO Council",
-    "tags": ["Zero Trust", "data security", "cybersecurity", "M-22-09"],
+    "tags": [
+      "Zero Trust",
+      "data security",
+      "cybersecurity",
+      "M-22-09"
+    ],
     "type": "Guidance",
     "focusArea": "Cybersecurity",
     "councilAcronym": "CDOC",
