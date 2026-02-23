@@ -22,32 +22,47 @@ leaders:
     imageAlt: Jay Teitelbaum
 
 members:
-  - name: Department of the Air Force
-  - name: Department of the Army
-  - name: Department of Commerce
-  - name: Department of Education
-  - name: Department of Energy
-  - name: Department of Health and Human Services
-  - name: Department of Homeland Security
-  - name: Department of the Interior
-  - name: Department of Justice
   - name: Department of Labor
-  - name: Department of the Navy
+    hideLink: true
   - name: Department of State
-  - name: Department of Transportation
+    hideLink: true
+  - name: Department of the Interior
+    hideLink: true
   - name: Department of the Treasury
+    hideLink: true
+  - name: Department of Transportation
+    hideLink: true
   - name: Department of Veterans Affairs
+    hideLink: true
   - name: Department of War
+    hideLink: true
   - name: Environmental Protection Agency
-  - name: Federal Deposit Insurance Corporation
+    hideLink: true
   - name: General Services Administration
+    hideLink: true
   - name: National Aeronautics and Space Administration
-  - name: National Archives and Records Administration
+    hideLink: true
   - name: National Science Foundation
+    hideLink: true
   - name: Nuclear Regulatory Commission
-  - name: Office of the Director of National Intelligence
+    hideLink: true
   - name: Office of Personnel Management
+    hideLink: true
   - name: Small Business Administration
+    hideLink: true
   - name: Social Security Administration
+    hideLink: true
+  - name: Department of the Air Force
+    hideLink: true
+  - name: Department of the Army
+    hideLink: true
+  - name: Department of the Navy
+    hideLink: true
+  - name: Federal Deposit Insurance Corporation
+    hideLink: true
+  - name: National Archives and Records Administration
+    hideLink: true
+  - name: Office of the Director of National Intelligence
+    hideLink: true
 membersIntro: The CIOC includes representatives from major Federal agencies, each bringing expertise and perspective to improve government IT management.
 ---
