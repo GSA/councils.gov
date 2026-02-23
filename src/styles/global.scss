@@ -1,4 +1,8 @@
-/* Base typography */
+/* Base typography – Inter as default, override USWDS Source Sans Pro */
+html {
+  font-family: var(--font-sans);
+}
+
 *,
 *::before,
 *::after {
@@ -6,6 +10,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
+    'DejaVu Sans Mono', monospace;
 }
 
 body {
@@ -29,6 +41,11 @@ h6 {
   font-family: var(--font-serif);
 }
 
+/* Override all USWDS components – replace Source Sans Pro with Inter */
+[class*='usa-'] {
+  font-family: var(--font-sans);
+}
+
 /* UI controls */
 .usa-button,
 .usa-input,
@@ -43,9 +60,25 @@ textarea {
   font-family: var(--font-sans);
 }
 
+/* USWDS elements that use serif – keep Playfair Display */
+.usa-intro,
+.usa-card__heading,
+.usa-display,
+.usa-hero__heading,
+.usa-sign-up__heading,
+.usa-footer--big .usa-footer__primary-link,
+.usa-icon-list__content .usa-icon-list__title,
+.usa-prose h1,
+.usa-prose h2,
+.usa-prose h3,
+.usa-prose h4,
+.usa-prose h5,
+.usa-prose h6 {
+  font-family: var(--font-serif);
+}
+
 .usa-intro,
 .usa-card__heading {
-  font-family: var(--font-serif);
   line-height: 1.4;
 }
 
