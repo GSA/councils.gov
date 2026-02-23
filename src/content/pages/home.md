@@ -17,6 +17,13 @@ councils:
     logoAlt: CIOC Logo
     logoClass: council-logo
     description: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
+  - title: Chief Financial Officers Council
+    acronym: CFOC
+    href: /councils/cfoc/about/
+    logo: /assets/img/councils/CFO.png
+    logoAlt: CFOC Logo
+    logoClass: council-logo
+    description: The Chief Financial Officers Council is the federal government's primary leadership body for advancing effective financial management across agencies, bringing together CFOs from the 24 CFO Act agencies.
   - title: Council on Federal Financial Assistance
     acronym: COFFA
     href: /councils/coffa/about/

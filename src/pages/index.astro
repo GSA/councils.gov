@@ -29,7 +29,10 @@ const {
   }>;
 };
 const councilsList = Array.isArray(councils) ? councils : [];
-const withBase = (path: string) => (path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+const withBase = (path: string | null | undefined) => {
+  if (path == null) return '';
+  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
+};
 ---
 
 <BaseLayout title={title} currentPage="home">

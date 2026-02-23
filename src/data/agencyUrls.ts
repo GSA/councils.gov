@@ -46,8 +46,9 @@ export const agencyUrls: Record<string, string> = {
     "https://www.asc.gov",
 };
 
-/** Get agency URL for a member: use member.url if set, else lookup by agency then name. */
-export function getAgencyUrl(member: { url?: string; name?: string; agency?: string }): string | null {
+/** Get agency URL for a member: use member.url if set, else lookup by agency then name. hideLink: true suppresses the link. */
+export function getAgencyUrl(member: { url?: string; name?: string; agency?: string; hideLink?: boolean }): string | null {
+  if (member.hideLink === true) return null;
   if (member.url) return member.url;
   const agency = (member.agency ?? "").trim().toLowerCase();
   if (agency && agencyUrls[agency]) return agencyUrls[agency];

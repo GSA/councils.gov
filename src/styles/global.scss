@@ -672,10 +672,13 @@ footer.usa-footer .footer-grid-container,
   margin-right: auto;
 }
 
+$councils-gap: 2rem;
+
 .councils-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $councils-gap;
 
   /* Override USWDS .usa-card :last-child margin so the last card matches the others */
   a {
@@ -683,6 +686,7 @@ footer.usa-footer .footer-grid-container,
     display: flex;
     min-height: 0;
     margin-bottom: 0 !important;
+    flex: 0 0 100%;
   }
 
   a:last-child {
@@ -724,14 +728,14 @@ footer.usa-footer .footer-grid-container,
 }
 
 @media (min-width: 40rem) {
-  .councils-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .councils-grid a {
+    flex: 0 0 calc((100% - #{$councils-gap}) / 2);
   }
 }
 
 @media (min-width: 64rem) {
-  .councils-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .councils-grid a {
+    flex: 0 0 calc((100% - #{$councils-gap * 2}) / 3);
   }
 }
 
