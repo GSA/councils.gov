@@ -9,31 +9,53 @@ leaders:
   - name: Dale Bell
     description: COFFA, Co-Chair, Deputy Assistant Secretary, Office of Grants
 members:
-  - name: Appraisal Subcommittee of the Federal Financial Institutions Examination Council
-  - name: Whitney Tyson
-    agency: Department of Agriculture
-  - name: Molly Shea
-    agency: Department of Commerce
+  - name: Department of Agriculture
+    url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer/federal-financial-assistance-policy
+  - name: Department of Commerce
+    url: https://www.commerce.gov/oam/policy/financial-assistance-policy
   - name: Department of Education
+    url: https://www.ed.gov/grants-and-programs/apply-grant/grants-overview-us-department-of-education?src=pn
   - name: Department of Energy
-  - name: Department of Health and Human Services
-  - name: Department of Homeland Security
-  - name: Department of Housing and Urban Development
-  - name: Department of the Interior
-  - name: Department of Justice
-  - name: Department of Labor
-  - name: Department of State
-  - name: Department of Transportation
-  - name: Department of the Treasury
-  - name: Department of Veterans Affairs
+    url: https://www.energy.gov/management/financial-assistance
   - name: Department of War
+    url: https://rt.cto.mil/ddre-rt/science-and-technology-foundations/grants/
+  - name: Department of Health and Human Services
+    url: https://www.hhs.gov/grants-contracts/grants/index.html
+  - name: Department of Homeland Security
+    url: https://www.dhs.gov/dhs-financial-assistance
+  - name: Department of Housing and Urban Development
+    url: https://www.hud.gov
+  - name: Department of the Interior
+    url: https://www.doi.gov/pfm/cfo
+  - name: Department of Justice
+    url: https://www.justice.gov/grants
+  - name: Department of Labor
+    url: https://www.dol.gov/grants
+  - name: Department of State
+    url: https://www.state.gov/bureaus-offices/under-secretary-for-management/bureau-of-the-comptroller-and-global-financial-services/
+  - name: Department of Transportation
+    hideLink: true
+  - name: Department of the Treasury
+    url: https://home.treasury.gov/services/treasury-financial-assistance
+  - name: Department of Veterans Affairs
+    url: https://department.va.gov/administrations-and-offices/management/finance/?redirect=1
   - name: Environmental Protection Agency
+    url: https://www.epa.gov/aboutepa/about-office-financial-operations-management
   - name: General Services Administration
+    url: https://www.gsa.gov/about-us/organization/office-of-the-chief-financial-officer
   - name: National Aeronautics and Space Administration
+    url: https://www.nasa.gov/grants-policy-and-compliance-team/
   - name: National Science Foundation
+    url: https://www.nsf.gov/bfa/dias
   - name: Nuclear Regulatory Commission
+    url: https://www.nrc.gov/about-nrc/grants
   - name: Office of Personnel Management
+    hideLink: true
   - name: Small Business Administration
+    url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
   - name: Social Security Administration
+    url: https://www.ssa.gov/oag/grants/
+  - name: Appraisal Subcommittee of the Federal Financial Institutions Examination Council
+    url: https://www.asc.gov
 membersIntro: The COFFA includes representatives from major Federal agencies, each bringing expertise and perspective to improve government financial management.
 ---
