@@ -1133,6 +1133,13 @@ footer.usa-footer .footer-grid-container,
 
 .filter-sidebar .usa-accordion {
   width: 100%;
+  /* Hide accordion content by default when collapsed so no flash before JS (content is sibling of heading, not button) */
+  .usa-accordion__heading:has(.usa-accordion__button[aria-expanded="false"]) + .usa-accordion__content {
+    display: none;
+  }
+  .usa-accordion__heading:has(.usa-accordion__button[aria-expanded="true"]) + .usa-accordion__content {
+    display: block;
+  }
   .usa-accordion__content {
     overflow: auto;
     background-color: transparent;

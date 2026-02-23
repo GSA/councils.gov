@@ -33,6 +33,9 @@ export const getInitialFiltersFromUrl = (allowedCouncils: string[]): Filters => 
   return { ...createEmptyFilters(), councils: [council] };
 };
 
+/** Display value for the filter option when a resource has no year. */
+export const NO_YEAR_LABEL = 'No year';
+
 export const getItemYear = (item: FilterableItem) =>
   item.date ? item.date.split('-')[0].trim() : '';
 
@@ -52,7 +55,10 @@ export const matchesFilters = (item: FilterableItem, filters: Filters) => {
   const focusAreaMatch =
     filters.focusAreas.length === 0 || filters.focusAreas.includes(focusAreaValue);
   const typeMatch = filters.types.length === 0 || filters.types.includes(typeValue);
-  const yearMatch = filters.years.length === 0 || filters.years.includes(yearValue);
+  const yearMatch =
+    filters.years.length === 0 ||
+    (yearValue === '' && filters.years.includes(NO_YEAR_LABEL)) ||
+    (yearValue !== '' && filters.years.includes(yearValue));
 
   return councilMatch && focusAreaMatch && typeMatch && yearMatch;
 };
@@ -112,25 +118,30 @@ export const buildFilterOptions = <T extends FilterableItem>(items: T[], selecte
     .filter(Boolean)
     .sort();
 
-  const years = Array.from(
-    new Set([
-      ...items
-        .filter((item) =>
-          matchesFilters(item, {
-            councils: selected.councils,
-            focusAreas: selected.focusAreas,
-            types: selected.types,
-            years: [],
-          })
-        )
-        .map((item) => getItemYear(item))
-        .filter((year) => Boolean(year) && year !== '1900'),
-      ...selected.years,
-    ])
-  )
+  const itemsMatchingOtherFilters = items.filter((item) =>
+    matchesFilters(item, {
+      councils: selected.councils,
+      focusAreas: selected.focusAreas,
+      types: selected.types,
+      years: [],
+    })
+  );
+  const yearValues = itemsMatchingOtherFilters
+    .map((item) => getItemYear(item))
+    .filter((year) => year === '' || (Boolean(year) && year !== '1900'));
+  const hasNoYear = yearValues.some((y) => y === '');
+  const yearsSet = new Set([
+    ...yearValues.filter(Boolean),
+    ...selected.years,
+    ...(hasNoYear ? [NO_YEAR_LABEL] : []),
+  ]);
+  const years = Array.from(yearsSet)
     .filter(Boolean)
-    .sort()
-    .reverse();
+    .sort((a, b) => {
+      if (a === NO_YEAR_LABEL) return 1;
+      if (b === NO_YEAR_LABEL) return -1;
+      return b.localeCompare(a, undefined, { numeric: true });
+    });
 
   return { councils, focusAreas, types, years };
 };

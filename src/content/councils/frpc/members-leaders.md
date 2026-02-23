@@ -1,5 +1,5 @@
 ---
-title: FRPC Leadership and Members
+title: FRPC Leadership & Members
 councilName: Federal Real Property Council
 councilSlug: frpc
 intro: The FRPC brings together senior real property officials from across the Federal Government to drive consistent policy and performance.

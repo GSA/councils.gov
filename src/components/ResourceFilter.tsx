@@ -116,10 +116,14 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
 
         <div className="grid-row grid-gap">
           {filteredResources.length > 0 ? (
-            filteredResources.map((resource) => (
+            filteredResources.map((resource) => {
+              const href = resource.link.startsWith('/')
+                ? `${baseUrl.replace(/\/$/, '')}${resource.link}`
+                : resource.link;
+              return (
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
                 <a
-                  href={resource.link}
+                  href={href}
                   className="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered"
                   target="_blank"
                   rel="noreferrer noopener"
@@ -150,7 +154,8 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                   </div>
                 </a>
               </div>
-            ))
+              );
+            })
           ) : (
             <div className="tablet:grid-col-12">
               <p className="usa-intro">No resources match the selected filters.</p>

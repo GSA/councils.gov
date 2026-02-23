@@ -9,7 +9,7 @@ interface Props {
   logoPath?: string;
   logoAlt?: string;
   logoClass?: string;
-  /** When false, the "Leadership and Members" side nav item is hidden. */
+  /** When false, the "Leadership & Members" side nav item is hidden. */
   hasMembersLeaders?: boolean;
 }
 
@@ -22,11 +22,13 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
+const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+const resourcesExternal = councilSlug === 'icsp';
 const allNavItems = [
   { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
-  { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership and Members", id: "members-leaders" },
+  { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
   { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
-  { href: `${baseUrl}resources/${councilQuery}`, label: "Resources", id: "resources" },
+  { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
 const navItems = hasMembersLeaders
   ? allNavItems
@@ -62,7 +64,7 @@ const navItems = hasMembersLeaders
                 <p class="council-hero__brow">{councilName}</p>
                 <h1 class="council-hero__title">
                   {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
-                   currentPage === "members-leaders" ? `Leadership and Members` : 
+                   currentPage === "members-leaders" ? `Leadership & Members` : 
                    title || `${councilName}`}
                 </h1>
               </div>
@@ -81,7 +83,8 @@ const navItems = hasMembersLeaders
                   <li class="usa-sidenav__item">
                     <a
                       href={item.href}
-                      class={currentPage === item.id ? "usa-current" : ""}
+                      class={[currentPage === item.id ? "usa-current" : "", item.external ? "usa-link usa-link--external" : ""].filter(Boolean).join(" ")}
+                      {...(item.external && { target: "_blank", rel: "noreferrer noopener" })}
                     >
                       {item.label}
                     </a>
