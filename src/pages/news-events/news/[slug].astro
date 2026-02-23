@@ -65,10 +65,10 @@ const relatedItems = (newsItems as any[]).filter(
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
       <div class="maxw-72 margin-bottom-4">
         <p>
+          <time datetime={item.date}>{formatDate(item.date)}</time>
           {item.author && (
             <span class="display-block">By {item.author}</span>
           )}
-          <time datetime={item.date}>{formatDate(item.date)}</time>
         </p>
         {body.map((paragraph: string) => (
           <p>{paragraph}</p>
