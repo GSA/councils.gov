@@ -22,32 +22,26 @@ leaders:
     imageAlt: Jay Teitelbaum
 
 members:
-  - name: Department of the Air Force
-  - name: Department of the Army
-  - name: Department of Commerce
-  - name: Department of Education
-  - name: Department of Energy
-  - name: Department of Health and Human Services
-  - name: Department of Homeland Security
-  - name: Department of the Interior
-  - name: Department of Justice
   - name: Department of Labor
-  - name: Department of the Navy
   - name: Department of State
-  - name: Department of Transportation
+  - name: Department of the Interior
   - name: Department of the Treasury
+  - name: Department of Transportation
   - name: Department of Veterans Affairs
   - name: Department of War
   - name: Environmental Protection Agency
-  - name: Federal Deposit Insurance Corporation
   - name: General Services Administration
   - name: National Aeronautics and Space Administration
-  - name: National Archives and Records Administration
   - name: National Science Foundation
   - name: Nuclear Regulatory Commission
-  - name: Office of the Director of National Intelligence
   - name: Office of Personnel Management
   - name: Small Business Administration
   - name: Social Security Administration
+  - name: Department of the Air Force
+  - name: Department of the Army
+  - name: Department of the Navy
+  - name: Federal Deposit Insurance Corporation
+  - name: National Archives and Records Administration
+  - name: Office of the Director of National Intelligence
 membersIntro: The CIOC includes representatives from major Federal agencies, each bringing expertise and perspective to improve government IT management.
 ---

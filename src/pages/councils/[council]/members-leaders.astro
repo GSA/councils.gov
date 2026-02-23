@@ -1,6 +1,5 @@
 ---
 import CouncilLayout from '../../../layouts/CouncilLayout.astro';
-import { getAgencyUrl } from '../../../data/agencyUrls';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -164,9 +163,9 @@ function getMemberImage(member: any): string | null {
                   <h3 class="margin-top-0">{leader.name}</h3>
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
-                {getAgencyUrl(leader) && (
+                {leader.url && (
                   <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
-                    <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                    <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
                     </a>
@@ -203,9 +202,9 @@ function getMemberImage(member: any): string | null {
                   <h3 class="margin-top-0">{leader.name}</h3>
                   {description && <p class="margin-top-0">{description}</p>}
                 </div>
-                {getAgencyUrl(leader) && (
+                {leader.url && (
                   <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
-                    <a href={getAgencyUrl(leader)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                    <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
                     </a>
@@ -241,9 +240,9 @@ function getMemberImage(member: any): string | null {
               <h3 class="margin-top-0">{member.name}</h3>
               {department && <p class="margin-top-0">{department}</p>}
             </div>
-            {getAgencyUrl(member) && (
+            {member.url && (
               <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
-                <a href={getAgencyUrl(member)!} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                <a href={member.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                   View Agency Webpage
                   <span class="usa-sr-only"> (opens in a new tab)</span>
                 </a>

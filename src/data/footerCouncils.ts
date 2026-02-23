@@ -16,7 +16,7 @@ export const footerCouncils = [
   },
   {
     name: "Chief Financial Officers Council",
-    href: "/councils/coffa/about/",
+    href: "/councils/cfoc/about/",
     logo: "/assets/img/councils/CFO.png",
   },
   {
