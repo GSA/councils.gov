@@ -1,6 +1,6 @@
 ---
 title: Councils.gov - Home
-heroText: Bringing together policy makers and practitioners to advance the President's agenda collaboratively, and share best practices.
+heroText: Bringing together policy makers and practitioners to advance the President's agenda.
 councilsHeading: Federal Executive Councils
 councils:
   - title: Chief Data Officers Council
