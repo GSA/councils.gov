@@ -57,13 +57,18 @@ const baseUrl = import.meta.env.BASE_URL;
         </li>
       </ul>
       <section aria-label="Search component">
-        <form class="usa-search usa-search--small" role="search">
+        <form
+          class="usa-search usa-search--small"
+          role="search"
+          action={`${baseUrl}search/`}
+          method="get"
+        >
           <label class="usa-sr-only" for="search-field">Search</label>
           <input
             class="usa-input"
             id="search-field"
             type="search"
-            name="search"
+            name="q"
             placeholder="Search"
           />
           <button class="usa-button" type="submit">
