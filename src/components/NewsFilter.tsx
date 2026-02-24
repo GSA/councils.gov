@@ -123,7 +123,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="sidebar-layout__sidebar">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}

@@ -149,7 +149,7 @@ function getMemberImage(member: any): string | null {
           const description =
             leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
           return (
-          <div class="tablet:grid-col-6">
+          <div class="tablet:grid-col-12 desktop:grid-col-6">
             <div class="usa-card">
               <div class="usa-card__container">
                 {leader.image && (
@@ -160,11 +160,11 @@ function getMemberImage(member: any): string | null {
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.name}</h3>
-                  {description && <p class="margin-top-0">{description}</p>}
+                  <h3>{leader.name}</h3>
+                  {description && <p>{description}</p>}
                 </div>
                 {leader.url && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+                  <div class="usa-card__footer">
                     <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -199,11 +199,11 @@ function getMemberImage(member: any): string | null {
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.name}</h3>
-                  {description && <p class="margin-top-0">{description}</p>}
+                  <h3>{leader.name}</h3>
+                  {description && <p>{description}</p>}
                 </div>
                 {leader.url && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+                  <div class="usa-card__footer">
                     <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -237,11 +237,11 @@ function getMemberImage(member: any): string | null {
               </div>
             )}
             <div class="usa-card__body">
-              <h3 class="margin-top-0">{member.name}</h3>
-              {department && <p class="margin-top-0">{department}</p>}
+              <h3>{member.name}</h3>
+              {department && <p>{department}</p>}
             </div>
             {member.url && (
-              <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+              <div class="usa-card__footer">
                 <a href={member.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                   View Agency Webpage
                   <span class="usa-sr-only"> (opens in a new tab)</span>

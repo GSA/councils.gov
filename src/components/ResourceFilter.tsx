@@ -102,7 +102,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="sidebar-layout__sidebar">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -148,7 +148,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                         {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                       </div>
                     </div>
-                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-3">
+                    <div className="usa-card__footer">
                       <span className="usa-link usa-link--external font-sans-sm">View resource</span>
                     </div>
                   </div>
