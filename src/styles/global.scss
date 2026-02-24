@@ -121,6 +121,30 @@ $type-scale: (
   }
 }
 
+/* Responsive font utilities – tablet: applies at $breakpoint-tablet and up (mobile-first) */
+@each $size, $rem in $type-scale {
+  @media (min-width: $breakpoint-tablet) {
+    .tablet\:font-sans-#{$size} {
+      font-family: var(--font-sans);
+      font-size: $rem;
+    }
+    .tablet\:font-serif-#{$size} {
+      font-family: var(--font-serif);
+      font-size: $rem;
+    }
+  }
+  @media (max-width: $breakpoint-tablet - 0.0625rem) {
+    .mobile\:font-sans-#{$size} {
+      font-family: var(--font-sans);
+      font-size: $rem;
+    }
+    .mobile\:font-serif-#{$size} {
+      font-family: var(--font-serif);
+      font-size: $rem;
+    }
+  }
+}
+
 .usa-button {
   font-size: 1rem;
   background-color: var(--primary-color);
