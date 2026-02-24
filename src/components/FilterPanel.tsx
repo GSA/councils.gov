@@ -10,6 +10,7 @@ type FilterPanelProps = {
   selected: Filters;
   onToggle: (group: keyof Filters, value: string) => void;
   onReset: () => void;
+  filterHeadingRef?: React.RefObject<HTMLHeadingElement>;
 };
 
 type FilterPillsProps = {
@@ -19,13 +20,22 @@ type FilterPillsProps = {
   baseUrl?: string;
 };
 
-export function FilterPanel({ options, selected, onToggle, onReset }: FilterPanelProps) {
+export function FilterPanel({ options, selected, onToggle, onReset, filterHeadingRef }: FilterPanelProps) {
   const { councils, focusAreas, types, years } = options;
+
+  const handleReset = () => {
+    onReset();
+    requestAnimationFrame(() => {
+      filterHeadingRef?.current?.focus();
+    });
+  };
 
   return (
     <div className="filter-sidebar">
-      <div className="filter-sidebar__header display-flex flex-column">
-        <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
+      <div className="filter-sidebar__header">
+        <h2 ref={filterHeadingRef} className="font-sans-lg" tabIndex={-1}>
+          Filters
+        </h2>
         {(selected.councils.length > 0 ||
           selected.focusAreas.length > 0 ||
           selected.types.length > 0 ||
@@ -33,7 +43,7 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           <button
             type="button"
             className="usa-button--unstyled usa-link margin-bottom-2"
-            onClick={onReset}
+            onClick={handleReset}
           >
             Reset filters
           </button>

@@ -41,6 +41,8 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     getInitialFiltersFromUrl(allowedCouncilAcronyms)
   );
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const firstCardRef = useRef<HTMLAnchorElement | null>(null);
+  const filterHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const hasMountedRef = useRef(false);
 
   const toggleSelection = (group: keyof Filters, value: string) => {
@@ -98,20 +100,50 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
         window.scrollTo({ top: targetTop, behavior: 'smooth' });
       }
     }
-  }, [selectedFilters]);
+
+    requestAnimationFrame(() => {
+      if (filteredResources.length > 0 && firstCardRef.current) {
+        firstCardRef.current.focus();
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [selectedFilters, filteredResources.length]);
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside
+        className="sidebar-layout__sidebar"
+        role="region"
+        aria-label="Filter resources by council, focus area, type, and year"
+      >
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
           onToggle={toggleSelection}
           onReset={resetFilters}
+          filterHeadingRef={filterHeadingRef}
         />
       </aside>
 
-      <div className="sidebar-layout__main" ref={resultsTopRef}>
+      <div
+        className="sidebar-layout__main"
+        ref={resultsTopRef}
+        role="region"
+        aria-label="Filter results"
+        tabIndex={-1}
+      >
+        <p
+          className="font-sans-sm text-bold margin-bottom-2"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+        >
+          {filteredResources.length > 0
+            ? `Showing ${filteredResources.length} of ${safeResources.length} resources`
+            : 'No resources match the selected filters'}
+        </p>
+
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         <div className="grid-row grid-gap">
@@ -123,10 +155,16 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
               return (
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
                 <a
+                  ref={(el) => {
+                    if (filteredResources[0]?.id === resource.id) {
+                      (firstCardRef as React.MutableRefObject<HTMLAnchorElement | null>).current = el;
+                    }
+                  }}
                   href={href}
                   className="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered"
                   target="_blank"
                   rel="noreferrer noopener"
+                  aria-label={`${resource.title} (opens in new tab)`}
                 >
                   <div className="usa-card__container">
                     <header className="usa-card__header">
@@ -148,7 +186,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                         {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
                       </div>
                     </div>
-                    <div className="usa-card__footer padding-top-2 padding-bottom-2 padding-x-3">
+                    <div className="usa-card__footer">
                       <span className="usa-link usa-link--external font-sans-sm">View resource</span>
                     </div>
                   </div>
