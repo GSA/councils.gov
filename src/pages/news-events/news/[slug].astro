@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
 export async function getStaticPaths() {
@@ -25,6 +26,21 @@ const formatDate = (dateString: string) => {
 };
 
 const body = Array.isArray(item.body) ? item.body : [];
+
+/** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
+function renderBodyBlock(block: string): string {
+  let html = marked.parse(block, { async: false }) as string;
+  html = html.replace(
+    /<a href="(https?:\/\/[^"]*)"([^>]*)>([\s\S]*?)<\/a>/g,
+    (_, href, rest, content) =>
+      `<a href="${href}"${rest} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">${content}<span class="usa-sr-only"> (opens in a new tab)</span></a>`
+  );
+  const base = baseUrl?.replace(/\/$/, '') || '';
+  if (base && base !== '/') {
+    html = html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
+  }
+  return html;
+}
 
 /** Related news & events: same council, sorted by date (newest first), limit 5. */
 const currentCouncil = item.councilAcronym;
@@ -84,16 +100,8 @@ const relatedItems = (newsItems as any[])
           <p class="text-bold">By {item.author}</p>
         )}
         {body.map((paragraph: string) => (
-          <p>{paragraph}</p>
+          <div set:html={renderBodyBlock(paragraph)} class="news-body-block" />
         ))}
-        {item.guideUrl && (
-          <p class="margin-top-2">
-            <a href={item.guideUrl} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
-              Federal Zero Trust Data Security Guide (PDF)
-              <span class="usa-sr-only"> (opens in a new tab)</span>
-            </a>
-          </p>
-        )}
       </div>
       {item.councilAcronym && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
