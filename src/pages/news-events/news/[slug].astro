@@ -77,12 +77,12 @@ const relatedItems = (newsItems as any[])
         </div>
       )}
       <div class="maxw-72 margin-bottom-4">
-        <p>
+        <p class="text-gray-50">
           <time datetime={item.date}>{formatDate(item.date)}</time>
-          {item.author && (
-            <p class="text-italic">By {item.author}</p>
-          )}
         </p>
+        {item.author && (
+          <p class="text-bold">By {item.author}</p>
+        )}
         {body.map((paragraph: string) => (
           <p>{paragraph}</p>
         ))}
