@@ -1,3 +1,9 @@
+/* Breakpoints – SCSS vars for media queries (CSS vars don't resolve reliably there) */
+$breakpoint-mobile: 0;
+$breakpoint-tablet: 40rem;
+$breakpoint-desktop: 64rem;
+$breakpoint-desktop-lg: 75rem;
+
 /* Base typography – Inter as default, override USWDS Source Sans Pro */
 html {
   font-family: var(--font-sans);
@@ -115,6 +121,30 @@ $type-scale: (
   }
 }
 
+/* Responsive font utilities – tablet: applies at $breakpoint-tablet and up (mobile-first) */
+@each $size, $rem in $type-scale {
+  @media (min-width: $breakpoint-tablet) {
+    .tablet\:font-sans-#{$size} {
+      font-family: var(--font-sans);
+      font-size: $rem;
+    }
+    .tablet\:font-serif-#{$size} {
+      font-family: var(--font-serif);
+      font-size: $rem;
+    }
+  }
+  @media (max-width: $breakpoint-tablet - 0.0625rem) {
+    .mobile\:font-sans-#{$size} {
+      font-family: var(--font-sans);
+      font-size: $rem;
+    }
+    .mobile\:font-serif-#{$size} {
+      font-family: var(--font-serif);
+      font-size: $rem;
+    }
+  }
+}
+
 .usa-button {
   font-size: 1rem;
   background-color: var(--primary-color);
@@ -146,6 +176,7 @@ h6 {
 }
 
 /* Header + navigation */
+
 .usa-logo__text {
   font-family: var(--font-serif);
 }
@@ -154,6 +185,14 @@ h6 {
 .usa-nav__submenu-item a,
 .usa-menu-btn {
   font-family: var(--font-sans);
+}
+
+.usa-menu-btn, .usa-menu-btn:hover {
+  background-color: var(--accent-color);
+}
+
+.usa-nav__submenu a:not(.usa-button) {
+  padding-left: 1rem; 
 }
 
 .usa-navbar {
@@ -197,7 +236,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
     box-sizing: border-box;
   }
 
-  @media (min-width: var(--breakpoint-tablet)) {
+  @media (min-width: $breakpoint-tablet) {
     .grid-container {
       padding-left: 2rem;
       padding-right: 2rem;
@@ -228,10 +267,14 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   box-sizing: border-box;
   display: flex;
+  @media (max-width: $breakpoint-desktop) {
+    padding: 0;
+  }
+
   .usa-nav-container {
     max-width: 100%;
     width: 100%;
@@ -253,6 +296,10 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
     max-width: none;
     width: auto;
     margin-top: 1rem;
+    @media (max-width: $breakpoint-desktop-lg) {
+      font-size: 1.25rem;
+      margin-top: 0;
+    }
   }
 
   .usa-logo__text,
@@ -286,13 +333,9 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   button[aria-expanded="true"],
   .usa-nav__submenu {
     background-color: var(--accent-color);
-  }
-}
-
-@media (min-width: var(--breakpoint-tablet)) {
-  .usa-header--basic {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    @media (max-width: $breakpoint-desktop-lg) {
+      background-color: white;
+    }
   }
 }
 
@@ -384,7 +427,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
     align-items: flex-start;
     padding: 1rem 0 1rem 1rem;   
   }
-  @media (max-width: 64rem) {
+  @media (max-width: $breakpoint-desktop-lg) {
     flex-direction: column;
   }
 }
@@ -394,11 +437,11 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   gap: 1.5rem;
   grid-template-columns: 1fr;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $breakpoint-tablet) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 64rem) {
+  @media (min-width: $breakpoint-desktop) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -443,7 +486,10 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding: 0 1rem;
+  padding: 0 2rem;
+  @media (max-width: $breakpoint-desktop) {
+    padding: 0 1rem;
+  }
 }
 
 .usa-banner__content {
@@ -454,7 +500,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   box-sizing: border-box;
 }
 
-@media (min-width: var(--breakpoint-tablet)) {
+@media (min-width: $breakpoint-tablet) {
   .usa-banner__content {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -477,7 +523,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
   box-sizing: border-box;
 }
 
-@media (min-width: var(--breakpoint-tablet)) {
+@media (min-width: $breakpoint-tablet) {
   .usa-identifier__container {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -507,7 +553,7 @@ footer.usa-footer .footer-grid-container,
   padding: 1rem;
 }
 
-@media (min-width: var(--breakpoint-tablet)) {
+@media (min-width: $breakpoint-tablet) {
   footer.usa-footer .footer-grid-container,
   .usa-footer .footer-grid-container {
     padding-left: 2rem;
@@ -536,7 +582,7 @@ footer.usa-footer .footer-grid-container,
   padding-bottom: 2rem;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: $breakpoint-tablet) {
   .footer-councils-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -551,13 +597,13 @@ footer.usa-footer .footer-grid-container,
   gap: 0.75rem 2rem;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: $breakpoint-tablet) {
   .footer-quick-links {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: $breakpoint-desktop) {
   .footer-quick-links {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -760,13 +806,13 @@ $councils-gap: 2rem;
   background-color: var(--blue-warm-20v);
 }
 
-@media (min-width: 40rem) {
+@media (min-width: $breakpoint-tablet) {
   .councils-grid a {
     flex: 0 0 calc((100% - #{$councils-gap}) / 2);
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: $breakpoint-desktop) {
   .councils-grid a {
     flex: 0 0 calc((100% - #{$councils-gap * 2}) / 3);
   }
@@ -1108,7 +1154,7 @@ $councils-gap: 2rem;
   grid-template-columns: 1fr;
   gap: 1rem;
 
-  @media (min-width: 40rem) {
+  @media (min-width: $breakpoint-tablet) {
     grid-template-columns: minmax(14rem, 16rem) 1fr;
 
     & > * {
@@ -1229,7 +1275,7 @@ $councils-gap: 2rem;
     background-size: cover;
     background-repeat: no-repeat;
 
-    @media (min-width: 40rem) {
+    @media (min-width: $breakpoint-tablet) {
       min-height: 500px;
       display: flex;
       align-items: center;
@@ -1252,7 +1298,7 @@ $councils-gap: 2rem;
   max-width: 100%;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: $breakpoint-tablet) {
   .usa-hero__callout {
     max-width: 32rem;
   }
