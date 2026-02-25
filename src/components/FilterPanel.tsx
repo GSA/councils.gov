@@ -1,5 +1,7 @@
 import { slugify, type Filters } from './filters';
 
+export type FilterGroup = 'councils' | 'focusAreas' | 'types' | 'years';
+
 type FilterPanelProps = {
   options: {
     councils: string[];
@@ -10,6 +12,8 @@ type FilterPanelProps = {
   selected: Filters;
   onToggle: (group: keyof Filters, value: string) => void;
   onReset: () => void;
+  /** Which filter groups to show. Default: all. Use e.g. ['councils', 'years'] for News. */
+  filterGroups?: FilterGroup[];
 };
 
 type FilterPillsProps = {
@@ -19,16 +23,23 @@ type FilterPillsProps = {
   baseUrl?: string;
 };
 
-export function FilterPanel({ options, selected, onToggle, onReset }: FilterPanelProps) {
+export function FilterPanel({
+  options,
+  selected,
+  onToggle,
+  onReset,
+  filterGroups = ['councils', 'focusAreas', 'types', 'years'],
+}: FilterPanelProps) {
   const { councils, focusAreas, types, years } = options;
+  const show = (g: FilterGroup) => filterGroups.includes(g);
 
   return (
     <div className="filter-sidebar">
       <div className="filter-sidebar__header display-flex flex-column">
         <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
         {(selected.councils.length > 0 ||
-          selected.focusAreas.length > 0 ||
-          selected.types.length > 0 ||
+          (show('focusAreas') && selected.focusAreas.length > 0) ||
+          (show('types') && selected.types.length > 0) ||
           selected.years.length > 0) && (
           <button
             type="button"
@@ -72,69 +83,77 @@ export function FilterPanel({ options, selected, onToggle, onReset }: FilterPane
           </div>
         </div>
 
-        <h3 className="usa-accordion__heading">
-          <button
-            type="button"
-            className="usa-accordion__button"
-            aria-expanded="false"
-            aria-controls="filter-focus-areas"
-          >
-            {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
-          </button>
-        </h3>
-        <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
-          <div className="filter-options">
-            {focusAreas.map((area) => {
-              const id = `filter-focus-area-${slugify(area)}`;
-              return (
-                <div className="usa-checkbox" key={area}>
-                  <input
-                    className="usa-checkbox__input"
-                    id={id}
-                    type="checkbox"
-                    checked={selected.focusAreas.includes(area)}
-                    onChange={() => onToggle('focusAreas', area)}
-                  />
-                  <label className="usa-checkbox__label" htmlFor={id}>
-                    {area}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        {show('focusAreas') && (
+          <>
+            <h3 className="usa-accordion__heading">
+              <button
+                type="button"
+                className="usa-accordion__button"
+                aria-expanded="false"
+                aria-controls="filter-focus-areas"
+              >
+                {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
+              </button>
+            </h3>
+            <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
+              <div className="filter-options">
+                {focusAreas.map((area) => {
+                  const id = `filter-focus-area-${slugify(area)}`;
+                  return (
+                    <div className="usa-checkbox" key={area}>
+                      <input
+                        className="usa-checkbox__input"
+                        id={id}
+                        type="checkbox"
+                        checked={selected.focusAreas.includes(area)}
+                        onChange={() => onToggle('focusAreas', area)}
+                      />
+                      <label className="usa-checkbox__label" htmlFor={id}>
+                        {area}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
 
-        <h3 className="usa-accordion__heading">
-          <button
-            type="button"
-            className="usa-accordion__button"
-            aria-expanded="false"
-            aria-controls="filter-types"
-          >
-            {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
-          </button>
-        </h3>
-        <div id="filter-types" className="usa-accordion__content usa-prose">
-          <div className="filter-options">
-            {types.map((type) => {
-              const id = `filter-type-${slugify(type)}`;
-              return (
-                <div className="usa-checkbox" key={type}>
-                  <input
-                    className="usa-checkbox__input"
-                    id={id}
-                    type="checkbox"
-                    checked={selected.types.includes(type)}
-                    onChange={() => onToggle('types', type)}
-                  />
-                  <label className="usa-checkbox__label" htmlFor={id}>
-                    {type}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        {show('types') && (
+          <>
+            <h3 className="usa-accordion__heading">
+              <button
+                type="button"
+                className="usa-accordion__button"
+                aria-expanded="false"
+                aria-controls="filter-types"
+              >
+                {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
+              </button>
+            </h3>
+            <div id="filter-types" className="usa-accordion__content usa-prose">
+              <div className="filter-options">
+                {types.map((type) => {
+                  const id = `filter-type-${slugify(type)}`;
+                  return (
+                    <div className="usa-checkbox" key={type}>
+                      <input
+                        className="usa-checkbox__input"
+                        id={id}
+                        type="checkbox"
+                        checked={selected.types.includes(type)}
+                        onChange={() => onToggle('types', type)}
+                      />
+                      <label className="usa-checkbox__label" htmlFor={id}>
+                        {type}
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </>
+        )}
 
         <h3 className="usa-accordion__heading">
           <button

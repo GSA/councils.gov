@@ -26,10 +26,18 @@ const formatDate = (dateString: string) => {
 
 const body = Array.isArray(item.body) ? item.body : [];
 
-/** Other news & events from the dataset (excludes current item). */
-const relatedItems = (newsItems as any[]).filter(
-  (i) => i.slug && i.slug !== item.slug && (i.kind === 'news' || i.kind === 'event')
-);
+/** Related news & events: same council, sorted by date (newest first), limit 5. */
+const currentCouncil = item.councilAcronym;
+const relatedItems = (newsItems as any[])
+  .filter(
+    (i) =>
+      i.slug &&
+      i.slug !== item.slug &&
+      (i.kind === 'news' || i.kind === 'event') &&
+      i.councilAcronym === currentCouncil
+  )
+  .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+  .slice(0, 5);
 ---
 
 <BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
@@ -63,25 +71,33 @@ const relatedItems = (newsItems as any[]).filter(
     <article class="grid-container padding-top-4 usa-section">
       <div class="grid-row grid-gap grid-gap-6">
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
+      {item.thumbnail && (
+        <div class="news-item-thumbnail margin-y-2">
+          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+        </div>
+      )}
       <div class="maxw-72 margin-bottom-4">
         <p>
           <time datetime={item.date}>{formatDate(item.date)}</time>
           {item.author && (
-            <span class="display-block">By {item.author}</span>
+            <p class="text-italic">By {item.author}</p>
           )}
         </p>
         {body.map((paragraph: string) => (
           <p>{paragraph}</p>
         ))}
+        {item.guideUrl && (
+          <p class="margin-top-2">
+            <a href={item.guideUrl} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+              Federal Zero Trust Data Security Guide (PDF)
+              <span class="usa-sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+        )}
       </div>
-      {(item.tags?.length > 0 || item.councilAcronym) && (
+      {item.councilAcronym && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
-          {item.councilAcronym && (
-            <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
-          )}
-          {item.tags?.map((tag: string) => (
-            <li class="usa-tag margin-bottom-1">{tag}</li>
-          ))}
+          <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
         </ul>
       )}
         </div>
@@ -124,6 +140,9 @@ const relatedItems = (newsItems as any[]).filter(
         </aside>
         )}
       </div>
+      <p class="margin-top-4">
+        <a href={`${baseUrl}news-events/`} class="usa-link">← Go back to all News and Events</a>
+      </p>
     </article>
   </main>
 </BaseLayout>

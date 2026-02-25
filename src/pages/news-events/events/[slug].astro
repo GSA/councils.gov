@@ -17,10 +17,18 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
 const dateDisplay = item.dateDisplay || item.date;
 
-/** Other news & events from the dataset (excludes current item). */
-const relatedItems = (newsItems as any[]).filter(
-  (i) => i.slug && i.slug !== item.slug && (i.kind === 'news' || i.kind === 'event')
-);
+/** Related news & events: same council, sorted by date (newest first), limit 5. */
+const currentCouncil = item.councilAcronym;
+const relatedItems = (newsItems as any[])
+  .filter(
+    (i) =>
+      i.slug &&
+      i.slug !== item.slug &&
+      (i.kind === 'news' || i.kind === 'event') &&
+      i.councilAcronym === currentCouncil
+  )
+  .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+  .slice(0, 5);
 
 /** Render a body block (plain text or markdown) as HTML; prepend baseUrl to internal links. */
 function renderBodyBlock(block: string): string {
@@ -62,6 +70,11 @@ function renderBodyBlock(block: string): string {
     <article class="grid-container padding-top-4 usa-section">
       <div class="grid-row grid-gap grid-gap-6">
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
+      {item.thumbnail && (
+        <div class="news-item-thumbnail margin-y-2">
+          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+        </div>
+      )}
       {item.summaryBox?.items?.length > 0 && (
         <div
           class="usa-summary-box margin-bottom-4"
@@ -98,14 +111,9 @@ function renderBodyBlock(block: string): string {
             <div set:html={renderBodyBlock(block)} class="event-body-block" />
           ))}
       </div>
-      {(item.tags?.length > 0 || item.councilAcronym) && (
+      {item.councilAcronym && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
-          {item.councilAcronym && (
-            <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
-          )}
-          {item.tags?.map((tag: string) => (
-            <li class="usa-tag margin-bottom-1">{tag}</li>
-          ))}
+          <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
         </ul>
       )}
         </div>
@@ -148,6 +156,9 @@ function renderBodyBlock(block: string): string {
         </aside>
         )}
       </div>
+      <p class="margin-top-4">
+        <a href={`${baseUrl}news-events/`} class="usa-link">← Go back to all News and Events</a>
+      </p>
     </article>
   </main>
 </BaseLayout>
