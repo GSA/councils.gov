@@ -97,7 +97,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     if (resultsTopRef.current) {
       const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > targetTop) {
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        window.scrollTo({ top: targetTop });
       }
     }
 

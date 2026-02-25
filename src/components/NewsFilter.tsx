@@ -118,7 +118,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     if (resultsTopRef.current) {
       const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > targetTop) {
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        window.scrollTo({ top: targetTop });
       }
     }
 

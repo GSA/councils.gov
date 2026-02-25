@@ -7,6 +7,13 @@ $breakpoint-desktop-lg: 75rem;
 /* Base typography – Inter as default, override USWDS Source Sans Pro */
 html {
   font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 *,
@@ -133,7 +140,7 @@ $type-scale: (
       font-size: $rem;
     }
   }
-  @media (max-width: $breakpoint-tablet - 0.0625rem) {
+  @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
     .mobile\:font-sans-#{$size} {
       font-family: var(--font-sans);
       font-size: $rem;
@@ -472,6 +479,16 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
 
   &[aria-expanded="true"] + .usa-nav__submenu {
     display: block;
+  }
+
+  /* Unify focus with cards – use focus-visible only, match outline style */
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
   }
 }
 
@@ -823,6 +840,22 @@ $councils-gap: 2rem;
   border-radius: 0;
 }
 
+/* When focused, hide container border so only the link outline shows (no layering) */
+.councils-grid a:focus-visible .usa-card__container {
+  border-color: transparent;
+}
+
+.councils-grid a {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+  }
+}
+
 .councils-section {
   width: 100%;
   padding: 3rem 0 1rem;
@@ -1007,6 +1040,15 @@ $councils-gap: 2rem;
   border-left: none;
   border-right: none;
   border-bottom: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+  }
 }
 
 .resource-card-link:hover {
@@ -1018,6 +1060,11 @@ $councils-gap: 2rem;
   margin-left: 0;
   margin-right: 0;
   border-bottom: none;
+}
+
+/* When focused, hide container border so only the link outline shows (no layering) */
+.resource-card-link:focus-visible .usa-card__container {
+  border-color: transparent;
 }
 
 .resource-card-link--bordered {
@@ -1247,6 +1294,17 @@ $councils-gap: 2rem;
   .usa-collection__heading {
     font-family: var(--font-serif);
     font-size: 1.5rem;
+
+    a {
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 2px;
+      }
+    }
   }
 }
 
