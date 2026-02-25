@@ -80,7 +80,6 @@ textarea {
   font-family: var(--font-sans);
 }
 
-.usa-intro,
 .usa-card__heading,
 .usa-display,
 .usa-hero__heading,
@@ -122,7 +121,7 @@ textarea {
       font-size: $rem;
     }
   }
-  @media (max-width: $breakpoint-tablet - 0.0625rem) {
+  @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
     .mobile\:font-sans-#{$size} {
       font-family: var(--font-sans);
       font-size: $rem;
@@ -606,7 +605,7 @@ footer.usa-footer .footer-grid-container,
 .leadership-grid,
 .members-grid {
   .usa-card {
-    border-bottom: 8px solid var(--primary-color);
+    border-bottom: 4px solid var(--secondary-color);
 
     .usa-card__img {
       background: transparent;
@@ -615,10 +614,10 @@ footer.usa-footer .footer-grid-container,
 
   .usa-card__container {
     border-radius: 0;
-    background-color: var(--color-gray-3);
+    background-color: white;
 
     .usa-card__media {
-      background-color: var(--color-gray-3);
+      background-color: white;
       height: auto;
       justify-content: flex-start;
       padding: 2rem 2rem 0.5rem 2rem;
@@ -649,10 +648,7 @@ footer.usa-footer .footer-grid-container,
   }
 
   .usa-card__footer {
-    padding-top: 0.25rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding: 1rem 1.5rem;
   }
 }
 
@@ -740,10 +736,7 @@ footer.usa-footer .footer-grid-container,
   }
 
   .usa-card__footer {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding: 1rem 1.5rem;
   }
 }
 
@@ -867,6 +860,7 @@ footer.usa-footer .footer-grid-container,
 
   & + .usa-section {
     padding-top: 3rem;
+    background-color: var(--color-gray-1); 
   }
 
   .sidebar-layout__main {
@@ -882,6 +876,23 @@ footer.usa-footer .footer-grid-container,
     background-color: white;
     padding: 0.5rem;
     min-height: 225px;
+
+    @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
+      min-height: 160px;
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__logo-container img {
+    @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
+      max-width: 100%;
+      max-height: 200px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
   }
 
   &__logo {
@@ -889,6 +900,10 @@ footer.usa-footer .footer-grid-container,
     width: auto;
     height: auto;
     display: block;
+
+    @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
+      max-height: 200px;
+    }
   }
 
   &__content {
@@ -939,6 +954,9 @@ footer.usa-footer .footer-grid-container,
   .usa-breadcrumb__link,
   .usa-breadcrumb__current {
     color: white;
+    @media (max-width: $breakpoint-tablet) {
+     padding: 0 1rem !important; 
+    }
   }
 
   .usa-breadcrumb__link:hover {
@@ -1016,7 +1034,7 @@ footer.usa-footer .footer-grid-container,
   gap: $councils-gap;
 
   a {
-    border-bottom: 8px solid var(--secondary-color);
+    border-bottom: 6px solid var(--secondary-color);
     display: flex;
     min-height: 0;
     margin-bottom: 0 !important;
@@ -1031,10 +1049,12 @@ footer.usa-footer .footer-grid-container,
       display: flex;
       flex-direction: column;
       min-height: 0;
+      border-bottom: 0; 
     }
 
     .usa-card__footer {
       margin-top: auto;
+      padding: 1rem 1.5rem;
     }
 
     .usa-card__heading {
