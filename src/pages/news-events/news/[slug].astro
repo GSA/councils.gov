@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
 export async function getStaticPaths() {
@@ -26,10 +27,33 @@ const formatDate = (dateString: string) => {
 
 const body = Array.isArray(item.body) ? item.body : [];
 
-/** Other news & events from the dataset (excludes current item). */
-const relatedItems = (newsItems as any[]).filter(
-  (i) => i.slug && i.slug !== item.slug && (i.kind === 'news' || i.kind === 'event')
-);
+/** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
+function renderBodyBlock(block: string): string {
+  let html = marked.parse(block, { async: false }) as string;
+  html = html.replace(
+    /<a href="(https?:\/\/[^"]*)"([^>]*)>([\s\S]*?)<\/a>/g,
+    (_, href, rest, content) =>
+      `<a href="${href}"${rest} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">${content}<span class="usa-sr-only"> (opens in a new tab)</span></a>`
+  );
+  const base = baseUrl?.replace(/\/$/, '') || '';
+  if (base && base !== '/') {
+    html = html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
+  }
+  return html;
+}
+
+/** Related news & events: same council, sorted by date (newest first), limit 5. */
+const currentCouncil = item.councilAcronym;
+const relatedItems = (newsItems as any[])
+  .filter(
+    (i) =>
+      i.slug &&
+      i.slug !== item.slug &&
+      (i.kind === 'news' || i.kind === 'event') &&
+      i.councilAcronym === currentCouncil
+  )
+  .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+  .slice(0, 5);
 ---
 
 <BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
@@ -46,9 +70,6 @@ const relatedItems = (newsItems as any[]).filter(
             <span>News & Events</span>
           </a>
         </li>
-        <li class="usa-breadcrumb__list-item">
-          <span class="usa-breadcrumb__current" aria-current="page">{item.title}</span>
-        </li>
       </ol>
     </nav>
     <section
@@ -63,25 +84,25 @@ const relatedItems = (newsItems as any[]).filter(
     <article class="grid-container padding-top-4 usa-section">
       <div class="grid-row grid-gap grid-gap-6">
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
+      {item.thumbnail && (
+        <div class="news-item-thumbnail margin-y-2">
+          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+        </div>
+      )}
       <div class="maxw-72 margin-bottom-4">
-        <p>
+        <p class="text-gray-50">
           <time datetime={item.date}>{formatDate(item.date)}</time>
-          {item.author && (
-            <span class="display-block">By {item.author}</span>
-          )}
         </p>
+        {item.author && (
+          <p class="text-bold">By {item.author}</p>
+        )}
         {body.map((paragraph: string) => (
-          <p>{paragraph}</p>
+          <div set:html={renderBodyBlock(paragraph)} class="news-body-block" />
         ))}
       </div>
-      {(item.tags?.length > 0 || item.councilAcronym) && (
+      {item.councilAcronym && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
-          {item.councilAcronym && (
-            <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
-          )}
-          {item.tags?.map((tag: string) => (
-            <li class="usa-tag margin-bottom-1">{tag}</li>
-          ))}
+          <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
         </ul>
       )}
         </div>
@@ -124,6 +145,9 @@ const relatedItems = (newsItems as any[]).filter(
         </aside>
         )}
       </div>
+      <p class="margin-top-4">
+        <a href={`${baseUrl}news-events/`} class="usa-link">← Go back to all News and Events</a>
+      </p>
     </article>
   </main>
 </BaseLayout>
