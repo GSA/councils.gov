@@ -1317,6 +1317,20 @@ $councils-gap: 2rem;
   font-size: 1.375rem;
 }
 
+.news-body-block {
+  margin-bottom: 1rem;
+}
+
+.news-body-block:last-child {
+  margin-bottom: 0;
+}
+
+.news-item-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .news-tags.content-tags .usa-tag {
   background-color: var(--color-gray-10);
   color: var(--color-ink);
