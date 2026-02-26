@@ -208,7 +208,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       <li className="usa-tag">{item.councilAcronym}</li>
                     </ul>
                   )}
-                  <p className="usa-collection__description margin-y-2">{truncateDescription(item.description)}</p>
+                  <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>
                 </div>
               </li>
               );

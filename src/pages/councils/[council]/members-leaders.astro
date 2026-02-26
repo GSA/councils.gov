@@ -19,13 +19,14 @@ export async function getStaticPaths() {
     
     // Get logo info from about.md
     const aboutPath = join(contentDir, councilSlug, 'about.md');
-    let logoPath, logoAlt, logoClass;
+    let logoPath, logoAlt, logoClass, logoAspect;
     if (fs.existsSync(aboutPath)) {
       const aboutContents = fs.readFileSync(aboutPath, 'utf-8');
       const { data: aboutFrontmatter } = matter(aboutContents);
       logoPath = aboutFrontmatter.logoPath;
       logoAlt = aboutFrontmatter.logoAlt;
       logoClass = aboutFrontmatter.logoClass;
+      logoAspect = aboutFrontmatter.logoAspect;
     }
     
     const members = frontmatter.members ?? [];
@@ -40,13 +41,14 @@ export async function getStaticPaths() {
         logoPath,
         logoAlt,
         logoClass,
+        logoAspect,
         hasMembersLeaders,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass, hasMembersLeaders } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders } = Astro.props;
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -133,6 +135,7 @@ function getMemberImage(member: any): string | null {
   logoPath={logoPath}
   logoAlt={logoAlt}
   logoClass={logoClass}
+  logoAspect={logoAspect}
   hasMembersLeaders={hasMembersLeaders}
 >
   <h2>{frontmatter.title}</h2>
@@ -149,7 +152,7 @@ function getMemberImage(member: any): string | null {
           const description =
             leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
           return (
-          <div class="tablet:grid-col-6">
+          <div class="tablet:grid-col-12 desktop:grid-col-6">
             <div class="usa-card">
               <div class="usa-card__container">
                 {leader.image && (
@@ -160,11 +163,11 @@ function getMemberImage(member: any): string | null {
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.name}</h3>
-                  {description && <p class="margin-top-0">{description}</p>}
+                  <h3>{leader.name}</h3>
+                  {description && <p>{description}</p>}
                 </div>
                 {leader.url && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+                  <div class="usa-card__footer">
                     <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -199,11 +202,11 @@ function getMemberImage(member: any): string | null {
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3 class="margin-top-0">{leader.name}</h3>
-                  {description && <p class="margin-top-0">{description}</p>}
+                  <h3>{leader.name}</h3>
+                  {description && <p>{description}</p>}
                 </div>
                 {leader.url && (
-                  <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+                  <div class="usa-card__footer">
                     <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                       View Agency Webpage
                       <span class="usa-sr-only"> (opens in a new tab)</span>
@@ -237,11 +240,11 @@ function getMemberImage(member: any): string | null {
               </div>
             )}
             <div class="usa-card__body">
-              <h3 class="margin-top-0">{member.name}</h3>
-              {department && <p class="margin-top-0">{department}</p>}
+              <h3>{member.name}</h3>
+              {department && <p>{department}</p>}
             </div>
             {member.url && (
-              <div class="usa-card__footer padding-top-1 padding-bottom-2 padding-x-3">
+              <div class="usa-card__footer">
                 <a href={member.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
                   View Agency Webpage
                   <span class="usa-sr-only"> (opens in a new tab)</span>
