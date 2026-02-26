@@ -397,7 +397,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2024-01-01",
-    "link": "/docs/2024-Responses-Anonymized.xlsx"
+    "link": "https://www.cdo.gov/assets/documents/2024-Responses-Anonymized.xlsx"
   },
   {
     "id": "CDOC-3",
@@ -407,7 +407,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2024-01-01",
-    "link": "/docs/2024-annual-cdoc-survey-survey-instrument.pdf"
+    "link": "https://www.cdo.gov/assets/documents/2024-survey-instrument.pdf"
   },
   {
     "id": "CDOC-4",
@@ -427,7 +427,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2023-01-01",
-    "link": "/docs/CDO Council - Summer 2023 Survey - Public Use File.xlsx"
+    "link": "https://www.cdo.gov/assets/documents/CDO%20Council%20-%20Summer%202023%20Survey%20-%20Public%20Use%20File.xlsx"
   },
   {
     "id": "CDOC-6",
@@ -437,7 +437,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2023-01-01",
-    "link": "/docs/2023-annual-cdoc-survey-survey-instrument.pdf"
+    "link": "https://www.cdo.gov/assets/documents/CDO%20Survey-Summer%202023.pdf"
   },
   {
     "id": "CDOC-7",
@@ -447,7 +447,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2023-01-01",
-    "link": "/docs/2023-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+    "link": "https://www.cdo.gov/assets/documents/cdoc_final_10_26_2023.pdf"
   },
   {
     "id": "CDOC-8",
@@ -457,7 +457,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2022-01-01",
-    "link": "/docs/cdo_survey_responses_2022-Public-file.xlsx"
+    "link": "https://www.cdo.gov/assets/documents/cdo_survey_responses_2022-Public-file.xlsx"
   },
   {
     "id": "CDOC-9",
@@ -467,7 +467,7 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2022-01-01",
-    "link": "/docs/CDO_Council_-_January_2021_Survey.docx"
+    "link": "https://www.cdo.gov/assets/documents/CDO_Council_-_January_2022_Survey.docx"
   },
   {
     "id": "CDOC-10",
@@ -477,6 +477,6 @@
     "focusArea": "Data",
     "councilAcronym": "CDOC",
     "date": "2022-01-01",
-    "link": "/docs/2022-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+    "link": "https://www.cdo.gov/assets/documents/CDO-Survey-2022-Analysis.pdf"
   }
 ]
