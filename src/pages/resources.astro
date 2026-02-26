@@ -7,7 +7,11 @@ import resourcesData from '../data/resources.json';
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
-const resources = Array.isArray(resourcesData) ? resourcesData : [];
+const resources = Array.isArray(resourcesData)
+  ? resourcesData
+  : Array.isArray(resourcesData?.resources)
+    ? resourcesData.resources
+    : [];
 
 // Ensure resources is always an array (fallback to empty array if parsing fails)
 if (!Array.isArray(resources) || resources.length === 0) {
