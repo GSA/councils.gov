@@ -149,6 +149,74 @@ export const buildFilterOptions = <T extends FilterableItem>(items: T[], selecte
 export const filterItems = <T extends FilterableItem>(items: T[], selected: Filters): T[] =>
   items.filter((item) => matchesFilters(item, selected));
 
+/** News/Events: only council and year filters. */
+export const matchesFiltersForNews = (item: FilterableItem, filters: Filters) => {
+  const councilValue = item.councilAcronym ?? '';
+  const yearValue = getItemYear(item);
+  const councilMatch = filters.councils.length === 0 || filters.councils.includes(councilValue);
+  const yearMatch =
+    filters.years.length === 0 ||
+    (yearValue === '' && filters.years.includes(NO_YEAR_LABEL)) ||
+    (yearValue !== '' && filters.years.includes(yearValue));
+  return councilMatch && yearMatch;
+};
+
+/** News/Events: build filter options for council and year only. */
+export const buildFilterOptionsForNews = <T extends FilterableItem>(
+  items: T[],
+  selected: Filters
+) => {
+  const councils = Array.from(
+    new Set([
+      ...items
+        .filter((item) =>
+          matchesFiltersForNews(item, {
+            councils: [],
+            focusAreas: [],
+            types: [],
+            years: selected.years,
+          })
+        )
+        .map((item) => item.councilAcronym ?? ''),
+      ...selected.councils,
+    ])
+  )
+    .filter(Boolean)
+    .sort();
+
+  const itemsMatchingCouncil = items.filter((item) =>
+    matchesFiltersForNews(item, {
+      councils: selected.councils,
+      focusAreas: [],
+      types: [],
+      years: [],
+    })
+  );
+  const yearValues = itemsMatchingCouncil
+    .map((item) => getItemYear(item))
+    .filter((year) => year === '' || (Boolean(year) && year !== '1900'));
+  const hasNoYear = yearValues.some((y) => y === '');
+  const yearsSet = new Set([
+    ...yearValues.filter(Boolean),
+    ...selected.years,
+    ...(hasNoYear ? [NO_YEAR_LABEL] : []),
+  ]);
+  const years = Array.from(yearsSet)
+    .filter(Boolean)
+    .sort((a, b) => {
+      if (a === NO_YEAR_LABEL) return 1;
+      if (b === NO_YEAR_LABEL) return -1;
+      return b.localeCompare(a, undefined, { numeric: true });
+    });
+
+  return { councils, focusAreas: [], types: [], years };
+};
+
+export const filterItemsForNews = <T extends FilterableItem>(
+  items: T[],
+  selected: Filters
+): T[] => items.filter((item) => matchesFiltersForNews(item, selected));
+
 export const buildActiveFilters = (selected: Filters) => [
   ...selected.councils.map((value) => ({ type: 'Council', value })),
   ...selected.focusAreas.map((value) => ({ type: 'Focus Area', value })),

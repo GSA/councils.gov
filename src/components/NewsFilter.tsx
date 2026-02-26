@@ -2,9 +2,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
 import {
   buildActiveFilters,
-  buildFilterOptions,
+  buildFilterOptionsForNews,
   createEmptyFilters,
-  filterItems,
+  filterItemsForNews,
   getInitialFiltersFromUrl,
   type Filters,
   type FilterableItem,
@@ -21,6 +21,8 @@ export interface NewsItem extends FilterableItem {
   slug?: string;
   kind?: 'news' | 'event';
   tags?: string[];
+  /** Optional thumbnail image path (e.g. /assets/img/symposium-thumbnail.jpg) */
+  thumbnail?: string;
 }
 
 interface NewsFilterProps {
@@ -96,16 +98,22 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   };
 
   const filterOptions = useMemo(
-    () => buildFilterOptions(safeItems, selectedFilters),
+    () => buildFilterOptionsForNews(safeItems, selectedFilters),
     [safeItems, selectedFilters]
   );
 
   const filteredItems = useMemo(
-    () => filterItems(safeItems, selectedFilters),
+    () => filterItemsForNews(safeItems, selectedFilters),
     [safeItems, selectedFilters]
   );
 
-  const activeFilters = useMemo(() => buildActiveFilters(selectedFilters), [selectedFilters]);
+  const activeFilters = useMemo(
+    () =>
+      buildActiveFilters(selectedFilters).filter(
+        (f) => f.type === 'Council' || f.type === 'Year'
+      ),
+    [selectedFilters]
+  );
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -129,6 +137,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
           selected={selectedFilters}
           onToggle={toggleSelection}
           onReset={resetFilters}
+          filterGroups={['councils', 'years']}
         />
       </aside>
 
@@ -156,16 +165,9 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       {item.dateDisplay ?? formatDate(item.date)}
                     </time>
                   </div>
-                  {(item.councilAcronym || (item.tags?.length ?? 0) > 0) && (
+                  {item.councilAcronym && (
                     <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
-                      {item.councilAcronym && (
-                        <li className="usa-tag">{item.councilAcronym}</li>
-                      )}
-                      {(item.tags ?? []).map((tag) => (
-                        <li key={tag} className="usa-tag">
-                          {tag}
-                        </li>
-                      ))}
+                      <li className="usa-tag">{item.councilAcronym}</li>
                     </ul>
                   )}
                   <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>

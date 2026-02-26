@@ -748,6 +748,253 @@ footer.usa-footer .footer-grid-container,
   margin-top: 1rem;
 }
 
+.resource-card-link .usa-card__heading {
+  font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.resource-card-link .usa-card__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-card-link .usa-card__container,
+.resource-card-link .usa-card__body,
+.resource-card-link .usa-card__footer,
+.resource-card-link .resource-date,
+.resource-card-link .content-tags {
+  font-family: var(--font-sans);
+}
+
+.resources-hero {
+  background-color: var(--primary-color);
+  background-image: var(--hero-waves-url, none);
+  background-repeat: repeat;
+  background-size: 30%;
+  background-blend-mode: color;
+  color: var(--color-white);
+  border-bottom: 6px solid var(--accent-color);
+  min-height: unset;
+  display: block;
+}
+
+.resources-hero > .grid-container {
+  display: block;
+  text-align: left;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Applied to <main> on Resources and News/Events pages */
+.filter-page-main {
+  background-color: var(--color-gray-1);
+}
+
+.resources-hero h1 {
+  color: var(--color-white);
+  margin: 0;
+  font-weight: 400;
+}
+
+.resources-hero .usa-intro {
+  font-family: var(--font-sans);
+}
+
+/* General filtering */
+.content-tags {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.content-tags .usa-tag {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--color-ink);
+  background-color: var(--color-gray-10);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+.resource-tags .resource-tag--type,
+.content-tags .resource-tag--type {
+  font-family: var(--font-sans);
+  background-color: var(--color-gray-10);
+  color: var(--color-ink);
+}
+
+/* Active filter pills (selected filters with remove) — same on Resources and News/Events */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-pills--empty {
+  visibility: hidden;
+  margin-bottom: 0;
+}
+
+.filter-pills .usa-tag.filter-pill,
+.filter-pill {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+}
+
+.filter-pills .filter-pill__icon,
+.filter-pill__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+/* Sidebar + main layout: sidebar has min-width, main area flexes. Used on council pages, resources, news/events. */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: minmax(14rem, 16rem) 1fr;
+
+    & > * {
+      min-width: 0;
+    }
+  }
+}
+
+.filter-sidebar .filter-options {
+  padding-left: 0;
+}
+
+.filter-options {
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  padding-bottom: 0.25rem;
+  overflow: visible;
+}
+
+.filter-sidebar {
+  width: 100%;
+  h2 {
+    font-family: var(--font-serif);
+  }
+}
+
+.filter-sidebar .usa-accordion {
+  width: 100%;
+  /* Hide accordion content by default when collapsed so no flash before JS (content is sibling of heading, not button) */
+  .usa-accordion__heading:has(.usa-accordion__button[aria-expanded="false"]) + .usa-accordion__content {
+    display: none;
+  }
+  .usa-accordion__heading:has(.usa-accordion__button[aria-expanded="true"]) + .usa-accordion__content {
+    display: block;
+  }
+  .usa-accordion__content {
+    overflow: auto;
+    background-color: transparent;
+    padding: 0 0.5rem 1rem;
+  }
+  .usa-accordion__button {
+    background-color: transparent;
+    color: var(--color-ink);
+    border-top: 1px solid var(--color-ink);
+    background-image: url("/assets/img/usa-icons/expand%20arrow.svg");
+    background-size: 1.25rem;
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    padding: 1rem 0;
+  }
+  .usa-accordion__button[aria-expanded="true"] {
+    background-image: url("/assets/img/usa-icons/collapse%20arrow.svg");
+  }
+  .usa-checkbox {
+    background-color: transparent;
+  }
+  .usa-accordion__heading:not(:first-child), .usa-prose .usa-accordion__heading:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+.filter-sidebar .usa-accordion__heading,
+.filter-sidebar .usa-accordion__button,
+.filter-sidebar .usa-accordion__content,
+.filter-sidebar .usa-checkbox__label {
+  font-family: var(--font-sans);
+}
+
+.filter-sidebar .usa-checkbox__input {
+  background-color: transparent;
+}
+
+.filter-sidebar .usa-checkbox__label::before {
+  background-color: transparent;
+}
+
+.filter-sidebar .usa-checkbox__input:checked + .usa-checkbox__label::before {
+  background-color: var(--primary-color);
+}
+
+/* News & Events */
+.usa-collection {
+  .usa-collection__item {
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0; 
+      border-top: none;
+    }
+  }
+  .usa-collection__heading {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+  }
+}
+
+.related-links-sidebar .usa-collection__heading {
+  font-size: 1.125rem;
+}
+
+.usa-summary-box__heading {
+  font-family: var(--font-sans); 
+  font-size: 1.375rem;
+}
+
+.news-body-block {
+  margin-bottom: 1rem;
+}
+
+.news-body-block:last-child {
+  margin-bottom: 0;
+}
+
+.news-item-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.news-tags.content-tags .usa-tag {
+  background-color: var(--color-gray-10);
+  color: var(--color-ink);
+}
+
+/* Hero: image background, callout on left — min-height and flex only on home */
 .usa-hero {
   background-color: var(--primary-color);
   color: var(--color-white);
