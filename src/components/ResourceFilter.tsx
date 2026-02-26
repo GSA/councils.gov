@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
+import Pagination from './Pagination';
 import {
   buildActiveFilters,
   buildFilterOptions,
@@ -40,8 +41,13 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
   const [selectedFilters, setSelectedFilters] = useState<Filters>(() =>
     getInitialFiltersFromUrl(allowedCouncilAcronyms)
   );
+  const [currentPage, setCurrentPage] = useState(1);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const firstCardRef = useRef<HTMLAnchorElement | null>(null);
   const hasMountedRef = useRef(false);
+  const paginationInitializedRef = useRef(false);
+
+  const PAGE_SIZE = 12;
 
   const toggleSelection = (group: keyof Filters, value: string) => {
     setSelectedFilters((prev) => {
@@ -74,6 +80,13 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     [safeResources, selectedFilters]
   );
 
+  const totalPages = Math.max(1, Math.ceil(filteredResources.length / PAGE_SIZE));
+  const paginatedResources = useMemo(
+    () =>
+      filteredResources.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filteredResources, currentPage]
+  );
+
   const activeFilters = useMemo(() => buildActiveFilters(selectedFilters), [selectedFilters]);
 
   const formatDate = (dateString: string) => {
@@ -85,6 +98,10 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     }
     return dateString;
   };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilters]);
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -100,6 +117,20 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     }
   }, [selectedFilters]);
 
+  useEffect(() => {
+    if (!paginationInitializedRef.current) {
+      paginationInitializedRef.current = true;
+      return;
+    }
+    requestAnimationFrame(() => {
+      if (firstCardRef.current) {
+        firstCardRef.current.focus({ preventScroll: true });
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [currentPage]);
+
   return (
     <div className="grid-row grid-gap sidebar-layout">
       <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
@@ -111,18 +142,25 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
         />
       </aside>
 
-      <div className="sidebar-layout__main" ref={resultsTopRef}>
+      <div
+        className="sidebar-layout__main"
+        ref={resultsTopRef}
+        tabIndex={-1}
+      >
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
-        <div className="grid-row grid-gap">
+        <div className="grid-row grid-gap resource-cards-grid">
           {filteredResources.length > 0 ? (
-            filteredResources.map((resource) => {
+            <>
+              {paginatedResources.map((resource) => {
               const href = resource.link.startsWith('/')
                 ? `${baseUrl.replace(/\/$/, '')}${resource.link}`
                 : resource.link;
+              const isFirst = paginatedResources[0]?.id === resource.id;
               return (
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
                 <a
+                  ref={isFirst ? firstCardRef : undefined}
                   href={href}
                   className="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered"
                   target="_blank"
@@ -155,7 +193,18 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                 </a>
               </div>
               );
-            })
+            })}
+              {totalPages > 1 && (
+                <div className="tablet:grid-col-12 margin-top-0 display-flex flex-justify-center">
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                    ariaLabel="Resources results"
+                  />
+                </div>
+              )}
+            </>
           ) : (
             <div className="tablet:grid-col-12">
               <p className="usa-intro">No resources match the selected filters.</p>

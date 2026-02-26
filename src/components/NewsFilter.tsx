@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
+import Pagination from './Pagination';
 import {
   buildActiveFilters,
   buildFilterOptionsForNews,
@@ -73,8 +74,13 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const [selectedFilters, setSelectedFilters] = useState<Filters>(() => 
     getInitialFiltersFromUrl(allowedCouncilAcronyms as string[])
   );
+  const [currentPage, setCurrentPage] = useState(1);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const firstItemRef = useRef<HTMLAnchorElement | null>(null);
   const hasMountedRef = useRef(false);
+  const paginationInitializedRef = useRef(false);
+
+  const PAGE_SIZE = 10;
 
   const toggleSelection = (group: keyof Filters, value: string) => {
     setSelectedFilters((prev) => {
@@ -107,6 +113,13 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     [safeItems, selectedFilters]
   );
 
+  const totalPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+  const paginatedItems = useMemo(
+    () =>
+      filteredItems.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filteredItems, currentPage]
+  );
+
   const activeFilters = useMemo(
     () =>
       buildActiveFilters(selectedFilters).filter(
@@ -114,6 +127,10 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
       ),
     [selectedFilters]
   );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilters]);
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -129,6 +146,20 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     }
   }, [selectedFilters]);
 
+  useEffect(() => {
+    if (!paginationInitializedRef.current) {
+      paginationInitializedRef.current = true;
+      return;
+    }
+    requestAnimationFrame(() => {
+      if (firstItemRef.current) {
+        firstItemRef.current.focus({ preventScroll: true });
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [currentPage]);
+
   return (
     <div className="grid-row grid-gap sidebar-layout">
       <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
@@ -141,19 +172,29 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
         />
       </aside>
 
-      <div className="sidebar-layout__main" ref={resultsTopRef}>
+      <div
+        className="sidebar-layout__main"
+        ref={resultsTopRef}
+        tabIndex={-1}
+      >
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
-          <ul className="usa-collection">
-            {filteredItems.map((item) => {
+          <>
+            <ul className="usa-collection">
+              {paginatedItems.map((item) => {
               const href = getItemHref(item, baseUrl);
+              const isFirst = paginatedItems[0]?.id === item.id;
               return (
               <li key={item.id} className="usa-collection__item">
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
                     {href ? (
-                      <a className="usa-link font-serif" href={href}>
+                      <a
+                        ref={isFirst ? firstItemRef : undefined}
+                        className="usa-link font-serif"
+                        href={href}
+                      >
                         {item.title}
                       </a>
                     ) : (
@@ -175,7 +216,18 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
               </li>
               );
             })}
-          </ul>
+            </ul>
+            {totalPages > 1 && (
+              <div className="margin-top-4">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                  ariaLabel="News and events results"
+                />
+              </div>
+            )}
+          </>
         ) : (
           <p className="usa-intro">No news or events match the selected filters.</p>
         )}
