@@ -312,7 +312,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   .usa-nav__submenu {
     background-color: var(--accent-color);
 
-    @media (max-width: $breakpoint-desktop-lg) {
+    @media (max-width: $breakpoint-desktop) {
       background-color: white;
     }
   }
@@ -921,6 +921,9 @@ footer.usa-footer .footer-grid-container,
     margin: 0;
     font-family: var(--font-sans);
     line-height: 1;
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 1rem;
+    }
   }
 
   &__title {
@@ -929,6 +932,9 @@ footer.usa-footer .footer-grid-container,
     margin-top: 1rem;
     margin-bottom: 0;
     font-size: 3rem;
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 2rem;
+    }
   }
 }
 
