@@ -1043,42 +1043,6 @@ $councils-gap: 2rem;
   flex-direction: column;
 }
 
-/* Equal-height resource cards to prevent layout shift when paginating */
-.resource-cards-grid {
-  align-items: stretch;
-  /* Min-height so results section doesn't shrink when switching to a page with shorter cards */
-  min-height: 32rem;
-
-  > .tablet\:grid-col-6 {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .resource-card-link {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-  }
-
-  .resource-card-link .usa-card__container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-  }
-
-  .resource-card-link .usa-card__body {
-    flex: 1;
-    min-height: 0;
-  }
-
-  .resource-card-link .usa-card__footer {
-    margin-top: auto;
-    flex-shrink: 0;
-  }
-}
-
 .resource-card-link .usa-card__container,
 .resource-card-link .usa-card__body,
 .resource-card-link .usa-card__footer,
@@ -1385,6 +1349,12 @@ $councils-gap: 2rem;
   padding: 0.5rem;
 }
 
+.usa-pagination button.usa-pagination__link:disabled,
+.usa-pagination button.usa-pagination__button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
 .usa-pagination button.usa-pagination__link {
   border: none;
 }
@@ -1396,7 +1366,7 @@ $councils-gap: 2rem;
 .usa-pagination__arrow button {
   background-color: transparent;
   text-decoration: underline;
-  &:hover {
+  &:hover:not(:disabled) {
     text-decoration: none;
   }
 }

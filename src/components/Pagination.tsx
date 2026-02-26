@@ -66,19 +66,18 @@ export default function Pagination({
       aria-label={ariaLabel}
     >
       <ul className="usa-pagination__list">
-        {currentPage > 1 && (
-          <li className="usa-pagination__item usa-pagination__arrow">
-            <button
-              type="button"
-              className="usa-pagination__link usa-pagination__previous-page"
-              aria-label="Previous page"
-              onClick={() => onPageChange(currentPage - 1)}
-            >
-              <NavigateBeforeIcon />
-              <span className="usa-pagination__link-text">Previous</span>
-            </button>
-          </li>
-        )}
+        <li className="usa-pagination__item usa-pagination__arrow">
+          <button
+            type="button"
+            className="usa-pagination__link usa-pagination__previous-page"
+            aria-label="Previous page"
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage <= 1}
+          >
+            <NavigateBeforeIcon />
+            <span className="usa-pagination__link-text">Previous</span>
+          </button>
+        </li>
 
         {slots.map((slot, index) =>
           slot === 'overflow' ? (
@@ -104,19 +103,18 @@ export default function Pagination({
           )
         )}
 
-        {currentPage < totalPages && (
-          <li className="usa-pagination__item usa-pagination__arrow">
-            <button
-              type="button"
-              className="usa-pagination__link usa-pagination__next-page"
-              aria-label="Next page"
-              onClick={() => onPageChange(currentPage + 1)}
-            >
-              <span className="usa-pagination__link-text">Next</span>
-              <NavigateNextIcon />
-            </button>
-          </li>
-        )}
+        <li className="usa-pagination__item usa-pagination__arrow">
+          <button
+            type="button"
+            className="usa-pagination__link usa-pagination__next-page"
+            aria-label="Next page"
+            onClick={() => onPageChange(currentPage + 1)}
+            disabled={currentPage >= totalPages}
+          >
+            <span className="usa-pagination__link-text">Next</span>
+            <NavigateNextIcon />
+          </button>
+        </li>
       </ul>
     </nav>
   );
