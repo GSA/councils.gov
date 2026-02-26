@@ -5,6 +5,7 @@ councilSlug: icsp
 logoPath: /assets/img/councils/ICSP.png
 logoAlt: ICSP Logo
 logoClass: council-logo
+logoAspect: square
 ---
 
 ## About Us

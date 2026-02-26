@@ -131,7 +131,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside className="sidebar-layout__sidebar">
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
@@ -170,7 +170,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       <li className="usa-tag">{item.councilAcronym}</li>
                     </ul>
                   )}
-                  <p className="usa-collection__description margin-y-2">{truncateDescription(item.description)}</p>
+                  <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>
                 </div>
               </li>
               );

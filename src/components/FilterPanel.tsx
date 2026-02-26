@@ -35,8 +35,8 @@ export function FilterPanel({
 
   return (
     <div className="filter-sidebar">
-      <div className="filter-sidebar__header display-flex flex-column">
-        <h2 className="font-sans-lg margin-top-0 margin-bottom-2">Filters</h2>
+      <div className="filter-sidebar__header">
+        <h2 className="font-sans-lg">Filters</h2>
         {(selected.councils.length > 0 ||
           (show('focusAreas') && selected.focusAreas.length > 0) ||
           (show('types') && selected.types.length > 0) ||
