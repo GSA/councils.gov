@@ -1,4 +1,4 @@
-$breakpoint-mobile: 0;
+$breakpoint-mobile: 30rem;
 $breakpoint-tablet: 40rem;
 $breakpoint-desktop: 64rem;
 $breakpoint-desktop-lg: 75rem;
@@ -1207,7 +1207,7 @@ footer.usa-footer .footer-grid-container,
   .usa-breadcrumb__link,
   .usa-breadcrumb__current {
     color: white;
-    @media (max-width: $breakpoint-tablet) {
+    @media (max-width: $breakpoint-mobile) {
      padding: 0 1rem !important; 
     }
   }
