@@ -1125,17 +1125,27 @@ footer.usa-footer .footer-grid-container,
     min-height: 225px;
 
     @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
-      min-height: 160px;
-      max-width: 200px;
-      margin-left: auto;
-      margin-right: auto;
+      width: calc(100% + 2rem);
+      margin-left: -1rem;
+      margin-right: -1rem;
+      min-height: 0;
+      padding: 0.5rem;
+      aspect-ratio: 2 / 1;
+      max-height: 180px;
+    }
+
+    &--square {
+      @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
+        aspect-ratio: 1;
+        max-height: 180px;
+      }
     }
   }
 
   &__logo-container img {
     @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
       max-width: 100%;
-      max-height: 200px;
+      max-height: 100%;
       width: auto;
       height: auto;
       object-fit: contain;

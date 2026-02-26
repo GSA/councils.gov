@@ -5,6 +5,7 @@ councilSlug: cioc
 logoPath: /assets/img/councils/CIOC.png
 logoAlt: CIOC Logo
 logoClass: cioc-logo-about
+logoAspect: square
 ---
 
 ## Our Purpose

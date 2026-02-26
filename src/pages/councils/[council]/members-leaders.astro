@@ -19,13 +19,14 @@ export async function getStaticPaths() {
     
     // Get logo info from about.md
     const aboutPath = join(contentDir, councilSlug, 'about.md');
-    let logoPath, logoAlt, logoClass;
+    let logoPath, logoAlt, logoClass, logoAspect;
     if (fs.existsSync(aboutPath)) {
       const aboutContents = fs.readFileSync(aboutPath, 'utf-8');
       const { data: aboutFrontmatter } = matter(aboutContents);
       logoPath = aboutFrontmatter.logoPath;
       logoAlt = aboutFrontmatter.logoAlt;
       logoClass = aboutFrontmatter.logoClass;
+      logoAspect = aboutFrontmatter.logoAspect;
     }
     
     const members = frontmatter.members ?? [];
@@ -40,13 +41,14 @@ export async function getStaticPaths() {
         logoPath,
         logoAlt,
         logoClass,
+        logoAspect,
         hasMembersLeaders,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass, hasMembersLeaders } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders } = Astro.props;
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -133,6 +135,7 @@ function getMemberImage(member: any): string | null {
   logoPath={logoPath}
   logoAlt={logoAlt}
   logoClass={logoClass}
+  logoAspect={logoAspect}
   hasMembersLeaders={hasMembersLeaders}
 >
   <h2>{frontmatter.title}</h2>
