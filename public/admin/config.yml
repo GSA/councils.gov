@@ -1,0 +1,99 @@
+## Production backend
+backend:
+  name: github
+  repo: GSA/councils.gov
+  base_url: https://pages.cloud.gov
+  auth_endpoint: external/auth/github
+  preview_context: pages/build
+  branch: main
+  use_graphql: true
+
+##
+## Local development with Decap proxy backend
+## Run `npx netlify-cms-proxy-server` to start working locally
+## In another terminal, start the app with `npm start`
+## See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
+##
+# backend:
+#   name: git-gateway
+# local_backend: true
+
+media_folder: img
+public_folder: /img
+publish_mode: editorial_workflow
+logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
+site_url: https://www.councils.gov
+
+editor:
+  preview: false
+
+collections:
+  - name: resources
+    label: Resources
+    files:
+      - label: Resources
+        name: resources
+        file: src/data/resources.json
+        format: json
+        fields:
+          - label: Resources
+            name: resources
+            widget: list
+            summary: "{{fields.councilAcronym}} - {{fields.title}}"
+            fields:
+              - { label: ID, name: id, widget: hidden, required: false }
+              - { label: Title, name: title, widget: string }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - label: Type
+                name: type
+                widget: select
+                options:
+                  - Executive Order
+                  - Guidance
+                  - Hyperlink
+                  - Legislation
+                  - Memorandum
+                  - PDF Files
+                  - Playbook
+                  - Quick Reference
+                  - Website
+              - label: Focus Area
+                name: focusArea
+                widget: select
+                required: false
+                options:
+                  - Cybersecurity
+                  - Data
+                  - Data Quality
+                  - Evaluation
+                  - External Site
+                  - Information Technology
+                  - Memorandum
+                  - Responsibilities
+                  - Uniform Guidance 2 CFR 200
+                  - Utilization
+              - label: Council Acronym
+                name: councilAcronym
+                widget: select
+                options:
+                  - CDOC
+                  - CIOC
+                  - COFFA
+                  - EOC
+                  - FRPC
+              - {
+                  label: Date,
+                  name: date,
+                  widget: datetime,
+                  required: false,
+                  format: "YYYY-MM-DD",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                  hint: "Select a date or leave blank",
+                }
+              - { label: Link, name: link, widget: string }
