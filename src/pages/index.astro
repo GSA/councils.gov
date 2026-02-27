@@ -57,7 +57,11 @@ const withBase = (path: string | null | undefined) => {
         <hr>
         <div class="councils-grid padding-y-4">
         {councilsList.map((council) => (
-          <a href={withBase(council.href)} class="usa-card display-block text-no-underline margin-0">
+          <a
+            href={withBase(council.href)}
+            class="usa-card display-block text-no-underline margin-0"
+            aria-label={council.acronym ? `About ${council.title} (${council.acronym})` : `About ${council.title}`}
+          >
             <div class="usa-card__container">
               <div class="usa-card__media">
                 <div class="usa-card__img">

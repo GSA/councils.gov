@@ -14,6 +14,7 @@ type FilterPanelProps = {
   onReset: () => void;
   /** Which filter groups to show. Default: all. Use e.g. ['councils', 'years'] for News. */
   filterGroups?: FilterGroup[];
+  filterHeadingRef?: React.RefObject<HTMLHeadingElement>;
 };
 
 type FilterPillsProps = {
@@ -29,14 +30,24 @@ export function FilterPanel({
   onToggle,
   onReset,
   filterGroups = ['councils', 'focusAreas', 'types', 'years'],
+  filterHeadingRef,
 }: FilterPanelProps) {
   const { councils, focusAreas, types, years } = options;
   const show = (g: FilterGroup) => filterGroups.includes(g);
 
+  const handleReset = () => {
+    onReset();
+    requestAnimationFrame(() => {
+      filterHeadingRef?.current?.focus();
+    });
+  };
+
   return (
     <div className="filter-sidebar">
       <div className="filter-sidebar__header">
-        <h2 className="font-sans-lg">Filters</h2>
+        <h2 ref={filterHeadingRef} className="font-sans-lg" tabIndex={-1}>
+          Filters
+        </h2>
         {(selected.councils.length > 0 ||
           (show('focusAreas') && selected.focusAreas.length > 0) ||
           (show('types') && selected.types.length > 0) ||
@@ -44,7 +55,7 @@ export function FilterPanel({
           <button
             type="button"
             className="usa-button--unstyled usa-link margin-bottom-2"
-            onClick={onReset}
+            onClick={handleReset}
           >
             Reset filters
           </button>

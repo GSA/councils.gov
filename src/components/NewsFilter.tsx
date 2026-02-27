@@ -74,6 +74,8 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     getInitialFiltersFromUrl(allowedCouncilAcronyms as string[])
   );
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const firstItemRef = useRef<HTMLAnchorElement | null>(null);
+  const filterHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const hasMountedRef = useRef(false);
 
   const toggleSelection = (group: keyof Filters, value: string) => {
@@ -124,36 +126,72 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     if (resultsTopRef.current) {
       const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > targetTop) {
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        window.scrollTo({ top: targetTop });
       }
     }
-  }, [selectedFilters]);
+
+    requestAnimationFrame(() => {
+      if (filteredItems.length > 0 && firstItemRef.current) {
+        firstItemRef.current.focus();
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [selectedFilters, filteredItems.length]);
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar">
+      <aside
+        className="sidebar-layout__sidebar"
+        role="region"
+        aria-label="Filter news and events by council, focus area, type, and year"
+      >
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
           onToggle={toggleSelection}
           onReset={resetFilters}
           filterGroups={['councils', 'years']}
+          filterHeadingRef={filterHeadingRef}
         />
       </aside>
 
-      <div className="sidebar-layout__main" ref={resultsTopRef}>
+      <div
+        className="sidebar-layout__main"
+        ref={resultsTopRef}
+        role="region"
+        aria-label="Filter results"
+        tabIndex={-1}
+      >
+        <p
+          className="font-sans-sm text-bold margin-bottom-2"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+        >
+          {filteredItems.length > 0
+            ? `Showing ${filteredItems.length} of ${safeItems.length} results`
+            : 'No news or events match the selected filters'}
+        </p>
+
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
           <ul className="usa-collection">
             {filteredItems.map((item) => {
               const href = getItemHref(item, baseUrl);
+              const isFirst = filteredItems[0]?.id === item.id;
               return (
               <li key={item.id} className="usa-collection__item">
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
                     {href ? (
-                      <a className="usa-link font-serif" href={href}>
+                      <a
+                        ref={isFirst ? firstItemRef : undefined}
+                        className="usa-link font-serif"
+                        href={href}
+                        aria-label={item.title}
+                      >
                         {item.title}
                       </a>
                     ) : (
