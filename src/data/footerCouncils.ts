@@ -11,22 +11,22 @@ export const footerCouncils = [
   },
   {
     name: "Chief Data Officers Council",
-    href: "/councils/cdoc/about/",
+    href: "/cdoc/",
     logo: "/assets/img/councils/CDOC.png",
   },
   {
     name: "Chief Financial Officers Council",
-    href: "/councils/cfoc/about/",
+    href: "/cfoc/",
     logo: "/assets/img/councils/CFO.png",
   },
   {
     name: "Chief Information Officers Council",
-    href: "/councils/cioc/about/",
+    href: "/cioc/",
     logo: "/assets/img/councils/CIOC.png",
   },
   {
     name: "Council on Federal Financial Assistance",
-    href: "/councils/coffa/about/",
+    href: "/coffa/",
     logo: "/assets/img/councils/COFFA.png",
   },
   {
@@ -51,7 +51,7 @@ export const footerCouncils = [
   },
   {
     name: "Interagency Council on Statistical Policy",
-    href: "/councils/icsp/about/",
+    href: "/icsp/",
     logo: "/assets/img/councils/ICSP.png",
   },
   {

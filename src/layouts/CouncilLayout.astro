@@ -27,8 +27,8 @@ const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcro
 const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
 const resourcesExternal = councilSlug === 'icsp';
 const allNavItems = [
-  { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
-  { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
+  { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },
+  { href: `${baseUrl}${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
   { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
   { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
