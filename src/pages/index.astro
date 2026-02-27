@@ -51,13 +51,17 @@ const withBase = (path: string | null | undefined) => {
       <div class="grid-container">
         <div class="grid-row grid-gap padding-bottom-2">
           <div class="tablet:grid-col-10 tablet:grid-offset-1 text-center">
-            <p class="font-serif font-serif-sm tablet:font-serif-24 margin-top-0">The Federal Executive Councils are comprised of senior level representatives from departments and agencies that span the breadth of the federal government. By leveraging the collective expertise of their members, the councils strengthen core functional areas within the government and implement Administration priorities.</p>
+            <p class="font-serif-sm tablet:font-serif-24 margin-top-0">The Federal Executive Councils are comprised of senior level representatives from departments and agencies that span the breadth of the federal government. By leveraging the collective expertise of their members, the councils strengthen core functional areas within the government and implement Administration priorities.</p>
           </div>
         </div>
         <hr>
         <div class="councils-grid padding-y-4">
         {councilsList.map((council) => (
-          <a href={withBase(council.href)} class="usa-card display-block text-no-underline margin-0">
+          <a
+            href={withBase(council.href)}
+            class="usa-card display-block text-no-underline margin-0"
+            aria-label={council.acronym ? `About ${council.title} (${council.acronym})` : `About ${council.title}`}
+          >
             <div class="usa-card__container">
               <div class="usa-card__media">
                 <div class="usa-card__img">

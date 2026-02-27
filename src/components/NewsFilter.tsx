@@ -77,6 +77,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
   const firstItemRef = useRef<HTMLAnchorElement | null>(null);
+  const filterHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const hasMountedRef = useRef(false);
   const paginationInitializedRef = useRef(false);
 
@@ -141,10 +142,18 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     if (resultsTopRef.current) {
       const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > targetTop) {
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        window.scrollTo({ top: targetTop });
       }
     }
-  }, [selectedFilters]);
+
+    requestAnimationFrame(() => {
+      if (filteredItems.length > 0 && firstItemRef.current) {
+        firstItemRef.current.focus();
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [selectedFilters, filteredItems.length]);
 
   useEffect(() => {
     if (!paginationInitializedRef.current) {
@@ -162,21 +171,38 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside
+        className="sidebar-layout__sidebar"
+        role="region"
+        aria-label="Filter news and events by council, focus area, type, and year"
+      >
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
           onToggle={toggleSelection}
           onReset={resetFilters}
           filterGroups={['councils', 'years']}
+          filterHeadingRef={filterHeadingRef}
         />
       </aside>
 
       <div
         className="sidebar-layout__main"
         ref={resultsTopRef}
+        role="region"
+        aria-label="Filter results"
         tabIndex={-1}
       >
+        <p
+          className="font-sans-sm text-bold margin-bottom-2"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+        >
+          {filteredItems.length > 0
+            ? `Showing ${filteredItems.length} of ${safeItems.length} results`
+            : 'No news or events match the selected filters'}
+        </p>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
@@ -194,6 +220,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                         ref={isFirst ? firstItemRef : undefined}
                         className="usa-link font-serif"
                         href={href}
+                        aria-label={item.title}
                       >
                         {item.title}
                       </a>
@@ -211,7 +238,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       <li className="usa-tag">{item.councilAcronym}</li>
                     </ul>
                   )}
-                  <p className="usa-collection__description margin-y-2">{truncateDescription(item.description)}</p>
+                  <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>
                 </div>
               </li>
               );
