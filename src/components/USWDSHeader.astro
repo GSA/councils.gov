@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import closeIcon from '../assets/img/usa-icons/close.svg';
 import { navCouncils } from "../data/navCouncils";
 
 interface Props {
@@ -22,7 +24,7 @@ const baseUrl = import.meta.env.BASE_URL;
     </div>
     <nav aria-label="Primary navigation" class="usa-nav">
       <button type="button" class="usa-nav__close">
-        <img src={`${baseUrl}assets/img/usa-icons/close.svg`} role="img" alt="Close" />
+        <Image src={closeIcon} alt="Close" width={24} height={24} role="img" />
       </button>
       <ul class="usa-nav__primary usa-accordion margin-right-2">
         <li class="usa-nav__primary-item">

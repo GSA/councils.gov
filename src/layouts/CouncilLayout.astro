@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import { getCouncilLogo } from '../utils/councilLogos';
+
 interface Props {
   title?: string;
   currentPage?: string;
@@ -20,6 +23,7 @@ import ReturnToTop from '../components/ReturnToTop.astro';
 
 const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
+const logoImg = logoPath ? getCouncilLogo(logoPath) : null;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
@@ -58,7 +62,17 @@ const navItems = hasMembersLeaders
           <div class="grid-row grid-gap sidebar-layout">
             <div class="sidebar-layout__sidebar">
               <div class={`council-hero__logo-container${logoAspect === 'square' ? ' council-hero__logo-container--square' : ''}`}>
-                <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
+                {logoImg ? (
+                  <Image
+                    src={logoImg}
+                    alt={logoAlt || `${councilName} Logo`}
+                    class={logoClass || "council-hero__logo"}
+                    width={logoAspect === 'square' ? 200 : 524}
+                    height={logoAspect === 'square' ? 200 : 300}
+                  />
+                ) : (
+                  <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
+                )}
               </div>
             </div>
             <div class="sidebar-layout__main flex-justify-center">

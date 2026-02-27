@@ -1000,15 +1000,37 @@ footer.usa-footer .footer-grid-container,
   color: var(--color-white);
 
   &:not(.resources-hero) {
-    background-image: var(--hero-bg-url, none);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
     @media (min-width: $breakpoint-tablet) {
       min-height: 500px;
       display: flex;
       align-items: center;
+    }
+  }
+
+  /* LCP optimization: use <img> instead of CSS background for earlier discovery */
+  &--hero-img {
+    position: relative;
+    overflow: hidden;
+    background-image: none; /* Prevent USWDS default hero image from loading/flashing */
+
+    .usa-hero__bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.35s ease-out;
+    }
+
+    &.is-loaded .usa-hero__bg-img {
+      opacity: 1;
+    }
+
+    > .grid-container {
+      position: relative;
+      z-index: 1;
     }
   }
 
@@ -1365,8 +1387,6 @@ footer.usa-footer .footer-grid-container,
   .usa-card__img img {
     max-height: 100%;
     max-width: 100%;
-    width: auto;
-    height: auto;
     object-fit: contain;
     margin-left: auto;
     margin-right: auto;

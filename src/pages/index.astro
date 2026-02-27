@@ -1,12 +1,17 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
+import { getCouncilLogo } from '../utils/councilLogos';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+
+import heroImage from '../assets/img/white_house_hero.webp';
+const optimizedHero = await getImage({ src: heroImage, width: 1920 });
+
 const baseUrl = import.meta.env.BASE_URL;
-const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
-const heroImageUrl = `${baseUrl}assets/img/white_house_hero.webp`;
+const wavesUrl = baseUrl + 'assets/img/backgrounds/waves_2.svg';
 
 const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
@@ -31,16 +36,38 @@ const {
 const councilsList = Array.isArray(councils) ? councils : [];
 const withBase = (path: string | null | undefined) => {
   if (path == null) return '';
-  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
+  return path.startsWith('/') ? baseUrl + path.slice(1) : path;
 };
+const councilsSectionStyle = '--councils-waves-url: url(' + wavesUrl + ')';
 ---
 
 <BaseLayout title={title} currentPage="home">
   <Fragment slot="head">
-    <link rel="preload" as="image" href={heroImageUrl} fetchpriority="high" />
+    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
+    <script is:inline>
+      (function() {
+        function markLoaded() {
+          var img = document.querySelector('.usa-hero--hero-img .usa-hero__bg-img');
+          if (img && img.complete) img.closest('.usa-hero')?.classList.add('is-loaded');
+        }
+        if (document.readyState !== 'loading') markLoaded();
+        else document.addEventListener('DOMContentLoaded', markLoaded);
+      })();
+    </script>
   </Fragment>
   <main id="main-content" class="home-page">
-    <section class="usa-hero" aria-label="Introduction" style={`--hero-bg-url: url(${heroImageUrl})`}>
+    <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
+      <img
+        src={optimizedHero.src}
+        alt=""
+        width={heroImage.width}
+        height={heroImage.height}
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="usa-hero__bg-img"
+        onload="this.closest('.usa-hero')?.classList.add('is-loaded')"
+      />
       <div class="grid-container">
         <div class="usa-hero__callout">
           <h1 class="usa-hero__heading">Welcome to the new Councils.gov!</h1>
@@ -49,7 +76,7 @@ const withBase = (path: string | null | undefined) => {
       </div>
     </section>
 
-    <section class="usa-section councils-section" style={`--councils-waves-url: url(${wavesUrl})`}>
+    <section class="usa-section councils-section" style={councilsSectionStyle}>
       <div class="grid-container">
         <div class="grid-row grid-gap padding-bottom-2">
           <div class="tablet:grid-col-10 tablet:grid-offset-1 text-center">
@@ -63,21 +90,30 @@ const withBase = (path: string | null | undefined) => {
             <div class="usa-card__container">
               <div class="usa-card__media">
                 <div class="usa-card__img">
-                  <img
-                    src={withBase(council.logo)}
-                    alt={council.logoAlt || ''}
-                    class={council.logoClass || 'council-logo'}
-                  />
+                  {getCouncilLogo(council.logo) ? (
+                    <Image
+                      src={getCouncilLogo(council.logo)!}
+                      alt={council.logoAlt || (council.acronym || council.title) + ' logo'}
+                      class={council.logoClass || 'council-logo'}
+                    />
+                  ) : (
+                    <img
+                      src={withBase(council.logo)}
+                      alt={council.logoAlt || (council.acronym || council.title) + ' logo'}
+                      class={council.logoClass || 'council-logo'}
+                      loading="lazy"
+                      decoding="async"
+                      width="200"
+                      height="200"
+                    />
+                  )}
                 </div>
               </div>
               <header class="usa-card__header text-center padding-top-1">
-                <h3 class="usa-card__heading">
-                  {council.acronym ? `${council.title} (${council.acronym})` : council.title}
-                </h3>
+                <h2 class="usa-card__heading">
+                  {council.acronym ? council.title + ' (' + council.acronym + ')' : council.title}
+                </h2>
               </header>
-              {/* <div class="usa-card__body">
-                <p>{council.description}</p>
-              </div> */}
               <div class="usa-card__footer text-center margin-top-2 margin-bottom-1">
                 <span class="usa-button">About {council.acronym}</span>
               </div>

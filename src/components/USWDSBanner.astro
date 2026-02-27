@@ -1,5 +1,8 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
+import { Image } from 'astro:assets';
+import usFlag from '../assets/img/us_flag_small.png';
+import iconDotGov from '../assets/img/icon-dot-gov.svg';
+import iconHttps from '../assets/img/icon-https.svg';
 ---
 
 <section
@@ -10,11 +13,13 @@ const baseUrl = import.meta.env.BASE_URL;
     <header class="usa-banner__header">
       <div class="usa-banner__inner">
         <div class="grid-col-auto">
-          <img
-            aria-hidden="true"
-            class="usa-banner__header-flag"
-            src={`${baseUrl}assets/img/us_flag_small.png`}
+          <Image
+            src={usFlag}
             alt=""
+            class="usa-banner__header-flag"
+            width={16}
+            height={11}
+            aria-hidden
           />
         </div>
         <div class="grid-col-fill tablet:grid-col-auto" aria-hidden="true">
@@ -40,12 +45,14 @@ const baseUrl = import.meta.env.BASE_URL;
     >
       <div class="grid-row grid-gap-lg">
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img
-            class="usa-banner__icon usa-media-block__img margin-bottom-1"
-            src={`${baseUrl}assets/img/icon-dot-gov.svg`}
-            role="img"
+          <Image
+            src={iconDotGov}
             alt=""
-            aria-hidden="true"
+            class="usa-banner__icon usa-media-block__img margin-bottom-1"
+            width={64}
+            height={64}
+            role="img"
+            aria-hidden
           />
           <div class="usa-media-block__body">
             <p>
@@ -56,12 +63,14 @@ const baseUrl = import.meta.env.BASE_URL;
           </div>
         </div>
         <div class="usa-banner__guidance tablet:grid-col-6">
-          <img
-            class="usa-banner__icon usa-media-block__img margin-bottom-1"
-            src={`${baseUrl}assets/img/icon-https.svg`}
-            role="img"
+          <Image
+            src={iconHttps}
             alt=""
-            aria-hidden="true"
+            class="usa-banner__icon usa-media-block__img margin-bottom-1"
+            width={64}
+            height={64}
+            role="img"
+            aria-hidden
           />
           <div class="usa-media-block__body">
             <p>

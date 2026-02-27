@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logoOmb from '../assets/img/logo-omb.png';
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
@@ -10,10 +12,12 @@ const baseUrl = import.meta.env.BASE_URL;
     <div class="usa-identifier__container">
       <div class="usa-identifier__logos">
         <a href={baseUrl} class="usa-identifier__logo">
-          <img
-            class="usa-identifier__logo-img"
-            src={`${baseUrl}assets/img/logo-omb.png`}
+          <Image
+            src={logoOmb}
             alt="Office of Management and Budget Logo"
+            class="usa-identifier__logo-img"
+            width={200}
+            height={200}
           />
         </a>
       </div>

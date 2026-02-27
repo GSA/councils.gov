@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getNewsThumbnail } from '../../../utils/newsThumbnails';
 import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
@@ -69,7 +71,14 @@ function renderBodyBlock(block: string): string {
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
       {item.thumbnail && (
         <div class="news-item-thumbnail margin-y-2">
-          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+          {getNewsThumbnail(item.thumbnail) ? (
+            <Image
+              src={getNewsThumbnail(item.thumbnail)!}
+              alt=""
+            />
+          ) : (
+            <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+          )}
         </div>
       )}
       {item.summaryBox?.items?.length > 0 && (

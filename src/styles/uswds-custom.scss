@@ -1,0 +1,34 @@
+/*! USWDS custom build - only packages used by this project */
+
+// Global (normalize, core, fonts, elements, helpers)
+@forward "uswds-global";
+
+// Typography (usa-prose, usa-intro, usa-link, usa-list, etc.)
+@forward "uswds-typography";
+
+// Components used by this project
+// (each package forwards its own dependencies)
+@forward "usa-accordion";
+@forward "usa-banner";
+@forward "usa-breadcrumb";
+@forward "usa-button";
+@forward "usa-card";
+@forward "usa-collection";
+@forward "usa-footer";
+@forward "usa-header";
+@forward "usa-hero";
+@forward "usa-identifier";
+@forward "usa-layout-grid";
+@forward "usa-media-block";
+@forward "usa-nav";
+@forward "usa-search";
+@forward "usa-section";
+@forward "usa-sidenav";
+@forward "usa-skipnav";
+@forward "usa-summary-box";
+@forward "usa-tag";
+@forward "usa-form";
+@forward "usa-input";
+
+// Utilities (grid-gap, margin-*, padding-*, etc.)
+@forward "uswds-utilities/src/styles";

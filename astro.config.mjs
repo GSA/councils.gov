@@ -15,16 +15,26 @@ export default defineConfig({
   trailingSlash: "always",
   integrations: [react()],
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: ["./node_modules/@uswds/uswds/packages"],
+        },
+      },
+    },
     ssr: {
       noExternal: ["@uswds/uswds"],
     },
+    optimizeDeps: {
+      include: ["react", "react-dom"],
+    },
     resolve: {
-      alias: {
-        "@uswds/uswds/dist/css/uswds.css": "@uswds/uswds/css/uswds.css",
-      },
+      dedupe: ["react", "react-dom"],
     },
     build: {
       target: "esnext",
+      minify: true,
+      cssMinify: true,
     },
   },
 });
