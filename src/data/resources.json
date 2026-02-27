@@ -18,7 +18,7 @@
       "focusArea": "Cybersecurity",
       "councilAcronym": "CIOC",
       "date": "2024-01-01",
-      "link": "https://www.cio.gov/zero-trust-data-security-guide-may2025/"
+      "link": "https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf"
     },
     {
       "id": "CIOC-3",
@@ -28,7 +28,7 @@
       "focusArea": "Cybersecurity",
       "councilAcronym": "CIOC",
       "date": "2024-01-01",
-      "link": "https://www.cio.gov/zero-trust-data-security-guide-may2025/"
+      "link": "/docs/Zero-Trust-DataSecurityGuide_Oct24-Appendices-Final.pdf"
     },
     {
       "id": "CIOC-4",
@@ -55,7 +55,7 @@
       "title": "OMB M-24-11: Reducing Burden in the Administation of Federal Financial Assistance",
       "description": "",
       "type": "Memorandum",
-      "focusArea": "Memorandum",
+      "focusArea": "Federal Financial Assistance",
       "councilAcronym": "COFFA",
       "date": "2024-01-01",
       "link": "https://www.coffa.gov/assets/files/M-24-11-Revisions-to-2-CFR.pdf"
@@ -65,7 +65,7 @@
       "title": "SimplerGrants.gov",
       "description": "",
       "type": "Quick Reference",
-      "focusArea": "External Site",
+      "focusArea": "Federal Financial Assistance",
       "councilAcronym": "COFFA",
       "date": "",
       "link": "https://simpler.grants.gov/"
@@ -75,7 +75,7 @@
       "title": "COFFA Memo March 2025 - Single Audit Report Extensions for Hurricane Helene, Hurricane Milton, and the California Wildfires",
       "description": "",
       "type": "Memorandum",
-      "focusArea": "Memorandum",
+      "focusArea": "Federal Financial Assistance",
       "councilAcronym": "COFFA",
       "date": "2025-01-01",
       "link": "https://www.coffa.gov/assets/files/3-11-2025%20COFFA%20Memo%20-%20Single%20Audit%20Extension.pdf"
@@ -85,7 +85,7 @@
       "title": "M-25-14 Recission of M-25-13",
       "description": "",
       "type": "Memorandum",
-      "focusArea": "Memorandum",
+      "focusArea": "Federal Financial Assistance",
       "councilAcronym": "COFFA",
       "date": "2025-01-01",
       "link": "https://www.coffa.gov/assets/files/M-25-14%20Final.pdf"
@@ -368,7 +368,7 @@
       "focusArea": "Evaluation",
       "councilAcronym": "EOC",
       "date": "2024-01-01",
-      "link": "https://www.whitehouse.gov/wp-content/uploads/2018/06/a11.pdf"
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/08/a11.pdf"
     },
     {
       "id": "EOC-16",
@@ -398,7 +398,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2024-01-01",
-      "link": "/pdf/2024-annual-cdoc-survey-anonymized-responses.pdf"
+      "link": "https://www.cdo.gov/assets/documents/2024-Responses-Anonymized.xlsx"
     },
     {
       "id": "CDOC-3",
@@ -408,7 +408,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2024-01-01",
-      "link": "/pdf/2024-annual-cdoc-survey-survey-instrument.pdf"
+      "link": "https://www.cdo.gov/assets/documents/2024-survey-instrument.pdf"
     },
     {
       "id": "CDOC-4",
@@ -418,7 +418,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2024-01-01",
-      "link": "/pdf/2024-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+      "link": "https://www.cdo.gov/assets/documents/2024-CDO-Council-Survey-Results.pdf"
     },
     {
       "id": "CDOC-5",
@@ -428,7 +428,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2023-01-01",
-      "link": "/pdf/2023-annual-cdoc-survey-anonymized-responses.pdf"
+      "link": "https://www.cdo.gov/assets/documents/CDO%20Council%20-%20Summer%202023%20Survey%20-%20Public%20Use%20File.xlsx"
     },
     {
       "id": "CDOC-6",
@@ -438,7 +438,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2023-01-01",
-      "link": "/pdf/2023-annual-cdoc-survey-survey-instrument.pdf"
+      "link": "https://www.cdo.gov/assets/documents/CDO%20Survey-Summer%202023.pdf"
     },
     {
       "id": "CDOC-7",
@@ -448,7 +448,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2023-01-01",
-      "link": "/pdf/2023-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+      "link": "https://www.cdo.gov/assets/documents/cdoc_final_10_26_2023.pdf"
     },
     {
       "id": "CDOC-8",
@@ -458,7 +458,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2022-01-01",
-      "link": "/pdf/2022-annual-cdoc-survey-anonymized-responses.pdf"
+      "link": "https://www.cdo.gov/assets/documents/cdo_survey_responses_2022-Public-file.xlsx"
     },
     {
       "id": "CDOC-9",
@@ -468,7 +468,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2022-01-01",
-      "link": "/pdf/2022-annual-cdoc-survey-survey-instrument.pdf"
+      "link": "https://www.cdo.gov/assets/documents/CDO_Council_-_January_2022_Survey.docx"
     },
     {
       "id": "CDOC-10",
@@ -478,7 +478,7 @@
       "focusArea": "Data",
       "councilAcronym": "CDOC",
       "date": "2022-01-01",
-      "link": "/pdf/2022-annual-cdoc-survey-slides-analyzing-the-data.pdf"
+      "link": "https://www.cdo.gov/assets/documents/CDO-Survey-2022-Analysis.pdf"
     }
   ]
 }
