@@ -1595,6 +1595,28 @@ footer.usa-footer .footer-grid-container,
     }
   }
 
+  /* LCP optimization: use <img> instead of CSS background for earlier discovery */
+  &--hero-img {
+    position: relative;
+    overflow: hidden;
+    background-image: none; /* Prevent USWDS default hero image from loading/flashing */
+
+    .usa-hero__bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.35s ease-out;
+    }
+
+    &.is-loaded .usa-hero__bg-img {
+      opacity: 1;
+    }
+  }
+
   &:not(.resources-hero) > .grid-container {
     position: relative;
     padding-top: 2rem;
@@ -1861,10 +1883,6 @@ footer.usa-footer .footer-grid-container,
 .home-page .usa-section {
   padding-top: 3rem;
   padding-bottom: 0;
-
-  h2 {
-    text-align: left;
-  }
 
   hr {
     width: 60%;

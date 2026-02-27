@@ -22,7 +22,7 @@ To add a new council:
 
 1. Create a new directory in `src/content/councils/` with the council slug (e.g., `newcouncil/`)
 2. Create `about.md` and `members-leaders.md` files in that directory
-3. The pages will automatically be generated at `/newcouncil/about` and `/newcouncil/members-leaders`
+3. The pages will automatically be generated at `/newcouncil/` and `/newcouncil/members-leaders/`
 
 ## About Pages
 
