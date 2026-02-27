@@ -36,7 +36,9 @@ const withBase = (path: string | null | undefined) => {
 ---
 
 <BaseLayout title={title} currentPage="home">
-
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={heroImageUrl} fetchpriority="high" />
+  </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero" aria-label="Introduction" style={`--hero-bg-url: url(${heroImageUrl})`}>
       <div class="grid-container">
