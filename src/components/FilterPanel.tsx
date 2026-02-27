@@ -61,7 +61,7 @@ export function FilterPanel({
           </button>
         )}
       </div>
-      <div className="usa-accordion" aria-multiselectable="true" data-allow-multiple="true">
+      <div className="usa-accordion" data-allow-multiple="true">
         <h3 className="usa-accordion__heading">
           <button
             type="button"

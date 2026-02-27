@@ -2122,3 +2122,37 @@ footer.usa-footer .footer-grid-container,
   background-color: var(--color-gray-10);
   color: var(--color-ink);
 }
+
+.usa-pagination {
+  background-color: transparent;
+}
+
+.usa-pagination button.usa-pagination__link,
+.usa-pagination button.usa-pagination__button {
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.usa-pagination button.usa-pagination__link:disabled,
+.usa-pagination button.usa-pagination__button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.usa-pagination button.usa-pagination__link {
+  border: none;
+}
+
+.usa-pagination button.usa-current {
+  background-color: var(--primary-color);
+}
+
+.usa-pagination__arrow button {
+  background-color: transparent;
+  text-decoration: underline;
+  &:hover:not(:disabled) {
+    text-decoration: none;
+  }
+}
