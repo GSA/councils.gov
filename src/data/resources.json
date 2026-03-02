@@ -479,6 +479,156 @@
       "councilAcronym": "CDOC",
       "date": "2022-01-01",
       "link": "https://www.cdo.gov/assets/documents/CDO-Survey-2022-Analysis.pdf"
+    },
+    {
+      "id": "FPC-1",
+      "title": "What is Personally Identifiable Information (PII)? Educational Video",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://youtu.be/SY5Qo72yP9E"
+    },
+    {
+      "id": "FPC-2",
+      "title": "Roles in Federal Privacy Educational Video",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2020-01-01",
+      "link": "https://www.fpc.gov/roles-in-federal-privacy/"
+    },
+    {
+      "id": "FPC-3",
+      "title": "The Privacy Act of 1974 Educational Video",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2020-01-01",
+      "link": "https://www.fpc.gov/privacy-act-1974/"
+    },
+    {
+      "id": "FPC-4",
+      "title": "Privacy Impact Assessments Educational Video",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2020-01-01",
+      "link": "https://www.fpc.gov/privacy-impact-asessments/"
+    },
+    {
+      "id": "FPC-5",
+      "title": "Fair Information Practice Principles (FIPPs) Educational Video",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2022-01-01",
+      "link": "https://www.fpc.gov/fair-info-practice-principles/"
+    },
+    {
+      "id": "FPC-6",
+      "title": "Elements of a Federal Privacy Program",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Federal Privacy Programs",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://www.fpc.gov/elements-of-federal-privacy-program/"
+    },
+    {
+      "id": "FPC-7",
+      "title": "Law Library",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://www.fpc.gov/law-library/"
+    },
+    {
+      "id": "FPC-8",
+      "title": "OMB Guidance",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://www.fpc.gov/resources/omb/"
+    },
+    {
+      "id": "FPC-9",
+      "title": "Government-wide SORNs",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://www.fpc.gov/resources/SORNs/"
+    },
+    {
+      "id": "FPC-10",
+      "title": "Glossary",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2025-01-01",
+      "link": "https://www.fpc.gov/resources/glossary/"
+    },
+    {
+      "id": "FPC-11",
+      "title": "Federal Register SORN Search Tool",
+      "description": "",
+      "type": "Quick Reference",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "",
+      "link": "https://www.federalregister.gov/documents/search?conditions%5Bnotice_type%5D%5B%5D=sorn&conditions%5Bsearch_type_id%5D=3&conditions%5Btype%5D%5B%5D=NOTICE"
+    },
+    {
+      "id": "FPC-12",
+      "title": "Toolkit for Recruiting, Hiring, and Retaining Privacy Professionals in the Federal Government",
+      "description": "",
+      "type": "Guidance",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2017-01-01",
+      "link": "https://www.fpc.gov/assets/pdf/Privacy-Toolkit-1-13-2017.pdf"
+    },
+    {
+      "id": "FPC-13",
+      "title": "Collaboration Index for Security and Privacy Controls",
+      "description": "",
+      "type": "Guidance",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2022-01-01",
+      "link": "https://www.fpc.gov/assets/pdf/Collaboration%20Index%20for%20Security%20and%20Privacy%20Controls%20FINAL.pdf"
+    },
+    {
+      "id": "FPC-14",
+      "title": "Crosswalk Terminology Project",
+      "description": "",
+      "type": "Guidance",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "2023-01-01",
+      "link": "https://www.fpc.gov/assets/pdf/FINAL%20Content%20Placed%20In%20Layout.pdf"
+    },
+    {
+      "id": "FPC-15",
+      "title": "Privacy for Chief Data Officers",
+      "description": "",
+      "type": "Guidance",
+      "focusArea": "Resources",
+      "councilAcronym": "FPC",
+      "date": "",
+      "link": "https://www.fpc.gov/assets/pdf/Privacy%20for%20CDOs.pdf"
     }
   ]
 }

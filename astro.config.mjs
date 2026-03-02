@@ -18,7 +18,11 @@ export default defineConfig({
     ssr: {
       noExternal: ["@uswds/uswds"],
     },
+    optimizeDeps: {
+      include: ["react", "react-dom"],
+    },
     resolve: {
+      dedupe: ["react", "react-dom"],
       alias: {
         "@uswds/uswds/dist/css/uswds.css": "@uswds/uswds/css/uswds.css",
       },

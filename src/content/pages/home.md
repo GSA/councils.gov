@@ -38,6 +38,13 @@ councils:
     logoAlt: EOC Logo
     logoClass: council-logo
     description: The Evaluation Officer Council advances federal evaluation practice by promoting evidence, learning, and impact across agencies.
+  - title: Federal Privacy Council
+    acronym: FPC
+    href: /fpc/
+    logo: /assets/img/councils/FPC.png
+    logoAlt: FPC Logo
+    logoClass: council-logo
+    description: The Federal Privacy Council is the principal interagency forum to improve the privacy practices of agencies and strengthen protections of personal information and privacy rights across the Federal Government.
   - title: Federal Real Property Council
     acronym: FRPC
     href: /frpc/
