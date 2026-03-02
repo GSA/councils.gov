@@ -17,9 +17,18 @@ $type-scale: (
 
 $councils-gap: 2rem;
 
-:focus, :focus-visible {
-  outline: 0.25rem solid var(--blue-40v) !important;
-  outline-offset: 0.125rem !important;
+:focus {
+  outline: none;
+}
+
+/* Hide outline only when focused by mouse/touch – :focus:not(:focus-visible) does NOT match on keyboard */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 0.25rem solid var(--blue-40v);
+  outline-offset: 0.125rem;
 }
 
 html {
@@ -238,8 +247,8 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
     display: block;
   }
 
-  /* Unify focus with cards – use focus-visible only, match outline style */
-  &:focus {
+  /* Focus-visible only – hide on mouse click, show on keyboard */
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 
@@ -247,6 +256,24 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
   }
+}
+
+/* Nav primary buttons, menu/close buttons, logo: focus-visible only (no ring on mouse click) */
+.usa-nav__primary button:focus:not(:focus-visible),
+.usa-menu-btn:focus:not(:focus-visible),
+.usa-nav__close:focus:not(:focus-visible),
+.usa-logo a:focus:not(:focus-visible),
+.usa-logo__text a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.usa-nav__primary button:focus-visible,
+.usa-menu-btn:focus-visible,
+.usa-nav__close:focus-visible,
+.usa-logo a:focus-visible,
+.usa-logo__text a:focus-visible {
+  outline: 0.25rem solid var(--blue-40v);
+  outline-offset: 0.125rem;
 }
 
 .usa-nav__primary-item span {
@@ -603,13 +630,13 @@ $councils-gap: 2rem;
 }
 
 .councils-grid a {
-  &:focus {
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
+    outline: 0.25rem solid var(--blue-40v);
+    outline-offset: 0.125rem;
   }
 }
 
@@ -1249,13 +1276,13 @@ footer.usa-footer .footer-grid-container,
   border-right: none;
   border-bottom: none;
 
-  &:focus {
+  &:focus:not(:focus-visible) {
     outline: none;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
+    outline: 0.25rem solid var(--blue-40v);
+    outline-offset: 0.125rem;
   }
 
   &,
@@ -1537,13 +1564,13 @@ footer.usa-footer .footer-grid-container,
     font-size: 1.5rem;
 
     a {
-      &:focus {
+      &:focus:not(:focus-visible) {
         outline: none;
       }
 
       &:focus-visible {
-        outline: 2px solid var(--secondary-color);
-        outline-offset: 2px;
+        outline: 0.25rem solid var(--blue-40v);
+        outline-offset: 0.125rem;
       }
     }
   }
@@ -2046,7 +2073,6 @@ footer.usa-footer .footer-grid-container,
   h2 {
     font-family: var(--font-serif);
     margin-top: 0;
-    margin-bottom: 0.5rem;
   }
 
   .filter-options {

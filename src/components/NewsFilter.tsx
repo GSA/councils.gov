@@ -194,7 +194,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
         tabIndex={-1}
       >
         <p
-          className="font-sans-sm text-bold margin-bottom-2"
+          className="font-sans-sm text-bold margin-top-0 margin-bottom-2"
           aria-live="polite"
           aria-atomic="true"
           role="status"
