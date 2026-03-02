@@ -15,7 +15,7 @@
       "title": "Zero Trust Data Security Guide",
       "description": "",
       "type": "Guidance",
-      "focusArea": "Cybersecurity",
+      "focusArea": "Data",
       "councilAcronym": "CIOC",
       "date": "2024-01-01",
       "link": "https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf"
@@ -25,7 +25,7 @@
       "title": "Zero Trust Data Security Guide Appendices",
       "description": "",
       "type": "Guidance",
-      "focusArea": "Cybersecurity",
+      "focusArea": "Data",
       "councilAcronym": "CIOC",
       "date": "2024-01-01",
       "link": "/docs/Zero-Trust-DataSecurityGuide_Oct24-Appendices-Final.pdf"
@@ -38,7 +38,7 @@
       "focusArea": "Information Technology",
       "councilAcronym": "CIOC",
       "date": "2020-01-01",
-      "link": "https://www.cio.gov/policies-and-priorities/"
+      "link": "/docs/CIOC-Charter-Dec-2020.pdf"
     },
     {
       "id": "COFFA-1",
