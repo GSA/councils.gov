@@ -90,6 +90,9 @@ function getMemberImage(member: any): string | null {
     'epa': 'Environmental Protection Agency.png',
     'federal deposit insurance corporation': 'Federal Deposit Insurance Corporation.png',
     'fdic': 'Federal Deposit Insurance Corporation.png',
+    'federal reserve board': 'Seal_of_the_United_States_Federal_Reserve_System.png',
+    'federal reserve system': 'Seal_of_the_United_States_Federal_Reserve_System.png',
+    'federal reserve': 'Seal_of_the_United_States_Federal_Reserve_System.png',
     'general services administration': 'General Services Administration Seal.png',
     'gsa': 'General Services Administration.png',
     'national archives and records administration': 'National Archives and Records Administration.png',
@@ -152,7 +155,8 @@ function getMemberImage(member: any): string | null {
       <div class="grid-row grid-gap margin-top-2 leadership-grid">
         {frontmatter.leaders.map((leader: any) => {
           const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
           return (
           <div class="tablet:grid-col-12 desktop:grid-col-6">
             <div class="usa-card">
@@ -166,7 +170,9 @@ function getMemberImage(member: any): string | null {
                 )}
                 <div class="usa-card__body">
                   <h3>{leader.name}</h3>
-                  {description && <p>{description}</p>}
+                  {[description, agency].filter(Boolean).length > 0 && (
+                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  )}
                 </div>
                 {leader.url && (
                   <div class="usa-card__footer">
@@ -191,7 +197,8 @@ function getMemberImage(member: any): string | null {
       <div class="grid-row grid-gap margin-top-2 members-grid">
         {frontmatter.coChairs.map((leader: any) => {
           const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
           return (
           <div class="tablet:grid-col-6 desktop:grid-col-4">
             <div class="usa-card">
@@ -205,7 +212,9 @@ function getMemberImage(member: any): string | null {
                 )}
                 <div class="usa-card__body">
                   <h3>{leader.name}</h3>
-                  {description && <p>{description}</p>}
+                  {[description, agency].filter(Boolean).length > 0 && (
+                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  )}
                 </div>
                 {leader.url && (
                   <div class="usa-card__footer">
@@ -229,7 +238,8 @@ function getMemberImage(member: any): string | null {
   {frontmatter.members && frontmatter.members.length > 0 && (
     <div class="members-grid margin-top-2">
       {frontmatter.members.map((member: any) => {
-        const department = member.agency ?? member.department ?? member.description ?? member.title ?? '';
+        const description = member.description ?? member.title ?? '';
+        const agency = member.agency ?? member.department ?? '';
         const memberImage = getMemberImage(member);
         return (
         <div class="usa-card">
@@ -243,7 +253,9 @@ function getMemberImage(member: any): string | null {
             )}
             <div class="usa-card__body">
               <h3>{member.name}</h3>
-              {department && <p>{department}</p>}
+              {[description, agency].filter(Boolean).length > 0 && (
+                <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+              )}
             </div>
             {member.url && (
               <div class="usa-card__footer">

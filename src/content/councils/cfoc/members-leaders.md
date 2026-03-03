@@ -5,7 +5,8 @@ councilSlug: cfoc
 intro: The CFOC brings together CFOs and Deputy CFOs from the 24 CFO Act agencies to strengthen financial stewardship and support sound decision making on behalf of the American public.
 leaders:
   - name: Margaret Pearson
-    description: Deputy Controller, Office of Federal Financial Management, Office of Management and Budget
+    description: Deputy Controller, Office of Federal Financial Management
+    agency: Office of Management and Budget
 members:
   - name: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer

@@ -5,9 +5,11 @@ councilSlug: coffa
 intro: The COFFA is composed of Chief Financial Officers and senior financial executives from Federal agencies who work together to improve government financial management practices.
 leaders:
   - name: Margaret Pearson
-    description: COFFA Co-Chair, Deputy Controller, Office of Federal Financial Management
+    description: COFFA Co-Chair, Deputy Controller
+    agency: Office of Federal Financial Management
   - name: Dale Bell
-    description: COFFA, Co-Chair, Deputy Assistant Secretary, Office of Grants
+    description: COFFA, Co-Chair, Deputy Assistant Secretary
+    agency: Office of Grants
 members:
   - name: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer/federal-financial-assistance-policy
