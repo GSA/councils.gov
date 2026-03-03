@@ -4,7 +4,8 @@ councilName: Federal Real Property Council
 councilSlug: frpc
 logoPath: /assets/img/councils/FRPC.png
 logoAlt: FRPC Logo
-logoClass: council-logo-large
+logoClass: council-logo
+shortDescription: The Federal Real Property Council leads government-wide efforts to improve the management, utilization, and data quality of the Federal real property portfolio.
 ---
 
 The Federal Real Property Council (FRPC) is an interagency body of Federal real estate experts dedicated to optimizing the Federal real property portfolio. The FRPC was originally established by [E.O. 13327](https://www.federalregister.gov/documents/2004/02/06/04-2773/federal-real-property-asset-management), “Federal Real Property Asset Management” on February 4, 2004, and later enacted into law by the Federal Property Management Reform Act of 2016 ([P.L. 114-318](https://www.congress.gov/114/plaws/publ318/PLAW-114publ318.pdf)). The purpose of the council is to:
