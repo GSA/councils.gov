@@ -2,6 +2,7 @@
 import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
+import { getCouncilsForHome } from '../data/councilsData';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -17,22 +18,9 @@ const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
 const {
   title = 'Councils.gov - Home',
   heroText = '',
-  councils = [],
-} = homeData as {
-  title?: string;
-  heroText?: string;
-  councilsHeading?: string;
-  councils?: Array<{
-    title: string;
-    acronym?: string;
-    href: string;
-    logo: string;
-    logoAlt?: string;
-    logoClass?: string;
-    description: string;
-  }>;
-};
-const councilsList = Array.isArray(councils) ? councils : [];
+} = homeData as { title?: string; heroText?: string; councilsHeading?: string };
+
+const councilsList = getCouncilsForHome();
 const withBase = (path: string | null | undefined) => {
   if (path == null) return '';
   return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;

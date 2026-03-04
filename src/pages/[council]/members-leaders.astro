@@ -53,6 +53,17 @@ const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() |
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
+const getLastName = (name: string) => {
+  const withoutParens = name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const parts = withoutParens.split(/\s+/);
+  return parts.length > 1 ? parts[parts.length - 1] : withoutParens;
+};
+const sortByLastName = (a: { name?: string }, b: { name?: string }) =>
+  getLastName(a.name ?? '').localeCompare(getLastName(b.name ?? ''), 'en-US', { sensitivity: 'base' });
+const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortByLastName);
+const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortByLastName);
+const sortedMembers = [...(frontmatter.members ?? [])].sort(sortByLastName);
+
 // Function to get member logo image path
 function getMemberImage(member: any): string | null {
   // If image is explicitly set, use it
@@ -149,11 +160,11 @@ function getMemberImage(member: any): string | null {
     {frontmatter.intro}
   </p>
 
-  {frontmatter.leaders && frontmatter.leaders.length > 0 && (
+  {sortedLeaders.length > 0 && (
     <>
       <h2 class="margin-top-4">Leadership</h2>
       <div class="grid-row grid-gap margin-top-2 leadership-grid">
-        {frontmatter.leaders.map((leader: any) => {
+        {sortedLeaders.map((leader: any) => {
           const description =
             leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
           const agency = leader.agency ?? '';
@@ -191,11 +202,11 @@ function getMemberImage(member: any): string | null {
     </>
   )}
 
-  {frontmatter.coChairs && frontmatter.coChairs.length > 0 && (
+  {sortedCoChairs.length > 0 && (
     <>
       <h2 class="margin-top-4">Co-Chairs</h2>
       <div class="grid-row grid-gap margin-top-2 members-grid">
-        {frontmatter.coChairs.map((leader: any) => {
+        {sortedCoChairs.map((leader: any) => {
           const description =
             leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
           const agency = leader.agency ?? '';
@@ -235,9 +246,9 @@ function getMemberImage(member: any): string | null {
 
   <h2 class="margin-top-4">Members</h2>
   
-  {frontmatter.members && frontmatter.members.length > 0 && (
+  {sortedMembers.length > 0 && (
     <div class="members-grid margin-top-2">
-      {frontmatter.members.map((member: any) => {
+      {sortedMembers.map((member: any) => {
         const description = member.description ?? member.title ?? '';
         const agency = member.agency ?? member.department ?? '';
         const memberImage = getMemberImage(member);

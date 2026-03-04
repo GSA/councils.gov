@@ -6,6 +6,7 @@ logoPath: /assets/img/councils/ICSP.png
 logoAlt: ICSP Logo
 logoClass: council-logo
 logoAspect: square
+shortDescription: The ICSP, led by the U.S. Chief Statistician, supports implementation of the U.S. Federal statistical system's vision to operate as a seamless system in support of evidence-based decision-making.
 ---
 
 ## About Us
