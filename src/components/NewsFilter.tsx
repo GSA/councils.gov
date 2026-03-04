@@ -235,13 +235,20 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       {item.dateDisplay ?? formatDate(item.date)}
                     </time>
                   </div>
-                  {toArray(item.councilAcronym).length > 0 && (
+                  {[
+                    ...new Set([
+                      ...toArray(item.councilAcronym),
+                      ...(item.tags ?? []),
+                    ]),
+                  ].length > 0 && (
                     <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
-                      {toArray(item.councilAcronym).map((acronym) => (
-                        <li key={acronym} className="usa-tag">
-                          {acronym}
-                        </li>
-                      ))}
+                      {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].map(
+                        (tag) => (
+                          <li key={tag} className="usa-tag">
+                            {tag}
+                          </li>
+                        )
+                      )}
                     </ul>
                   )}
                   <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>

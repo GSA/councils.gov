@@ -112,10 +112,10 @@ function renderBodyBlock(block: string): string {
             <div set:html={renderBodyBlock(block)} class="event-body-block" />
           ))}
       </div>
-      {toArray(item.councilAcronym).length > 0 && (
+      {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].length > 0 && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
-          {toArray(item.councilAcronym).map((acronym) => (
-            <li class="usa-tag margin-bottom-1">{acronym}</li>
+          {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].map((tag) => (
+            <li class="usa-tag margin-bottom-1">{tag}</li>
           ))}
         </ul>
       )}

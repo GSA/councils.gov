@@ -9,9 +9,7 @@
     "date": "2025-09-24",
     "dateDisplay": "September 24-25, 2025",
     "tags": [
-      "CDOC", 
-      "CDOC Summit",
-      "Data Without Barriers"
+      "Event"
     ],
     "type": "Event",
     "councilAcronym": "CDOC",
@@ -31,7 +29,8 @@
     "author": "Kirsten Dalboe, Federal Energy Regulatory Commission CDO, Chair of CDO Council and Steven Hernandez, Department of Education CISO, Co-Chair of CISO Council",    "type": "Guidance",
     "councilAcronym": "CDOC",
     "tags": [
-      "CDOC"
+      "News", 
+      "Guides"
     ],
     "body": [
       "Today, the CISO Council and CDO Council released the [Federal Zero Trust (ZT) Data Security Guide](https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf), a first-of-its-kind document and key deliverable of OMB M-22-09, Moving the U.S. Government Towards Zero Trust Cybersecurity Principles. M-22-09 charged the Federal CDO Council and Federal CISO Council to convene a cross-agency working group of data and security experts to develop a data security guide for Federal agencies.",
