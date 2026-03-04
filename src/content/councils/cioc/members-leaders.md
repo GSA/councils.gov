@@ -5,19 +5,23 @@ councilSlug: cioc
 intro: The CIOC is composed of Chief Information Officers and senior IT executives from Federal agencies who work together to improve government IT practices.
 leaders:
   - name: Gregory Barbaccia
-    description: Federal Chief Information Officer, The Executive Office of the President
+    description: Federal Chief Information Officer
+    agency: The Executive Office of the President
     image: /assets/img/leaders/Gregory Barbaccia.png
     imageAlt: Gregory Barbaccia
   - name: David Shive
-    description: Vice Chair, Chief Information Officer, General Services Administration
+    description: Vice Chair, Chief Information Officer 
+    agency: General Services Administration
     image: /assets/img/leaders/David Shive.png
     imageAlt: David Shive
   - name: Michael Duffy
-    description: Acting Federal Chief Information Security Officer, The Executive Office of the President
+    description: Acting Federal Chief Information Security Officer
+    agency: The Executive Office of the President
     image: /assets/img/leaders/Michael Duffy.png
     imageAlt: Michael Duffy
   - name: Jay Teitelbaum
-    description: Acting Deputy Federal Chief Information Officer, The Executive Office of the President
+    description: Acting Deputy Federal Chief Information Officer
+    agency: The Executive Office of the President
     image: /assets/img/leaders/Jay Teitelbaum.png
     imageAlt: Jay Teitelbaum
 
