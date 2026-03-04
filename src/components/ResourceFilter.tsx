@@ -7,6 +7,7 @@ import {
   createEmptyFilters,
   filterItems,
   getInitialFiltersFromUrl,
+  toArray,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -15,9 +16,9 @@ interface Resource extends FilterableItem {
   id: string;
   title: string;
   description: string;
-  type: string;
-  focusArea: string;
-  councilAcronym: string;
+  type: string | string[];
+  focusArea: string | string[];
+  councilAcronym: string | string[];
   date: string;
   link: string;
 }
@@ -34,7 +35,10 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
 
   // Only allow ?council= to pre-select when it matches a council that exists in the data
   const allowedCouncilAcronyms = useMemo(
-    () => Array.from(new Set(safeResources.map((r) => r.councilAcronym).filter(Boolean))),
+    () =>
+      Array.from(
+        new Set(safeResources.flatMap((r) => toArray(r.councilAcronym)))
+      ),
     [safeResources]
   );
 
@@ -206,11 +210,21 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                     <div className="usa-card__body">
                       <p>{resource.description}</p>
                       <div className="margin-top-2 content-tags">
-                        <span className="usa-tag">{resource.councilAcronym}</span>
-                        {resource.type && (
-                          <span className="usa-tag resource-tag--type">{resource.type}</span>
-                        )}
-                        {resource.focusArea && <span className="usa-tag">{resource.focusArea}</span>}
+                        {toArray(resource.councilAcronym).map((acronym) => (
+                          <span key={acronym} className="usa-tag">
+                            {acronym}
+                          </span>
+                        ))}
+                        {toArray(resource.type).map((t) => (
+                          <span key={t} className="usa-tag resource-tag--type">
+                            {t}
+                          </span>
+                        ))}
+                        {toArray(resource.focusArea).map((area) => (
+                          <span key={area} className="usa-tag">
+                            {area}
+                          </span>
+                        ))}
                       </div>
                     </div>
                     <div className="usa-card__footer">
