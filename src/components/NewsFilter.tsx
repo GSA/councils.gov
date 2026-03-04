@@ -7,6 +7,7 @@ import {
   createEmptyFilters,
   filterItemsForNews,
   getInitialFiltersFromUrl,
+  sanitizeHref,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -62,7 +63,7 @@ function getItemHref(item: NewsItem, baseUrl: string): string | null {
     const segment = item.kind === 'event' ? 'events' : 'news';
     return `${base}news-events/${segment}/${item.slug}/`;
   }
-  return item.link ?? null;
+  return sanitizeHref(item.link);
 }
 
 export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {

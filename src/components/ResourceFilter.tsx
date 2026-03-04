@@ -7,6 +7,7 @@ import {
   createEmptyFilters,
   filterItems,
   getInitialFiltersFromUrl,
+  sanitizeHref,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -179,9 +180,10 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
           {filteredResources.length > 0 ? (
             <>
               {paginatedResources.map((resource) => {
-              const href = resource.link.startsWith('/')
+              const rawHref = resource.link.startsWith('/')
                 ? `${baseUrl.replace(/\/$/, '')}${resource.link}`
                 : resource.link;
+              const href = sanitizeHref(rawHref);
               const isFirst = paginatedResources[0]?.id === resource.id;
               return (
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">

@@ -11,10 +11,10 @@
     "federalist": "npm run build"
   },
   "dependencies": {
-    "@astrojs/react": "^3.6.2",
+    "@astrojs/react": "^4.4.2",
     "@types/papaparse": "^5.5.2",
     "@uswds/uswds": "^3.7.0",
-    "astro": "^5.15.9",
+    "astro": "^5.18.0",
     "gray-matter": "^4.0.3",
     "marked": "^17.0.1",
     "papaparse": "^5.5.3",
