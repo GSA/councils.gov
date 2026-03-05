@@ -13,12 +13,12 @@ backend:
 ## Run `npx netlify-cms-proxy-server` to start working locally
 ## In another terminal, start the app with `npm start`
 ## See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
-##
+#
 # backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: /public/assets/img
+media_folder: public/assets/img
 public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
@@ -28,6 +28,157 @@ editor:
   preview: false
 
 collections:
+  - name: council_about_pages
+    label: About
+    files:
+      - label: CDOC About
+        name: cdoc_about
+        file: src/content/councils/cdoc/about.md
+        fields: &about_fields
+          - {
+              label: Council Name,
+              name: councilName,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Short Description,
+              name: shortDescription,
+              widget: text,
+              required: false,
+            }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - label: CFOC About
+        name: cfoc_about
+        file: src/content/councils/cfoc/about.md
+        fields: *about_fields
+      - label: CIOC About
+        name: cioc_about
+        file: src/content/councils/cioc/about.md
+        fields: *about_fields
+      - label: COFFA About
+        name: coffa_about
+        file: src/content/councils/coffa/about.md
+        fields: *about_fields
+      - label: EOC About
+        name: eoc_about
+        file: src/content/councils/eoc/about.md
+        fields: *about_fields
+      - label: FPC About
+        name: fpc_about
+        file: src/content/councils/fpc/about.md
+        fields: *about_fields
+      - label: FRPC About
+        name: frpc_about
+        file: src/content/councils/frpc/about.md
+        fields: *about_fields
+      - label: ICSP About
+        name: icsp_about
+        file: src/content/councils/icsp/about.md
+        fields: *about_fields
+  - name: council_members_leaders_pages
+    label: Members & Leaders
+    files:
+      - label: CDOC Members & Leaders
+        name: cdoc_members_leaders
+        file: src/content/councils/cdoc/members-leaders.md
+        fields: &members_leaders_fields
+          - {
+              label: Council Name,
+              name: councilName,
+              widget: string,
+              required: false,
+            }
+          - { label: Intro, name: intro, widget: text, required: false }
+          - {
+              label: Members Intro,
+              name: membersIntro,
+              widget: text,
+              required: false,
+            }
+          - label: Leaders
+            name: leaders
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: string,
+                  required: false,
+                }
+              - label: Agency
+                name: agency
+                widget: relation
+                collection: lookups
+                file: agencies
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                required: false
+              - { label: URL, name: url, widget: string, required: false }
+              - {
+                  label: Image,
+                  name: image,
+                  widget: image,
+                  required: false,
+                  media_folder: /public/assets/img/leaders,
+                  public_folder: /assets/img/leaders,
+                }
+              - {
+                  label: Image Alt,
+                  name: imageAlt,
+                  widget: string,
+                  required: false,
+                }
+          - label: Members
+            name: members
+            widget: list
+            required: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - label: Agency
+                name: agency
+                widget: relation
+                collection: lookups
+                file: agencies
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                required: false
+              - { label: URL, name: url, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown, required: false }
+      - label: CFOC Members & Leaders
+        name: cfoc_members_leaders
+        file: src/content/councils/cfoc/members-leaders.md
+        fields: *members_leaders_fields
+      - label: CIOC Members & Leaders
+        name: cioc_members_leaders
+        file: src/content/councils/cioc/members-leaders.md
+        fields: *members_leaders_fields
+      - label: COFFA Members & Leaders
+        name: coffa_members_leaders
+        file: src/content/councils/coffa/members-leaders.md
+        fields: *members_leaders_fields
+      - label: EOC Members & Leaders
+        name: eoc_members_leaders
+        file: src/content/councils/eoc/members-leaders.md
+        fields: *members_leaders_fields
+      - label: FPC Members & Leaders
+        name: fpc_members_leaders
+        file: src/content/councils/fpc/members-leaders.md
+        fields: *members_leaders_fields
+      - label: FRPC Members & Leaders
+        name: frpc_members_leaders
+        file: src/content/councils/frpc/members-leaders.md
+        fields: *members_leaders_fields
+      - label: ICSP Members & Leaders
+        name: icsp_members_leaders
+        file: src/content/councils/icsp/members-leaders.md
+        fields: *members_leaders_fields
   - name: resources
     label: Resources
     files:
@@ -71,7 +222,7 @@ collections:
               - label: Council Acronym
                 name: councilAcronym
                 widget: relation
-                collection: resources
+                collection: lookups
                 file: councils
                 search_fields: ["options.*.value"]
                 display_fields: ["options.*.value"]
@@ -91,20 +242,9 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: /public/docs
+                media_folder: public/docs
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
-      - label: Councils
-        name: councils
-        file: src/data/councils.json
-        format: json
-        fields:
-          - label: Options
-            name: options
-            widget: list
-            summary: "{{fields.value}}"
-            fields:
-              - { label: Value, name: value, widget: string }
       - label: Focus Areas
         name: focus_areas
         file: src/data/focus-areas.json
@@ -119,6 +259,32 @@ collections:
       - label: Types
         name: types
         file: src/data/types.json
+        format: json
+        fields:
+          - label: Options
+            name: options
+            widget: list
+            summary: "{{fields.value}}"
+            fields:
+              - { label: Value, name: value, widget: string }
+  - name: lookups
+    label: Lookups
+    hide: true
+    files:
+      - label: Agencies
+        name: agencies
+        file: src/data/agencies.json
+        format: json
+        fields:
+          - label: Options
+            name: options
+            widget: list
+            summary: "{{fields.value}}"
+            fields:
+              - { label: Value, name: value, widget: string }
+      - label: Councils
+        name: councils
+        file: src/data/councils.json
         format: json
         fields:
           - label: Options
