@@ -44,7 +44,12 @@
               return item;
             }
 
-            const acronym = String(item.get("councilAcronym") || "RESOURCE").trim() || "RESOURCE";
+            const councilValue = item.get("councilAcronym");
+            const firstCouncil =
+              councilValue && typeof councilValue.first === "function"
+                ? councilValue.first()
+                : councilValue;
+            const acronym = String(firstCouncil || "RESOURCE").trim() || "RESOURCE";
             sequence += 1;
             const timestamp = `${baseTimestamp}${String(sequence).padStart(3, "0")}`;
             return item.set("id", `${acronym}-${timestamp}`);

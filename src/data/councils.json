@@ -1,0 +1,10 @@
+{
+  "options": [
+    { "value": "CDOC" },
+    { "value": "CIOC" },
+    { "value": "COFFA" },
+    { "value": "EOC" },
+    { "value": "FPC" },
+    { "value": "FRPC" }
+  ]
+}

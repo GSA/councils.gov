@@ -18,8 +18,8 @@ backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: img
-public_folder: /img
+media_folder: /public/assets/img
+public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
 site_url: https://www.councils.gov
@@ -51,42 +51,32 @@ collections:
                 }
               - label: Type
                 name: type
-                widget: select
-                options:
-                  - Executive Order
-                  - Guidance
-                  - Hyperlink
-                  - Legislation
-                  - Memorandum
-                  - PDF Files
-                  - Playbook
-                  - Quick Reference
-                  - Website
+                widget: relation
+                collection: resources
+                file: types
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                multiple: true
               - label: Focus Area
                 name: focusArea
-                widget: select
+                widget: relation
+                collection: resources
+                file: focus_areas
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                multiple: true
                 required: false
-                options:
-                  - Cybersecurity
-                  - Data
-                  - Federal Financial Assistance
-                  - Data Quality
-                  - Evaluation
-                  - External Site
-                  - Information Technology
-                  - Memorandum
-                  - Responsibilities
-                  - Uniform Guidance 2 CFR 200
-                  - Utilization
               - label: Council Acronym
                 name: councilAcronym
-                widget: select
-                options:
-                  - CDOC
-                  - CIOC
-                  - COFFA
-                  - EOC
-                  - FRPC
+                widget: relation
+                collection: resources
+                file: councils
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                multiple: true
               - {
                   label: Date,
                   name: date,
@@ -97,4 +87,43 @@ collections:
                   time_format: false,
                   hint: "Select a date or leave blank",
                 }
-              - { label: Link, name: link, widget: string }
+              - label: Link
+                name: link
+                widget: file
+                choose_url: true
+                media_folder: /public/docs
+                public_folder: /docs
+                hint: "Upload a PDF or provide an external URL."
+      - label: Councils
+        name: councils
+        file: src/data/councils.json
+        format: json
+        fields:
+          - label: Options
+            name: options
+            widget: list
+            summary: "{{fields.value}}"
+            fields:
+              - { label: Value, name: value, widget: string }
+      - label: Focus Areas
+        name: focus_areas
+        file: src/data/focus-areas.json
+        format: json
+        fields:
+          - label: Options
+            name: options
+            widget: list
+            summary: "{{fields.value}}"
+            fields:
+              - { label: Value, name: value, widget: string }
+      - label: Types
+        name: types
+        file: src/data/types.json
+        format: json
+        fields:
+          - label: Options
+            name: options
+            widget: list
+            summary: "{{fields.value}}"
+            fields:
+              - { label: Value, name: value, widget: string }
