@@ -629,6 +629,66 @@
       "councilAcronym": "FPC",
       "date": "",
       "link": "https://www.fpc.gov/assets/pdf/Privacy%20for%20CDOs.pdf"
+    },
+    {
+      "id": "CAIOC-1",
+      "title": "2024 AI Use Case Inventory",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": "Use Cases",
+      "councilAcronym": "CAIOC",
+      "date": "2024-01-01",
+      "link": "https://github.com/ombegov/2024-Federal-AI-Use-Case-Inventory"
+    },
+    {
+      "id": "CAIOC-2",
+      "title": "M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Use of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf"
+    },
+    {
+      "id": "CAIOC-3",
+      "title": "M-25-22 Driving Efficient Acquisition of Artificial Intelligence in Government",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Acquisition of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf"
+    },
+    {
+      "id": "CAIOC-4",
+      "title": "M-26-04 Increasing Public Trust in Artificial Intelligence Through Unbiased AI",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Unbiased AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-12-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/12/M-26-04-Increasing-Public-Trust-in-Artificial-Intelligence-Through-Unbiased-AI-Principles-1.pdf"
+    },
+    {
+      "id": "CAIOC-5",
+      "title": "Promoting the Use of Trustworthy Artificial Intelligence in the Federal Government",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": "Use of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2020-01-01",
+      "link": "https://www.federalregister.gov/documents/2020/12/08/2020-27065/promoting-the-use-of-trustworthy-artificial-intelligence-in-the-federal-government"
+    },
+    {
+      "id": "CAIOC-6",
+      "title": "Removing Barriers to American Leadership in Artificial Intelligence",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": ["Use of AI", "Acquisition of AI"],
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence"
     }
   ]
 }
