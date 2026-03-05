@@ -77,7 +77,7 @@ members:
     agency: U.S. Agency for International Development
   - name: Alice Volz
     description: Microeconomic Surveys Unit
-    agency: Federal Reserve Board
+    agency: Board of Governors of the Federal Reserve System
   - name: William Wiatrowski
     description: Bureau of Labor Statistics
     agency: Department of Labor

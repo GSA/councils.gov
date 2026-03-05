@@ -52,29 +52,29 @@ const navItems = hasMembersLeaders
         </li>
       </ol>
     </nav>
-    {logoPath && (
-      <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
-        <div class="grid-container">
-          <div class="grid-row grid-gap sidebar-layout">
+    <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
+      <div class="grid-container">
+        <div class={`grid-row grid-gap sidebar-layout${!logoPath ? ' council-hero__row--no-logo' : ''}`}>
+          {logoPath && (
             <div class="sidebar-layout__sidebar">
               <div class={`council-hero__logo-container${logoAspect === 'square' ? ' council-hero__logo-container--square' : ''}`}>
                 <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
               </div>
             </div>
-            <div class="sidebar-layout__main flex-justify-center">
-              <div class="council-hero__content">
-                <p class="council-hero__brow">{councilName}</p>
-                <h1 class="council-hero__title">
-                  {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
-                   currentPage === "members-leaders" ? `Leadership & Members` : 
-                   title || `${councilName}`}
-                </h1>
-              </div>
+          )}
+          <div class={`sidebar-layout__main flex-justify-center${!logoPath ? ' council-hero__main--no-logo' : ''}`}>
+            <div class="council-hero__content">
+              <p class="council-hero__brow">{councilName}</p>
+              <h1 class="council-hero__title">
+                {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
+                 currentPage === "members-leaders" ? `Leadership & Members` : 
+                 title || `${councilName}`}
+              </h1>
             </div>
           </div>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
     <div class="usa-section">
       <div class="grid-container">
         <div class="grid-row grid-gap sidebar-layout">

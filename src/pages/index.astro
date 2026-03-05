@@ -79,13 +79,17 @@ const withBase = (path: string | null | undefined) => {
           >
             <div class="usa-card__container">
               <div class="usa-card__media">
-                <div class="usa-card__img">
-                  <img
-                    src={withBase(council.logo)}
-                    alt={council.logoAlt || ''}
-                    class={council.logoClass || 'council-logo'}
-                  />
-                </div>
+                {council.logo ? (
+                  <div class="usa-card__img">
+                    <img
+                      src={withBase(council.logo)}
+                      alt={council.logoAlt || ''}
+                      class={council.logoClass || 'council-logo'}
+                    />
+                  </div>
+                ) : (
+                  <div class="usa-card__img usa-card__img--placeholder" aria-hidden="true" />
+                )}
               </div>
               <header class="usa-card__header text-center padding-top-1">
                 <h2 class="usa-card__heading">
