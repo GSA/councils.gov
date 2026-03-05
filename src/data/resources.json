@@ -162,6 +162,66 @@
     },
     {
       "id": "FRPC-2",
+      "title": "Federal Property Management Reform Act of 2016 (P.L. 114-318)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2016-01-01",
+      "link": "https://www.congress.gov/114/plaws/publ318/PLAW-114publ318.pdf"
+    },
+    {
+      "id": "FRPC-3",
+      "title": "Federal Assets Sale and Transfer Act of 2016 (P.L. 114-287)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Utilization",
+      "councilAcronym": "FRPC",
+      "date": "2016-01-01",
+      "link": "https://www.congress.gov/114/plaws/publ287/PLAW-114publ287.pdf"
+    },
+    {
+      "id": "FRPC-4",
+      "title": "Designation and Responsibilities of Agency Senior Real Property Officers (M-18-21)",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2018-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2018/07/M-18-21.pdf"
+    },
+    {
+      "id": "FRPC-5",
+      "title": "Implementation of Agency-wide Real Property Capital Planning (M-20-03)",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2019-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2019/11/M-20-03.pdf"
+    },
+    {
+      "id": "FRPC-6",
+      "title": "Secure Federal Leases from Espionage and Suspicious Entanglements Act (P.L. 116-276)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2020-01-01",
+      "link": "https://www.congress.gov/116/plaws/publ276/PLAW-116publ276.pdf"
+    },
+    {
+      "id": "FRPC-7",
+      "title": "Utilizing Space and Improving Technology Act (P.L. 118-272)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Utilization",
+      "councilAcronym": "FRPC",
+      "date": "2024-01-01",
+      "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
+    },
+    {
+      "id": "FRPC-8",
       "title": "Implementation of the Utilizing Space Efficiently and Improving Technologies Act (M-25-25)",
       "description": "",
       "type": "Memorandum",
@@ -171,7 +231,17 @@
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-25-Implementation-of-the-Utilizing-Space-Efficiently-and-Improving-Technologies-Act.pdf"
     },
     {
-      "id": "FRPC-3",
+      "id": "FRPC-9",
+      "title": "Thomas R. Carper Water Resources Development Act of 2024 (P.L. 118-272)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2025-01-01",
+      "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
+    },
+    {
+      "id": "FRPC-10",
       "title": "FRPP Summary Report Library",
       "description": "",
       "type": "Website",
@@ -181,7 +251,7 @@
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/data-collection-and-reports/frpp-summary-report-library"
     },
     {
-      "id": "FRPC-4",
+      "id": "FRPC-11",
       "title": "FRPP Data Dictionary",
       "description": "",
       "type": "Website",
@@ -191,7 +261,7 @@
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/asset-management/federal-real-property-council/frpc-guidance-library"
     },
     {
-      "id": "FRPC-5",
+      "id": "FRPC-12",
       "title": "Public Buildings Reform Board Website",
       "description": "",
       "type": "Website",
@@ -201,7 +271,7 @@
       "link": "https://www.pbrb.gov/"
     },
     {
-      "id": "FRPC-6",
+      "id": "FRPC-13",
       "title": "Business Standards Website",
       "description": "",
       "type": "Website",
@@ -211,7 +281,7 @@
       "link": "https://ussm.gsa.gov/fibf/"
     },
     {
-      "id": "FRPC-7",
+      "id": "FRPC-14",
       "title": "Map of Federal Real Property",
       "description": "",
       "type": "Website",
