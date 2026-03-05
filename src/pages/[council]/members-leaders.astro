@@ -3,6 +3,7 @@ import CouncilLayout from '../../layouts/CouncilLayout.astro';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { toArray } from '../../components/filters';
 
 // Get all council members-leaders pages
 export async function getStaticPaths() {
@@ -34,6 +35,18 @@ export async function getStaticPaths() {
     const coChairs = frontmatter.coChairs ?? [];
     const hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
 
+    // Check if this council has any news/events for the side nav
+    const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+    const newsPath = join(process.cwd(), 'src/data/news.json');
+    let hasNewsEvents = false;
+    if (fs.existsSync(newsPath)) {
+      const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
+      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
     return {
       params: { council: councilSlug },
       props: {
@@ -43,12 +56,13 @@ export async function getStaticPaths() {
         logoClass,
         logoAspect,
         hasMembersLeaders,
+        hasNewsEvents,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders, hasNewsEvents } = Astro.props;
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -153,6 +167,7 @@ function getMemberImage(member: any): string | null {
   logoClass={logoClass}
   logoAspect={logoAspect}
   hasMembersLeaders={hasMembersLeaders}
+  hasNewsEvents={hasNewsEvents}
 >
   <h2>{frontmatter.title}</h2>
   

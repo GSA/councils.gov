@@ -13,12 +13,14 @@ interface Props {
   logoAspect?: 'square';
   /** When false, the "Leadership & Members" side nav item is hidden. */
   hasMembersLeaders?: boolean;
+  /** When false, the "News & Events" side nav item is hidden. */
+  hasNewsEvents?: boolean;
 }
 
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 
-const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true } = Astro.props;
+const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -32,9 +34,9 @@ const allNavItems = [
   { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
   { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
-const navItems = hasMembersLeaders
-  ? allNavItems
-  : allNavItems.filter((item) => item.id !== "members-leaders");
+let navItems = allNavItems;
+if (!hasMembersLeaders) navItems = navItems.filter((item) => item.id !== "members-leaders");
+if (!hasNewsEvents) navItems = navItems.filter((item) => item.id !== "news-events");
 ---
 
 <BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>
