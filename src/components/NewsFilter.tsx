@@ -117,6 +117,16 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   );
 
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+  const resultsRangeStart = (currentPage - 1) * PAGE_SIZE + 1;
+  const resultsRangeEnd = Math.min(currentPage * PAGE_SIZE, filteredItems.length);
+  const resultsCountText =
+    filteredItems.length > 0
+      ? `Showing ${resultsRangeStart}-${resultsRangeEnd} of ${filteredItems.length} results`
+      : null;
+  const resultsCountTextSr =
+    filteredItems.length > 0
+      ? `Showing ${resultsRangeStart} to ${resultsRangeEnd} of ${filteredItems.length} results`
+      : null;
   const paginatedItems = useMemo(
     () =>
       filteredItems.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
@@ -201,9 +211,14 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
           aria-atomic="true"
           role="status"
         >
-          {filteredItems.length > 0
-            ? `Showing ${filteredItems.length} of ${safeItems.length} results`
-            : 'No news or events match the selected filters'}
+          {resultsCountText ? (
+            <>
+              <span aria-hidden="true">{resultsCountText}</span>
+              <span className="usa-sr-only">{resultsCountTextSr}</span>
+            </>
+          ) : (
+            'No news or events match the selected filters'
+          )}
         </p>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 

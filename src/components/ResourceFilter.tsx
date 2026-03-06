@@ -86,6 +86,16 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
   );
 
   const totalPages = Math.max(1, Math.ceil(filteredResources.length / PAGE_SIZE));
+  const resultsRangeStart = (currentPage - 1) * PAGE_SIZE + 1;
+  const resultsRangeEnd = Math.min(currentPage * PAGE_SIZE, filteredResources.length);
+  const resultsCountText =
+    filteredResources.length > 0
+      ? `Showing ${resultsRangeStart}-${resultsRangeEnd} of ${filteredResources.length} resources`
+      : null;
+  const resultsCountTextSr =
+    filteredResources.length > 0
+      ? `Showing ${resultsRangeStart} to ${resultsRangeEnd} of ${filteredResources.length} resources`
+      : null;
   const paginatedResources = useMemo(
     () =>
       filteredResources.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
@@ -173,9 +183,14 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
           aria-atomic="true"
           role="status"
         >
-          {filteredResources.length > 0
-            ? `Showing ${filteredResources.length} of ${safeResources.length} resources`
-            : 'No resources match the selected filters'}
+          {resultsCountText ? (
+            <>
+              <span aria-hidden="true">{resultsCountText}</span>
+              <span className="usa-sr-only">{resultsCountTextSr}</span>
+            </>
+          ) : (
+            'No resources match the selected filters'
+          )}
         </p>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
