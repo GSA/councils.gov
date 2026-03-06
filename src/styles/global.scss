@@ -552,6 +552,11 @@ footer.usa-footer .footer-grid-container,
   margin-right: auto;
 }
 
+/* Placeholder for cards without a logo - preserves spacing */
+.councils-grid .usa-card__img--placeholder {
+  background: transparent;
+}
+
 $councils-gap: 2rem;
 
 .councils-grid {
@@ -718,6 +723,7 @@ $councils-gap: 2rem;
   border-bottom: 6px solid var(--accent-color);
   background-size: 30%;
   background-blend-mode: color;
+
 }
 
 /* Consistent top spacing for main content below council hero (fixes uneven spacing e.g. EOC) */
@@ -1468,6 +1474,15 @@ footer.usa-footer .footer-grid-container,
 
     & > * {
       min-width: 0;
+    }
+  }
+
+  /* When no logo: no grid columns, full width, left aligned */
+  &.council-hero__row--no-logo {
+    @media (min-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      width: 100%;
+      align-items: flex-start;
     }
   }
 }

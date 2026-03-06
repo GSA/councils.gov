@@ -45,11 +45,13 @@ export const NO_YEAR_LABEL = 'No year';
 export const getItemYear = (item: FilterableItem) =>
   item.date ? item.date.split('-')[0].trim() : '';
 
-export const slugify = (value: string) =>
-  value
+export const slugify = (value: string | string[] | unknown): string => {
+  const str = Array.isArray(value) ? value[0] : value;
+  return (typeof str === 'string' ? str : String(str ?? ''))
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-+|-+$)/g, '') || 'item';
+};
 
 export const matchesFilters = (item: FilterableItem, filters: Filters) => {
   const councilValues = toArray(item.councilAcronym);
