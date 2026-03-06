@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { toArray } from '../../components/filters';
 
 // Get all council about pages
 export async function getStaticPaths() {
@@ -29,6 +30,18 @@ export async function getStaticPaths() {
       const coChairs = mlFrontmatter.coChairs ?? [];
       hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
     }
+
+    // Check if this council has any news/events for the side nav
+    const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+    const newsPath = join(process.cwd(), 'src/data/news.json');
+    let hasNewsEvents = false;
+    if (fs.existsSync(newsPath)) {
+      const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
+      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
     
     // Configure marked to add usa-list class to ul elements
     const renderer = new marked.Renderer();
@@ -51,12 +64,13 @@ export async function getStaticPaths() {
         frontmatter,
         htmlContent,
         hasMembersLeaders,
+        hasNewsEvents,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, htmlContent, hasMembersLeaders } = Astro.props;
+const { frontmatter, htmlContent, hasMembersLeaders, hasNewsEvents } = Astro.props;
 const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 // Prepend base URL to asset paths in markdown-rendered HTML (e.g. /assets/img/ICSP_chart.jpg) for production
@@ -77,6 +91,7 @@ const htmlWithBaseUrl = htmlContent.replace(
   logoClass={frontmatter.logoClass}
   logoAspect={frontmatter.logoAspect}
   hasMembersLeaders={hasMembersLeaders}
+  hasNewsEvents={hasNewsEvents}
 >
   <div set:html={htmlWithBaseUrl} />
 </CouncilLayout>

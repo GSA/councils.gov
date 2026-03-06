@@ -6,10 +6,16 @@ export type Filters = {
 };
 
 export type FilterableItem = {
-  councilAcronym?: string;
-  focusArea?: string;
-  type?: string;
+  councilAcronym?: string | string[];
+  focusArea?: string | string[];
+  type?: string | string[];
   date?: string;
+};
+
+/** Normalize a value that may be string or string[] to string[] */
+export const toArray = (value: string | string[] | undefined): string[] => {
+  if (value == null) return [];
+  return Array.isArray(value) ? value.filter(Boolean) : [value].filter(Boolean);
 };
 
 export const createEmptyFilters = (): Filters => ({
@@ -39,11 +45,13 @@ export const NO_YEAR_LABEL = 'No year';
 export const getItemYear = (item: FilterableItem) =>
   item.date ? item.date.split('-')[0].trim() : '';
 
-export const slugify = (value: string) =>
-  value
+export const slugify = (value: string | string[] | unknown): string => {
+  const str = Array.isArray(value) ? value[0] : value;
+  return (typeof str === 'string' ? str : String(str ?? ''))
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-+|-+$)/g, '') || 'item';
+};
 
 /**
  * Returns href if safe (blocks javascript:, data:, vbscript:, file:).
@@ -57,15 +65,18 @@ export function sanitizeHref(href: string | null | undefined): string | null {
 }
 
 export const matchesFilters = (item: FilterableItem, filters: Filters) => {
-  const councilValue = item.councilAcronym ?? '';
-  const focusAreaValue = item.focusArea ?? '';
-  const typeValue = item.type ?? '';
+  const councilValues = toArray(item.councilAcronym);
+  const focusAreaValues = toArray(item.focusArea);
+  const typeValues = toArray(item.type);
   const yearValue = getItemYear(item);
 
-  const councilMatch = filters.councils.length === 0 || filters.councils.includes(councilValue);
+  const councilMatch =
+    filters.councils.length === 0 || councilValues.some((c) => filters.councils.includes(c));
   const focusAreaMatch =
-    filters.focusAreas.length === 0 || filters.focusAreas.includes(focusAreaValue);
-  const typeMatch = filters.types.length === 0 || filters.types.includes(typeValue);
+    filters.focusAreas.length === 0 ||
+    focusAreaValues.some((f) => filters.focusAreas.includes(f));
+  const typeMatch =
+    filters.types.length === 0 || typeValues.some((t) => filters.types.includes(t));
   const yearMatch =
     filters.years.length === 0 ||
     (yearValue === '' && filters.years.includes(NO_YEAR_LABEL)) ||
@@ -86,7 +97,7 @@ export const buildFilterOptions = <T extends FilterableItem>(items: T[], selecte
             years: selected.years,
           })
         )
-        .map((item) => item.councilAcronym ?? ''),
+        .flatMap((item) => toArray(item.councilAcronym)),
       ...selected.councils,
     ])
   )
@@ -104,7 +115,7 @@ export const buildFilterOptions = <T extends FilterableItem>(items: T[], selecte
             years: selected.years,
           })
         )
-        .map((item) => item.focusArea ?? ''),
+        .flatMap((item) => toArray(item.focusArea)),
       ...selected.focusAreas,
     ])
   )
@@ -122,7 +133,7 @@ export const buildFilterOptions = <T extends FilterableItem>(items: T[], selecte
             years: selected.years,
           })
         )
-        .map((item) => item.type ?? ''),
+        .flatMap((item) => toArray(item.type)),
       ...selected.types,
     ])
   )
@@ -162,9 +173,10 @@ export const filterItems = <T extends FilterableItem>(items: T[], selected: Filt
 
 /** News/Events: only council and year filters. */
 export const matchesFiltersForNews = (item: FilterableItem, filters: Filters) => {
-  const councilValue = item.councilAcronym ?? '';
+  const councilValues = toArray(item.councilAcronym);
   const yearValue = getItemYear(item);
-  const councilMatch = filters.councils.length === 0 || filters.councils.includes(councilValue);
+  const councilMatch =
+    filters.councils.length === 0 || councilValues.some((c) => filters.councils.includes(c));
   const yearMatch =
     filters.years.length === 0 ||
     (yearValue === '' && filters.years.includes(NO_YEAR_LABEL)) ||
@@ -188,7 +200,7 @@ export const buildFilterOptionsForNews = <T extends FilterableItem>(
             years: selected.years,
           })
         )
-        .map((item) => item.councilAcronym ?? ''),
+        .flatMap((item) => toArray(item.councilAcronym)),
       ...selected.councils,
     ])
   )

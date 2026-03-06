@@ -6,44 +6,55 @@ intro: The Federal Privacy Council brings together Senior Agency Officials for P
 leaders:
   - name: Kevin Herms
     description: FPC Chair
+    agency: Office of Management and Budget
     image: /assets/img/leaders/KevinHerms.jpeg
     imageAlt: Kevin Herms
   - name: Kellie Cosgrove Riley
     description: FPC Vice-Chair
+    agency: Commodity Futures Trading Commission
     image: /assets/img/leaders/bio.riley.kellie.png
     imageAlt: Kellie Cosgrove Riley
   - name: James Burd
     description: Executive Committee Member
+    agency: Department of Homeland Security
     image: /assets/img/leaders/James.Burd.jpeg
     imageAlt: James Burd
   - name: Peter Winn
     description: Executive Committee Member
+    agency: Department of Justice
     image: /assets/img/leaders/bio.peter.winn.png
     imageAlt: Peter Winn
   - name: Victoria Garcia
     description: Executive Committee Member
+    agency: Department of Justice
     image: /assets/img/leaders/victoria-garcia.jpg
     imageAlt: Victoria Garcia
   - name: Karyn Gorman
     description: Executive Committee Member
+    agency: Department of Transportation
   - name: Shannon Dahn
     description: Executive Committee Member
+    agency: Federal Deposit Insurance Corporation
     image: /assets/img/leaders/Shanon.Dahn.png
     imageAlt: Shannon Dahn
   - name: Claire Stapleton
     description: Executive Committee Member
+    agency: Federal Deposit Insurance Corporation
     image: /assets/img/leaders/bio.claire.stapleton.jpg
     imageAlt: Claire Stapleton
   - name: Rebecca Richards
     description: Executive Committee Member
+    agency: Office of the Director of National Intelligence
     image: /assets/img/leaders/bio.rebecca.richards.jpg
     imageAlt: Rebecca Richards
   - name: Hillary Fielden
     description: Executive Committee Member
+    agency: Office of the Director of National Intelligence
     image: /assets/img/leaders/bio.fielden.hillary.jpg
     imageAlt: Hillary Fielden
   - name: Janelle Jordan
     description: Executive Committee Member
+    agency: Department of Agriculture
     image: /assets/img/leaders/bio.janelle.jordan.jpg
     imageAlt: Janelle Jordan
 members:

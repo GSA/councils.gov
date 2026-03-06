@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { toArray } from '../../../components/filters';
 import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
@@ -17,15 +18,18 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
 const dateDisplay = item.dateDisplay || item.date;
 
-/** Related news & events: same council, sorted by date (newest first), limit 5. */
-const currentCouncil = item.councilAcronym;
+/** Related news & events: same council (shares at least one), sorted by date (newest first), limit 5. */
+const currentCouncils = toArray(item.councilAcronym);
+const sharesCouncil = (i: any) =>
+  currentCouncils.length > 0 &&
+  toArray(i.councilAcronym).some((c) => currentCouncils.includes(c));
 const relatedItems = (newsItems as any[])
   .filter(
     (i) =>
       i.slug &&
       i.slug !== item.slug &&
       (i.kind === 'news' || i.kind === 'event') &&
-      i.councilAcronym === currentCouncil
+      sharesCouncil(i)
   )
   .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
   .slice(0, 5);
@@ -108,9 +112,11 @@ function renderBodyBlock(block: string): string {
             <div set:html={renderBodyBlock(block)} class="event-body-block" />
           ))}
       </div>
-      {item.councilAcronym && (
+      {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].length > 0 && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
-          <li class="usa-tag margin-bottom-1">{item.councilAcronym}</li>
+          {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].map((tag) => (
+            <li class="usa-tag margin-bottom-1">{tag}</li>
+          ))}
         </ul>
       )}
         </div>

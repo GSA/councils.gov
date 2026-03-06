@@ -4,7 +4,8 @@ councilName: Council on Federal Financial Assistance
 councilSlug: coffa
 logoPath: /assets/img/councils/COFFA.png
 logoAlt: COFFA Logo
-logoClass: council-logo-large
+logoClass: coffa-logo-fullwidth
+shortDescription: The COFFA provides OMB with strategic direction, policy recommendations, and priority-setting advice by serving as a unified partnership of all federal financial assistance-making agencies on policy, management, and technology matters.
 ---
 
 ## Welcome

@@ -3,6 +3,7 @@ import CouncilLayout from '../../layouts/CouncilLayout.astro';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { toArray } from '../../components/filters';
 
 // Get all council members-leaders pages
 export async function getStaticPaths() {
@@ -34,6 +35,18 @@ export async function getStaticPaths() {
     const coChairs = frontmatter.coChairs ?? [];
     const hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
 
+    // Check if this council has any news/events for the side nav
+    const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+    const newsPath = join(process.cwd(), 'src/data/news.json');
+    let hasNewsEvents = false;
+    if (fs.existsSync(newsPath)) {
+      const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
+      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
     return {
       params: { council: councilSlug },
       props: {
@@ -43,15 +56,27 @@ export async function getStaticPaths() {
         logoClass,
         logoAspect,
         hasMembersLeaders,
+        hasNewsEvents,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders, hasNewsEvents } = Astro.props;
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+
+const getLastName = (name: string) => {
+  const withoutParens = name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const parts = withoutParens.split(/\s+/);
+  return parts.length > 1 ? parts[parts.length - 1] : withoutParens;
+};
+const sortByLastName = (a: { name?: string }, b: { name?: string }) =>
+  getLastName(a.name ?? '').localeCompare(getLastName(b.name ?? ''), 'en-US', { sensitivity: 'base' });
+const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortByLastName);
+const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortByLastName);
+const sortedMembers = [...(frontmatter.members ?? [])].sort(sortByLastName);
 
 // Function to get member logo image path
 function getMemberImage(member: any): string | null {
@@ -90,6 +115,9 @@ function getMemberImage(member: any): string | null {
     'epa': 'Environmental Protection Agency.png',
     'federal deposit insurance corporation': 'Federal Deposit Insurance Corporation.png',
     'fdic': 'Federal Deposit Insurance Corporation.png',
+    'federal reserve board': 'FRS.png',
+    'federal reserve system': 'FRS.png',
+    'federal reserve': 'FRS.png',
     'general services administration': 'General Services Administration Seal.png',
     'gsa': 'General Services Administration.png',
     'national archives and records administration': 'National Archives and Records Administration.png',
@@ -139,6 +167,7 @@ function getMemberImage(member: any): string | null {
   logoClass={logoClass}
   logoAspect={logoAspect}
   hasMembersLeaders={hasMembersLeaders}
+  hasNewsEvents={hasNewsEvents}
 >
   <h2>{frontmatter.title}</h2>
   
@@ -146,13 +175,14 @@ function getMemberImage(member: any): string | null {
     {frontmatter.intro}
   </p>
 
-  {frontmatter.leaders && frontmatter.leaders.length > 0 && (
+  {sortedLeaders.length > 0 && (
     <>
       <h2 class="margin-top-4">Leadership</h2>
       <div class="grid-row grid-gap margin-top-2 leadership-grid">
-        {frontmatter.leaders.map((leader: any) => {
+        {sortedLeaders.map((leader: any) => {
           const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
           return (
           <div class="tablet:grid-col-12 desktop:grid-col-6">
             <div class="usa-card">
@@ -166,7 +196,9 @@ function getMemberImage(member: any): string | null {
                 )}
                 <div class="usa-card__body">
                   <h3>{leader.name}</h3>
-                  {description && <p>{description}</p>}
+                  {[description, agency].filter(Boolean).length > 0 && (
+                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  )}
                 </div>
                 {leader.url && (
                   <div class="usa-card__footer">
@@ -185,13 +217,14 @@ function getMemberImage(member: any): string | null {
     </>
   )}
 
-  {frontmatter.coChairs && frontmatter.coChairs.length > 0 && (
+  {sortedCoChairs.length > 0 && (
     <>
       <h2 class="margin-top-4">Co-Chairs</h2>
       <div class="grid-row grid-gap margin-top-2 members-grid">
-        {frontmatter.coChairs.map((leader: any) => {
+        {sortedCoChairs.map((leader: any) => {
           const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? leader.agency ?? '';
+            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
           return (
           <div class="tablet:grid-col-6 desktop:grid-col-4">
             <div class="usa-card">
@@ -205,7 +238,9 @@ function getMemberImage(member: any): string | null {
                 )}
                 <div class="usa-card__body">
                   <h3>{leader.name}</h3>
-                  {description && <p>{description}</p>}
+                  {[description, agency].filter(Boolean).length > 0 && (
+                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  )}
                 </div>
                 {leader.url && (
                   <div class="usa-card__footer">
@@ -226,10 +261,11 @@ function getMemberImage(member: any): string | null {
 
   <h2 class="margin-top-4">Members</h2>
   
-  {frontmatter.members && frontmatter.members.length > 0 && (
+  {sortedMembers.length > 0 && (
     <div class="members-grid margin-top-2">
-      {frontmatter.members.map((member: any) => {
-        const department = member.agency ?? member.department ?? member.description ?? member.title ?? '';
+      {sortedMembers.map((member: any) => {
+        const description = member.description ?? member.title ?? '';
+        const agency = member.agency ?? member.department ?? '';
         const memberImage = getMemberImage(member);
         return (
         <div class="usa-card">
@@ -243,7 +279,9 @@ function getMemberImage(member: any): string | null {
             )}
             <div class="usa-card__body">
               <h3>{member.name}</h3>
-              {department && <p>{department}</p>}
+              {[description, agency].filter(Boolean).length > 0 && (
+                <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+              )}
             </div>
             {member.url && (
               <div class="usa-card__footer">

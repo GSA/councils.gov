@@ -4,9 +4,15 @@
       "id": "CIOC-1",
       "title": "CIO Council Handbook",
       "description": "",
-      "type": "Playbook",
-      "focusArea": "Information Technology",
-      "councilAcronym": "CIOC",
+      "type": [
+        "Playbook"
+      ],
+      "focusArea": [
+        "Information Technology"
+      ],
+      "councilAcronym": [
+        "CIOC"
+      ],
       "date": "2022-01-01",
       "link": "/docs/CIO_Handbook.pdf"
     },
@@ -14,9 +20,15 @@
       "id": "CIOC-2",
       "title": "Zero Trust Data Security Guide",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Data",
-      "councilAcronym": "CIOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CIOC"
+      ],
       "date": "2024-01-01",
       "link": "https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf"
     },
@@ -24,9 +36,15 @@
       "id": "CIOC-3",
       "title": "Zero Trust Data Security Guide Appendices",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Data",
-      "councilAcronym": "CIOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CIOC"
+      ],
       "date": "2024-01-01",
       "link": "/docs/Zero-Trust-DataSecurityGuide_Oct24-Appendices-Final.pdf"
     },
@@ -34,9 +52,15 @@
       "id": "CIOC-4",
       "title": "CIO Council Charter",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Information Technology",
-      "councilAcronym": "CIOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Information Technology"
+      ],
+      "councilAcronym": [
+        "CIOC"
+      ],
       "date": "2020-01-01",
       "link": "/docs/CIOC-Charter-Dec-2020.pdf"
     },
@@ -44,9 +68,15 @@
       "id": "COFFA-1",
       "title": "Title 2 of the CFR",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2024-01-01",
       "link": "https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200?toc=1"
     },
@@ -54,9 +84,15 @@
       "id": "COFFA-2",
       "title": "OMB M-24-11: Reducing Burden in the Administation of Federal Financial Assistance",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Federal Financial Assistance",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2024-01-01",
       "link": "https://www.coffa.gov/assets/files/M-24-11-Revisions-to-2-CFR.pdf"
     },
@@ -64,9 +100,15 @@
       "id": "COFFA-3",
       "title": "SimplerGrants.gov",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Financial Assistance",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "",
       "link": "https://simpler.grants.gov/"
     },
@@ -74,9 +116,15 @@
       "id": "COFFA-4",
       "title": "COFFA Memo March 2025 - Single Audit Report Extensions for Hurricane Helene, Hurricane Milton, and the California Wildfires",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Federal Financial Assistance",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2025-01-01",
       "link": "https://www.coffa.gov/assets/files/3-11-2025%20COFFA%20Memo%20-%20Single%20Audit%20Extension.pdf"
     },
@@ -84,9 +132,15 @@
       "id": "COFFA-5",
       "title": "M-25-14 Recission of M-25-13",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Federal Financial Assistance",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2025-01-01",
       "link": "https://www.coffa.gov/assets/files/M-25-14%20Final.pdf"
     },
@@ -94,9 +148,15 @@
       "id": "COFFA-6",
       "title": "2 CFR Crosswalk 2024",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2024-01-01",
       "link": "https://www.coffa.gov/assets/files/2-CFR-Crosswalk-2024.xlsx"
     },
@@ -104,9 +164,15 @@
       "id": "COFFA-7",
       "title": "2 CFR Crosswalk 2020",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2020-01-01",
       "link": "https://www.coffa.gov/assets/files/2-CFR-Crosswalk_20201106.xlsx"
     },
@@ -114,9 +180,15 @@
       "id": "COFFA-8",
       "title": "2 CFR Frequently Asked Questions (circa FY21)",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2021-01-01",
       "link": "https://www.coffa.gov/assets/files/2CFR-FrequentlyAskedQuestions_2021050321.pdf"
     },
@@ -124,9 +196,15 @@
       "id": "COFFA-9",
       "title": "Guidance for Grants and Agreements",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2020-01-01",
       "link": "https://www.coffa.gov/assets/files/2CFR-FrequentlyAskedQuestions_2021050321.pdf"
     },
@@ -134,9 +212,15 @@
       "id": "COFFA-10",
       "title": "Guidance for Grants and Agreements - Federal Register Proposed Rule",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2020-01-01",
       "link": "https://www.federalregister.gov/documents/2020/01/22/2019-28524/guidance-for-grants-and-agreements#open-comment"
     },
@@ -144,9 +228,15 @@
       "id": "COFFA-11",
       "title": "The PMA Playbook for Federal Awarding Agencies Info Sharing Platform",
       "description": "",
-      "type": "Playbook",
-      "focusArea": "Uniform Guidance 2 CFR 200",
-      "councilAcronym": "COFFA",
+      "type": [
+        "Playbook"
+      ],
+      "focusArea": [
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
       "date": "2020-01-01",
       "link": "https://www.coffa.gov/assets/files/Managing-for-Results-Performance-Management-Playbook-for-Federal-Awarding-Agencies.pdf"
     },
@@ -154,69 +244,171 @@
       "id": "FRPC-1",
       "title": "Federal Real Property Asset Management (E.O. 13327)",
       "description": "",
-      "type": "Executive Order",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Executive Order"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2004-01-01",
       "link": "https://www.federalregister.gov/documents/2004/02/06/04-2773/federal-real-property-asset-management"
     },
     {
       "id": "FRPC-2",
-      "title": "Implementation of the Utilizing Space Efficiently and Improving Technologies Act (M-25-25)",
+      "title": "Federal Property Management Reform Act of 2016 (P.L. 114-318)",
       "description": "",
-      "type": "Memorandum",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2016-01-01",
+      "link": "https://www.congress.gov/114/plaws/publ318/PLAW-114publ318.pdf"
+    },
+    {
+      "id": "FRPC-3",
+      "title": "Federal Assets Sale and Transfer Act of 2016 (P.L. 114-287)",
+      "description": "",
+      "type": "Legislation",
       "focusArea": "Utilization",
       "councilAcronym": "FRPC",
+      "date": "2016-01-01",
+      "link": "https://www.congress.gov/114/plaws/publ287/PLAW-114publ287.pdf"
+    },
+    {
+      "id": "FRPC-4",
+      "title": "Designation and Responsibilities of Agency Senior Real Property Officers (M-18-21)",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2018-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2018/07/M-18-21.pdf"
+    },
+    {
+      "id": "FRPC-5",
+      "title": "Implementation of Agency-wide Real Property Capital Planning (M-20-03)",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2019-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2019/11/M-20-03.pdf"
+    },
+    {
+      "id": "FRPC-6",
+      "title": "Secure Federal Leases from Espionage and Suspicious Entanglements Act (P.L. 116-276)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2020-01-01",
+      "link": "https://www.congress.gov/116/plaws/publ276/PLAW-116publ276.pdf"
+    },
+    {
+      "id": "FRPC-7",
+      "title": "Implementation of the Utilizing Space Efficiently and Improving Technologies Act (M-25-25)",
+      "description": "",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Utilization"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-25-Implementation-of-the-Utilizing-Space-Efficiently-and-Improving-Technologies-Act.pdf"
     },
     {
-      "id": "FRPC-3",
+      "id": "FRPC-8",
+      "title": "WRDA / USE IT Act",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Responsibilities",
+      "councilAcronym": "FRPC",
+      "date": "2025-01-01",
+      "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
+    },
+    {
+      "id": "FRPC-9",
       "title": "FRPP Summary Report Library",
       "description": "",
-      "type": "Website",
-      "focusArea": "Data Quality",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Website"
+      ],
+      "focusArea": [
+        "Data Quality"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "",
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/data-collection-and-reports/frpp-summary-report-library"
     },
     {
-      "id": "FRPC-4",
+      "id": "FRPC-10",
       "title": "FRPP Data Dictionary",
       "description": "",
-      "type": "Website",
-      "focusArea": "Data Quality",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Website"
+      ],
+      "focusArea": [
+        "Data Quality"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "",
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/asset-management/federal-real-property-council/frpc-guidance-library"
     },
     {
-      "id": "FRPC-5",
+      "id": "FRPC-11",
       "title": "Public Buildings Reform Board Website",
       "description": "",
-      "type": "Website",
-      "focusArea": "Utilization",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Website"
+      ],
+      "focusArea": [
+        "Utilization"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "",
       "link": "https://www.pbrb.gov/"
     },
     {
-      "id": "FRPC-6",
+      "id": "FRPC-12",
       "title": "Business Standards Website",
       "description": "",
-      "type": "Website",
-      "focusArea": "Data Quality",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Website"
+      ],
+      "focusArea": [
+        "Data Quality"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "",
       "link": "https://ussm.gsa.gov/fibf/"
     },
     {
-      "id": "FRPC-7",
+      "id": "FRPC-13",
       "title": "Map of Federal Real Property",
       "description": "",
-      "type": "Website",
-      "focusArea": "Data Quality",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Website"
+      ],
+      "focusArea": [
+        "Data Quality"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "",
       "link": "https://frppmap.gsa.gov/frppmap/"
     },
@@ -224,9 +416,15 @@
       "id": "EOC-1",
       "title": "Program Evaluation Services Subgroup Ordering Procedures",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.evaluation.gov/assets/resources/Buyers%20Guide_Program%20Evaluation%20Services%20Subgroup_508.pdf"
     },
@@ -234,9 +432,15 @@
       "id": "EOC-2",
       "title": "Quick Reference Program Evaluation Services Subgroup One-Pager",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "",
       "link": "https://www.gsa.gov/buy-through-us/purchasing-programs/multiple-award-schedule/program-evaluation-services-subgroup"
     },
@@ -244,9 +448,15 @@
       "id": "EOC-3",
       "title": "Program Evaluation Standards One-Pager",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "",
       "link": "https://www.evaluation.gov/assets/resources/Program-Evaluation-Standards.pdf"
     },
@@ -254,9 +464,15 @@
       "id": "EOC-4",
       "title": "Program Evaluation Practices One-Pager",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "",
       "link": "https://www.evaluation.gov/assets/resources/Program-Evaluation-Practices.pdf"
     },
@@ -264,9 +480,15 @@
       "id": "EOC-5",
       "title": "M-20-12 Frequently Asked Questions",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.evaluation.gov/assets/resources/M-20-12-Frequently-Asked-Questions.pdf"
     },
@@ -274,9 +496,15 @@
       "id": "EOC-6",
       "title": "Foundations for Evidence-Based Policymaking Act of 2018: Public Law 115-435, H.R. 4174, 2018",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2019-01-01",
       "link": "https://www.congress.gov/115/plaws/publ435/PLAW-115publ435.pdf"
     },
@@ -284,9 +512,15 @@
       "id": "EOC-7",
       "title": "Foreign Aid Transparency and Accountability Act of 2016: Public Law 114-191, H.R. 3766, 2016",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2016-01-01",
       "link": "https://congress.gov/114/plaws/publ191/PLAW-114publ191.pdf"
     },
@@ -294,9 +528,15 @@
       "id": "EOC-8",
       "title": "Information Quality Act: Public Law 106-554, H.R. 4577, 2001",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2000-01-01",
       "link": "https://www.govinfo.gov/content/pkg/PLAW-106publ554/pdf/PLAW-106publ554.pdf"
     },
@@ -304,9 +544,15 @@
       "id": "EOC-9",
       "title": "OMB M-21-27, Evidence-Based Policymaking: Learning Agendas and Annual Evaluation Plans",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2021-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2021/06/M-21-27.pdf"
     },
@@ -314,9 +560,15 @@
       "id": "EOC-10",
       "title": "OMB M-20-12: Phase 4 Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Program Evaluation Standards and Practices, 2020",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2020/03/M-20-12.pdf"
     },
@@ -324,9 +576,15 @@
       "id": "EOC-11",
       "title": "OMB M-19-23: Phase I Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Learning Agendas, Personnel, and Planning Guidance, 2019",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2019-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2019/07/M-19-23.pdf"
     },
@@ -334,9 +592,15 @@
       "id": "EOC-12",
       "title": "OMB M-19-15, Improving Implementation of the Information Quality Act, 2019",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2019-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2019/04/M-19-15.pdf"
     },
@@ -344,9 +608,15 @@
       "id": "EOC-13",
       "title": "OMB M-18-04, Monitoring and Evaluation Guidelines for Federal Departments and Agencies that Administer United States Foreign Assistance, 2018",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2018-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2017/11/M-18-04-Final.pdf"
     },
@@ -354,9 +624,15 @@
       "id": "EOC-14",
       "title": "Guidelines for Ensuring and Maximizing the Quality, Objectivity, Utility and Integrity of Information Disseminated by Federal Agencies, 2002",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2001-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2017/11/Guidelines-for-Ensuring-and-Maximizing-the-Quality-sept28-2001.pdf"
     },
@@ -364,9 +640,15 @@
       "id": "EOC-15",
       "title": "OMB Circular A-11",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/08/a11.pdf"
     },
@@ -374,9 +656,15 @@
       "id": "EOC-16",
       "title": "OMB Circular A-94",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Evaluation",
-      "councilAcronym": "EOC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Evaluation"
+      ],
+      "councilAcronym": [
+        "EOC"
+      ],
       "date": "",
       "link": "https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A94/a094.pdf"
     },
@@ -384,9 +672,15 @@
       "id": "CDOC-1",
       "title": "Resources.data.gov",
       "description": "",
-      "type": "Hyperlink",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "Hyperlink"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "",
       "link": "https://resources.data.gov/"
     },
@@ -394,9 +688,15 @@
       "id": "CDOC-2",
       "title": "2024 Annual CDOC Survey - Anonymized Responses",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.cdo.gov/assets/documents/2024-Responses-Anonymized.xlsx"
     },
@@ -404,9 +704,15 @@
       "id": "CDOC-3",
       "title": "2024 Annual CDOC Survey - Survey Instrument",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.cdo.gov/assets/documents/2024-survey-instrument.pdf"
     },
@@ -414,9 +720,15 @@
       "id": "CDOC-4",
       "title": "2024 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.cdo.gov/assets/documents/2024-CDO-Council-Survey-Results.pdf"
     },
@@ -424,9 +736,15 @@
       "id": "CDOC-5",
       "title": "2023 Annual CDOC Survey - Anonymized Responses",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2023-01-01",
       "link": "https://www.cdo.gov/assets/documents/CDO%20Council%20-%20Summer%202023%20Survey%20-%20Public%20Use%20File.xlsx"
     },
@@ -434,9 +752,15 @@
       "id": "CDOC-6",
       "title": "2023 Annual CDOC Survey - Survey Instrument",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2023-01-01",
       "link": "https://www.cdo.gov/assets/documents/CDO%20Survey-Summer%202023.pdf"
     },
@@ -444,9 +768,15 @@
       "id": "CDOC-7",
       "title": "2023 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2023-01-01",
       "link": "https://www.cdo.gov/assets/documents/cdoc_final_10_26_2023.pdf"
     },
@@ -454,9 +784,15 @@
       "id": "CDOC-8",
       "title": "2022 Annual CDOC Survey - Anonymized Responses",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2022-01-01",
       "link": "https://www.cdo.gov/assets/documents/cdo_survey_responses_2022-Public-file.xlsx"
     },
@@ -464,9 +800,15 @@
       "id": "CDOC-9",
       "title": "2022 Annual CDOC Survey - Survey Instrument",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2022-01-01",
       "link": "https://www.cdo.gov/assets/documents/CDO_Council_-_January_2022_Survey.docx"
     },
@@ -474,9 +816,15 @@
       "id": "CDOC-10",
       "title": "2022 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
-      "type": "PDF Files",
-      "focusArea": "Data",
-      "councilAcronym": "CDOC",
+      "type": [
+        "PDF Files"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
       "date": "2022-01-01",
       "link": "https://www.cdo.gov/assets/documents/CDO-Survey-2022-Analysis.pdf"
     },
@@ -484,9 +832,15 @@
       "id": "FPC-1",
       "title": "What is Personally Identifiable Information (PII)? Educational Video",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://youtu.be/SY5Qo72yP9E"
     },
@@ -494,9 +848,15 @@
       "id": "FPC-2",
       "title": "Roles in Federal Privacy Educational Video",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.fpc.gov/roles-in-federal-privacy/"
     },
@@ -504,9 +864,15 @@
       "id": "FPC-3",
       "title": "The Privacy Act of 1974 Educational Video",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.fpc.gov/privacy-act-1974/"
     },
@@ -514,9 +880,15 @@
       "id": "FPC-4",
       "title": "Privacy Impact Assessments Educational Video",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.fpc.gov/privacy-impact-asessments/"
     },
@@ -524,9 +896,15 @@
       "id": "FPC-5",
       "title": "Fair Information Practice Principles (FIPPs) Educational Video",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2022-01-01",
       "link": "https://www.fpc.gov/fair-info-practice-principles/"
     },
@@ -534,9 +912,15 @@
       "id": "FPC-6",
       "title": "Elements of a Federal Privacy Program",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Federal Privacy Programs",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Federal Privacy Programs"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.fpc.gov/elements-of-federal-privacy-program/"
     },
@@ -544,9 +928,15 @@
       "id": "FPC-7",
       "title": "Law Library",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.fpc.gov/law-library/"
     },
@@ -554,9 +944,15 @@
       "id": "FPC-8",
       "title": "OMB Guidance",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.fpc.gov/resources/omb/"
     },
@@ -564,9 +960,15 @@
       "id": "FPC-9",
       "title": "Government-wide SORNs",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.fpc.gov/resources/SORNs/"
     },
@@ -574,9 +976,15 @@
       "id": "FPC-10",
       "title": "Glossary",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.fpc.gov/resources/glossary/"
     },
@@ -584,9 +992,15 @@
       "id": "FPC-11",
       "title": "Federal Register SORN Search Tool",
       "description": "",
-      "type": "Quick Reference",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "",
       "link": "https://www.federalregister.gov/documents/search?conditions%5Bnotice_type%5D%5B%5D=sorn&conditions%5Bsearch_type_id%5D=3&conditions%5Btype%5D%5B%5D=NOTICE"
     },
@@ -594,9 +1008,15 @@
       "id": "FPC-12",
       "title": "Toolkit for Recruiting, Hiring, and Retaining Privacy Professionals in the Federal Government",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2017-01-01",
       "link": "https://www.fpc.gov/assets/pdf/Privacy-Toolkit-1-13-2017.pdf"
     },
@@ -604,9 +1024,15 @@
       "id": "FPC-13",
       "title": "Collaboration Index for Security and Privacy Controls",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2022-01-01",
       "link": "https://www.fpc.gov/assets/pdf/Collaboration%20Index%20for%20Security%20and%20Privacy%20Controls%20FINAL.pdf"
     },
@@ -614,9 +1040,15 @@
       "id": "FPC-14",
       "title": "Crosswalk Terminology Project",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "2023-01-01",
       "link": "https://www.fpc.gov/assets/pdf/FINAL%20Content%20Placed%20In%20Layout.pdf"
     },
@@ -624,11 +1056,77 @@
       "id": "FPC-15",
       "title": "Privacy for Chief Data Officers",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Resources",
-      "councilAcronym": "FPC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
       "date": "",
       "link": "https://www.fpc.gov/assets/pdf/Privacy%20for%20CDOs.pdf"
+    },
+    {
+      "id": "CAIOC-1",
+      "title": "2024 AI Use Case Inventory",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": "Use Cases",
+      "councilAcronym": "CAIOC",
+      "date": "2024-01-01",
+      "link": "https://github.com/ombegov/2024-Federal-AI-Use-Case-Inventory"
+    },
+    {
+      "id": "CAIOC-2",
+      "title": "M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Use of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf"
+    },
+    {
+      "id": "CAIOC-3",
+      "title": "M-25-22 Driving Efficient Acquisition of Artificial Intelligence in Government",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Acquisition of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf"
+    },
+    {
+      "id": "CAIOC-4",
+      "title": "M-26-04 Increasing Public Trust in Artificial Intelligence Through Unbiased AI",
+      "description": "",
+      "type": "Memorandum",
+      "focusArea": "Unbiased AI",
+      "councilAcronym": "CAIOC",
+      "date": "2025-12-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/12/M-26-04-Increasing-Public-Trust-in-Artificial-Intelligence-Through-Unbiased-AI-Principles-1.pdf"
+    },
+    {
+      "id": "CAIOC-5",
+      "title": "Promoting the Use of Trustworthy Artificial Intelligence in the Federal Government",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": "Use of AI",
+      "councilAcronym": "CAIOC",
+      "date": "2020-01-01",
+      "link": "https://www.federalregister.gov/documents/2020/12/08/2020-27065/promoting-the-use-of-trustworthy-artificial-intelligence-in-the-federal-government"
+    },
+    {
+      "id": "CAIOC-6",
+      "title": "Removing Barriers to American Leadership in Artificial Intelligence",
+      "description": "",
+      "type": "Executive Order",
+      "focusArea": ["Use of AI", "Acquisition of AI"],
+      "councilAcronym": "CAIOC",
+      "date": "2025-01-01",
+      "link": "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence"
     }
   ]
 }

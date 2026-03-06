@@ -5,6 +5,7 @@ councilSlug: fpc
 logoPath: /assets/img/councils/FPC.png
 logoAlt: FPC Logo
 logoClass: council-logo
+shortDescription: The Federal Privacy Council is the principal interagency forum to improve the privacy practices of agencies and strengthen protections of personal information and privacy rights across the Federal Government.
 ---
 
 ## Federal Privacy Council

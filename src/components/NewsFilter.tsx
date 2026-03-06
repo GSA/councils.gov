@@ -8,6 +8,7 @@ import {
   filterItemsForNews,
   getInitialFiltersFromUrl,
   sanitizeHref,
+  toArray,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -69,7 +70,8 @@ function getItemHref(item: NewsItem, baseUrl: string): string | null {
 export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const safeItems = Array.isArray(items) ? items : [];
   const allowedCouncilAcronyms = useMemo(
-    () => Array.from(new Set(safeItems.map((i) => i.councilAcronym).filter(Boolean))),
+    () =>
+      Array.from(new Set(safeItems.flatMap((i) => toArray(i.councilAcronym)))),
     [safeItems]
   );
   const [selectedFilters, setSelectedFilters] = useState<Filters>(() => 
@@ -234,9 +236,20 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       {item.dateDisplay ?? formatDate(item.date)}
                     </time>
                   </div>
-                  {item.councilAcronym && (
+                  {[
+                    ...new Set([
+                      ...toArray(item.councilAcronym),
+                      ...(item.tags ?? []),
+                    ]),
+                  ].length > 0 && (
                     <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
-                      <li className="usa-tag">{item.councilAcronym}</li>
+                      {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].map(
+                        (tag) => (
+                          <li key={tag} className="usa-tag">
+                            {tag}
+                          </li>
+                        )
+                      )}
                     </ul>
                   )}
                   <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>
