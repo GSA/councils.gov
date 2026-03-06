@@ -212,16 +212,6 @@
     },
     {
       "id": "FRPC-7",
-      "title": "Utilizing Space and Improving Technology Act (P.L. 118-272)",
-      "description": "",
-      "type": "Legislation",
-      "focusArea": "Utilization",
-      "councilAcronym": "FRPC",
-      "date": "2024-01-01",
-      "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
-    },
-    {
-      "id": "FRPC-8",
       "title": "Implementation of the Utilizing Space Efficiently and Improving Technologies Act (M-25-25)",
       "description": "",
       "type": "Memorandum",
@@ -231,8 +221,8 @@
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-25-Implementation-of-the-Utilizing-Space-Efficiently-and-Improving-Technologies-Act.pdf"
     },
     {
-      "id": "FRPC-9",
-      "title": "Thomas R. Carper Water Resources Development Act of 2024 (P.L. 118-272)",
+      "id": "FRPC-8",
+      "title": "WRDA / USE IT Act",
       "description": "",
       "type": "Legislation",
       "focusArea": "Responsibilities",
@@ -241,7 +231,7 @@
       "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
     },
     {
-      "id": "FRPC-10",
+      "id": "FRPC-9",
       "title": "FRPP Summary Report Library",
       "description": "",
       "type": "Website",
@@ -251,7 +241,7 @@
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/data-collection-and-reports/frpp-summary-report-library"
     },
     {
-      "id": "FRPC-11",
+      "id": "FRPC-10",
       "title": "FRPP Data Dictionary",
       "description": "",
       "type": "Website",
@@ -261,7 +251,7 @@
       "link": "https://www.gsa.gov/policy-regulations/policy/real-property-policy-division-overview/asset-management/federal-real-property-council/frpc-guidance-library"
     },
     {
-      "id": "FRPC-12",
+      "id": "FRPC-11",
       "title": "Public Buildings Reform Board Website",
       "description": "",
       "type": "Website",
@@ -271,7 +261,7 @@
       "link": "https://www.pbrb.gov/"
     },
     {
-      "id": "FRPC-13",
+      "id": "FRPC-12",
       "title": "Business Standards Website",
       "description": "",
       "type": "Website",
@@ -281,7 +271,7 @@
       "link": "https://ussm.gsa.gov/fibf/"
     },
     {
-      "id": "FRPC-14",
+      "id": "FRPC-13",
       "title": "Map of Federal Real Property",
       "description": "",
       "type": "Website",
