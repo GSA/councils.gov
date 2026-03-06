@@ -1,0 +1,16 @@
+{
+  "options": [
+    { "value": "CAIO" },
+    { "value": "CAOC" },
+    { "value": "CDOC" },
+    { "value": "CFO" },
+    { "value": "CIOC" },
+    { "value": "COFFA" },
+    { "value": "EOC" },
+    { "value": "FPC" },
+    { "value": "FRPC" },
+    { "value": "ICSP" },
+    { "value": "MIA" },
+    { "value": "PIC" }
+  ]
+}
