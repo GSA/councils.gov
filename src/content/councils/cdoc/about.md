@@ -2,7 +2,7 @@
 title: About CDOC
 councilName: Chief Data Officers Council
 councilSlug: cdoc
-logoPath: /assets/img/councils/CDOC.png
+logoPath: /assets/img/councils/cdoc_logo.png
 logoAlt: CDOC Logo
 logoClass: council-logo
 shortDescription: The Chief Data Officers Council advances the use of data to support mission delivery and evidence-based decision-making across the federal government.

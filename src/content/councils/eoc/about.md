@@ -2,7 +2,7 @@
 title: About EOC
 councilName: Evaluation Officer Council
 councilSlug: eoc
-logoPath: /assets/img/councils/EOC.png
+logoPath: /assets/img/councils/eoc_logo.png
 logoAlt: EOC Logo
 logoClass: council-logo
 shortDescription: The Evaluation Officer Council advances federal evaluation practice by promoting evidence, learning, and impact across agencies.

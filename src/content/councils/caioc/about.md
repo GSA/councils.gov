@@ -2,7 +2,7 @@
 title: About CAIOC
 councilName: Chief Artificial Intelligence Officers Council
 councilSlug: caioc
-logoPath: ""
+logoPath: /assets/img/councils/caioc_logo.png
 logoAlt: CAIOC Logo
 logoClass: council-logo
 shortDescription: The Chief Artificial Intelligence Officers Council serves as a Federal forum for Chief AI Officers to coordinate the development and utilization of artificial intelligence across the Federal government and the Executive Office of the President.

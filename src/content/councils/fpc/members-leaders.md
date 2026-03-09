@@ -7,27 +7,27 @@ leaders:
   - name: Kevin Herms
     title: FPC Chair
     agency: Office of Management and Budget
-    image: /assets/img/leaders/KevinHerms.jpeg
+    image: /assets/img/leaders/kevin_herms.jpeg
     imageAlt: Kevin Herms
   - name: Kellie Cosgrove Riley
     title: FPC Vice-Chair
     agency: Commodity Futures Trading Commission
-    image: /assets/img/leaders/bio.riley.kellie.png
+    image: /assets/img/leaders/kellie_riley.png
     imageAlt: Kellie Cosgrove Riley
   - name: James Burd
     title: Executive Committee Member
     agency: Department of Homeland Security
-    image: /assets/img/leaders/James.Burd.jpeg
+    image: /assets/img/leaders/james_burd.jpeg
     imageAlt: James Burd
   - name: Peter Winn
     title: Executive Committee Member
     agency: Department of Justice
-    image: /assets/img/leaders/bio.peter.winn.png
+    image: /assets/img/leaders/peter_winn.png
     imageAlt: Peter Winn
   - name: Victoria Garcia
     title: Executive Committee Member
     agency: Department of Justice
-    image: /assets/img/leaders/victoria-garcia.jpg
+    image: /assets/img/leaders/victoria_garcia.jpg
     imageAlt: Victoria Garcia
   - name: Karyn Gorman
     title: Executive Committee Member
@@ -35,27 +35,27 @@ leaders:
   - name: Shannon Dahn
     title: Executive Committee Member
     agency: Federal Deposit Insurance Corporation
-    image: /assets/img/leaders/Shanon.Dahn.png
+    image: /assets/img/leaders/shannon_dahn.png
     imageAlt: Shannon Dahn
   - name: Claire Stapleton
     title: Executive Committee Member
     agency: Federal Deposit Insurance Corporation
-    image: /assets/img/leaders/bio.claire.stapleton.jpg
+    image: /assets/img/leaders/claire_stapleton.jpg
     imageAlt: Claire Stapleton
   - name: Rebecca Richards
     title: Executive Committee Member
     agency: Office of the Director of National Intelligence
-    image: /assets/img/leaders/bio.rebecca.richards.jpg
+    image: /assets/img/leaders/rebecca_richards.jpg
     imageAlt: Rebecca Richards
   - name: Hillary Fielden
     title: Executive Committee Member
     agency: Office of the Director of National Intelligence
-    image: /assets/img/leaders/bio.fielden.hillary.jpg
+    image: /assets/img/leaders/hillary_fielden.jpg
     imageAlt: Hillary Fielden
   - name: Janelle Jordan
     title: Executive Committee Member
     agency: Department of Agriculture
-    image: /assets/img/leaders/bio.janelle.jordan.jpg
+    image: /assets/img/leaders/janelle_jordan.jpg
     imageAlt: Janelle Jordan
 members:
   - name: Samuel Berry

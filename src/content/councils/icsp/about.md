@@ -2,7 +2,7 @@
 title: About ICSP
 councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-logoPath: /assets/img/councils/ICSP.png
+logoPath: /assets/img/councils/icsp_logo.png
 logoAlt: ICSP Logo
 logoClass: council-logo
 logoAspect: square

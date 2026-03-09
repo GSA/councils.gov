@@ -66,7 +66,11 @@ function getCouncilsFromAbout(): Array<{
     const councilName = data.councilName ?? slug;
     const acronym =
       (data.logoAlt as string)?.replace(/\s*Logo\s*$/i, "").trim() || slug.toUpperCase();
-    const logoPath = data.logoPath ?? `/assets/img/councils/${slug.toUpperCase()}.png`;
+    const defaultLogoPath = `/assets/img/councils/${slug}_logo.png`;
+    const logoPath =
+      data.logoPath && String(data.logoPath).trim()
+        ? String(data.logoPath).trim()
+        : defaultLogoPath;
     const logoAlt = data.logoAlt ?? `${acronym} Logo`;
     const logoClass = data.logoClass ?? "council-logo";
     const shortDescription = data.shortDescription ?? "";
