@@ -53,6 +53,17 @@ export const slugify = (value: string | string[] | unknown): string => {
     .replace(/(^-+|-+$)/g, '') || 'item';
 };
 
+/**
+ * Returns href if safe (blocks javascript:, data:, vbscript:, file:).
+ * Use when setting href on <a> from user/CMS-controlled data to prevent XSS.
+ */
+export function sanitizeHref(href: string | null | undefined): string | null {
+  if (!href || typeof href !== 'string') return null;
+  const t = href.trim().toLowerCase();
+  if (t.startsWith('javascript:') || t.startsWith('data:') || t.startsWith('vbscript:') || t.startsWith('file:')) return null;
+  return href;
+}
+
 export const matchesFilters = (item: FilterableItem, filters: Filters) => {
   const councilValues = toArray(item.councilAcronym);
   const focusAreaValues = toArray(item.focusArea);
