@@ -72,11 +72,18 @@ const getLastName = (name: string) => {
   const parts = withoutParens.split(/\s+/);
   return parts.length > 1 ? parts[parts.length - 1] : withoutParens;
 };
-const sortByLastName = (a: { name?: string; agency?: string }, b: { name?: string; agency?: string }) =>
-  getLastName(a.name ?? a.agency ?? '').localeCompare(getLastName(b.name ?? b.agency ?? ''), 'en-US', { sensitivity: 'base' });
-const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortByLastName);
-const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortByLastName);
-const sortedMembers = [...(frontmatter.members ?? [])].sort(sortByLastName);
+/** Sort key: last name if person has name, otherwise full agency name for alphabetical sort. */
+const getMemberSortKey = (item: { name?: string; agency?: string; department?: string }) => {
+  if (item.name?.trim()) return getLastName(item.name);
+  return (item.agency ?? item.department ?? '').trim();
+};
+const sortMembersAlphabetically = (
+  a: { name?: string; agency?: string; department?: string },
+  b: { name?: string; agency?: string; department?: string }
+) => getMemberSortKey(a).localeCompare(getMemberSortKey(b), 'en-US', { sensitivity: 'base' });
+const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortMembersAlphabetically);
+const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortMembersAlphabetically);
+const sortedMembers = [...(frontmatter.members ?? [])].sort(sortMembersAlphabetically);
 
 // Function to get member logo image path
 function getMemberImage(member: any): string | null {
