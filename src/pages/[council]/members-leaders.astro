@@ -47,6 +47,17 @@ export async function getStaticPaths() {
       );
     }
 
+    // Check if this council has any resources for the side nav
+    const resourcesPath = join(process.cwd(), 'src/data/resources.json');
+    let hasResources = false;
+    if (fs.existsSync(resourcesPath)) {
+      const resourcesData = JSON.parse(fs.readFileSync(resourcesPath, 'utf-8'));
+      const resourcesList = resourcesData.resources ?? resourcesData.items ?? (Array.isArray(resourcesData) ? resourcesData : []);
+      hasResources = resourcesList.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
     return {
       params: { council: councilSlug },
       props: {
@@ -57,12 +68,13 @@ export async function getStaticPaths() {
         logoAspect,
         hasMembersLeaders,
         hasNewsEvents,
+        hasResources,
       },
     };
   }).filter(Boolean);
 }
 
-const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders, hasNewsEvents } = Astro.props;
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders, hasNewsEvents, hasResources } = Astro.props;
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -175,8 +187,9 @@ function getMemberImage(member: any): string | null {
   logoAspect={logoAspect}
   hasMembersLeaders={hasMembersLeaders}
   hasNewsEvents={hasNewsEvents}
+  hasResources={hasResources}
 >
-  
+
   <p class="usa-intro margin-top-0">
     {frontmatter.intro}
   </p>
