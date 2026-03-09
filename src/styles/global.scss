@@ -1751,6 +1751,11 @@ footer.usa-footer .footer-grid-container,
   background-size: 30%;
   background-blend-mode: color;
 
+  /* Allow grid children to shrink on mobile (prevents logo overflow on iOS) */
+  .sidebar-layout > * {
+    min-width: 0;
+  }
+
   & + .usa-section {
     padding-top: 3rem;
     background-color: var(--color-gray-1); 
@@ -1771,13 +1776,13 @@ footer.usa-footer .footer-grid-container,
     min-height: 225px;
 
     @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
-      width: calc(100% + 2rem);
-      margin-left: -1rem;
-      margin-right: -1rem;
+      min-width: 0;
       min-height: 0;
       padding: 0.5rem;
       aspect-ratio: 2 / 1;
       max-height: 180px;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     &--square {
@@ -2212,5 +2217,22 @@ footer.usa-footer .footer-grid-container,
   text-decoration: underline;
   &:hover:not(:disabled) {
     text-decoration: none;
+  }
+}
+
+/* Safari/iOS: background-blend-mode renders incorrectly. Disable blend and use smaller
+   tile size (under 256px) so pattern displays correctly. */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .council-hero,
+    .resources-hero {
+      background-blend-mode: normal;
+      background-size: 180px;
+    }
+
+    .councils-section::before {
+      background-blend-mode: normal;
+      background-size: 180px;
+    }
   }
 }
