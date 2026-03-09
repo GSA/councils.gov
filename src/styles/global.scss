@@ -1788,7 +1788,9 @@ footer.usa-footer .footer-grid-container,
     &--square {
       @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
         aspect-ratio: 1;
-        max-height: 180px;
+        /* Cap size so square fits in viewport; prevents overflow/clipping on small screens */
+        max-height: min(180px, 50vw);
+        max-width: min(180px, 50vw);
       }
     }
   }
