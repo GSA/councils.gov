@@ -72,8 +72,8 @@ const getLastName = (name: string) => {
   const parts = withoutParens.split(/\s+/);
   return parts.length > 1 ? parts[parts.length - 1] : withoutParens;
 };
-const sortByLastName = (a: { name?: string }, b: { name?: string }) =>
-  getLastName(a.name ?? '').localeCompare(getLastName(b.name ?? ''), 'en-US', { sensitivity: 'base' });
+const sortByLastName = (a: { name?: string; agency?: string }, b: { name?: string; agency?: string }) =>
+  getLastName(a.name ?? a.agency ?? '').localeCompare(getLastName(b.name ?? b.agency ?? ''), 'en-US', { sensitivity: 'base' });
 const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortByLastName);
 const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortByLastName);
 const sortedMembers = [...(frontmatter.members ?? [])].sort(sortByLastName);
@@ -85,8 +85,8 @@ function getMemberImage(member: any): string | null {
     return member.image;
   }
   
-  // Extract agency name from agency/description/name
-  const text = (member.agency || member.description || member.name || '').toLowerCase();
+  // Extract agency name from agency/title/name
+  const text = (member.agency || member.title || member.name || '').toLowerCase();
   
   // Map agency names to image filenames
   const agencyMap: Record<string, string> = {
@@ -180,9 +180,10 @@ function getMemberImage(member: any): string | null {
       <h2 class="margin-top-4">Leadership</h2>
       <div class="grid-row grid-gap margin-top-2 leadership-grid">
         {sortedLeaders.map((leader: any) => {
-          const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const title = leader.title ?? leader.description ?? leader.bio ?? leader.role ?? '';
           const agency = leader.agency ?? '';
+          const heading = leader.name || agency;
+          const subtext = leader.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
           return (
           <div class="tablet:grid-col-12 desktop:grid-col-6">
             <div class="usa-card">
@@ -190,14 +191,14 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={leader.name} />
+                      <img src={withBase(leader.image)} alt={heading} />
                     </div>
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3>{leader.name}</h3>
-                  {[description, agency].filter(Boolean).length > 0 && (
-                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  <h3>{heading}</h3>
+                  {subtext.length > 0 && (
+                    <p class="margin-0">{subtext.join(', ')}</p>
                   )}
                 </div>
                 {leader.url && (
@@ -222,9 +223,10 @@ function getMemberImage(member: any): string | null {
       <h2 class="margin-top-4">Co-Chairs</h2>
       <div class="grid-row grid-gap margin-top-2 members-grid">
         {sortedCoChairs.map((leader: any) => {
-          const description =
-            leader.description ?? leader.title ?? leader.bio ?? leader.role ?? '';
+          const title = leader.title ?? leader.description ?? leader.bio ?? leader.role ?? '';
           const agency = leader.agency ?? '';
+          const heading = leader.name || agency;
+          const subtext = leader.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
           return (
           <div class="tablet:grid-col-6 desktop:grid-col-4">
             <div class="usa-card">
@@ -232,14 +234,14 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={leader.name} />
+                      <img src={withBase(leader.image)} alt={heading} />
                     </div>
                   </div>
                 )}
                 <div class="usa-card__body">
-                  <h3>{leader.name}</h3>
-                  {[description, agency].filter(Boolean).length > 0 && (
-                    <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+                  <h3>{heading}</h3>
+                  {subtext.length > 0 && (
+                    <p class="margin-0">{subtext.join(', ')}</p>
                   )}
                 </div>
                 {leader.url && (
@@ -264,8 +266,10 @@ function getMemberImage(member: any): string | null {
   {sortedMembers.length > 0 && (
     <div class="members-grid margin-top-2">
       {sortedMembers.map((member: any) => {
-        const description = member.description ?? member.title ?? '';
+        const title = member.title ?? member.description ?? '';
         const agency = member.agency ?? member.department ?? '';
+        const heading = member.name || agency;
+        const subtext = member.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
         const memberImage = getMemberImage(member);
         return (
         <div class="usa-card">
@@ -273,14 +277,14 @@ function getMemberImage(member: any): string | null {
             {memberImage && (
               <div class="usa-card__media">
                 <div class="usa-card__img">
-                  <img src={withBase(memberImage)} alt={member.name} />
+                  <img src={withBase(memberImage)} alt={heading} />
                 </div>
               </div>
             )}
             <div class="usa-card__body">
-              <h3>{member.name}</h3>
-              {[description, agency].filter(Boolean).length > 0 && (
-                <p class="margin-0">{[description, agency].filter(Boolean).join(', ')}</p>
+              <h3>{heading}</h3>
+              {subtext.length > 0 && (
+                <p class="margin-0">{subtext.join(', ')}</p>
               )}
             </div>
             {member.url && (
