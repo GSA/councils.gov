@@ -28,12 +28,15 @@ const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
+// ICSP one-off: Resources and News & Events both link to statspolicy.gov
 const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+const newsEventsHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}news-events/${councilQuery}`;
 const resourcesExternal = councilSlug === 'icsp';
+const newsEventsExternal = councilSlug === 'icsp';
 const allNavItems = [
   { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },
   { href: `${baseUrl}${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
-  { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
+  { href: newsEventsHref, label: "News & Events", id: "news-events", external: newsEventsExternal },
   { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
 let navItems = allNavItems;

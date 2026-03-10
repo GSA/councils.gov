@@ -58,6 +58,12 @@ export async function getStaticPaths() {
       );
     }
 
+    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    if (councilSlug === 'icsp') {
+      hasNewsEvents = true;
+      hasResources = true;
+    }
+
     return {
       params: { council: councilSlug },
       props: {

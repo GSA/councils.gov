@@ -53,6 +53,12 @@ export async function getStaticPaths() {
         toArray(item.councilAcronym).includes(councilAcronym)
       );
     }
+
+    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    if (councilSlug === 'icsp') {
+      hasNewsEvents = true;
+      hasResources = true;
+    }
     
     // Configure marked to add usa-list class to ul elements
     const renderer = new marked.Renderer();
@@ -86,9 +92,27 @@ const { frontmatter, htmlContent, hasMembersLeaders, hasNewsEvents, hasResources
 const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 // Prepend base URL to asset paths in markdown-rendered HTML (e.g. /assets/img/ICSP_chart.jpg) for production
-const htmlWithBaseUrl = htmlContent.replace(
+let htmlWithBaseUrl = htmlContent.replace(
   / (src|href)="\/assets\//g,
   (_, attr) => ` ${attr}="${baseUrl}assets/`
+);
+// Add external link icon (usa-link--external), target="_blank", and screen reader text to external links
+htmlWithBaseUrl = htmlWithBaseUrl.replace(
+  /<a href="(https?:\/\/[^"]*)"([^>]*)>([\s\S]*?)<\/a>/g,
+  (match, href, rest, content) => {
+    if (rest.includes('usa-link--external')) return match;
+    const classMatch = rest.match(/class="([^"]*)"/);
+    const externalClass = 'usa-link usa-link--external';
+    const newClass = classMatch 
+      ? `class="${classMatch[1]} ${externalClass}"`
+      : `class="${externalClass}"`;
+    let newRest = classMatch 
+      ? rest.replace(/class="[^"]*"/, newClass)
+      : rest + ' ' + newClass;
+    if (!newRest.includes('target=')) newRest += ' target="_blank"';
+    if (!newRest.includes('rel=')) newRest += ' rel="noreferrer noopener"';
+    return `<a href="${href}"${newRest}>${content}<span class="usa-sr-only"> (opens in a new tab)</span></a>`;
+  }
 );
 ---
 
