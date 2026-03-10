@@ -4,27 +4,27 @@ councilName: Evaluation Officer Council
 councilSlug: eoc
 intro: The EOC includes evaluation leaders from Federal agencies working together to promote evidence, learning, and impact.
 members:
-  - name: Department of Agriculture
-  - name: Department of Commerce
-  - name: Department of Education
-  - name: Department of Energy
-  - name: Department of Health and Human Services
-  - name: Department of Homeland Security
-  - name: Department of Housing and Urban Development
-  - name: Department of the Interior
-  - name: Department of Justice
-  - name: Department of Labor
-  - name: Department of State
-  - name: Department of Transportation
-  - name: Department of the Treasury
-  - name: Department of Veterans Affairs
-  - name: Department of War
-  - name: Environmental Protection Agency
-  - name: General Services Administration
-  - name: National Aeronautics and Space Administration
-  - name: National Science Foundation
-  - name: Nuclear Regulatory Commission
-  - name: Office of Personnel Management
-  - name: Small Business Administration
-  - name: Social Security Administration
+  - agency: Department of Agriculture
+  - agency: Department of Commerce
+  - agency: Department of Education
+  - agency: Department of Energy
+  - agency: Department of Health and Human Services
+  - agency: Department of Homeland Security
+  - agency: Department of Housing and Urban Development
+  - agency: Department of the Interior
+  - agency: Department of Justice
+  - agency: Department of Labor
+  - agency: Department of State
+  - agency: Department of Transportation
+  - agency: Department of the Treasury
+  - agency: Department of Veterans Affairs
+  - agency: Department of War
+  - agency: Environmental Protection Agency
+  - agency: General Services Administration
+  - agency: National Aeronautics and Space Administration
+  - agency: National Science Foundation
+  - agency: Nuclear Regulatory Commission
+  - agency: Office of Personnel Management
+  - agency: Small Business Administration
+  - agency: Social Security Administration
 ---

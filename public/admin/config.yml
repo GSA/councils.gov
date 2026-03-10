@@ -100,14 +100,15 @@ collections:
             name: leaders
             widget: list
             required: false
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string }
+              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
               - {
-                  label: Description,
-                  name: description,
+                  label: Title,
+                  name: title,
                   widget: string,
                   required: false,
+                  hint: "Role or position (e.g. FPC Chair, CIO/SAOP)",
                 }
               - label: Agency
                 name: agency
@@ -137,9 +138,10 @@ collections:
             name: members
             widget: list
             required: false
-            summary: "{{fields.name}}"
+            summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string }
+              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
+              - { label: Title, name: title, widget: string, required: false, hint: "Role or position (e.g. CIO/SAOP)" }
               - label: Agency
                 name: agency
                 widget: relation
@@ -151,6 +153,10 @@ collections:
                 required: false
               - { label: URL, name: url, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
+      - label: CAIOC Members & Leaders
+        name: caioc_members_leaders
+        file: src/content/councils/caioc/members-leaders.md
+        fields: *members_leaders_fields
       - label: CFOC Members & Leaders
         name: cfoc_members_leaders
         file: src/content/councils/cfoc/members-leaders.md

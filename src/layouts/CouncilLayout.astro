@@ -15,28 +15,34 @@ interface Props {
   hasMembersLeaders?: boolean;
   /** When false, the "News & Events" side nav item is hidden. */
   hasNewsEvents?: boolean;
+  /** When false, the "Resources" side nav item is hidden. */
+  hasResources?: boolean;
 }
 
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 
-const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true } = Astro.props;
+const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true, hasResources = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
+// ICSP one-off: Resources and News & Events both link to statspolicy.gov
 const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+const newsEventsHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}news-events/${councilQuery}`;
 const resourcesExternal = councilSlug === 'icsp';
+const newsEventsExternal = councilSlug === 'icsp';
 const allNavItems = [
   { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },
   { href: `${baseUrl}${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
-  { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
+  { href: newsEventsHref, label: "News & Events", id: "news-events", external: newsEventsExternal },
   { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
 let navItems = allNavItems;
 if (!hasMembersLeaders) navItems = navItems.filter((item) => item.id !== "members-leaders");
 if (!hasNewsEvents) navItems = navItems.filter((item) => item.id !== "news-events");
+if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources");
 ---
 
 <BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>

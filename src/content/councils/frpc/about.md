@@ -2,7 +2,7 @@
 title: About FRPC
 councilName: Federal Real Property Council
 councilSlug: frpc
-logoPath: /assets/img/councils/FRPC.png
+logoPath: /assets/img/councils/frpc_logo.png
 logoAlt: FRPC Logo
 logoClass: council-logo
 shortDescription: The Federal Real Property Council leads government-wide efforts to improve the management, utilization, and data quality of the Federal real property portfolio.

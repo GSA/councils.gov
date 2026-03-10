@@ -2,7 +2,7 @@
 title: About CIOC
 councilName: Chief Information Officers Council
 councilSlug: cioc
-logoPath: /assets/img/councils/CIOC.png
+logoPath: /assets/img/councils/cioc_logo.png
 logoAlt: CIOC Logo
 logoClass: cioc-logo-about
 logoAspect: square

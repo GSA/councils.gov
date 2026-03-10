@@ -2,7 +2,7 @@
 title: About ICSP
 councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-logoPath: /assets/img/councils/ICSP.png
+logoPath: /assets/img/councils/icsp_logo.png
 logoAlt: ICSP Logo
 logoClass: council-logo
 logoAspect: square
@@ -34,7 +34,7 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 
 ## ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives
 
-![ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](/assets/img/ICSP_chart.jpg)
+[ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf)
 
 Strategic goals and objectives for FY 2025 and 2026 are set by the ICSP in support of modernizing the statistical system and enhancing coordination across the Federal statistical system. For details, see [StatsPolicy.gov](https://statspolicy.gov).
 
@@ -52,12 +52,12 @@ For more information regarding the Federal statistical system, see [StatsPolicy.
 
 ## Resources
 
-For a host of resources related to the U.S. Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).
+For a host of resources related to the U.S. Federal statistical system, see [StatsPolicy.gov Resources](https://statspolicy.gov/resources).
 
 StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, and resources from across the Federal Government.
 
 ## News & Events
 
-For upcoming events and other news related to the U.S. Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).
+For upcoming events and other news related to the U.S. Federal statistical system, see [StatsPolicy.gov Resources](https://statspolicy.gov/resources).
 
 StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, resources, news and events from across the Federal Government.

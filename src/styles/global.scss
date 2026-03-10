@@ -112,6 +112,10 @@ textarea {
   line-height: 1.4;
 }
 
+.usa-intro {
+  font-size: 1rem;
+}
+
 .font-sans { font-family: var(--font-sans); }
 .font-serif { font-family: var(--font-serif); }
 
@@ -542,14 +546,18 @@ footer.usa-footer .footer-grid-container,
 .councils-grid .usa-card__media {
   overflow: hidden;
 }
-.councils-grid .usa-card__img img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
+.councils-grid .usa-card__img {
+  overflow: hidden;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Placeholder for cards without a logo - preserves spacing */
@@ -1164,10 +1172,12 @@ footer.usa-footer .footer-grid-container,
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  overflow: hidden;
 
   img {
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -1205,12 +1215,30 @@ footer.usa-footer .footer-grid-container,
       background-color: white;
       height: auto;
       justify-content: flex-start;
+      align-items: flex-start;
       padding: 2rem 2rem 0.5rem 2rem;
 
       .usa-card__img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
+        min-width: 120px;
+        min-height: 120px;
+        max-width: 120px;
+        max-height: 120px;
         border-radius: 0;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.25rem;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -1234,6 +1262,17 @@ footer.usa-footer .footer-grid-container,
 
   .usa-card__footer {
     padding: 1rem 1.5rem;
+  }
+}
+
+/* Members grid: image on top, left-aligned, fixed height so wide seals fit */
+.members-grid .usa-card__container .usa-card__media {
+  height: 140px;
+  justify-content: flex-start;
+  align-items: center;
+
+  .usa-card__img {
+    justify-content: flex-start;
   }
 }
 
@@ -1747,6 +1786,11 @@ footer.usa-footer .footer-grid-container,
   background-size: 30%;
   background-blend-mode: color;
 
+  /* Allow grid children to shrink on mobile (prevents logo overflow on iOS) */
+  .sidebar-layout > * {
+    min-width: 0;
+  }
+
   & + .usa-section {
     padding-top: 3rem;
     background-color: var(--color-gray-1); 
@@ -1767,19 +1811,21 @@ footer.usa-footer .footer-grid-container,
     min-height: 225px;
 
     @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
-      width: calc(100% + 2rem);
-      margin-left: -1rem;
-      margin-right: -1rem;
+      min-width: 0;
       min-height: 0;
       padding: 0.5rem;
       aspect-ratio: 2 / 1;
       max-height: 180px;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     &--square {
       @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
         aspect-ratio: 1;
-        max-height: 180px;
+        /* Cap size so square fits in viewport; prevents overflow/clipping on small screens */
+        max-height: min(180px, 50vw);
+        max-width: min(180px, 50vw);
       }
     }
   }
@@ -2208,5 +2254,22 @@ footer.usa-footer .footer-grid-container,
   text-decoration: underline;
   &:hover:not(:disabled) {
     text-decoration: none;
+  }
+}
+
+/* Safari/iOS: background-blend-mode renders incorrectly. Disable blend and use smaller
+   tile size (under 256px) so pattern displays correctly. */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .council-hero,
+    .resources-hero {
+      background-blend-mode: normal;
+      background-size: 180px;
+    }
+
+    .councils-section::before {
+      background-blend-mode: normal;
+      background-size: 180px;
+    }
   }
 }
