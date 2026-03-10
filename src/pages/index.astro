@@ -1,5 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 import { getCouncilsForHome } from '../data/councilsData';
@@ -30,21 +30,11 @@ const withBase = (path: string | null | undefined) => {
 <BaseLayout title={title} currentPage="home">
   <Fragment slot="head">
     <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
-    <script is:inline>
-      (function() {
-        function markLoaded() {
-          var img = document.querySelector('.usa-hero--hero-img .usa-hero__bg-img');
-          if (img && img.complete) img.closest('.usa-hero')?.classList.add('is-loaded');
-        }
-        if (document.readyState !== 'loading') markLoaded();
-        else document.addEventListener('DOMContentLoaded', markLoaded);
-      })();
-    </script>
   </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
-      <img
-        src={optimizedHero.src}
+      <Image
+        src={heroImage}
         alt=""
         width={heroImage.width}
         height={heroImage.height}
@@ -52,7 +42,6 @@ const withBase = (path: string | null | undefined) => {
         loading="eager"
         decoding="async"
         class="usa-hero__bg-img"
-        onload="this.closest('.usa-hero')?.classList.add('is-loaded')"
       />
       <div class="grid-container">
         <div class="usa-hero__callout">
@@ -81,10 +70,12 @@ const withBase = (path: string | null | undefined) => {
               <div class="usa-card__media">
                 {council.logo ? (
                   <div class="usa-card__img">
-                    <img
-                      src={withBase(council.logo)}
+                    <Image
+                      src={council.logo}
                       alt={council.logoAlt || ''}
                       class={council.logoClass || 'council-logo'}
+                      width={200}
+                      height={200}
                     />
                   </div>
                 ) : (

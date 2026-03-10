@@ -14,6 +14,9 @@ export default defineConfig({
   base,
   trailingSlash: "always",
   integrations: [react()],
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   vite: {
     ssr: {
       noExternal: ["@uswds/uswds"],
