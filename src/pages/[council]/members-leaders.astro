@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import CouncilLayout from '../../layouts/CouncilLayout.astro';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
@@ -325,7 +324,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <Image src={leader.image} alt={heading} width={200} height={200} />
+                      <img src={withBase(leader.image)} alt={heading} width={200} height={200} loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -368,7 +367,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <Image src={leader.image} alt={heading} width={200} height={200} />
+                      <img src={withBase(leader.image)} alt={heading} width={200} height={200} loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -411,7 +410,7 @@ function getMemberImage(member: any): string | null {
             {memberImage && (
               <div class="usa-card__media">
                 <div class="usa-card__img">
-                  <Image src={memberImage} alt={heading} width={200} height={200} />
+                  <img src={withBase(memberImage)} alt={heading} width={200} height={200} loading="lazy" decoding="async" />
                 </div>
               </div>
             )}

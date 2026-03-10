@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 import { getCouncilsForHome } from '../data/councilsData';
@@ -12,6 +12,14 @@ const optimizedHero = await getImage({ src: heroImage, width: 1920 });
 
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+const withBase = (path: string | null | undefined) => {
+  if (path == null) return '';
+  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
+};
+// optimizedHero.src from getImage already includes base when BASE_URL is set; only prefix when it doesn't
+const heroSrc = baseUrl && baseUrl !== '/' && !optimizedHero.src.startsWith(baseUrl.replace(/\/$/, ''))
+  ? `${baseUrl.replace(/\/$/, '')}${optimizedHero.src}`
+  : optimizedHero.src;
 
 const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
@@ -21,20 +29,16 @@ const {
 } = homeData as { title?: string; heroText?: string; councilsHeading?: string };
 
 const councilsList = getCouncilsForHome();
-const withBase = (path: string | null | undefined) => {
-  if (path == null) return '';
-  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
-};
 ---
 
 <BaseLayout title={title} currentPage="home">
   <Fragment slot="head">
-    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
+    <link rel="preload" as="image" href={heroSrc} fetchpriority="high" />
   </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
-      <Image
-        src={heroImage}
+      <img
+        src={heroSrc}
         alt=""
         width={heroImage.width}
         height={heroImage.height}
@@ -70,12 +74,14 @@ const withBase = (path: string | null | undefined) => {
               <div class="usa-card__media">
                 {council.logo ? (
                   <div class="usa-card__img">
-                    <Image
-                      src={council.logo}
+                    <img
+                      src={withBase(council.logo)}
                       alt={council.logoAlt || ''}
                       class={council.logoClass || 'council-logo'}
                       width={200}
                       height={200}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ) : (

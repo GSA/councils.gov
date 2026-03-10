@@ -19,7 +19,6 @@ interface Props {
   hasResources?: boolean;
 }
 
-import { Image } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 
@@ -67,12 +66,14 @@ if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources")
           {logoPath && (
             <div class="sidebar-layout__sidebar">
               <div class={`council-hero__logo-container${logoAspect === 'square' ? ' council-hero__logo-container--square' : ''}`}>
-                <Image
-                  src={logoPath}
+                <img
+                  src={logoPath.startsWith('http') ? logoPath : withBase(logoPath)}
                   alt={logoAlt || `${councilName} Logo`}
                   class={logoClass || "council-hero__logo"}
                   width={logoAspect === 'square' ? 250 : 300}
                   height={logoAspect === 'square' ? 250 : 200}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
