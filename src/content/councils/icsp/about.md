@@ -16,12 +16,6 @@ The [Interagency Council on Statistical Policy (ICSP)](https://statspolicy.gov/a
 
 **For more information about the U.S. Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).**
 
-## ICSP Members
-
-Started in 1989, the ICSP was originally created to improve communication among the heads of the principal statistical agencies, and later was charged with advising and assisting the U.S. Chief Statistician and OMB. The Evidence Act expanded membership to include the newly established Statistical Officials across major cabinet agencies, 11 of which are also heads of statistical agencies.
-
-In total, there are 30 unique members of the ICSP, including the U.S. Chief Statistician who serves as the Chair. Pursuant to the Paperwork Reduction Act and Evidence Act, the ICSP is comprised of the 24 designated Statistical Officials, as well as all heads of the OMB-recognized statistical agencies and units.
-
 ## ICSP Authority
 
 The Paperwork Reduction Act (PRA) of 1995 provides the authority for the Director of the Office of Management and Budget (OMB) to develop, coordinate, and oversee statistical activities, along with the privacy, confidentiality, security, disclosure, and sharing of information, and to appoint the Chief Statistician of the United States and establish the Interagency Council on Statistical Policy (ICSP) to advise and assist the Director to carry out statistical policy. The ICSP was expanded under the Foundations for Evidence-Based Policymaking Act of 2018 to include each Statistical Official designated under the Act.
