@@ -1123,10 +1123,25 @@
       "title": "Removing Barriers to American Leadership in Artificial Intelligence",
       "description": "",
       "type": "Executive Order",
-      "focusArea": ["Use of AI", "Acquisition of AI"],
+      "focusArea": [
+        "Use of AI",
+        "Acquisition of AI"
+      ],
       "councilAcronym": "CAIOC",
       "date": "2025-01-01",
       "link": "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence"
+    },
+    {
+      "title": "ICSP Mentoring Program",
+      "link": "/docs/2025-MP-Summary.pdf",
+      "description": "The Interagency Council on Statistical Policy (ICSP) Mentoring Program helps ICSP member agencies share their expertise and skills. The main goals of the program are to help the participants grow in their careers and build connections between ICSP member agencies, units, and programs. Every year, between 8 to 12 agencies participate. Each participating agency selects employees to serve as mentees or mentors. The program is virtual and open to federal employees whose work involves data and statistics, such as statisticians, economists, demographers, and data scientists",
+      "type": [
+        "Quick Reference"
+      ],
+      "councilAcronym": [
+        "ICSP"
+      ],
+      "id": "ICSP-1773252522481001"
     }
   ]
 }
