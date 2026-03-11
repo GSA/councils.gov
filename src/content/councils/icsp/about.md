@@ -12,7 +12,7 @@ logoAlt: ICSP Logo
 ---
 ## About Us
 
-The Interagency Council on Statistical Policy (ICSP), led by the U.S. Chief Statistician, supports implementation of the U.S. Federal statistical system's vision to operate as a seamless system, working together to provide strategic vision and robust implementation in support of the statistical system's critical longstanding — and expanding — role for supporting evidence-based decision-making. For example, the ICSP sets strategic goals for modernizing the statistical system, as well as enhancing coordination and collaboration across the system, recognizing the efficiencies and advancements possible when taking advantage of the whole system's statistical infrastructure and expertise.
+The [Interagency Council on Statistical Policy (ICSP)](https://statspolicy.gov/assets/files/ICSP%20Charter.pdf), led by the U.S. Chief Statistician, supports implementation of the U.S. Federal statistical system's vision to operate as a seamless system, working together to provide strategic vision and robust implementation in support of the statistical system's critical longstanding — and expanding — role for supporting evidence-based decision-making. For example, the ICSP sets strategic goals for modernizing the statistical system, as well as enhancing coordination and collaboration across the system, recognizing the efficiencies and advancements possible when taking advantage of the whole system's statistical infrastructure and expertise.
 
 **For more information about the U.S. Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).**
 
@@ -37,16 +37,14 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 
 [ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf)
 
-Strategic goals and objectives for FY 2025 and 2026 are set by the ICSP in support of modernizing the statistical system and enhancing coordination across the Federal statistical system. For details, see [StatsPolicy.gov](https://statspolicy.gov).
-
 ## ICSP Subcommittees
 
 The ICSP also charters subcommittees, as well as sponsoring leadership and mentorship programs. Some examples include:
 
-* ICSP Subcommittee–The American Community Survey
-* ICSP Subcommittee–Federal Statistical Research Data Centers (FSRDC) Executive Committee
-* ICSP Subcommittee–National Secure Data Service (S-NSDS)
-* ICSP Subcommittee–Standard Application Process (SAP) Governance Board
+* [ICSP Subcommittee–The American Community Survey](https://statspolicy.gov/assets/files/ICSP%20Subcommittee%20on%20the%20American%20Community%20Survey%20Charter.pdf)
+* [ICSP Subcommittee–Federal Statistical Research Data Centers (FSRDC) Executive Committee](https://statspolicy.gov/assets/files/FSRDC%20Executive%20Committee%20Charter_%20June%202024.pdf)
+* [ICSP Subcommittee–National Secure Data Service (S-NSDS)](https://statspolicy.gov/assets/files/ICSP%20NSDS%20Subcommittee%20Charter_2-14-24.pdf)
+* [ICSP Subcommittee–Standard Application Process (SAP) Governance Board](https://statspolicy.gov/assets/files/SAP%20Governance%20Board%20Charter.pdf)
 * ICSP Mentoring Program
 
 For more information regarding the Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov). StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, and resources from across the Federal Government.
