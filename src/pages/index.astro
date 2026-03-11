@@ -29,6 +29,23 @@ const {
 } = homeData as { title?: string; heroText?: string; councilsHeading?: string };
 
 const councilsList = getCouncilsForHome();
+
+// Load council logos for WebP optimization
+const councilLogoGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../assets/img/councils/*.{png,jpg,webp}');
+const councilsWithOptimizedLogos = await Promise.all(
+  councilsList.map(async (council) => {
+    if (!council.logo) return { ...council, optimizedLogo: null };
+    const filename = council.logo.split('/').pop() || '';
+    const globKey = Object.keys(councilLogoGlob).find((k) => k.endsWith(filename));
+    if (!globKey) return { ...council, optimizedLogo: null };
+    const mod = await councilLogoGlob[globKey]();
+    const optimized = await getImage({ src: mod.default, width: 200, height: 200 });
+    const logoSrc = baseUrl && baseUrl !== '/' && !optimized.src.startsWith(baseUrl.replace(/\/$/, ''))
+      ? `${baseUrl.replace(/\/$/, '')}${optimized.src}`
+      : optimized.src;
+    return { ...council, optimizedLogo: { src: logoSrc, width: 200, height: 200 } };
+  })
+);
 ---
 
 <BaseLayout title={title} currentPage="home">
@@ -64,7 +81,7 @@ const councilsList = getCouncilsForHome();
         </div>
         <hr>
         <div class="councils-grid padding-y-4">
-        {councilsList.map((council) => (
+        {councilsWithOptimizedLogos.map((council) => (
           <a
             href={withBase(council.href)}
             class="usa-card display-block text-no-underline margin-0"
@@ -72,7 +89,19 @@ const councilsList = getCouncilsForHome();
           >
             <div class="usa-card__container">
               <div class="usa-card__media">
-                {council.logo ? (
+                {council.optimizedLogo ? (
+                  <div class="usa-card__img">
+                    <img
+                      src={council.optimizedLogo.src}
+                      alt={council.logoAlt || ''}
+                      class={council.logoClass || 'council-logo'}
+                      width={council.optimizedLogo.width}
+                      height={council.optimizedLogo.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : council.logo ? (
                   <div class="usa-card__img">
                     <img
                       src={withBase(council.logo)}
