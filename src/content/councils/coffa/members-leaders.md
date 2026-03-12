@@ -15,6 +15,8 @@ leaders:
   - name: Dale Bell
     title: Deputy Assistant Secretary, Office of Grants
     agency: Department of Health and Human Services
+    image: /assets/img/leaders/health_and_human_department_seal.png
+    imageAlt: HHS Logo
 members:
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer/federal-financial-assistance-policy
