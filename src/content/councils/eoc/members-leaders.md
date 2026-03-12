@@ -2,7 +2,11 @@
 title: EOC Leadership & Members
 councilName: Evaluation Officer Council
 councilSlug: eoc
-intro: The EOC includes evaluation leaders from Federal agencies working together to promote evidence, learning, and impact.
+intro: The EOC includes evaluation leaders from Federal agencies working
+  together to promote evidence, learning, and impact.
+leaders:
+  - agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
