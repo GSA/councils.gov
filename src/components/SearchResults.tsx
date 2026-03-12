@@ -257,8 +257,8 @@ export default function SearchResults() {
       <h2>Results for &ldquo;{query}&rdquo;</h2>
       <p>
         {total > 0
-          ? `${(currentPage - 1) * RESULTS_PER_PAGE + 1}-${Math.min(currentPage * RESULTS_PER_PAGE, total)} of ${total} result${total !== 1 ? 's' : ''} found`
-          : `${total} result${total !== 1 ? 's' : ''} found.`}
+          ? `${(currentPage - 1) * RESULTS_PER_PAGE + 1}-${Math.min(currentPage * RESULTS_PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'} found`
+          : `${total} result${total === 1 ? '' : 's'} found.`}
       </p>
 
       {results.length > 0 && (
@@ -298,7 +298,7 @@ export default function SearchResults() {
         </ul>
       )}
 
-      {query && results.length === 0 && (
+      {results.length === 0 && (
         <p>No results found. Try different keywords.</p>
       )}
 
