@@ -45,15 +45,3 @@ The ICSP also charters subcommittees, as well as sponsoring leadership and mento
 **For more information regarding the Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).** 
 
 StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, and resources from across the Federal Government.
-
-## Resources
-
-For a host of resources related to the U.S. Federal statistical system, see [StatsPolicy.gov Resources](https://statspolicy.gov/resources).
-
-StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, and resources from across the Federal Government.
-
-## News & Events
-
-For upcoming events and other news related to the U.S. Federal statistical system, see [StatsPolicy.gov Resources](https://statspolicy.gov/resources).
-
-StatsPolicy.gov brings together important information about the interwoven U.S. Federal statistical system, including its components, priorities, activities, policies, resources, news and events from across the Federal Government.
