@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
+import sitemap from "@astrojs/sitemap";
+
 // If BASEURL env variable exists, update base to the BASEURL
 let base = "/";
 
@@ -13,7 +15,7 @@ export default defineConfig({
   site: "https://councils.gov",
   base,
   trailingSlash: "always",
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   image: {
     remotePatterns: [{ protocol: "https" }],
   },
