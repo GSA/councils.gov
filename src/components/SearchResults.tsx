@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 
 const RESULTS_PER_PAGE = 20;
@@ -73,11 +73,43 @@ function trackClick(
   }).catch(() => {});
 }
 
-/** Replace Search.gov highlighting markers (U+E000, U+E001) with HTML */
-function highlightSnippet(text: string): string {
-  return text
-    .replace(/\uE000/g, '<span class="bg-yellow">')
-    .replace(/\uE001/g, '</span>');
+/** Parse Search.gov highlighting markers (U+E000, U+E001) into React elements */
+function HighlightedText({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}): React.ReactNode {
+  const cls = className ? `bg-yellow ${className}` : 'bg-yellow';
+  const parts: React.ReactNode[] = [];
+  let remaining = text;
+  let key = 0;
+
+  while (remaining.length > 0) {
+    const start = remaining.indexOf('\uE000');
+    if (start === -1) {
+      parts.push(remaining);
+      break;
+    }
+    const before = remaining.slice(0, start);
+    if (before) parts.push(before);
+
+    const end = remaining.indexOf('\uE001', start);
+    if (end === -1) {
+      parts.push(remaining.slice(start + 1));
+      break;
+    }
+    const highlighted = remaining.slice(start + 1, end);
+    parts.push(
+      <span key={key++} className={cls}>
+        {highlighted}
+      </span>
+    );
+    remaining = remaining.slice(end + 1);
+  }
+
+  return <>{parts}</>;
 }
 
 export default function SearchResults() {
@@ -246,13 +278,13 @@ export default function SearchResults() {
                     href={result.url}
                     className="usa-link font-serif"
                     onClick={() => trackClick(affiliate, accessKey, result.url, query, (currentPage - 1) * RESULTS_PER_PAGE + i + 1, MODULE_WEB)}
-                    dangerouslySetInnerHTML={{ __html: highlightSnippet(result.title) }}
-                  />
+                  >
+                    <HighlightedText text={result.title} className="font-serif" />
+                  </a>
                 </h4>
-                <p
-                  className="usa-collection__description"
-                  dangerouslySetInnerHTML={{ __html: highlightSnippet(result.snippet) }}
-                />
+                <p className="usa-collection__description">
+                  <HighlightedText text={result.snippet} className="font-sans" />
+                </p>
                 {result.publication_date && (
                   <ul className="usa-collection__meta" aria-label="More information">
                     <li className="usa-collection__meta-item">
