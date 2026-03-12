@@ -20,24 +20,28 @@ const query = Astro.url.searchParams.get('q') ?? '';
     </section>
     <section class="grid-container usa-section">
       <form
+        id="search_form_page"
         class="usa-search usa-search--large margin-bottom-4"
         action={`${baseUrl}search/`}
         method="get"
         role="search"
+        accept-charset="UTF-8"
       >
+        <input type="hidden" name="affiliate" value="councils-gov" autocomplete="off" />
         <label class="usa-sr-only" for="search-field-in-page">Search</label>
         <input
-          class="usa-input"
+          class="usa-input usagov-search-autocomplete"
           id="search-field-in-page"
           type="search"
           name="q"
           placeholder="Search Councils.gov"
           value={query}
+          autocomplete="off"
         />
         <button class="usa-button" type="submit">Search</button>
       </form>
 
-      <SearchResults client:load />
+      <SearchResults client:only="react" />
     </section>
     <ReturnToTop />
   </main>

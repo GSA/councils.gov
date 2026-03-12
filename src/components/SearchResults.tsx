@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import Pagination from './Pagination';
+
+const RESULTS_PER_PAGE = 20;
 
 interface WebResult {
   title: string;
@@ -29,54 +32,6 @@ const API_BASE = 'https://api.gsa.gov/technology/searchgov/v2/results/i14y';
 const CLICKS_URL = 'https://api.gsa.gov/technology/searchgov/v2/clicks/';
 
 const MODULE_WEB = 'I14Y';
-const MODULE_BEST_BET = 'BOOS';
-
-/** Mock results for preview when API key is not configured */
-const MOCK_RESULTS: WebResult[] = [
-  {
-    title: 'CIO Council - About',
-    url: '/councils/cioc/about/',
-    snippet:
-      'The CIO Council serves as the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal information resources.',
-    publication_date: '2024-01-15',
-  },
-  {
-    title: 'CFO Council - Members & Leaders',
-    url: '/councils/cfoc/members-leaders/',
-    snippet:
-      'The CFO Council is comprised of Chief Financial Officers and Deputy CFOs from cabinet departments and major agencies. Margaret Pearson serves as the Council leader.',
-    publication_date: '2024-03-01',
-  },
-  {
-    title: 'Resources - Councils.gov',
-    url: '/resources/',
-    snippet:
-      'Access valuable resources, tools, and documentation to support your initiatives and improve agency practices across all councils.',
-  },
-  {
-    title: '2025 CDO Summit - News',
-    url: '/news-events/news/2025-cdo-summit/',
-    snippet:
-      'The 2025 CDO Council Summit brought together Chief Data Officers from across the federal government to discuss data strategy and governance.',
-    publication_date: '2025-01-20',
-  },
-  {
-    title: 'FRPC - About',
-    url: '/councils/frpc/about/',
-    snippet:
-      'The Federal Records Policy Council (FRPC) promotes effective records management across the federal government and advises on records policy.',
-    publication_date: '2023-11-10',
-  },
-];
-
-const MOCK_BEST_BETS = [
-  {
-    id: 'mock-1',
-    title: 'Federal Executive Councils - Home',
-    url: '/',
-    description: 'Welcome to Councils.gov. The Federal Executive Councils strengthen core functional areas within the government.',
-  },
-];
 
 function buildResultsUrl(
   affiliate: string,
@@ -88,7 +43,7 @@ function buildResultsUrl(
     affiliate,
     access_key: accessKey,
     query,
-    limit: '20',
+    limit: String(RESULTS_PER_PAGE),
     offset: String(offset),
   });
   return `${API_BASE}?${params.toString()}`;
@@ -102,7 +57,7 @@ function trackClick(
   position: number,
   moduleCode: string
 ): void {
-  if (!accessKey) return; // Skip when using mock data
+  if (!accessKey) return;
   const params = new URLSearchParams({
     affiliate,
     access_key: accessKey,
@@ -118,20 +73,28 @@ function trackClick(
   }).catch(() => {});
 }
 
+/** Replace Search.gov highlighting markers (U+E000, U+E001) with HTML */
+function highlightSnippet(text: string): string {
+  return text
+    .replace(/\uE000/g, '<span class="bg-yellow">')
+    .replace(/\uE001/g, '</span>');
+}
+
 export default function SearchResults() {
-  const affiliate = import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'councils.gov';
-  const accessKey = import.meta.env.PUBLIC_SEARCH_ACCESS_KEY || '';
+  const affiliate = (import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'restorethegulf').trim();
+  const accessKey = (import.meta.env.PUBLIC_SEARCH_ACCESS_KEY || '').trim();
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<WebResult[]>([]);
-  const [bestBets, setBestBets] = useState<SearchGovResponse['text_best_bets']>([]);
   const [total, setTotal] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const q = params.get('q')?.trim() || '';
+    const q = (params.get('q') || params.get('query'))?.trim() || '';
+    const page = Math.max(1, parseInt(params.get('page') || '1', 10) || 1);
 
     if (!q) {
       setLoading(false);
@@ -139,30 +102,95 @@ export default function SearchResults() {
     }
 
     setQuery(q);
+    setCurrentPage(page);
 
     if (!accessKey) {
-      // Show mock results for preview when API key is not configured
-      setResults(MOCK_RESULTS);
-      setBestBets(MOCK_BEST_BETS);
-      setTotal(MOCK_RESULTS.length);
+      setResults([]);
+      setTotal(0);
       setLoading(false);
       return;
     }
 
-    fetch(buildResultsUrl(affiliate, accessKey, q))
-      .then((res) => res.json())
-      .then((data: SearchGovResponse) => {
+    const offset = (page - 1) * RESULTS_PER_PAGE;
+
+    fetch(buildResultsUrl(affiliate, accessKey, q, offset))
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const msg =
+          Array.isArray(data) ? data.join(' ') :
+          data?.errors ? (Array.isArray(data.errors) ? data.errors.join(' ') : String(data.errors)) :
+          data?.error || data?.message;
+          throw new Error(msg || `API returned ${res.status}: ${res.statusText}`);
+        }
+        return data;
+      })
+      .then((data: SearchGovResponse & { error?: string }) => {
+        if (data.error) {
+          throw new Error(data.error);
+        }
         if (data.route_to) {
           window.location.href = data.route_to;
           return;
         }
         setResults(data.web?.results ?? []);
-        setBestBets(data.text_best_bets ?? []);
         setTotal(data.web?.total ?? 0);
       })
-      .catch(() => setError('Search failed. Please try again.'))
+      .catch((err: Error) =>
+        setError(err?.message || 'Search failed. Please try again.')
+      )
       .finally(() => setLoading(false));
   }, [affiliate, accessKey]);
+
+  useEffect(() => {
+    const onPopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const q = (params.get('q') || params.get('query'))?.trim() || '';
+      const page = Math.max(1, parseInt(params.get('page') || '1', 10) || 1);
+      if (!q || !accessKey) return;
+      setCurrentPage(page);
+      setLoading(true);
+      const offset = (page - 1) * RESULTS_PER_PAGE;
+      fetch(buildResultsUrl(affiliate, accessKey, q, offset))
+        .then(async (res) => {
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error('Failed to load page');
+          return data;
+        })
+        .then((data: SearchGovResponse) => {
+          setResults(data.web?.results ?? []);
+          setTotal(data.web?.total ?? 0);
+        })
+        .catch(() => setError('Failed to load page.'))
+        .finally(() => setLoading(false));
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [affiliate, accessKey]);
+
+  const totalPages = Math.ceil(total / RESULTS_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    const params = new URLSearchParams(window.location.search);
+    params.set('page', String(page));
+    window.history.pushState({}, '', `${window.location.pathname}?${params.toString()}`);
+    setCurrentPage(page);
+    setLoading(true);
+    const q = (params.get('q') || params.get('query'))?.trim() || '';
+    const offset = (page - 1) * RESULTS_PER_PAGE;
+    fetch(buildResultsUrl(affiliate, accessKey, q, offset))
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error('Failed to load page');
+        return data;
+      })
+      .then((data: SearchGovResponse) => {
+        setResults(data.web?.results ?? []);
+        setTotal(data.web?.total ?? 0);
+      })
+      .catch(() => setError('Failed to load page.'))
+      .finally(() => setLoading(false));
+  };
 
   if (loading) {
     return (
@@ -193,54 +221,63 @@ export default function SearchResults() {
   }
 
   return (
-    <div className="usa-prose">
+    <div>
       <h2>Results for &ldquo;{query}&rdquo;</h2>
       <p>
-        {total} result{total !== 1 ? 's' : ''} found.
+        {total > 0
+          ? `${(currentPage - 1) * RESULTS_PER_PAGE + 1}-${Math.min(currentPage * RESULTS_PER_PAGE, total)} of ${total} result${total !== 1 ? 's' : ''} found`
+          : `${total} result${total !== 1 ? 's' : ''} found.`}
       </p>
 
-      {bestBets && bestBets.length > 0 && (
-        <section className="margin-bottom-4">
-          <h3>Recommended</h3>
-          <ul className="usa-list usa-list--unstyled">
-            {bestBets.map((bet) => (
-              <li key={bet.id} className="margin-bottom-2">
-                <a
-                  href={bet.url}
-                  className="usa-link font-weight-bold"
-                  onClick={() =>
-                    trackClick(affiliate, accessKey, bet.url, query, -1, MODULE_BEST_BET)
-                  }
-                >
-                  {bet.title}
-                </a>
-                <p className="margin-top-0">{bet.description}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
+      {results.length > 0 && (
+        <ul className="usa-collection">
+          {results.map((result, i) => (
+            <li key={`${result.url}-${i}`} className="usa-collection__item">
+              {result.thumbnail_url && (
+                <img
+                  className="usa-collection__img"
+                  src={result.thumbnail_url}
+                  alt=""
+                />
+              )}
+              <div className="usa-collection__body">
+                <h4 className="usa-collection__heading">
+                  <a
+                    href={result.url}
+                    className="usa-link font-serif"
+                    onClick={() => trackClick(affiliate, accessKey, result.url, query, (currentPage - 1) * RESULTS_PER_PAGE + i + 1, MODULE_WEB)}
+                    dangerouslySetInnerHTML={{ __html: highlightSnippet(result.title) }}
+                  />
+                </h4>
+                <p
+                  className="usa-collection__description"
+                  dangerouslySetInnerHTML={{ __html: highlightSnippet(result.snippet) }}
+                />
+                {result.publication_date && (
+                  <ul className="usa-collection__meta" aria-label="More information">
+                    <li className="usa-collection__meta-item">
+                      <time dateTime={result.publication_date}>{result.publication_date}</time>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
 
-      <ul className="usa-list usa-list--unstyled">
-        {results.map((result, i) => (
-          <li key={`${result.url}-${i}`} className="margin-bottom-3">
-            <a
-              href={result.url}
-              className="usa-link"
-              onClick={() => trackClick(affiliate, accessKey, result.url, query, i + 1, MODULE_WEB)}
-            >
-              {result.title}
-            </a>
-            <p className="margin-top-0">{result.snippet}</p>
-            {result.publication_date && (
-              <p className="margin-top-0">{result.publication_date}</p>
-            )}
-          </li>
-        ))}
-      </ul>
-
-      {query && results.length === 0 && (!bestBets || bestBets.length === 0) && (
+      {query && results.length === 0 && (
         <p>No results found. Try different keywords.</p>
+      )}
+
+      {totalPages > 1 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          className="flex-justify-start"
+          ariaLabel="Search results"
+        />
       )}
     </div>
   );
