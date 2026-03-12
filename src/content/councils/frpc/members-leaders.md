@@ -16,6 +16,8 @@ leaders:
     title: FRPC Executive Director; Office of Asset and Transportation Management,
       Office of Government-wide Policy
     agency: General Services Administration
+    image: /assets/img/leaders/gsa-seal.png
+    imageAlt: GSA Logo
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce

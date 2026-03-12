@@ -2,7 +2,12 @@
 title: CDOC Leadership & Members
 councilName: Chief Data Officers Council
 councilSlug: cdoc
-intro: The Chief Data Officers Council includes Chief Data Officers from CFO Act agencies and other designated federal agencies working to advance data governance and evidence-based decision-making.
+intro: The Chief Data Officers Council includes Chief Data Officers from CFO Act
+  agencies and other designated federal agencies working to advance data
+  governance and evidence-based decision-making.
+membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
+  other designated federal agencies working to advance data governance and
+  evidence-based decision-making.
 leaders:
   - name: Kirsten Dalboe
     title: CDO Council Chair, Chief Data Officer
@@ -20,7 +25,8 @@ leaders:
     image: /assets/img/leaders/dominic_mancini.png
     imageAlt: Dominic Mancini
   - name: Vacant
-    title: Deputy Federal Chief Information Officer, Office of the Federal Chief Information Officer (OFCIO)
+    title: Deputy Federal Chief Information Officer, Office of the Federal Chief
+      Information Officer (OFCIO)
     agency: Office of Management and Budget
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
@@ -41,56 +47,72 @@ leaders:
   - name: Brandon Brown
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
-
 members:
-  - title: Chief Data Officer & Deputy CIO for Architecture, Engineering, Technology, and Innovation
+  - title: ""
     agency: Department of Energy
-  - title: Acting Chief Data Officer
+    name: Bridget Carper
+  - title: ""
     agency: Department of the Treasury
     url: https://home.treasury.gov/data/treasury-open-data
-  - title: Chief Data Officer
+    name: David Ashley
+  - title: ""
     agency: General Services Administration
     url: https://www.gsa.gov/governmentwide-initiatives/open-gsa
-  - title: Chief Data Officer
+    name: Zach Whitman
+  - title: ""
     agency: Department of Housing and Urban Development
     url: https://data.hud.gov/
-  - title: Chief Data Officer
+    name: Ivo Djoubrailov
+  - title: ""
     agency: Department of Labor
     url: https://www.dol.gov/data
-  - title: Acting Chief Data Officer
+    name: Brandon Brown
+  - title: ""
     agency: Department of Commerce
     url: https://www.commerce.gov/data-and-reports/data
-  - title: Chief Data Officer / Geospatial Information Officer
+    name: Dominique Duval-Diop
+  - title: ""
     agency: Department of the Interior
     url: https://www.doi.gov/data
-  - title: Acting Chief Data Officer
+    name: David Carter
+  - title: ""
     agency: National Science Foundation
-  - title: Acting Chief Data and AI Officer
+    name: Michael Hauk
+  - title: ""
     agency: Department of State
     url: https://www.state.gov/data/
-  - title: Chief Data Officer
+    name: Amy Ritualo
+  - title: ""
     agency: U.S. Department of Agriculture
     url: https://www.usda.gov/about-usda/reports-and-data/data/usda-open-data-catalog
-  - title: Acting Chief Data Officer
+    name: Chris Alvares
+  - title: ""
     agency: Department of Transportation
     url: https://www.transportation.gov/data
-  - title: Chief Data Officer/Chief Artificial Intelligence Officer
+    name: Brian Brotsos
+  - title: ""
     agency: National Aeronautics and Space Administration
     url: https://www.nasa.gov/data/
-  - title: CDAO for Policy
+    name: Kevin Murphy
+  - title: ""
     agency: Department of War
-  - title: Chief Data Officer
+    name: Gavin Kliger
+  - title: ""
     agency: U.S. Department of Health and Human Services
     url: https://www.hhs.gov/data/index.html
-  - title: Chief Data Officer
+    name: Kristen Honey
+  - title: ""
     agency: Department of Education
     url: https://www.ed.gov/data
-  - title: Chief Data Officer & Executive Director for Data Governance & Analytics
+    name: Ross Santy
+  - title: ""
     agency: Department of Veterans Affairs
     url: https://www.data.va.gov/
+    name: Lisa Rosenmerkel
   - title: Chief Data Officer
     agency: Office of Personnel Management
     url: https://www.opm.gov/data/
+    name: Vacant
   - title: Chief Data Officer
     agency: U.S. Agency for International Development
   - title: Chief Data Officer
@@ -266,6 +288,4 @@ members:
   - title: Chief Data Officer
     agency: Public Defender Service of the District of Columbia
     url: https://www.pdsdc.org/data
-
-membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and other designated federal agencies working to advance data governance and evidence-based decision-making.
 ---
