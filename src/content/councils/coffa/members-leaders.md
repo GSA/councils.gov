@@ -10,6 +10,8 @@ leaders:
   - name: Margaret Pearson
     title: Deputy Controller, Office of Federal Financial Management
     agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
+    imageAlt: OMB Logo
   - name: Dale Bell
     title: Deputy Assistant Secretary, Office of Grants
     agency: Department of Health and Human Services
