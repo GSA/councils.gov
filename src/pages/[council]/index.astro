@@ -1,0 +1,134 @@
+---
+import CouncilLayout from '../../layouts/CouncilLayout.astro';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { toArray } from '../../components/filters';
+
+// Get all council about pages
+export async function getStaticPaths() {
+  const contentDir = join(process.cwd(), 'src/content/councils');
+  const fs = await import('fs');
+  const councils = fs.readdirSync(contentDir);
+  
+  return councils.map((councilSlug) => {
+    const filePath = join(contentDir, councilSlug, 'about.md');
+    if (!fs.existsSync(filePath)) return null;
+    
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContents);
+    
+    // Check if this council has any leadership/members content for the side nav
+    const membersLeadersPath = join(contentDir, councilSlug, 'members-leaders.md');
+    let hasMembersLeaders = false;
+    if (fs.existsSync(membersLeadersPath)) {
+      const mlContents = fs.readFileSync(membersLeadersPath, 'utf-8');
+      const { data: mlFrontmatter } = matter(mlContents);
+      const members = mlFrontmatter.members ?? [];
+      const leaders = mlFrontmatter.leaders ?? [];
+      const coChairs = mlFrontmatter.coChairs ?? [];
+      hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
+    }
+
+    // Check if this council has any news/events for the side nav
+    const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+    const newsPath = join(process.cwd(), 'src/data/news.json');
+    let hasNewsEvents = false;
+    if (fs.existsSync(newsPath)) {
+      const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
+      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
+    // Check if this council has any resources for the side nav
+    const resourcesPath = join(process.cwd(), 'src/data/resources.json');
+    let hasResources = false;
+    if (fs.existsSync(resourcesPath)) {
+      const resourcesData = JSON.parse(fs.readFileSync(resourcesPath, 'utf-8'));
+      const resourcesList = resourcesData.resources ?? resourcesData.items ?? (Array.isArray(resourcesData) ? resourcesData : []);
+      hasResources = resourcesList.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
+    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    if (councilSlug === 'icsp') {
+      hasNewsEvents = true;
+      hasResources = true;
+    }
+    
+    // Configure marked to add usa-list class to ul elements
+    const renderer = new marked.Renderer();
+    const originalList = renderer.list.bind(renderer);
+    renderer.list = function(body: any, ordered: boolean, start?: number) {
+      // Call the original renderer to get properly formatted HTML
+      const originalHtml = originalList(body, ordered, start);
+      // Add usa-list class to unordered lists
+      if (!ordered) {
+        return originalHtml.replace('<ul>', '<ul class="usa-list">');
+      }
+      return originalHtml;
+    };
+    
+    const htmlContent = marked(content, { renderer });
+    
+    return {
+      params: { council: councilSlug },
+      props: {
+        frontmatter,
+        htmlContent,
+        hasMembersLeaders,
+        hasNewsEvents,
+        hasResources,
+      },
+    };
+  }).filter(Boolean);
+}
+
+const { frontmatter, htmlContent, hasMembersLeaders, hasNewsEvents, hasResources } = Astro.props;
+const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+const baseUrl = import.meta.env.BASE_URL;
+// Prepend base URL to asset paths in markdown-rendered HTML (e.g. /assets/img/ICSP_chart.jpg) for production
+let htmlWithBaseUrl = htmlContent.replace(
+  / (src|href)="\/assets\//g,
+  (_, attr) => ` ${attr}="${baseUrl}assets/`
+);
+// Add external link icon (usa-link--external), target="_blank", and screen reader text to external links
+htmlWithBaseUrl = htmlWithBaseUrl.replace(
+  /<a href="(https?:\/\/[^"]*)"([^>]*)>([\s\S]*?)<\/a>/g,
+  (match, href, rest, content) => {
+    if (rest.includes('usa-link--external')) return match;
+    const classMatch = rest.match(/class="([^"]*)"/);
+    const externalClass = 'usa-link usa-link--external';
+    const newClass = classMatch 
+      ? `class="${classMatch[1]} ${externalClass}"`
+      : `class="${externalClass}"`;
+    let newRest = classMatch 
+      ? rest.replace(/class="[^"]*"/, newClass)
+      : rest + ' ' + newClass;
+    if (!newRest.includes('target=')) newRest += ' target="_blank"';
+    if (!newRest.includes('rel=')) newRest += ' rel="noreferrer noopener"';
+    return `<a href="${href}"${newRest}>${content}<span class="usa-sr-only"> (opens in a new tab)</span></a>`;
+  }
+);
+---
+
+<CouncilLayout 
+  title={`${frontmatter.title} - Councils.gov`} 
+  currentPage="about" 
+  councilName={frontmatter.councilName} 
+  councilSlug={frontmatter.councilSlug}
+  councilAcronym={councilAcronym}
+  logoPath={frontmatter.logoPath} 
+  logoAlt={frontmatter.logoAlt} 
+  logoClass={frontmatter.logoClass}
+  logoAspect={frontmatter.logoAspect}
+  hasMembersLeaders={hasMembersLeaders}
+  hasNewsEvents={hasNewsEvents}
+  hasResources={hasResources}
+>
+  <div set:html={htmlWithBaseUrl} />
+</CouncilLayout>

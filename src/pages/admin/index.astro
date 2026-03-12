@@ -1,0 +1,70 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Councils.gov CMS</title>
+    <style>
+      img[alt="Logo"] {
+        margin-left: 75px;
+        width: 150px;
+      }
+      button {
+        margin-top: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <script is:inline src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script is:inline>
+      const registerIdHook = () => {
+        if (!window.CMS || typeof window.CMS.registerEventListener !== "function") {
+          return;
+        }
+
+        window.CMS.registerEventListener({
+        name: "preSave",
+        handler: ({ entry }) => {
+          const data = entry.get("data");
+          const resources = data.get("resources");
+
+          if (!resources || typeof resources.map !== "function") {
+            return entry;
+          }
+
+          const baseTimestamp = Date.now();
+          let sequence = 0;
+
+          const updatedResources = resources.map((item) => {
+            const existingId = item.get("id");
+            if (existingId && String(existingId).trim() !== "") {
+              return item;
+            }
+
+            const councilValue = item.get("councilAcronym");
+            const firstCouncil =
+              councilValue && typeof councilValue.first === "function"
+                ? councilValue.first()
+                : councilValue;
+            const acronym = String(firstCouncil || "RESOURCE").trim() || "RESOURCE";
+            sequence += 1;
+            const timestamp = `${baseTimestamp}${String(sequence).padStart(3, "0")}`;
+            return item.set("id", `${acronym}-${timestamp}`);
+          });
+
+          return entry.set("data", data.set("resources", updatedResources));
+        },
+      });
+      };
+
+      if (window.CMS && typeof window.CMS.registerEventListener === "function") {
+        registerIdHook();
+      } else {
+        window.addEventListener("load", registerIdHook, { once: true });
+      }
+    </script>
+  </body>
+</html>

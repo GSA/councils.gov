@@ -1,34 +1,26 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
+import { getCouncilsForHome } from '../data/councilsData';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+
+import heroImage from '../assets/img/white_house_hero.webp';
+const optimizedHero = await getImage({ src: heroImage, width: 1920 });
+
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
-const heroImageUrl = `${baseUrl}assets/img/white_house_hero.webp`;
 
 const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
 const {
   title = 'Councils.gov - Home',
   heroText = '',
-  councils = [],
-} = homeData as {
-  title?: string;
-  heroText?: string;
-  councilsHeading?: string;
-  councils?: Array<{
-    title: string;
-    acronym?: string;
-    href: string;
-    logo: string;
-    logoAlt?: string;
-    logoClass?: string;
-    description: string;
-  }>;
-};
-const councilsList = Array.isArray(councils) ? councils : [];
+} = homeData as { title?: string; heroText?: string; councilsHeading?: string };
+
+const councilsList = getCouncilsForHome();
 const withBase = (path: string | null | undefined) => {
   if (path == null) return '';
   return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
@@ -36,9 +28,32 @@ const withBase = (path: string | null | undefined) => {
 ---
 
 <BaseLayout title={title} currentPage="home">
-
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
+    <script is:inline>
+      (function() {
+        function markLoaded() {
+          var img = document.querySelector('.usa-hero--hero-img .usa-hero__bg-img');
+          if (img && img.complete) img.closest('.usa-hero')?.classList.add('is-loaded');
+        }
+        if (document.readyState !== 'loading') markLoaded();
+        else document.addEventListener('DOMContentLoaded', markLoaded);
+      })();
+    </script>
+  </Fragment>
   <main id="main-content" class="home-page">
-    <section class="usa-hero" aria-label="Introduction" style={`--hero-bg-url: url(${heroImageUrl})`}>
+    <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
+      <img
+        src={optimizedHero.src}
+        alt=""
+        width={heroImage.width}
+        height={heroImage.height}
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="usa-hero__bg-img"
+        onload="this.closest('.usa-hero')?.classList.add('is-loaded')"
+      />
       <div class="grid-container">
         <div class="usa-hero__callout">
           <h1 class="usa-hero__heading">Welcome to the new Councils.gov!</h1>
@@ -51,27 +66,35 @@ const withBase = (path: string | null | undefined) => {
       <div class="grid-container">
         <div class="grid-row grid-gap padding-bottom-2">
           <div class="tablet:grid-col-10 tablet:grid-offset-1 text-center">
-            <p class="font-serif font-serif-24 margin-top-0">The Federal Executive Councils are comprised of senior level representatives from departments and agencies that span the breadth of the federal government. By leveraging the collective expertise of their members, the councils strengthen core functional areas within the government and implement Administration priorities.</p>
+            <p class="font-serif-sm tablet:font-serif-24 margin-top-0">The Federal Executive Councils are comprised of senior level representatives from departments and agencies that span the breadth of the federal government. By leveraging the collective expertise of their members, the councils strengthen core functional areas within the government and implement Administration priorities.</p>
           </div>
         </div>
         <hr>
         <div class="councils-grid padding-y-4">
         {councilsList.map((council) => (
-          <a href={withBase(council.href)} class="usa-card display-block text-no-underline margin-0">
+          <a
+            href={withBase(council.href)}
+            class="usa-card display-block text-no-underline margin-0"
+            aria-label={council.acronym ? `About ${council.title} (${council.acronym})` : `About ${council.title}`}
+          >
             <div class="usa-card__container">
               <div class="usa-card__media">
-                <div class="usa-card__img">
-                  <img
-                    src={withBase(council.logo)}
-                    alt={council.logoAlt || ''}
-                    class={council.logoClass || 'council-logo'}
-                  />
-                </div>
+                {council.logo ? (
+                  <div class="usa-card__img">
+                    <img
+                      src={withBase(council.logo)}
+                      alt={council.logoAlt || ''}
+                      class={council.logoClass || 'council-logo'}
+                    />
+                  </div>
+                ) : (
+                  <div class="usa-card__img usa-card__img--placeholder" aria-hidden="true" />
+                )}
               </div>
               <header class="usa-card__header text-center padding-top-1">
-                <h3 class="usa-card__heading">
+                <h2 class="usa-card__heading">
                   {council.acronym ? `${council.title} (${council.acronym})` : council.title}
-                </h3>
+                </h2>
               </header>
               {/* <div class="usa-card__body">
                 <p>{council.description}</p>

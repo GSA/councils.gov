@@ -1,0 +1,437 @@
+---
+import CouncilLayout from '../../layouts/CouncilLayout.astro';
+import matter from 'gray-matter';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import { toArray } from '../../components/filters';
+
+// Get all council members-leaders pages
+export async function getStaticPaths() {
+  const contentDir = join(process.cwd(), 'src/content/councils');
+  const fs = await import('fs');
+  const councils = fs.readdirSync(contentDir);
+  
+  return councils.map((councilSlug) => {
+    const filePath = join(contentDir, councilSlug, 'members-leaders.md');
+    if (!fs.existsSync(filePath)) return null;
+    
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
+    const { data: frontmatter } = matter(fileContents);
+    
+    // Get logo info from about.md
+    const aboutPath = join(contentDir, councilSlug, 'about.md');
+    let logoPath, logoAlt, logoClass, logoAspect;
+    if (fs.existsSync(aboutPath)) {
+      const aboutContents = fs.readFileSync(aboutPath, 'utf-8');
+      const { data: aboutFrontmatter } = matter(aboutContents);
+      logoPath = aboutFrontmatter.logoPath;
+      logoAlt = aboutFrontmatter.logoAlt;
+      logoClass = aboutFrontmatter.logoClass;
+      logoAspect = aboutFrontmatter.logoAspect;
+    }
+    
+    const members = frontmatter.members ?? [];
+    const leaders = frontmatter.leaders ?? [];
+    const coChairs = frontmatter.coChairs ?? [];
+    const hasMembersLeaders = [].concat(members, leaders, coChairs).length > 0;
+
+    // Check if this council has any news/events for the side nav
+    const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+    const newsPath = join(process.cwd(), 'src/data/news.json');
+    let hasNewsEvents = false;
+    if (fs.existsSync(newsPath)) {
+      const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
+      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
+    // Check if this council has any resources for the side nav
+    const resourcesPath = join(process.cwd(), 'src/data/resources.json');
+    let hasResources = false;
+    if (fs.existsSync(resourcesPath)) {
+      const resourcesData = JSON.parse(fs.readFileSync(resourcesPath, 'utf-8'));
+      const resourcesList = resourcesData.resources ?? resourcesData.items ?? (Array.isArray(resourcesData) ? resourcesData : []);
+      hasResources = resourcesList.some((item: { councilAcronym?: string | string[] }) =>
+        toArray(item.councilAcronym).includes(councilAcronym)
+      );
+    }
+
+    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    if (councilSlug === 'icsp') {
+      hasNewsEvents = true;
+      hasResources = true;
+    }
+
+    return {
+      params: { council: councilSlug },
+      props: {
+        frontmatter,
+        logoPath,
+        logoAlt,
+        logoClass,
+        logoAspect,
+        hasMembersLeaders,
+        hasNewsEvents,
+        hasResources,
+      },
+    };
+  }).filter(Boolean);
+}
+
+const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders, hasNewsEvents, hasResources } = Astro.props;
+const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
+const baseUrl = import.meta.env.BASE_URL;
+const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+
+const getLastName = (name: string) => {
+  const withoutParens = name.replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const parts = withoutParens.split(/\s+/);
+  return parts.length > 1 ? parts[parts.length - 1] : withoutParens;
+};
+/** Sort key: last name if person has name, otherwise full agency name for alphabetical sort. */
+const getMemberSortKey = (item: { name?: string; agency?: string; department?: string }) => {
+  if (item.name?.trim()) return getLastName(item.name);
+  return (item.agency ?? item.department ?? '').trim();
+};
+const sortMembersAlphabetically = (
+  a: { name?: string; agency?: string; department?: string },
+  b: { name?: string; agency?: string; department?: string }
+) => getMemberSortKey(a).localeCompare(getMemberSortKey(b), 'en-US', { sensitivity: 'base' });
+const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortMembersAlphabetically);
+const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortMembersAlphabetically);
+const sortedMembers = [...(frontmatter.members ?? [])].sort(sortMembersAlphabetically);
+
+// Function to get member logo image path
+function getMemberImage(member: any): string | null {
+  // If image is explicitly set, use it
+  if (member.image) {
+    return member.image;
+  }
+  
+  // Extract agency name from agency/title/name
+  const text = (member.agency || member.title || member.name || '').toLowerCase();
+  
+  // Map agency names to image filenames (agencyname_seal.ext pattern)
+  const agencyMap: Record<string, string> = {
+    'department of agriculture': 'department_of_agriculture_seal.png',
+    'department of commerce': 'department_of_commerce_seal.png',
+    'department of education': 'department_of_education_seal.png',
+    'department of energy': 'department_of_energy_seal.png',
+    'department of health and human services': 'department_of_health_and_human_services_seal.png',
+    'hhs': 'department_of_health_and_human_services_seal.png',
+    'department of homeland security': 'department_of_homeland_security_seal.png',
+    'department of housing and urban development': 'department_of_housing_and_urban_development_seal.png',
+    'hud': 'department_of_housing_and_urban_development_seal.png',
+    'department of justice': 'department_of_justice_seal.png',
+    'department of labor': 'department_of_labor_seal.png',
+    'department of state': 'department_of_state_seal.png',
+    'department of the air force': 'department_of_the_air_force_seal.png',
+    'department of the army': 'department_of_the_army_seal.png',
+    'department of the interior': 'department_of_the_interior_seal.png',
+    'department of the navy': 'department_of_the_navy_seal.png',
+    'department of the treasury': 'department_of_the_treasury_seal.png',
+    'department of transportation': 'department_of_transportation_seal.png',
+    'department of veterans affairs': 'department_of_veterans_affairs_seal.png',
+    'va': 'department_of_veterans_affairs_seal.png',
+    'department of war': 'department_of_war_seal.png',
+    'environmental protection agency': 'environmental_protection_agency_seal.png',
+    'epa': 'environmental_protection_agency_seal.png',
+    'federal deposit insurance corporation': 'federal_deposit_insurance_corporation_seal.png',
+    'fdic': 'federal_deposit_insurance_corporation_seal.png',
+    'federal reserve board': 'federal_reserve_system_seal.png',
+    'federal reserve system': 'federal_reserve_system_seal.png',
+    'federal reserve': 'federal_reserve_system_seal.png',
+    'general services administration': 'general_services_administration_seal.png',
+    'gsa': 'general_services_administration_seal.png',
+    'national archives and records administration': 'national_archives_and_records_administration_seal.png',
+    'national aeronautics and space administration': 'national_aeronautics_and_space_administration_seal.png',
+    'nasa': 'national_aeronautics_and_space_administration_seal.png',
+    'national science foundation': 'national_science_foundation_seal.png',
+    'nsf': 'national_science_foundation_seal.png',
+    'nuclear regulatory commission': 'nuclear_regulatory_commission_seal.png',
+    'nrc': 'nuclear_regulatory_commission_seal.png',
+    'office of the director of national intelligence': 'office_of_the_director_of_national_intelligence_seal.png',
+    'odni': 'office_of_the_director_of_national_intelligence_seal.png',
+    'office of personnel management': 'office_of_personnel_management_seal.png',
+    'opm': 'office_of_personnel_management_seal.png',
+    'small business administration': 'small_business_administration_seal.png',
+    'sba': 'small_business_administration_seal.png',
+    'social security administration': 'social_security_administration_seal.svg',
+    'ssa': 'social_security_administration_seal.svg',
+    'u.s. agency for international development': 'united_states_agency_for_international_development_seal.png',
+    'usaid': 'united_states_agency_for_international_development_seal.png',
+    'appraisal subcommittee': 'appraisal_subcommittee_federal_financial_institutions_examination_council_seal.png',
+    'bureau of consumer financial protection': 'consumer_financial_protection_seal.jpg',
+    'consumer financial protection': 'consumer_financial_protection_seal.jpg',
+    'american battle monuments commission': 'american_battle_monuments_commission_seal.png',
+    'americorps': 'americorps_seal.png',
+    'barry goldwater scholarship': 'barry_goldwater_scholarship_foundation_seal.png',
+    'central intelligence agency': 'central_intelligence_agency_seal.svg',
+    'commission on civil rights': 'commission_on_civil_rights_seal.png',
+    'usccr': 'commission_on_civil_rights_seal.png',
+    'commission of fine arts': 'commission_of_fine_arts_seal.png',
+    'commodity futures trading commission': 'commodity_futures_trading_commission_seal.png',
+    'cftc': 'commodity_futures_trading_commission_seal.png',
+    'consumer product safety commission': 'consumer_product_safety_commission_seal.png',
+    'cpsc': 'consumer_product_safety_commission_seal.png',
+    'court services and offender supervision agency': 'court_services_seal.png',
+    'csosa': 'court_services_seal.png',
+    'development finance corporation': 'development_finance_corporation_seal.png',
+    'dfc': 'development_finance_corporation_seal.png',
+    'equal employment opportunity commission': 'us_equal_employment_opportunity_seal.png',
+    'u.s. equal employment opportunity commission': 'us_equal_employment_opportunity_seal.png',
+    'eeoc': 'us_equal_employment_opportunity_seal.png',
+    'export-import bank of the united states': 'export_import_bank_of_the_united_states_seal.png',
+    'export import bank': 'export_import_bank_of_the_united_states_seal.png',
+    'exim': 'export_import_bank_of_the_united_states_seal.png',
+    'farm credit administration': 'farm_credit_administration_seal.png',
+    'fca': 'farm_credit_administration_seal.png',
+    'federal communications commission': 'federal_communications_commission_seal.png',
+    'fcc': 'federal_communications_commission_seal.png',
+    'federal energy regulatory commission': 'federal_energy_regulatory_commission_seal.png',
+    'ferc': 'federal_energy_regulatory_commission_seal.png',
+    'federal housing finance agency': 'federal_housing_finance_agency_seal.png',
+    'fhfa': 'federal_housing_finance_agency_seal.png',
+    'federal labor relations authority': 'federal_labor_relations_authority_seal.png',
+    'flra': 'federal_labor_relations_authority_seal.png',
+    'federal maritime commission': 'federal_maritime_commission_seal.png',
+    'fmc': 'federal_maritime_commission_seal.png',
+    'federal mine safety and health review commission': 'federal_mine_safety_and_health_review_commission_seal.png',
+    'fmshrc': 'federal_mine_safety_and_health_review_commission_seal.png',
+    'federal retirement thrift investment board': 'federal_retirement_thrift_investment_board_seal.png',
+    'frtib': 'federal_retirement_thrift_investment_board_seal.png',
+    'federal mediation and conciliation service': 'federal_mediation_and_conciliation_service_seal.jpg',
+    'fmcs': 'federal_mediation_and_conciliation_service_seal.jpg',
+    'federal trade commission': 'federal_trade_commission_seal.png',
+    'ftc': 'federal_trade_commission_seal.png',
+    'gulf coast ecosystem restoration council': 'gulf_coast_ecosystem_restoration_council_seal.png',
+    'inter-american foundation': 'inter_american_foundation_seal.jpg',
+    'international trade commission': 'international_trade_commission_seal.png',
+    'u.s. international trade commission': 'international_trade_commission_seal.png',
+    'itc': 'international_trade_commission_seal.png',
+    'merit systems protection board': 'merit_systems_protection_board_seal.png',
+    'mspb': 'merit_systems_protection_board_seal.png',
+    'millennium challenge corporation': 'millennium_challenge_corporation_seal.png',
+    'mcc': 'millennium_challenge_corporation_seal.png',
+    'morris k. udall foundation': 'morris_k_udall_foundation_seal.png',
+    'udall foundation': 'morris_k_udall_foundation_seal.png',
+    'national capital planning commission': 'national_capital_planning_commission_seal.jpg',
+    'ncpc': 'national_capital_planning_commission_seal.jpg',
+    'national credit union administration': 'national_credit_union_administration_seal.png',
+    'ncua': 'national_credit_union_administration_seal.png',
+    'national endowment for the arts': 'national_endowment_for_the_arts_seal.jpg',
+    'nea': 'national_endowment_for_the_arts_seal.jpg',
+    'national endowment for the humanities': 'national_endowment_for_the_humanities_seal.jpg',
+    'neh': 'national_endowment_for_the_humanities_seal.jpg',
+    'national gallery of art': 'national_gallery_of_art_seal.png',
+    'national mediation board': 'national_mediation_board_seal.png',
+    'nmb': 'national_mediation_board_seal.png',
+    'national transportation safety board': 'national_transportation_safety_board_seal.png',
+    'ntsb': 'national_transportation_safety_board_seal.png',
+    'nuclear waste technical review board': 'nuclear_waste_technical_review_board_seal.png',
+    'nwtrb': 'nuclear_waste_technical_review_board_seal.png',
+    'occupational safety and health review commission': 'occupational_safety_and_health_review_commission_seal.png',
+    'oshrc': 'occupational_safety_and_health_review_commission_seal.png',
+    'office of government ethics': 'office_of_government_ethics_seal.png',
+    'oge': 'office_of_government_ethics_seal.png',
+    'office of navajo and hopi indian relocation': 'office_of_navajo_and_hopi_relocation_seal.png',
+    'office of special counsel': 'office_of_special_counsel_seal.png',
+    'osc': 'office_of_special_counsel_seal.png',
+    'office of the comptroller of the currency': 'office_of_the_comptroller_of_the_currency_seal.png',
+    'occ': 'office_of_the_comptroller_of_the_currency_seal.png',
+    'peace corps': 'peace_corps_seal.jpg',
+    'postal regulatory commission': 'postal_regulatory_commission_seal.png',
+    'prc': 'postal_regulatory_commission_seal.png',
+    'presidio trust': 'presidio_trust_seal.jpeg',
+    'pension benefit guaranty corporation': 'pension_benefit_guaranty_corporation_seal.png',
+    'pbgc': 'pension_benefit_guaranty_corporation_seal.png',
+    'public defender service of the district of columbia': 'public_defender_service_of_the_district_of_columbia_seal.png',
+    'pdsdc': 'public_defender_service_of_the_district_of_columbia_seal.png',
+    'railroad retirement board': 'railroad_retirement_board_seal.png',
+    'rrb': 'railroad_retirement_board_seal.png',
+    'securities and exchange commission': 'securities_and_exchange_commission_seal.png',
+    'u.s. securities and exchange commission': 'securities_and_exchange_commission_seal.png',
+    'sec': 'securities_and_exchange_commission_seal.png',
+    'surface transportation board': 'surface_transportation_board_seal.png',
+    'stb': 'surface_transportation_board_seal.png',
+    'tennessee valley authority': 'tennessee_valley_authority_seal.png',
+    'tva': 'tennessee_valley_authority_seal.png',
+    'u.s. agency for global media': 'u_s_agency_for_global_media_seal.jpg',
+    'broadcasting board of governors': 'u_s_agency_for_global_media_seal.jpg',
+    'usagm': 'u_s_agency_for_global_media_seal.jpg',
+    'u.s. trade and development agency': 'us_trade_and_development_agency_seal.png',
+    'ustda': 'us_trade_and_development_agency_seal.png',
+    'united states abilityone commission': 'us_abilityone_commission_seal.png',
+    'abilityone': 'us_abilityone_commission_seal.png',
+    'united states access board': 'us_access_board_seal.png',
+    'access board': 'us_access_board_seal.png',
+    'selective service system': 'selective_service_system_seal.png',
+    'sss': 'selective_service_system_seal.png',
+    'smithsonian institution': 'smithsonian_institution_seal.png',
+    'smithsonian': 'smithsonian_institution_seal.jpeg',
+  };
+  
+  // Try longest keys first so e.g. "social security administration" matches SSA, not a substring
+  const entries = Object.entries(agencyMap).sort((a, b) => b[0].length - a[0].length);
+  for (const [key, filename] of entries) {
+    const isAcronym = key.length <= 4;
+    const matches = isAcronym
+      ? new RegExp(`\\b${key}\\b`, 'i').test(text)
+      : text.includes(key);
+    if (matches) {
+      return `/assets/img/members/${filename}`;
+    }
+  }
+
+  return null;
+}
+---
+
+<CouncilLayout 
+  title={`${frontmatter.title} - Councils.gov`} 
+  currentPage="members-leaders" 
+  councilName={frontmatter.councilName} 
+  councilSlug={frontmatter.councilSlug}
+  councilAcronym={councilAcronym}
+  logoPath={logoPath}
+  logoAlt={logoAlt}
+  logoClass={logoClass}
+  logoAspect={logoAspect}
+  hasMembersLeaders={hasMembersLeaders}
+  hasNewsEvents={hasNewsEvents}
+  hasResources={hasResources}
+>
+
+  <p class="usa-intro margin-top-0">
+    {frontmatter.intro}
+  </p>
+
+  {sortedLeaders.length > 0 && (
+    <>
+      <h2 class="margin-top-4">Leadership</h2>
+      <div class="grid-row grid-gap margin-top-2 leadership-grid">
+        {sortedLeaders.map((leader: any) => {
+          const title = leader.title ?? leader.description ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
+          const heading = leader.name || agency;
+          const subtext = leader.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
+          return (
+          <div class="tablet:grid-col-12 desktop:grid-col-6">
+            <div class="usa-card">
+              <div class="usa-card__container">
+                {leader.image && (
+                  <div class="usa-card__media">
+                    <div class="usa-card__img">
+                      <img src={withBase(leader.image)} alt={heading} />
+                    </div>
+                  </div>
+                )}
+                <div class="usa-card__body">
+                  <h3>{heading}</h3>
+                  {subtext.length > 0 && (
+                    <p class="margin-0">{subtext.join(', ')}</p>
+                  )}
+                </div>
+                {leader.url && (
+                  <div class="usa-card__footer">
+                    <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                      View Agency Webpage
+                      <span class="usa-sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          );
+        })}
+      </div>
+    </>
+  )}
+
+  {sortedCoChairs.length > 0 && (
+    <>
+      <h2 class="margin-top-4">Co-Chairs</h2>
+      <div class="grid-row grid-gap margin-top-2 members-grid">
+        {sortedCoChairs.map((leader: any) => {
+          const title = leader.title ?? leader.description ?? leader.bio ?? leader.role ?? '';
+          const agency = leader.agency ?? '';
+          const heading = leader.name || agency;
+          const subtext = leader.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
+          return (
+          <div class="tablet:grid-col-6 desktop:grid-col-4">
+            <div class="usa-card">
+              <div class="usa-card__container">
+                {leader.image && (
+                  <div class="usa-card__media">
+                    <div class="usa-card__img">
+                      <img src={withBase(leader.image)} alt={heading} />
+                    </div>
+                  </div>
+                )}
+                <div class="usa-card__body">
+                  <h3>{heading}</h3>
+                  {subtext.length > 0 && (
+                    <p class="margin-0">{subtext.join(', ')}</p>
+                  )}
+                </div>
+                {leader.url && (
+                  <div class="usa-card__footer">
+                    <a href={leader.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                      View Agency Webpage
+                      <span class="usa-sr-only"> (opens in a new tab)</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          );
+        })}
+      </div>
+    </>
+  )}
+
+  <h2 class="margin-top-4">Members</h2>
+  
+  {sortedMembers.length > 0 && (
+    <div class="members-grid margin-top-2">
+      {sortedMembers.map((member: any) => {
+        const title = member.title ?? member.description ?? '';
+        const agency = member.agency ?? member.department ?? '';
+        const heading = member.name || agency;
+        const subtext = member.name ? [title, agency].filter(Boolean) : [title].filter(Boolean);
+        const memberImage = getMemberImage(member);
+        return (
+        <div class="usa-card">
+          <div class="usa-card__container">
+            {memberImage && (
+              <div class="usa-card__media">
+                <div class="usa-card__img">
+                  <img src={withBase(memberImage)} alt={heading} />
+                </div>
+              </div>
+            )}
+            <div class="usa-card__body">
+              <h3>{heading}</h3>
+              {subtext.length > 0 && (
+                <p class="margin-0">{subtext.join(', ')}</p>
+              )}
+            </div>
+            {member.url && (
+              <div class="usa-card__footer">
+                <a href={member.url} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">
+                  View Agency Webpage
+                  <span class="usa-sr-only"> (opens in a new tab)</span>
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+        );
+      })}
+    </div>
+  )}
+</CouncilLayout>

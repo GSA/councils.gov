@@ -2,9 +2,10 @@
 title: About CFOC
 councilName: Chief Financial Officers Council
 councilSlug: cfoc
-logoPath: /assets/img/councils/CFO.png
+logoPath: /assets/img/councils/cfoc_logo.png
 logoAlt: CFOC Logo
 logoClass: council-logo
+shortDescription: The Chief Financial Officers Council is the federal government's primary leadership body for advancing effective financial management across agencies, bringing together CFOs from the 24 CFO Act agencies.
 ---
 
 ## About the CFO Council

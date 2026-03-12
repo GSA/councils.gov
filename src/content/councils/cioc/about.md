@@ -2,9 +2,11 @@
 title: About CIOC
 councilName: Chief Information Officers Council
 councilSlug: cioc
-logoPath: /assets/img/councils/CIOC.png
+logoPath: /assets/img/councils/cioc_logo.png
 logoAlt: CIOC Logo
 logoClass: cioc-logo-about
+logoAspect: square
+shortDescription: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
 ---
 
 ## Our Purpose

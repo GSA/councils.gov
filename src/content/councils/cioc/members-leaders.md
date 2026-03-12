@@ -5,43 +5,47 @@ councilSlug: cioc
 intro: The CIOC is composed of Chief Information Officers and senior IT executives from Federal agencies who work together to improve government IT practices.
 leaders:
   - name: Gregory Barbaccia
-    description: Federal Chief Information Officer, The Executive Office of the President
-    image: /assets/img/leaders/Gregory Barbaccia.png
+    title: Federal Chief Information Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/gregory_barbaccia.png
     imageAlt: Gregory Barbaccia
   - name: David Shive
-    description: Vice Chair, Chief Information Officer, General Services Administration
-    image: /assets/img/leaders/David Shive.png
+    title: Vice Chair, Chief Information Officer
+    agency: General Services Administration
+    image: /assets/img/leaders/david_shive.png
     imageAlt: David Shive
   - name: Michael Duffy
-    description: Acting Federal Chief Information Security Officer, The Executive Office of the President
-    image: /assets/img/leaders/Michael Duffy.png
+    title: Acting Federal Chief Information Security Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/michael_duffy.png
     imageAlt: Michael Duffy
   - name: Jay Teitelbaum
-    description: Acting Deputy Federal Chief Information Officer, The Executive Office of the President
-    image: /assets/img/leaders/Jay Teitelbaum.png
+    title: Acting Deputy Federal Chief Information Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/jay_teitelbaum.png
     imageAlt: Jay Teitelbaum
 
 members:
-  - name: Department of Labor
-  - name: Department of State
-  - name: Department of the Interior
-  - name: Department of the Treasury
-  - name: Department of Transportation
-  - name: Department of Veterans Affairs
-  - name: Department of War
-  - name: Environmental Protection Agency
-  - name: General Services Administration
-  - name: National Aeronautics and Space Administration
-  - name: National Science Foundation
-  - name: Nuclear Regulatory Commission
-  - name: Office of Personnel Management
-  - name: Small Business Administration
-  - name: Social Security Administration
-  - name: Department of the Air Force
-  - name: Department of the Army
-  - name: Department of the Navy
-  - name: Federal Deposit Insurance Corporation
-  - name: National Archives and Records Administration
-  - name: Office of the Director of National Intelligence
+  - agency: Department of Labor
+  - agency: Department of State
+  - agency: Department of the Interior
+  - agency: Department of the Treasury
+  - agency: Department of Transportation
+  - agency: Department of Veterans Affairs
+  - agency: Department of War
+  - agency: Environmental Protection Agency
+  - agency: General Services Administration
+  - agency: National Aeronautics and Space Administration
+  - agency: National Science Foundation
+  - agency: Nuclear Regulatory Commission
+  - agency: Office of Personnel Management
+  - agency: Small Business Administration
+  - agency: Social Security Administration
+  - agency: Department of the Air Force
+  - agency: Department of the Army
+  - agency: Department of the Navy
+  - agency: Federal Deposit Insurance Corporation
+  - agency: National Archives and Records Administration
+  - agency: Office of the Director of National Intelligence
 membersIntro: The CIOC includes representatives from major Federal agencies, each bringing expertise and perspective to improve government IT management.
 ---

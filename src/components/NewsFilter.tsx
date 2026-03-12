@@ -1,11 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { FilterPanel, FilterPills } from './FilterPanel';
+import Pagination from './Pagination';
 import {
   buildActiveFilters,
-  buildFilterOptions,
+  buildFilterOptionsForNews,
   createEmptyFilters,
-  filterItems,
+  filterItemsForNews,
   getInitialFiltersFromUrl,
+  sanitizeHref,
+  toArray,
   type Filters,
   type FilterableItem,
 } from './filters';
@@ -21,6 +24,8 @@ export interface NewsItem extends FilterableItem {
   slug?: string;
   kind?: 'news' | 'event';
   tags?: string[];
+  /** Optional thumbnail image path (e.g. /assets/img/symposium-thumbnail.jpg) */
+  thumbnail?: string;
 }
 
 interface NewsFilterProps {
@@ -59,20 +64,27 @@ function getItemHref(item: NewsItem, baseUrl: string): string | null {
     const segment = item.kind === 'event' ? 'events' : 'news';
     return `${base}news-events/${segment}/${item.slug}/`;
   }
-  return item.link ?? null;
+  return sanitizeHref(item.link);
 }
 
 export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const safeItems = Array.isArray(items) ? items : [];
   const allowedCouncilAcronyms = useMemo(
-    () => Array.from(new Set(safeItems.map((i) => i.councilAcronym).filter(Boolean))),
+    () =>
+      Array.from(new Set(safeItems.flatMap((i) => toArray(i.councilAcronym)))),
     [safeItems]
   );
   const [selectedFilters, setSelectedFilters] = useState<Filters>(() => 
     getInitialFiltersFromUrl(allowedCouncilAcronyms as string[])
   );
+  const [currentPage, setCurrentPage] = useState(1);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
+  const firstItemRef = useRef<HTMLAnchorElement | null>(null);
+  const filterHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const hasMountedRef = useRef(false);
+  const paginationInitializedRef = useRef(false);
+
+  const PAGE_SIZE = 10;
 
   const toggleSelection = (group: keyof Filters, value: string) => {
     setSelectedFilters((prev) => {
@@ -96,16 +108,43 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   };
 
   const filterOptions = useMemo(
-    () => buildFilterOptions(safeItems, selectedFilters),
+    () => buildFilterOptionsForNews(safeItems, selectedFilters),
     [safeItems, selectedFilters]
   );
 
   const filteredItems = useMemo(
-    () => filterItems(safeItems, selectedFilters),
+    () => filterItemsForNews(safeItems, selectedFilters),
     [safeItems, selectedFilters]
   );
 
-  const activeFilters = useMemo(() => buildActiveFilters(selectedFilters), [selectedFilters]);
+  const totalPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+  const resultsRangeStart = (currentPage - 1) * PAGE_SIZE + 1;
+  const resultsRangeEnd = Math.min(currentPage * PAGE_SIZE, filteredItems.length);
+  const resultsCountText =
+    filteredItems.length > 0
+      ? `Showing ${resultsRangeStart}-${resultsRangeEnd} of ${filteredItems.length} results`
+      : null;
+  const resultsCountTextSr =
+    filteredItems.length > 0
+      ? `Showing ${resultsRangeStart} to ${resultsRangeEnd} of ${filteredItems.length} results`
+      : null;
+  const paginatedItems = useMemo(
+    () =>
+      filteredItems.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filteredItems, currentPage]
+  );
+
+  const activeFilters = useMemo(
+    () =>
+      buildActiveFilters(selectedFilters).filter(
+        (f) => f.type === 'Council' || f.type === 'Year'
+      ),
+    [selectedFilters]
+  );
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedFilters]);
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -116,35 +155,91 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
     if (resultsTopRef.current) {
       const targetTop = resultsTopRef.current.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > targetTop) {
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        window.scrollTo({ top: targetTop });
       }
     }
-  }, [selectedFilters]);
+
+    requestAnimationFrame(() => {
+      if (filteredItems.length > 0 && firstItemRef.current) {
+        firstItemRef.current.focus();
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [selectedFilters, filteredItems.length]);
+
+  useEffect(() => {
+    if (!paginationInitializedRef.current) {
+      paginationInitializedRef.current = true;
+      return;
+    }
+    requestAnimationFrame(() => {
+      if (firstItemRef.current) {
+        firstItemRef.current.focus({ preventScroll: true });
+      } else if (resultsTopRef.current) {
+        resultsTopRef.current.focus({ preventScroll: true });
+      }
+    });
+  }, [currentPage]);
 
   return (
     <div className="grid-row grid-gap sidebar-layout">
-      <aside className="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+      <aside
+        className="sidebar-layout__sidebar"
+        role="region"
+        aria-label="Filter news and events by council, focus area, type, and year"
+      >
         <FilterPanel
           options={filterOptions}
           selected={selectedFilters}
           onToggle={toggleSelection}
           onReset={resetFilters}
+          filterGroups={['councils', 'years']}
+          filterHeadingRef={filterHeadingRef}
         />
       </aside>
 
-      <div className="sidebar-layout__main" ref={resultsTopRef}>
+      <div
+        className="sidebar-layout__main"
+        ref={resultsTopRef}
+        role="region"
+        aria-label="Filter results"
+        tabIndex={-1}
+      >
+        <p
+          className="font-sans-sm text-bold margin-top-0 margin-bottom-2"
+          aria-live="polite"
+          aria-atomic="true"
+          role="status"
+        >
+          {resultsCountText ? (
+            <>
+              <span aria-hidden="true">{resultsCountText}</span>
+              <span className="usa-sr-only">{resultsCountTextSr}</span>
+            </>
+          ) : (
+            'No news or events match the selected filters'
+          )}
+        </p>
         <FilterPills activeFilters={activeFilters} onRemove={removeSelection} baseUrl={baseUrl} />
 
         {filteredItems.length > 0 ? (
-          <ul className="usa-collection">
-            {filteredItems.map((item) => {
+          <>
+            <ul className="usa-collection">
+              {paginatedItems.map((item) => {
               const href = getItemHref(item, baseUrl);
+              const isFirst = paginatedItems[0]?.id === item.id;
               return (
               <li key={item.id} className="usa-collection__item">
                 <div className="usa-collection__body">
                   <h3 className="usa-collection__heading">
                     {href ? (
-                      <a className="usa-link font-serif" href={href}>
+                      <a
+                        ref={isFirst ? firstItemRef : undefined}
+                        className="usa-link font-serif"
+                        href={href}
+                        aria-label={item.title}
+                      >
                         {item.title}
                       </a>
                     ) : (
@@ -156,24 +251,39 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                       {item.dateDisplay ?? formatDate(item.date)}
                     </time>
                   </div>
-                  {(item.councilAcronym || (item.tags?.length ?? 0) > 0) && (
+                  {[
+                    ...new Set([
+                      ...toArray(item.councilAcronym),
+                      ...(item.tags ?? []),
+                    ]),
+                  ].length > 0 && (
                     <ul className="usa-collection__meta content-tags news-tags" aria-label="Topics">
-                      {item.councilAcronym && (
-                        <li className="usa-tag">{item.councilAcronym}</li>
+                      {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].map(
+                        (tag) => (
+                          <li key={tag} className="usa-tag">
+                            {tag}
+                          </li>
+                        )
                       )}
-                      {(item.tags ?? []).map((tag) => (
-                        <li key={tag} className="usa-tag">
-                          {tag}
-                        </li>
-                      ))}
                     </ul>
                   )}
-                  <p className="usa-collection__description margin-y-2">{truncateDescription(item.description)}</p>
+                  <p className="usa-collection__description margin-top-2 margin-bottom-0">{truncateDescription(item.description)}</p>
                 </div>
               </li>
               );
             })}
-          </ul>
+            </ul>
+            {totalPages > 1 && (
+              <div className="margin-top-4">
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                  ariaLabel="News and events results"
+                />
+              </div>
+            )}
+          </>
         ) : (
           <p className="usa-intro">No news or events match the selected filters.</p>
         )}

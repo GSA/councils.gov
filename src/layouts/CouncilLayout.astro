@@ -9,30 +9,40 @@ interface Props {
   logoPath?: string;
   logoAlt?: string;
   logoClass?: string;
+  /** 'square' for compact logos (ICSP, CIOC); omit for wide/landscape logos */
+  logoAspect?: 'square';
   /** When false, the "Leadership & Members" side nav item is hidden. */
   hasMembersLeaders?: boolean;
+  /** When false, the "News & Events" side nav item is hidden. */
+  hasNewsEvents?: boolean;
+  /** When false, the "Resources" side nav item is hidden. */
+  hasResources?: boolean;
 }
 
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 
-const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, hasMembersLeaders = true } = Astro.props;
+const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true, hasResources = true } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
+// ICSP one-off: Resources and News & Events both link to statspolicy.gov
 const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+const newsEventsHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}news-events/${councilQuery}`;
 const resourcesExternal = councilSlug === 'icsp';
+const newsEventsExternal = councilSlug === 'icsp';
 const allNavItems = [
-  { href: `${baseUrl}councils/${councilSlug}/about/`, label: "About", id: "about" },
-  { href: `${baseUrl}councils/${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
-  { href: `${baseUrl}news-events/${councilQuery}`, label: "News & Events", id: "news-events" },
+  { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },
+  { href: `${baseUrl}${councilSlug}/members-leaders/`, label: "Leadership & Members", id: "members-leaders" },
+  { href: newsEventsHref, label: "News & Events", id: "news-events", external: newsEventsExternal },
   { href: resourcesHref, label: "Resources", id: "resources", external: resourcesExternal },
 ];
-const navItems = hasMembersLeaders
-  ? allNavItems
-  : allNavItems.filter((item) => item.id !== "members-leaders");
+let navItems = allNavItems;
+if (!hasMembersLeaders) navItems = navItems.filter((item) => item.id !== "members-leaders");
+if (!hasNewsEvents) navItems = navItems.filter((item) => item.id !== "news-events");
+if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources");
 ---
 
 <BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>
@@ -50,33 +60,33 @@ const navItems = hasMembersLeaders
         </li>
       </ol>
     </nav>
-    {logoPath && (
-      <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
-        <div class="grid-container">
-          <div class="grid-row grid-gap sidebar-layout">
+    <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
+      <div class="grid-container">
+        <div class={`grid-row grid-gap sidebar-layout${!logoPath ? ' council-hero__row--no-logo' : ''}`}>
+          {logoPath && (
             <div class="sidebar-layout__sidebar">
-              <div class="council-hero__logo-container">
+              <div class={`council-hero__logo-container${logoAspect === 'square' ? ' council-hero__logo-container--square' : ''}`}>
                 <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
               </div>
             </div>
-            <div class="sidebar-layout__main flex-justify-center">
-              <div class="council-hero__content">
-                <p class="council-hero__brow">{councilName}</p>
-                <h1 class="council-hero__title">
-                  {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
-                   currentPage === "members-leaders" ? `Leadership & Members` : 
-                   title || `${councilName}`}
-                </h1>
-              </div>
+          )}
+          <div class={`sidebar-layout__main flex-justify-center${!logoPath ? ' council-hero__main--no-logo' : ''}`}>
+            <div class="council-hero__content">
+              <p class="council-hero__brow">{councilName}</p>
+              <h1 class="council-hero__title">
+                {currentPage === "about" ? `About ${councilSlug.toUpperCase()}` : 
+                 currentPage === "members-leaders" ? `Leadership & Members` : 
+                 title || `${councilName}`}
+              </h1>
             </div>
           </div>
         </div>
-      </section>
-    )}
+      </div>
+    </section>
     <div class="usa-section">
       <div class="grid-container">
         <div class="grid-row grid-gap sidebar-layout">
-          <aside class="sidebar-layout__sidebar margin-bottom-4 tablet:margin-bottom-0">
+          <aside class="sidebar-layout__sidebar">
             <nav aria-label="Side navigation" class="sticky-nav">
               <ul class="usa-sidenav">
                 {navItems.map((item) => (

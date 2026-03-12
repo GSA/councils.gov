@@ -1,8 +1,7 @@
 ---
-import { footerCouncils } from "../data/footerCouncils";
+import { navCouncils } from "../data/navCouncils";
 
 const baseUrl = import.meta.env.BASE_URL;
-const withBase = (path: string) => (path.startsWith("/") ? `${baseUrl}${path.slice(1)}` : path);
 ---
 
 <footer class="usa-footer" role="contentinfo">
@@ -11,10 +10,10 @@ const withBase = (path: string) => (path.startsWith("/") ? `${baseUrl}${path.sli
       <nav class="usa-footer__nav" aria-label="Pre-footer links">
         <h3 class="footer-councils-heading padding-bottom-2">Quick links</h3>
           <ul class="footer-quick-links">
-            {footerCouncils.map((council) => (
+            {navCouncils.map((council) => (
               <li>
-                <a href={withBase(council.href)} class="footer-quick-link">
-                  {council.name}
+                <a href={`${baseUrl}${council.slug}/`} class="footer-quick-link">
+                  {council.councilName}
                 </a>
               </li>
             ))}
