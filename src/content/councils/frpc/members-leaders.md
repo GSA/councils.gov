@@ -2,12 +2,18 @@
 title: FRPC Leadership & Members
 councilName: Federal Real Property Council
 councilSlug: frpc
-intro: The FRPC brings together senior real property officials from across the Federal Government to drive consistent policy and performance.
+intro: The FRPC brings together senior real property officials from across the
+  Federal Government to drive consistent policy and performance.
+membersIntro: The FRPC includes representatives from Federal agencies with
+  significant real property portfolios.
 leaders:
   - name: Margaret Pearson
     title: Deputy Controller, Office of Federal Financial Management
+    agency: Office of Management and Budget
   - name: Alex Kurien
-    title: FRPC Executive Director; Office of Asset and Transportation Management, Office of Government-wide Policy
+    title: FRPC Executive Director; Office of Asset and Transportation Management,
+      Office of Government-wide Policy
+    agency: General Services Administration
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
@@ -33,5 +39,4 @@ members:
   - agency: Small Business Administration
   - agency: Social Security Administration
   - agency: National Archives and Records Administration
-membersIntro: The FRPC includes representatives from Federal agencies with significant real property portfolios.
 ---
