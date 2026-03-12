@@ -6,6 +6,7 @@ intro: The ICSP is comprised of 30 unique members, including the U.S. Chief
   Statistician who serves as the Chair, the 24 designated Statistical Officials,
   and all heads of the OMB-recognized statistical agencies and units. For a full
   list and details, see StatsPolicy.gov.
+membersIntro: ""
 leaders:
   - name: Stuart Levenbach
     title: ICSP Chair
@@ -91,3 +92,6 @@ members:
   - name: Vacant
     agency: U.S. Agency for International Development
 ---
+^ Recognized Statistical Agency or Unit Head
+
+\*Statistical Official
