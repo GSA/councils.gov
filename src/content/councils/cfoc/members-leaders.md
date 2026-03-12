@@ -2,11 +2,17 @@
 title: CFOC Leadership & Members
 councilName: Chief Financial Officers Council
 councilSlug: cfoc
-intro: The CFOC brings together CFOs and Deputy CFOs from the 24 CFO Act agencies to strengthen financial stewardship and support sound decision making on behalf of the American public.
+intro: The CFOC brings together CFOs and Deputy CFOs from the 24 CFO Act
+  agencies to strengthen financial stewardship and support sound decision making
+  on behalf of the American public.
+membersIntro: The CFOC includes representatives from the 24 CFO Act agencies,
+  each bringing expertise in financial management and stewardship.
 leaders:
   - name: Margaret Pearson
     title: Deputy Controller, Office of Federal Financial Management
     agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
+    imageAlt: OMB Logo
 members:
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer
@@ -52,5 +58,4 @@ members:
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
   - agency: Social Security Administration
     url: https://www.ssa.gov/
-membersIntro: The CFOC includes representatives from the 24 CFO Act agencies, each bringing expertise in financial management and stewardship.
 ---
