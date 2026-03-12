@@ -143,59 +143,80 @@ members:
     agency: Environmental Protection Agency
     url: https://www.epa.gov/data
     name: Richard Alllen
-  - title: Chief Data Officer
+  - title: ""
     agency: American Battle Monuments Commission
     url: https://www.abmc.gov/about-us/reports-policy/data/
-  - title: Chief Data Officer
-    agency: Americorps
-  - title: Administrative Officer
+    name: Jennifer Li
+  - title: ""
+    agency: ""
+    name: Andrea Gibbons
+  - title: ""
     agency: Barry Goldwater Scholarship and Excellence in Education Foundation
-  - title: Chief Data Officer
+    name: Shellby Padgett
+  - title: ""
     agency: Board of Governors of the Federal Reserve
     url: https://www.federalreserve.gov/data.htm
-  - title: Chief Data Officer
+    name: Katherine Tom
+  - title: ""
     agency: U.S. Agency for Global Media (formerly Broadcasting Board of Generals)
-  - title: Acting Chief Data Officer
+    name: Shawn Powers
+  - title: ""
     agency: Bureau of Consumer Financial Protection
     url: https://www.consumerfinance.gov/data/
-  - title: Chief Data Officer
+    name: Lance Harris
+  - title: ""
     agency: Central Intelligence Agency
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: Commission of Fine Arts
-  - title: Chief Data Officer
+    name: Frederick Lindstrom
+  - title: ""
     agency: Commission on Civil Rights
     url: https://www.usccr.gov/reports/data-inventory-program
-  - title: Chief Data Officer
+    name: Michelle Yorkman-Ramey
+  - title: ""
     agency: Commodity Futures Trading Commission
     url: https://www.cftc.gov/data
-  - title: Chief Data Officer
+    name: Edward Wehner
+  - title: ""
     agency: Consumer Product Safety Commission
     url: https://www.cpsc.gov/Data
-  - title: Chief Data Officer
+    name: Bryan Burnett
+  - title: ""
     agency: Court Services and Offender Supervision Agency
     url: https://www.csosa.gov/data/
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: Development Finance Corporation
-  - title: Chief Data Officer
+    name: Will Williams
+  - title: ""
     agency: Equal Employment Opportunity Commission
     url: https://www.eeoc.gov/data
-  - title: Acting Chief Data Officer
+    name: Jiashen You
+  - title: ""
     agency: Export-Import Bank of the United States
-  - title: Chief Data Officer
+    name: Roberto Williams
+  - title: ""
     agency: Farm Credit Administration
     url: https://www.fca.gov/required-notices/fca-and-the-open-gov-initiative
-  - title: Chief Data Officer
+    name: Jeremy D'Antoni
+  - title: ""
     agency: Federal Communications Commission
-  - title: Chief Data Officer
+    name: Steven Rosenberg
+  - title: ""
     agency: Federal Deposit Insurance Corporation
     url: https://www.fdic.gov/about/open-data-fdic
-  - title: Chief Data Officer (CDO Council Chair)
+    name: Geoffrey Nieboer
+  - title: ""
     agency: Federal Energy Regulatory Commission
     url: https://data.ferc.gov/
-  - title: Chief Data Officer
+    name: Kirsten Dalboe
+  - title: ""
     agency: Federal Housing Finance Agency
-  - title: Chief Data Officer and Executive Director
+    name: Shawn Bucholtz
+  - title: ""
     agency: Federal Labor Relations Authority
+    name: Michael Jeffries
   - title: Chief Data Officer
     agency: Federal Maritime Commission
   - title: Chief Data Officer
