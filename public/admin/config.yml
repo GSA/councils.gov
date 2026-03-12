@@ -48,6 +48,10 @@ collections:
               required: false,
             }
           - { label: Body, name: body, widget: markdown, required: false }
+      - label: CAIOC About
+        name: caioc_about
+        file: src/content/councils/caioc/about.md
+        fields: *about_fields
       - label: CFOC About
         name: cfoc_about
         file: src/content/councils/cfoc/about.md
