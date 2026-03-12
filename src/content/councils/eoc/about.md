@@ -46,12 +46,12 @@ The Evaluation Officer also oversees or conducts:
 * Implementation of OMB Memorandum M-20-12, Phase 4 Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Program Evaluation Standards and Practices
 * Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice. The policy will provide interested parties both internal and external to the agency with a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
 * Required coordination, development, and implementation of the plans required under section 312 of the Evidence Act:
-* Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan
 
+  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan
   * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review
   * Capacity Assessment, included as part of the Agency Strategic Plan
-  * Development of new, or improvement of existing, processes to integrate evaluation findings into agency decision-making and other functions
-  * Management of agency's evaluation policies that uphold and adhere to the program evaluation standards in OMB Memorandum M-20-12 to ensure the scientific integrity, quality, and accountability of the agency's evaluation activities
-  * Use and dissemination of evaluation results throughout the agency and to the public, as appropriate
+* Development of new, or improvement of existing, processes to integrate evaluation findings into agency decision-making and other functions
+* Management of agency's evaluation policies that uphold and adhere to the program evaluation standards in OMB Memorandum M-20-12 to ensure the scientific integrity, quality, and accountability of the agency's evaluation activities
+* Use and dissemination of evaluation results throughout the agency and to the public, as appropriate
 
 The information above is sourced from [Circular A-11, Part 6, §290.5](https://www.whitehouse.gov/wp-content/uploads/2025/08/a11.pdf).
