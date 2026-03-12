@@ -15,7 +15,7 @@ leaders:
   - name: Dale Bell
     title: Deputy Assistant Secretary, Office of Grants
     agency: Department of Health and Human Services
-    image: /assets/img/leaders/health_and_human_department_seal.png
+    image: /assets/img/leaders/department_of_health_and_human_services_seal_white.png
     imageAlt: HHS Logo
 members:
   - agency: Department of Agriculture
