@@ -9,7 +9,8 @@ intro: >-
   list and details, see StatsPolicy.gov.
 
 
-  Recognized Statistical Agency or Unit Head^. Statistical Officials.*
+  ^Recognized Statistical Agency or Unit Head 
+   *Statistical Official
 membersIntro: ""
 leaders:
   - name: Stuart Levenbach
