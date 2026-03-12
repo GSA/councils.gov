@@ -217,106 +217,146 @@ members:
   - title: ""
     agency: Federal Labor Relations Authority
     name: Michael Jeffries
-  - title: Chief Data Officer
+  - title: ""
     agency: Federal Maritime Commission
-  - title: Chief Data Officer
+    name: Jack Bowden
+  - title: ""
     agency: Federal Mediation and Conciliation Service
     url: https://www.fmcs.gov/data/
-  - title: Chief Data Officer and Senior Management and Program Analyst
+    name: Gregory Goldstein
+  - title: ""
     agency: Federal Mine Safety and Health Review Commission
     url: https://www.oshrc.gov/data/
-  - title: Chief Data Officer
+    name: Joshua Poole
+  - title: ""
     agency: Federal Retirement Thrift Investment Board
     url: https://www.frtib.gov/data/
-  - title: Chief Data Officer
+    name: Alexander Podplay
+  - title: ""
     agency: Federal Trade Commission
     url: https://www.ftc.gov/news-events/data-visualizations
-  - title: Chief Information and Data Officer
+    name: Mark Gray
+  - title: ""
     agency: Gulf Coast Ecosystem Restoration Council
-  - title: Chief Data Officer and Managing Director
+    name: Jeremy Rosenboom
+  - title: ""
     agency: Inter-American Foundation
-  - title: Director of Industry and Competitiveness Analysis and Chief Data Officer
+    name: Raquel Gomes
+  - title: ""
     agency: International Trade Commission
-  - title: Executive Director
+    name: Jeremy Wise
+  - title: ""
     agency: Merit Systems Protection Board
     url: https://www.mspb.gov/data/
-  - title: Chief Data Officer and Director of Product and Data Management
+    name: William (Bill) Spencer
+  - title: ""
     agency: Millennium Challenge Corporation
     url: https://data.mcc.gov/
-  - title: Chief Data and Information Officer
+    name: My Le
+  - title: ""
     agency: Morris K. Udall Foundation
-  - title: Chief Data Officer
+    name: Jerry Carter
+  - title: ""
     agency: National Archives and Records Administration
     url: https://www.archives.gov/data
-  - title: Chief Data Officer
+    name: Ahktar Zaman
+  - title: ""
     agency: National Capital Planning Commission
     url: https://www.ncpc.gov/policies/opengov/
-  - title: Director and Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: National Credit Union Administration
     url: https://ncua.gov/data
-  - title: Chief Data Officer
+    name: Amber Gervius
+  - title: ""
     agency: National Endowment for the Arts
     url: https://www.arts.gov/data
-  - title: Chief Data Officer
+    name: Sunil Iyengar
+  - title: ""
     agency: National Endowment for the Humanities
     url: https://www.neh.gov/open
-  - title: Manager for Analytics & Enterprise Architecture
+    name: Vacant
+  - title: ""
     agency: National Gallery of Art
-  - title: Chief Data Officer
+    name: Keith Krut
+  - title: ""
     agency: National Mediation Board
     url: https://nmb.gov/NMB_Application/index.php/data/
-  - title: Chief Data Officer
+    name: Soloman Gebretensai
+  - title: ""
     agency: National Transportation Safety Board
     url: https://www.ntsb.gov/Pages/data.aspx
-  - title: Chief Data Officer
+    name: Warren Randolph
+  - title: ""
     agency: Nuclear Waste Technical Review Board
     url: https://www.nwtrb.gov/data
-  - title: Chief Data Officer
+    name: Jayson Bright
+  - title: ""
     agency: Occupational Safety and Health Review Commission
-  - title: Chief Data Officer
+    name: Deborah Hall
+  - title: ""
     agency: Office of the Director of National Intelligence
-  - title: Chief Data Officer/Branch Chief
+    name: Vacant
+  - title: ""
     agency: Office of Government Ethics
     url: https://www.oge.gov/web/oge.nsf/data
-  - title: Chief Information and Data Officer
+    name: Zohair Baig
+  - title: ""
     agency: Office of Navajo and Hopi Indian Relocation
-  - title: Chief Data Officer
+    name: Diane Pratte
+  - title: ""
     agency: Office of Special Counsel
     url: https://osc.gov/data
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: Office of the Comptroller of the Currency
-  - title: Chief Strategy and Innovation Officer
+    name: Kristen Baldwin
+  - title: ""
     agency: Peace Corps
     url: https://www.peacecorps.gov/about-the-agency/policies-and-publications/reports-and-documents/
-  - title: Director, Enterprise Governance Department
+    name: Ari Lipman
+  - title: ""
     agency: Pension Benefit Guaranty Corporation
     url: https://www.pbgc.gov/open/index
-  - title: Chief Data Officer
+    name: Melanie Carter
+  - title: ""
     agency: Postal Regulatory Commission
-  - title: Chief Data Officer
+    name: Alexandra Porter
+  - title: ""
     agency: Presidio Trust
-  - title: Chief Data Officer
+    name: Manny Guerreiro
+  - title: ""
     agency: Railroad Retirement Board
     url: https://rrb.gov/data
-  - title: Chief Data Officer
+    name: Kathleen McGuire
+  - title: ""
     agency: Securities and Exchange Commission
     url: https://www.sec.gov/data-research/sec-markets-data
-  - title: Chief Data Officer
+    name: Austin Gerig
+  - title: ""
     agency: Selective Service System
-  - title: Chief Data Officer
+    name: Alma Cruz
+  - title: ""
     agency: Smithsonian Institution
-  - title: Acting Chief Data Officer
+    name: Jenny Sue Ross
+  - title: ""
     agency: Surface Transportation Board
     url: https://www.stb.gov/data/
-  - title: Senior Director Enterprise Data, Analytics, AI
+    name: Phil Maynard
+  - title: ""
     agency: Tennessee Valley Authority
-  - title: Chief Data Officer
+    name: Jessica Baker
+  - title: ""
     agency: U.S. Trade and Development Agency
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: United States AbilityOne Commission
-  - title: Acting Chief Data Officer
+    name: Rosa Criggedorn
+  - title: ""
     agency: United States Access Board
-  - title: Chief Data Officer
+    name: Mannan Dasti
+  - title: ""
     agency: Public Defender Service of the District of Columbia
     url: https://www.pdsdc.org/data
+    name: Janet Mitchell
 ---
