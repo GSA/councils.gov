@@ -18,7 +18,7 @@ backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: public/assets/img
+media_folder: src/assets/img
 public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
@@ -40,6 +40,25 @@ collections:
               name: councilName,
               widget: string,
               required: false,
+            }
+          - {
+              label: Logo,
+              name: logoPath,
+              widget: image,
+              required: false,
+              media_folder: src/assets/img/councils,
+              public_folder: /assets/img/councils,
+              hint: "Council logo. Stored in src/assets for optimization.",
+            }
+          - { label: Logo Alt, name: logoAlt, widget: string, required: false }
+          - { label: Logo Class, name: logoClass, widget: string, required: false, hint: "CSS class (e.g. council-logo, cioc-logo-about)" }
+          - {
+              label: Logo Aspect,
+              name: logoAspect,
+              widget: select,
+              required: false,
+              options: [{ label: "(default)", value: "" }, { label: "Square", value: "square" }],
+              hint: "Use 'square' for compact logos (ICSP, CIOC).",
             }
           - {
               label: Short Description,
@@ -125,7 +144,7 @@ collections:
                   name: image,
                   widget: image,
                   required: false,
-                  media_folder: /public/assets/img/leaders,
+                  media_folder: src/assets/img/leaders,
                   public_folder: /assets/img/leaders,
                 }
               - {
