@@ -10,6 +10,8 @@ leaders:
   - name: Margaret Pearson
     title: Deputy Controller, Office of Federal Financial Management
     agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
+    imageAlt: OMB Logo
   - name: Alex Kurien
     title: FRPC Executive Director; Office of Asset and Transportation Management,
       Office of Government-wide Policy
