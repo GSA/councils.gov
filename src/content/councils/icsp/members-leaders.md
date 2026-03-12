@@ -17,7 +17,7 @@ members:
   - name: George Cook^*
     title: Bureau of the Census
     agency: Department of Commerce
-  - name: Vipon Arora^
+  - name: Vipin Arora^
     title: Bureau of Economic Analysis
     agency: Department of Commerce
   - name: Kevin Scott^*
@@ -60,8 +60,8 @@ members:
   - name: Andrea Beam^
     title: National Animal Health Monitoring System
     agency: Department of Agriculture
-  - name: Chris Andall
-    agency: Department of War
+  - name: Chris Andall*
+    agency: National Aeronautics and Space Administration
   - name: Joe Parsons^*
     title: National Agricultural Statistics Service
     agency: Department of Agriculture
@@ -74,16 +74,16 @@ members:
   - name: Emilda Rivers^*
     title: National Center for Science and Engineering Statistics
     agency: National Science Foundation
-  - name: Doris Lewis
-    agency: Department of State
+  - name: Doris Lewis*
+    agency: Nuclear Regulatory Commission
   - name: Safaa Amer*
-    agency: Department of Veterans Affairs
+    agency: Social Security Administration
     title: Office of Research, Evaluation, and Statistics
   - name: Ozie Foster*
-    agency: Department of Homeland Security
+    agency: Office of Personnel Management
   - name: Anna Maria Calcagno*
     title: ""
-    agency: Department of Justice
+    agency: Small Business Administration
   - name: Mark Xu^*
     title: Statistics of Income
     agency: Department of the Treasury
