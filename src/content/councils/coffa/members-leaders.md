@@ -2,13 +2,18 @@
 title: COFFA Leadership & Members
 councilName: Council on Federal Financial Assistance
 councilSlug: coffa
-intro: The COFFA is composed of Chief Financial Officers and senior financial executives from Federal agencies who work together to improve government financial management practices.
+intro: The COFFA is composed of Chief Financial Officers and senior financial
+  executives from Federal agencies who work together to improve government
+  financial management practices.
+membersIntro: The COFFA includes representatives from major Federal agencies,
+  each bringing expertise and perspective to improve government financial
+  management.
 leaders:
   - name: Margaret Pearson
     title: COFFA Co-Chair, Deputy Controller
     agency: Office of Federal Financial Management
   - name: Dale Bell
-    title: COFFA, Co-Chair, Deputy Assistant Secretary
+    title: COFFA Co-Chair, Deputy Assistant Secretary
     agency: Office of Grants
 members:
   - agency: Department of Agriculture
@@ -55,7 +60,7 @@ members:
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
   - agency: Social Security Administration
     url: https://www.ssa.gov/oag/grants/
-  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination Council
+  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination
+      Council
     url: https://asc.gov/?state_id=69&state=WV
-membersIntro: The COFFA includes representatives from major Federal agencies, each bringing expertise and perspective to improve government financial management.
 ---
