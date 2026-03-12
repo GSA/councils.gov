@@ -28,6 +28,16 @@ editor:
   preview: false
 
 collections:
+  - name: homepage
+    label: Homepage
+    files:
+      - label: Homepage
+        name: homepage
+        file: src/content/pages/home.md
+        fields:
+          - { label: Hero Heading, name: heroHeading, widget: string, required: false }
+          - { label: Hero Text, name: heroText, widget: text, required: false }
+          - { label: Intro Text, name: introText, widget: text, required: false }
   - name: council_about_pages
     label: About
     files:
