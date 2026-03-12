@@ -28,25 +28,29 @@ leaders:
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
+  - name: Richard Allen
+    title: Large Agency Committee, Chair
+  - name: Brandon Brown
+    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
+    agency: Department of Labor
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
     image: /assets/img/leaders/austin_gerig.png
     imageAlt: Austin Gerig
-  - name: Jiashen You
-    title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: U.S. Equal Employment Opportunity Commission
-    image: /assets/img/leaders/jiashen_you.png
-    imageAlt: Jiashen You
   - name: Michael Hauk
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
   - name: Kristen Honey
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Health and Human Services
-  - name: Brandon Brown
-    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Labor
+  - name: Warren Randolph
+    title: Small Agency Committee, Chair
+  - name: Jiashen You
+    title: Business of Data Working Group Co-Chair, Chief Data Officer
+    agency: U.S. Equal Employment Opportunity Commission
+    image: /assets/img/leaders/jiashen_you.png
+    imageAlt: Jiashen You
 members:
   - title: ""
     agency: Department of Energy
@@ -115,24 +119,30 @@ members:
     name: Vacant
   - title: Chief Data Officer
     agency: U.S. Agency for International Development
-  - title: Chief Data Officer
+  - title: ""
     agency: Department of Homeland Security
     url: https://www.dhs.gov/data
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: Department of Justice
     url: https://www.justice.gov/data
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: Social Security Administration
     url: https://www.ssa.gov/data/
-  - title: Chief Data Officer
+    name: Vacant
+  - title: ""
     agency: U.S. Nuclear Regulatory Commission
     url: https://www.nrc.gov/data/index
-  - title: Chief Data Officer
+    name: Basai Sall
+  - title: ""
     agency: Small Business Administration
     url: https://www.sba.gov/about-sba/open-government/digital-sba
-  - title: Chief Data Officer
+    name: Anna Maria Calcagno
+  - title: ""
     agency: Environmental Protection Agency
     url: https://www.epa.gov/data
+    name: Richard Alllen
   - title: Chief Data Officer
     agency: American Battle Monuments Commission
     url: https://www.abmc.gov/about-us/reports-policy/data/
