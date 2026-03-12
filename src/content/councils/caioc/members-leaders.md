@@ -30,8 +30,11 @@ members:
   - agency: Department of Veterans Affairs
   - agency: Department of War
   - agency: Environmental Protection Agency
-  - {}
-  - {}
-  - {}
-  - {}
+  - agency: General Services Administration
+  - agency: National Aeronautics and Space Administration
+  - agency: National Science Foundation
+  - agency: Nuclear Regulatory Commission
+  - agency: Office of Personnel Management
+  - agency: Small Business Administration
+  - agency: Social Security Administration
 ---
