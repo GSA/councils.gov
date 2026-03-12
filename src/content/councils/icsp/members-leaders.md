@@ -10,6 +10,7 @@ leaders:
   - name: Stuart Levenbach
     title: ICSP Chair
     agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
 members:
   - name: Alice Volz^
     title: Microeconomic Surveys Unit
