@@ -12,7 +12,9 @@ intro: >
   the U.S. Chief Statistician who serves as the Chair, the 24 designated
   Statistical Officials, and all heads of the OMB-recognized statistical
   agencies and units.
-membersIntro: ""
+membersIntro: |
+  ^ Recognized Statistical Agency or Unit Head
+  *Statistical Official
 leaders:
   - name: Stuart Levenbach
     title: ICSP Chair
@@ -98,6 +100,3 @@ members:
   - name: Vacant
     agency: U.S. Agency for International Development
 ---
-^ Recognized Statistical Agency or Unit Head
-
-\*Statistical Official
