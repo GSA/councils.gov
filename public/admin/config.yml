@@ -321,7 +321,7 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: public/docs
+                media_folder: public/docs/
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
       - label: Focus Areas
