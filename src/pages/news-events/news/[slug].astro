@@ -15,6 +15,8 @@ export async function getStaticPaths() {
 const { item } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+const withBase = (path?: string | null) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+const thumbnailSrc = item.thumbnail?.startsWith('http') ? item.thumbnail : withBase(item.thumbnail);
 
 const formatDate = (dateString: string) => {
   const parsed = new Date(dateString);
@@ -90,7 +92,7 @@ const relatedItems = (newsItems as any[])
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
       {item.thumbnail && (
         <div class="news-item-thumbnail margin-y-2">
-          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
+          <img src={thumbnailSrc} alt="" width={600} height={400} loading="lazy" decoding="async" />
         </div>
       )}
       <div class="maxw-72 margin-bottom-4">

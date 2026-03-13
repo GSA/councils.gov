@@ -12,6 +12,14 @@ const optimizedHero = await getImage({ src: heroImage, width: 1920 });
 
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+const withBase = (path: string | null | undefined) => {
+  if (path == null) return '';
+  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
+};
+// optimizedHero.src from getImage already includes base when BASE_URL is set; only prefix when it doesn't
+const heroSrc = baseUrl && baseUrl !== '/' && !optimizedHero.src.startsWith(baseUrl.replace(/\/$/, ''))
+  ? `${baseUrl.replace(/\/$/, '')}${optimizedHero.src}`
+  : optimizedHero.src;
 
 const homeContentPath = join(process.cwd(), 'src/content/pages/home.md');
 const { data: homeData } = matter(readFileSync(homeContentPath, 'utf-8'));
@@ -23,30 +31,33 @@ const {
 } = homeData as { title?: string; heroHeading?: string; heroText?: string; introText?: string; councilsHeading?: string };
 
 const councilsList = getCouncilsForHome();
-const withBase = (path: string | null | undefined) => {
-  if (path == null) return '';
-  return path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path;
-};
+
+// Load council logos for WebP optimization
+const councilLogoGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../assets/img/councils/*.{png,jpg,webp}');
+const councilsWithOptimizedLogos = await Promise.all(
+  councilsList.map(async (council) => {
+    if (!council.logo) return { ...council, optimizedLogo: null };
+    const filename = council.logo.split('/').pop() || '';
+    const globKey = Object.keys(councilLogoGlob).find((k) => k.endsWith(filename));
+    if (!globKey) return { ...council, optimizedLogo: null };
+    const mod = await councilLogoGlob[globKey]();
+    const optimized = await getImage({ src: mod.default, width: 200, height: 200 });
+    const logoSrc = baseUrl && baseUrl !== '/' && !optimized.src.startsWith(baseUrl.replace(/\/$/, ''))
+      ? `${baseUrl.replace(/\/$/, '')}${optimized.src}`
+      : optimized.src;
+    return { ...council, optimizedLogo: { src: logoSrc, width: 200, height: 200 } };
+  })
+);
 ---
 
 <BaseLayout title={title} currentPage="home">
   <Fragment slot="head">
-    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
-    <script is:inline>
-      (function() {
-        function markLoaded() {
-          var img = document.querySelector('.usa-hero--hero-img .usa-hero__bg-img');
-          if (img && img.complete) img.closest('.usa-hero')?.classList.add('is-loaded');
-        }
-        if (document.readyState !== 'loading') markLoaded();
-        else document.addEventListener('DOMContentLoaded', markLoaded);
-      })();
-    </script>
+    <link rel="preload" as="image" href={heroSrc} fetchpriority="high" />
   </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
       <img
-        src={optimizedHero.src}
+        src={heroSrc}
         alt=""
         width={heroImage.width}
         height={heroImage.height}
@@ -54,7 +65,6 @@ const withBase = (path: string | null | undefined) => {
         loading="eager"
         decoding="async"
         class="usa-hero__bg-img"
-        onload="this.closest('.usa-hero')?.classList.add('is-loaded')"
       />
       <div class="grid-container">
         <div class="usa-hero__callout">
@@ -73,7 +83,7 @@ const withBase = (path: string | null | undefined) => {
         </div>
         <hr>
         <div class="councils-grid padding-y-4">
-        {councilsList.map((council) => (
+        {councilsWithOptimizedLogos.map((council) => (
           <a
             href={withBase(council.href)}
             class="usa-card display-block text-no-underline margin-0"
@@ -81,12 +91,28 @@ const withBase = (path: string | null | undefined) => {
           >
             <div class="usa-card__container">
               <div class="usa-card__media">
-                {council.logo ? (
+                {council.optimizedLogo ? (
+                  <div class="usa-card__img">
+                    <img
+                      src={council.optimizedLogo.src}
+                      alt={council.logoAlt || ''}
+                      class={council.logoClass || 'council-logo'}
+                      width={council.optimizedLogo.width}
+                      height={council.optimizedLogo.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                ) : council.logo ? (
                   <div class="usa-card__img">
                     <img
                       src={withBase(council.logo)}
                       alt={council.logoAlt || ''}
                       class={council.logoClass || 'council-logo'}
+                      width={200}
+                      height={200}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ) : (

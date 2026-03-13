@@ -34,6 +34,9 @@ export default defineConfig({
   trailingSlash: "always",
   redirects: councilRedirects,
   integrations: [react(), sitemap()],
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   vite: {
     ssr: {
       noExternal: ["@uswds/uswds"],
