@@ -10,16 +10,16 @@ membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
   evidence-based decision-making.
 useCustomOrderForLeaders: true
 leaders:
-  - name: Dominic Mancini
-    title: Administrator, Office of Information and Regulatory Affairs (or designee)
-    agency: Office of Management and Budget
-    image: /assets/img/leaders/dominic_mancini.png
-    imageAlt: Dominic Mancini
   - name: Kirsten Dalboe
     title: CDO Council Chair, Chief Data Officer
     agency: Federal Energy Regulatory Commission
     image: /assets/img/leaders/kirsten_dalboe.jpg
     imageAlt: Kirsten Dalboe
+  - name: Dominic Mancini
+    title: Administrator, Office of Information and Regulatory Affairs (or designee)
+    agency: Office of Management and Budget
+    image: /assets/img/leaders/dominic_mancini.png
+    imageAlt: Dominic Mancini
   - name: Christopher Alvares
     title: CDO Council Vice Chair, Chief Data Officer
     agency: U.S. Department of Agriculture
