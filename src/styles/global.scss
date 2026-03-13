@@ -1508,6 +1508,10 @@ footer.usa-footer .footer-grid-container,
   grid-template-columns: 1fr;
   gap: 1rem;
 
+  ul.usa-list li p {
+    margin: 0; 
+  }
+
   @media (min-width: $breakpoint-tablet) {
     grid-template-columns: minmax(14rem, 16rem) 1fr;
 
