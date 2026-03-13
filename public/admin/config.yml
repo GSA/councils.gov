@@ -120,10 +120,19 @@ collections:
               widget: text,
               required: false,
             }
+          - {
+              label: Use custom order for Leaders,
+              name: useCustomOrderForLeaders,
+              widget: boolean,
+              required: false,
+              default: false,
+              hint: "When checked, leaders use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
+            }
           - label: Leaders
             name: leaders
             widget: list
             required: false
+            allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
               - {
@@ -164,10 +173,19 @@ collections:
                   widget: string,
                   required: false,
                 }
+          - {
+              label: Use custom order for Members,
+              name: useCustomOrderForMembers,
+              widget: boolean,
+              required: false,
+              default: false,
+              hint: "When checked, members use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
+            }
           - label: Members
             name: members
             widget: list
             required: false
+            allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
               - {

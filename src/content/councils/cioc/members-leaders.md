@@ -2,13 +2,23 @@
 title: CIOC Leadership & Members
 councilName: Chief Information Officers Council
 councilSlug: cioc
-intro: The CIOC is composed of Chief Information Officers and senior IT executives from Federal agencies who work together to improve government IT practices.
+intro: The CIOC is composed of Chief Information Officers and senior IT
+  executives from Federal agencies who work together to improve government IT
+  practices.
+membersIntro: The CIOC includes representatives from major Federal agencies,
+  each bringing expertise and perspective to improve government IT management.
+useCustomOrderForLeaders: true
 leaders:
   - name: Gregory Barbaccia
     title: Federal Chief Information Officer
     agency: The Executive Office of the President
     image: /assets/img/leaders/gregory_barbaccia.png
     imageAlt: Gregory Barbaccia
+  - name: Jay Teitelbaum
+    title: Acting Deputy Federal Chief Information Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/jay_teitelbaum.png
+    imageAlt: Jay Teitelbaum
   - name: David Shive
     title: Vice Chair, Chief Information Officer
     agency: General Services Administration
@@ -19,12 +29,6 @@ leaders:
     agency: The Executive Office of the President
     image: /assets/img/leaders/michael_duffy.png
     imageAlt: Michael Duffy
-  - name: Jay Teitelbaum
-    title: Acting Deputy Federal Chief Information Officer
-    agency: The Executive Office of the President
-    image: /assets/img/leaders/jay_teitelbaum.png
-    imageAlt: Jay Teitelbaum
-
 members:
   - agency: Department of Labor
   - agency: Department of State
@@ -47,5 +51,4 @@ members:
   - agency: Federal Deposit Insurance Corporation
   - agency: National Archives and Records Administration
   - agency: Office of the Director of National Intelligence
-membersIntro: The CIOC includes representatives from major Federal agencies, each bringing expertise and perspective to improve government IT management.
 ---
