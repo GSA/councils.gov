@@ -254,6 +254,7 @@ export default function SearchResults() {
   }
 
   const isSingular = Math.abs(total) === 1;
+
   return (
     <div>
       <h2>Results for &ldquo;{query}&rdquo;</h2>
