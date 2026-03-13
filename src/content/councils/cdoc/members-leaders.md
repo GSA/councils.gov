@@ -15,11 +15,13 @@ leaders:
     agency: Federal Energy Regulatory Commission
     image: /assets/img/leaders/kirsten_dalboe.jpg
     imageAlt: Kirsten Dalboe
+    order: 2
   - name: Dominic Mancini
     title: Administrator, Office of Information and Regulatory Affairs (or designee)
     agency: Office of Management and Budget
     image: /assets/img/leaders/dominic_mancini.png
     imageAlt: Dominic Mancini
+    order: 1
   - name: Christopher Alvares
     title: CDO Council Vice Chair, Chief Data Officer
     agency: U.S. Department of Agriculture
