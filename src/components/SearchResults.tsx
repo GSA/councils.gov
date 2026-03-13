@@ -253,13 +253,14 @@ export default function SearchResults() {
     );
   }
 
+  const isSingular = Math.abs(total) === 1;
   return (
     <div>
       <h2>Results for &ldquo;{query}&rdquo;</h2>
       <p>
         {total > 0
-          ? `${(currentPage - 1) * RESULTS_PER_PAGE + 1}-${Math.min(currentPage * RESULTS_PER_PAGE, total)} of ${total} result${total === 1 ? '' : 's'} found`
-          : `${total} result${total === 1 ? '' : 's'} found.`}
+          ? `${(currentPage - 1) * RESULTS_PER_PAGE + 1}-${Math.min(currentPage * RESULTS_PER_PAGE, total)} of ${total} result${isSingular ? '' : 's'} found`
+          : `${total} result${isSingular ? '' : 's'} found.`}
       </p>
 
       {results.length > 0 && (
