@@ -58,7 +58,7 @@ export async function getStaticPaths() {
       );
     }
 
-    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    // ICSP one-off: always show News & Events (links to statspolicy.gov) and Resources (internal page)
     if (councilSlug === 'icsp') {
       hasNewsEvents = true;
       hasResources = true;
