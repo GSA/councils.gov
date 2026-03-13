@@ -1123,10 +1123,53 @@
       "title": "Removing Barriers to American Leadership in Artificial Intelligence",
       "description": "",
       "type": "Executive Order",
-      "focusArea": ["Use of AI", "Acquisition of AI"],
+      "focusArea": [
+        "Use of AI",
+        "Acquisition of AI"
+      ],
       "councilAcronym": "CAIOC",
       "date": "2025-01-01",
       "link": "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence"
+    },
+    {
+      "id": "PIC-1",
+      "title": "OMB Circular A-11",
+      "description": "",
+      "type": "Guidance",
+      "focusArea": "Performance",
+      "councilAcronym": "PIC",
+      "date": "2025-01-01",
+      "link": "https://www.whitehouse.gov/wp-content/uploads/2025/08/a11.pdf"
+    },
+    {
+      "id": "PIC-2",
+      "title": "Government Performance and Results Act of 1993 (GPRA)",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Performance",
+      "councilAcronym": "PIC",
+      "date": "1993-01-01",
+      "link": "https://www.congress.gov/103/statute/STATUTE-107/STATUTE-107-Pg285.pdf"
+    },
+    {
+      "id": "PIC-3",
+      "title": "GPRA Modernization Act of 2010",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Performance",
+      "councilAcronym": "PIC",
+      "date": "2011-01-01",
+      "link": "https://www.congress.gov/111/plaws/publ352/PLAW-111publ352.pdf"
+    },
+    {
+      "id": "PIC-4",
+      "title": "Federal Agency Performance Act of 2024",
+      "description": "",
+      "type": "Legislation",
+      "focusArea": "Performance",
+      "councilAcronym": "PIC",
+      "date": "2024-01-01",
+      "link": "https://www.congress.gov/118/plaws/publ190/PLAW-118publ190.pdf"
     }
   ]
 }
