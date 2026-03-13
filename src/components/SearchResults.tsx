@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
+import { sanitizeHref } from './filters';
 
 const RESULTS_PER_PAGE = 20;
 
@@ -263,19 +264,22 @@ export default function SearchResults() {
 
       {results.length > 0 && (
         <ul className="usa-collection">
-          {results.map((result, i) => (
+          {results.map((result, i) => {
+            const thumbSrc = sanitizeHref(result.thumbnail_url);
+            const linkHref = sanitizeHref(result.url) ?? '#';
+            return (
             <li key={`${result.url}-${i}`} className="usa-collection__item">
-              {result.thumbnail_url && (
+              {thumbSrc && (
                 <img
                   className="usa-collection__img"
-                  src={result.thumbnail_url}
+                  src={thumbSrc}
                   alt=""
                 />
               )}
               <div className="usa-collection__body">
                 <h4 className="usa-collection__heading">
                   <a
-                    href={result.url}
+                    href={linkHref}
                     className="usa-link font-serif"
                     onClick={() => trackClick(affiliate, accessKey, result.url, query, (currentPage - 1) * RESULTS_PER_PAGE + i + 1, MODULE_WEB)}
                   >
@@ -294,7 +298,8 @@ export default function SearchResults() {
                 )}
               </div>
             </li>
-          ))}
+          );
+          })}
         </ul>
       )}
 
