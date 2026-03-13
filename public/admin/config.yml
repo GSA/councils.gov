@@ -126,7 +126,7 @@ collections:
               widget: boolean,
               required: false,
               default: false,
-              hint: "When checked, leaders use the order you set: drag to reorder, or set Display order (1, 2, 3...) on each. When unchecked, they sort alphabetically.",
+              hint: "When checked, leaders use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
             }
           - label: Leaders
             name: leaders
@@ -135,15 +135,6 @@ collections:
             allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - {
-                  label: Display order,
-                  name: order,
-                  widget: number,
-                  required: false,
-                  value_type: int,
-                  min: 1,
-                  hint: "Lower numbers appear first. Leave blank when using alphabetical sort, or set 1, 2, 3... for custom order.",
-                }
               - {
                   label: Name,
                   name: name,
@@ -188,7 +179,7 @@ collections:
               widget: boolean,
               required: false,
               default: false,
-              hint: "When checked, members use the order you set: drag to reorder, or set Display order (1, 2, 3...) on each. When unchecked, they sort alphabetically.",
+              hint: "When checked, members use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
             }
           - label: Members
             name: members
@@ -197,15 +188,6 @@ collections:
             allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - {
-                  label: Display order,
-                  name: order,
-                  widget: number,
-                  required: false,
-                  value_type: int,
-                  min: 1,
-                  hint: "Lower numbers appear first. Leave blank when using alphabetical sort, or set 1, 2, 3... for custom order.",
-                }
               - {
                   label: Name,
                   name: name,
