@@ -46,7 +46,6 @@ The Evaluation Officer also oversees or conducts:
 * Implementation of OMB Memorandum M-20-12, Phase 4 Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Program Evaluation Standards and Practices
 * Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice. The policy will provide interested parties both internal and external to the agency with a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
 * Required coordination, development, and implementation of the plans required under section 312 of the Evidence Act:
-
   * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan
   * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review
   * Capacity Assessment, included as part of the Agency Strategic Plan

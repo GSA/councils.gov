@@ -105,7 +105,7 @@ const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortMembersAlphabe
 const sortedMembers = [...(frontmatter.members ?? [])].sort(sortMembersAlphabetically);
 
 // Build optimized image map for leaders and members (WebP)
-const leaderGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/leaders/*.{png,jpg,jpeg,webp}');
+const leaderGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/leaders/*.{png,jpg,jpeg,webp,svg}');
 const memberGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/members/*.{png,jpg,jpeg,gif,webp,svg}');
 const optimizedImageMap = new Map<string, { src: string; width: number; height: number }>();
 
