@@ -2,7 +2,7 @@
 title: ICSP Leadership & Members
 councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-intro: >
+intro: >-
   Started in 1989, the ICSP was originally created to improve communication
   among the heads of the principal statistical agencies, and later was charged
   with advising and assisting the U.S. Chief Statistician   and OMB. The
@@ -12,6 +12,13 @@ intro: >
   the U.S. Chief Statistician who serves as the Chair, the 24 designated
   Statistical Officials, and all heads of the OMB-recognized statistical
   agencies and units.
+
+
+  Key:
+
+  ^ Recognized Statistical Agency or Unit Head
+
+  *Statistical Official
 membersIntro: |
   ^ Recognized Statistical Agency or Unit Head
   *Statistical Official
