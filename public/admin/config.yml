@@ -28,6 +28,26 @@ editor:
   preview: false
 
 collections:
+  - name: homepage
+    label: Homepage
+    files:
+      - label: Homepage
+        name: homepage
+        file: src/content/pages/home.md
+        fields:
+          - {
+              label: Hero Heading,
+              name: heroHeading,
+              widget: string,
+              required: false,
+            }
+          - { label: Hero Text, name: heroText, widget: text, required: false }
+          - {
+              label: Intro Text,
+              name: introText,
+              widget: text,
+              required: false,
+            }
   - name: council_about_pages
     label: About
     files:
@@ -106,7 +126,13 @@ collections:
             required: false
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
+              - {
+                  label: Name,
+                  name: name,
+                  widget: string,
+                  required: false,
+                  hint: "Human name only. Leave blank for agency-only entries.",
+                }
               - {
                   label: Title,
                   name: title,
@@ -144,8 +170,20 @@ collections:
             required: false
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
-              - { label: Title, name: title, widget: string, required: false, hint: "Role or position (e.g. CIO/SAOP)" }
+              - {
+                  label: Name,
+                  name: name,
+                  widget: string,
+                  required: false,
+                  hint: "Human name only. Leave blank for agency-only entries.",
+                }
+              - {
+                  label: Title,
+                  name: title,
+                  widget: string,
+                  required: false,
+                  hint: "Role or position (e.g. CIO/SAOP)",
+                }
               - label: Agency
                 name: agency
                 widget: relation
@@ -204,12 +242,6 @@ collections:
             fields:
               - { label: ID, name: id, widget: hidden, required: false }
               - { label: Title, name: title, widget: string }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
               - label: Type
                 name: type
                 widget: relation
