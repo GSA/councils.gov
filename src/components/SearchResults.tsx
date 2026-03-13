@@ -169,9 +169,14 @@ export default function SearchResults() {
         setResults(data.web?.results ?? []);
         setTotal(data.web?.total ?? 0);
       })
-      .catch((err: Error) =>
-        setError(err?.message || 'Search failed. Please try again.')
-      )
+      .catch((err: Error) => {
+        const msg = err?.message || 'Search failed. Please try again.';
+        setError(
+          /access_key.*invalid|invalid.*access_key/i.test(msg)
+            ? `API ${msg}`
+            : msg
+        );
+      })
       .finally(() => setLoading(false));
   }, [affiliate, accessKey]);
 
