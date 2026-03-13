@@ -14,11 +14,11 @@ intro: >-
   agencies and units.
 
 
-  Key:
+  [Key: 
 
-  ^ Recognized Statistical Agency or Unit Head
+  ^ Recognized Statistical Agency or Unit Head 
 
-  *Statistical Official
+  *Statistical Official]
 membersIntro: |
   ^ Recognized Statistical Agency or Unit Head
   *Statistical Official
