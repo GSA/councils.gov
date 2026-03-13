@@ -71,13 +71,23 @@ collections:
               hint: "Council logo. Stored in src/assets for optimization.",
             }
           - { label: Logo Alt, name: logoAlt, widget: string, required: false }
-          - { label: Logo Class, name: logoClass, widget: string, required: false, hint: "CSS class (e.g. council-logo, cioc-logo-about)" }
+          - {
+              label: Logo Class,
+              name: logoClass,
+              widget: string,
+              required: false,
+              hint: "CSS class (e.g. council-logo, cioc-logo-about)",
+            }
           - {
               label: Logo Aspect,
               name: logoAspect,
               widget: select,
               required: false,
-              options: [{ label: "(default)", value: "" }, { label: "Square", value: "square" }],
+              options:
+                [
+                  { label: "(default)", value: "" },
+                  { label: "Square", value: "square" },
+                ],
               hint: "Use 'square' for compact logos (ICSP, CIOC).",
             }
           - {
@@ -321,7 +331,7 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: public/docs/
+                media_folder: /public/docs/
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
       - label: Focus Areas
