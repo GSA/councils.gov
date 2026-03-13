@@ -59,7 +59,7 @@ export async function getStaticPaths() {
       );
     }
 
-    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    // ICSP one-off: always show News & Events (links to statspolicy.gov) and Resources (internal page)
     if (councilSlug === 'icsp') {
       hasNewsEvents = true;
       hasResources = true;
@@ -100,9 +100,33 @@ const sortMembersAlphabetically = (
   a: { name?: string; agency?: string; department?: string },
   b: { name?: string; agency?: string; department?: string }
 ) => getMemberSortKey(a).localeCompare(getMemberSortKey(b), 'en-US', { sensitivity: 'base' });
-const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortMembersAlphabetically);
+
+const useCustomOrderForLeaders = frontmatter.useCustomOrderForLeaders === true;
+const useCustomOrderForMembers = frontmatter.useCustomOrderForMembers === true;
+
+const leadersList = frontmatter.leaders ?? [];
+const membersList = frontmatter.members ?? [];
+
+/** When custom order is on: use order field (1,2,3) if set; otherwise use list order. */
+const applyCustomOrder = <T extends { order?: number }>(items: T[]) => {
+  const hasExplicitOrder = items.some((item) => item.order != null && item.order > 0);
+  if (!hasExplicitOrder) return [...items]; // use list order as-is (no sort)
+  return [...items].sort((a, b) => {
+    const oa = a.order ?? 9999;
+    const ob = b.order ?? 9999;
+    return oa - ob;
+  });
+};
+
+const sortedLeaders =
+  useCustomOrderForLeaders
+    ? applyCustomOrder(leadersList)
+    : [...leadersList].sort(sortMembersAlphabetically);
 const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortMembersAlphabetically);
-const sortedMembers = [...(frontmatter.members ?? [])].sort(sortMembersAlphabetically);
+const sortedMembers =
+  useCustomOrderForMembers
+    ? applyCustomOrder(membersList)
+    : [...membersList].sort(sortMembersAlphabetically);
 
 // Build optimized image map for leaders and members (WebP)
 const leaderGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/leaders/*.{png,jpg,jpeg,webp,svg}');

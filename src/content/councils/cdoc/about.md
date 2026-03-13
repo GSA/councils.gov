@@ -39,11 +39,9 @@ The Council's vision is to improve government mission achievement and increase t
 
 The CDO Council shall meet regularly to establish government-wide best practices for the management, use, protection, dissemination, and generation of data; promote and encourage data sharing agreements between agencies; identify ways in which agencies can improve upon the production of evidence for use in policymaking; consult with the public and engage with private users of Government data and other stakeholders on how to improve access to data assets of the Federal Government; and identify and evaluate new technology solutions for improving the collection and use of data. The CDO Council shares responsibilities with other interagency councils that conduct and impact data-related activities, including those focused on information technology, statistics, information security, evaluation, privacy, freedom of information, and other government objectives. The CDO Council coordinates its activities with these councils and bodies to ensure that these activities are complementary and carried out efficiently and effectively.
 
-## CDO Council Goals and Objectives
+## CDO Council Goals
 
-![CDOC 2026 Goals and Objectives Main Ideas](/assets/img/CDOC_2026_goals.png)
-
-![]()
+![The Chief Data Officers Council's 2026 Goals and Objectives are to Accelerate Data-Driven Government, Optimize the Business of Data, and Enhance Customer Experience](/assets/img/CDOC_2026_goals.png)
 
 ## Working Groups and Committees
 

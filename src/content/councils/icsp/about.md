@@ -35,16 +35,11 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 
 The ICSP also charters subcommittees, as well as sponsoring leadership and mentorship programs. Some examples include:
 
-* [ICSP Charter](https://statspolicy.gov/assets/files/ICSP%20Charter.pdf)
 * [ICSP Subcommittee–The American Community Survey](https://statspolicy.gov/assets/files/ICSP%20Subcommittee%20on%20the%20American%20Community%20Survey%20Charter.pdf)
 * [ICSP Subcommittee–Federal Statistical Research Data Centers (FSRDC) Executive Committee](https://statspolicy.gov/assets/files/FSRDC%20Executive%20Committee%20Charter_%20June%202024.pdf)
 * [ICSP Subcommittee–National Secure Data Service (S-NSDS)](https://statspolicy.gov/assets/files/ICSP%20NSDS%20Subcommittee%20Charter_2-14-24.pdf)
 * [ICSP Subcommittee–Standard Application Process (SAP) Governance Board](https://statspolicy.gov/assets/files/SAP%20Governance%20Board%20Charter.pdf)
-
-
-
-
-
+* [ICSP Mentoring Program](https://federalist-a7fd1d32-cf85-41ac-abfd-2fa45dd0f84a.sites.pages.cloud.gov/docs/2025-icsp-mentoring-program-information-page.pdf)
 
 **For more information regarding the Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).** 
 

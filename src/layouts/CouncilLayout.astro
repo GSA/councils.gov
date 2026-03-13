@@ -49,10 +49,10 @@ if (!logoSrc && logoPath) {
 }
 
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
-// ICSP one-off: Resources and News & Events both link to statspolicy.gov
-const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+// ICSP one-off: News & Events links to statspolicy.gov; Resources uses internal page like other councils
+const resourcesHref = `${baseUrl}resources/${councilQuery}`;
 const newsEventsHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}news-events/${councilQuery}`;
-const resourcesExternal = councilSlug === 'icsp';
+const resourcesExternal = false;
 const newsEventsExternal = councilSlug === 'icsp';
 const allNavItems = [
   { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },

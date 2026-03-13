@@ -225,8 +225,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
                       </div>
                     </header>
                     <div className="usa-card__body">
-                      <p>{resource.description}</p>
-                      <div className="margin-top-2 content-tags">
+                      <div className="content-tags">
                         {toArray(resource.councilAcronym).map((acronym) => (
                           <span key={acronym} className="usa-tag">
                             {acronym}
