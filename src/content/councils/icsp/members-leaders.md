@@ -2,14 +2,16 @@
 title: ICSP Leadership & Members
 councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-intro: >+
-  The ICSP is comprised of 30 unique members, including the U.S. Chief
-  Statistician who serves as the Chair, the 24 designated Statistical Officials,
-  and all heads of the OMB-recognized statistical agencies and units. For a full
-  list and details, see StatsPolicy.gov. An ^ indicates a member is a Recognized
-  Statistical Agency or Unit Head. An * indicates a member is a Statistical
-  Official.
-
+intro: >
+  Started in 1989, the ICSP was originally created to improve communication
+  among the heads of the principal statistical agencies, and later was charged
+  with advising and assisting the U.S. Chief Statistician   and OMB. The
+  Evidence Act expanded membership to include the newly established Statistical
+  Officials across major cabinet agencies, 11 of which are also heads of
+  statistical agencies. The ICSP is comprised of 30 unique members, including
+  the U.S. Chief Statistician who serves as the Chair, the 24 designated
+  Statistical Officials, and all heads of the OMB-recognized statistical
+  agencies and units.
 membersIntro: ""
 leaders:
   - name: Stuart Levenbach
