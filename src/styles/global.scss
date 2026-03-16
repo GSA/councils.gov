@@ -1675,11 +1675,10 @@ footer.usa-footer .footer-grid-container,
     }
   }
 
-  /* LCP optimization: use <img> instead of CSS background for earlier discovery */
   &--hero-img {
     position: relative;
     overflow: hidden;
-    background-image: none; /* Prevent USWDS default hero image from loading/flashing */
+    background-image: none;
 
     .usa-hero__bg-img {
       position: absolute;
@@ -1689,11 +1688,12 @@ footer.usa-footer .footer-grid-container,
       object-fit: cover;
       z-index: 0;
       opacity: 0;
-      transition: opacity 0.35s ease-out;
-    }
+      animation: hero-img-fade 0.5s ease-out 0.15s forwards;
 
-    &.is-loaded .usa-hero__bg-img {
-      opacity: 1;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        opacity: 1;
+      }
     }
   }
 
@@ -1704,6 +1704,12 @@ footer.usa-footer .footer-grid-container,
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+}
+
+@keyframes hero-img-fade {
+  to {
+    opacity: 1;
   }
 }
 

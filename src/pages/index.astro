@@ -32,16 +32,6 @@ const withBase = (path: string | null | undefined) => {
 <BaseLayout title={title} currentPage="home">
   <Fragment slot="head">
     <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
-    <script is:inline>
-      (function() {
-        function markLoaded() {
-          var img = document.querySelector('.usa-hero--hero-img .usa-hero__bg-img');
-          if (img && img.complete) img.closest('.usa-hero')?.classList.add('is-loaded');
-        }
-        if (document.readyState !== 'loading') markLoaded();
-        else document.addEventListener('DOMContentLoaded', markLoaded);
-      })();
-    </script>
   </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
@@ -54,7 +44,6 @@ const withBase = (path: string | null | undefined) => {
         loading="eager"
         decoding="async"
         class="usa-hero__bg-img"
-        onload="this.closest('.usa-hero')?.classList.add('is-loaded')"
       />
       <div class="grid-container">
         <div class="usa-hero__callout">
