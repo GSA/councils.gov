@@ -347,8 +347,9 @@ members:
   - title: ""
     agency: U.S. Agency for Global Media (formerly Broadcasting Board of Generals)
     name: Shawn Powers
-  - title: Vacant
+  - title: ""
     agency: U.S. Agency for International Development
+    name: Vacant
   - title: ""
     agency: U.S. Nuclear Regulatory Commission
     url: https://www.nrc.gov/data/index
