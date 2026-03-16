@@ -283,7 +283,7 @@ members:
   - title: ""
     agency: Office of Navajo and Hopi Indian Relocation
     name: Diane Pratte
-  - title: Chief Data Officer
+  - title: ""
     agency: Office of Personnel Management
     url: https://www.opm.gov/data/
     name: Vacant
