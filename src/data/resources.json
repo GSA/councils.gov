@@ -260,9 +260,15 @@
       "id": "FRPC-2",
       "title": "Federal Property Management Reform Act of 2016 (P.L. 114-318)",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2016-01-01",
       "link": "https://www.congress.gov/114/plaws/publ318/PLAW-114publ318.pdf"
     },
@@ -270,9 +276,15 @@
       "id": "FRPC-3",
       "title": "Federal Assets Sale and Transfer Act of 2016 (P.L. 114-287)",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Utilization",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Utilization"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2016-01-01",
       "link": "https://www.congress.gov/114/plaws/publ287/PLAW-114publ287.pdf"
     },
@@ -280,9 +292,15 @@
       "id": "FRPC-4",
       "title": "Designation and Responsibilities of Agency Senior Real Property Officers (M-18-21)",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2018-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2018/07/M-18-21.pdf"
     },
@@ -290,9 +308,15 @@
       "id": "FRPC-5",
       "title": "Implementation of Agency-wide Real Property Capital Planning (M-20-03)",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2019-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2019/11/M-20-03.pdf"
     },
@@ -300,9 +324,15 @@
       "id": "FRPC-6",
       "title": "Secure Federal Leases from Espionage and Suspicious Entanglements Act (P.L. 116-276)",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.congress.gov/116/plaws/publ276/PLAW-116publ276.pdf"
     },
@@ -326,9 +356,15 @@
       "id": "FRPC-8",
       "title": "WRDA / USE IT Act",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Responsibilities",
-      "councilAcronym": "FRPC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Responsibilities"
+      ],
+      "councilAcronym": [
+        "FRPC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.congress.gov/bill/118th-congress/senate-bill/4367/text"
     },
@@ -1072,9 +1108,15 @@
       "id": "CAIOC-1",
       "title": "2024 AI Use Case Inventory",
       "description": "",
-      "type": "Executive Order",
-      "focusArea": "Use Cases",
-      "councilAcronym": "CAIOC",
+      "type": [
+        "Executive Order"
+      ],
+      "focusArea": [
+        "Use Cases"
+      ],
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2024-01-01",
       "link": "https://github.com/ombegov/2024-Federal-AI-Use-Case-Inventory"
     },
@@ -1082,9 +1124,15 @@
       "id": "CAIOC-2",
       "title": "M-25-21, Accelerating Federal Use of AI through Innovation, Governance, and Public Trust",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Use of AI",
-      "councilAcronym": "CAIOC",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Use of AI"
+      ],
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-21-Accelerating-Federal-Use-of-AI-through-Innovation-Governance-and-Public-Trust.pdf"
     },
@@ -1092,9 +1140,15 @@
       "id": "CAIOC-3",
       "title": "M-25-22 Driving Efficient Acquisition of Artificial Intelligence in Government",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Acquisition of AI",
-      "councilAcronym": "CAIOC",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Acquisition of AI"
+      ],
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/02/M-25-22-Driving-Efficient-Acquisition-of-Artificial-Intelligence-in-Government.pdf"
     },
@@ -1102,9 +1156,15 @@
       "id": "CAIOC-4",
       "title": "M-26-04 Increasing Public Trust in Artificial Intelligence Through Unbiased AI",
       "description": "",
-      "type": "Memorandum",
-      "focusArea": "Unbiased AI",
-      "councilAcronym": "CAIOC",
+      "type": [
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Unbiased AI"
+      ],
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2025-12-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/12/M-26-04-Increasing-Public-Trust-in-Artificial-Intelligence-Through-Unbiased-AI-Principles-1.pdf"
     },
@@ -1112,9 +1172,15 @@
       "id": "CAIOC-5",
       "title": "Promoting the Use of Trustworthy Artificial Intelligence in the Federal Government",
       "description": "",
-      "type": "Executive Order",
-      "focusArea": "Use of AI",
-      "councilAcronym": "CAIOC",
+      "type": [
+        "Executive Order"
+      ],
+      "focusArea": [
+        "Use of AI"
+      ],
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2020-01-01",
       "link": "https://www.federalregister.gov/documents/2020/12/08/2020-27065/promoting-the-use-of-trustworthy-artificial-intelligence-in-the-federal-government"
     },
@@ -1122,12 +1188,16 @@
       "id": "CAIOC-6",
       "title": "Removing Barriers to American Leadership in Artificial Intelligence",
       "description": "",
-      "type": "Executive Order",
+      "type": [
+        "Executive Order"
+      ],
       "focusArea": [
         "Use of AI",
         "Acquisition of AI"
       ],
-      "councilAcronym": "CAIOC",
+      "councilAcronym": [
+        "CAIOC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.federalregister.gov/documents/2025/01/31/2025-02172/removing-barriers-to-american-leadership-in-artificial-intelligence"
     },
@@ -1135,9 +1205,15 @@
       "id": "PIC-1",
       "title": "OMB Circular A-11",
       "description": "",
-      "type": "Guidance",
-      "focusArea": "Performance",
-      "councilAcronym": "PIC",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Performance"
+      ],
+      "councilAcronym": [
+        "PIC"
+      ],
       "date": "2025-01-01",
       "link": "https://www.whitehouse.gov/wp-content/uploads/2025/08/a11.pdf"
     },
@@ -1145,9 +1221,15 @@
       "id": "PIC-2",
       "title": "Government Performance and Results Act of 1993 (GPRA)",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Performance",
-      "councilAcronym": "PIC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Performance"
+      ],
+      "councilAcronym": [
+        "PIC"
+      ],
       "date": "1993-01-01",
       "link": "https://www.congress.gov/103/statute/STATUTE-107/STATUTE-107-Pg285.pdf"
     },
@@ -1155,9 +1237,15 @@
       "id": "PIC-3",
       "title": "GPRA Modernization Act of 2010",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Performance",
-      "councilAcronym": "PIC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Performance"
+      ],
+      "councilAcronym": [
+        "PIC"
+      ],
       "date": "2011-01-01",
       "link": "https://www.congress.gov/111/plaws/publ352/PLAW-111publ352.pdf"
     },
@@ -1165,9 +1253,15 @@
       "id": "PIC-4",
       "title": "Federal Agency Performance Act of 2024",
       "description": "",
-      "type": "Legislation",
-      "focusArea": "Performance",
-      "councilAcronym": "PIC",
+      "type": [
+        "Legislation"
+      ],
+      "focusArea": [
+        "Performance"
+      ],
+      "councilAcronym": [
+        "PIC"
+      ],
       "date": "2024-01-01",
       "link": "https://www.congress.gov/118/plaws/publ190/PLAW-118publ190.pdf"
     },
