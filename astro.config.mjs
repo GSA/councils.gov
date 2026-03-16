@@ -21,7 +21,8 @@ try {
   for (const slug of slugs) {
     councilRedirects[`/councils/${slug}/about/`] = `/${slug}/`;
     councilRedirects[`/councils/${slug}/`] = `/${slug}/`;
-    councilRedirects[`/councils/${slug}/members-leaders/`] = `/${slug}/members-leaders/`;
+    councilRedirects[`/councils/${slug}/members-leaders/`] =
+      `/${slug}/members-leaders/`;
   }
 } catch {
   // Ignore if content dir doesn't exist (e.g. during config validation)
@@ -29,7 +30,7 @@ try {
 
 export default defineConfig({
   outDir: "_site",
-  site: "https://councils.gov",
+  site: "https://www.councils.gov",
   base,
   trailingSlash: "always",
   redirects: councilRedirects,
