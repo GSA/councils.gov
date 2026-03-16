@@ -47,7 +47,7 @@ leaders:
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
   - name: Richard Allen
-    title: Large Agency Committee, Chair
+    title: Large Agency Committee Chair
     agency: Environmental Protection Agency
   - name: Warren Randolph
     title: Small Agency Committee, Chair, National Transportation Safety Board
