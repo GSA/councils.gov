@@ -3,8 +3,9 @@ title: PIC Leadership & Members
 councilName: Performance Improvement Council
 councilSlug: pic
 leaders:
-  - name: Lauren
+  - name: ""
     agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
