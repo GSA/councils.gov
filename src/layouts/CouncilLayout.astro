@@ -45,7 +45,7 @@ if (!hasNewsEvents) navItems = navItems.filter((item) => item.id !== "news-event
 if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources");
 ---
 
-<BaseLayout title={title || `${councilName} - Councils.gov`} currentPage={currentPage}>
+<BaseLayout title={title || `${councilName} - Councils.gov`} image={logoPath ? withBase(logoPath) : undefined} currentPage={currentPage}>
 
   <main id="main-content">
     <nav class="council-breadcrumb" aria-label="Breadcrumb">

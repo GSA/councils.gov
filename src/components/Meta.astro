@@ -2,12 +2,15 @@
 interface Props {
   title?: string;
   description?: string;
+  /** Optional og:image path or URL. Use article thumbnail, council logo, or hero. Falls back to og-image.png. */
+  image?: string;
   noIndex?: boolean;
 }
 
 const { 
   title = "Federal Executive Councils", 
   description = "The Federal Executive Councils bring together policy makers and practitioners to provide input on policy, address challenges collaboratively, and share best practices.",
+  image,
   noIndex = false 
 } = Astro.props;
 
@@ -15,7 +18,13 @@ const siteTitle = "Federal Executive Councils";
 const fullTitle = title !== siteTitle ? `${title} | ${siteTitle}` : siteTitle;
 const baseUrl = import.meta.env.BASE_URL;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const imageUrl = Astro.site ? `${Astro.site}assets/img/logo-omb.png` : `${baseUrl}assets/img/logo-omb.png`;
+const siteOrigin = String(Astro.site || '').replace(/\/$/, '');
+const basePath = baseUrl === '/' ? '' : baseUrl.replace(/\/$/, '');
+const defaultImage = siteOrigin ? `${siteOrigin}${basePath}/assets/img/og-image.png` : `${baseUrl}assets/img/og-image.png`;
+// Custom image: use as-is if full URL; otherwise treat as path (callers may use withBase so path can include base)
+const imageUrl = image
+  ? (image.startsWith('http') ? image : `${siteOrigin}${image.startsWith('/') ? image : `/${image}`}`)
+  : defaultImage;
 ---
 
 <title>{fullTitle}</title>

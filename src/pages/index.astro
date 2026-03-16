@@ -29,7 +29,7 @@ const withBase = (path: string | null | undefined) => {
 };
 ---
 
-<BaseLayout title={title} currentPage="home">
+<BaseLayout title={title} image={optimizedHero.src} currentPage="home">
   <Fragment slot="head">
     <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
   </Fragment>
