@@ -1675,11 +1675,10 @@ footer.usa-footer .footer-grid-container,
     }
   }
 
-  /* LCP optimization: use <img> instead of CSS background for earlier discovery */
   &--hero-img {
     position: relative;
     overflow: hidden;
-    background-image: none; /* Prevent USWDS default hero image from loading/flashing */
+    background-image: none;
 
     .usa-hero__bg-img {
       position: absolute;
