@@ -10,11 +10,6 @@ membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
   evidence-based decision-making.
 useCustomOrderForLeaders: true
 leaders:
-  - name: Dominic Mancini
-    title: Administrator, Office of Information and Regulatory Affairs (or designee)
-    agency: Office of Management and Budget
-    image: /assets/img/leaders/dominic_mancini.png
-    imageAlt: Dominic Mancini
   - name: Kirsten Dalboe
     title: CDO Council Chair, Chief Data Officer
     agency: Federal Energy Regulatory Commission
@@ -25,33 +20,38 @@ leaders:
     agency: U.S. Department of Agriculture
     image: /assets/img/leaders/christopher_alvares.png
     imageAlt: Christopher Alvares
+  - name: Dominic Mancini
+    title: Administrator, Office of Information and Regulatory Affairs (or designee)
+    agency: Office of Management and Budget
+    image: /assets/img/leaders/dominic_mancini.png
+    imageAlt: Dominic Mancini
   - name: Vacant
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
-  - name: Richard Allen
-    title: Large Agency Committee, Chair
-  - name: Brandon Brown
-    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Labor
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
     image: /assets/img/leaders/austin_gerig.png
     imageAlt: Austin Gerig
-  - name: Michael Hauk
-    title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: National Science Foundation
-  - name: Kristen Honey
+  - name: Brandon Brown
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Health and Human Services
-  - name: Warren Randolph
-    title: Small Agency Committee, Chair
+    agency: Department of Labor
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
     image: /assets/img/leaders/jiashen_you.png
     imageAlt: Jiashen You
+  - name: Kristen Honey
+    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
+    agency: Department of Health and Human Services
+  - name: Michael Hauck
+    title: Business of Data Working Group Co-Chair, Chief Data Officer
+    agency: National Science Foundation
+  - name: Richard Allen
+    title: Large Agency Committee, Chair
+  - name: Warren Randolph
+    title: Small Agency Committee, Chair
 members:
   - title: ""
     agency: Department of Energy
