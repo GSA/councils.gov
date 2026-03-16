@@ -50,7 +50,7 @@ leaders:
     title: Large Agency Committee Chair
     agency: Environmental Protection Agency
   - name: Warren Randolph
-    title: Small Agency Committee, Chair, National Transportation Safety Board
+    title: Small Agency Committee Chair, National Transportation Safety Board
 useCustomOrderForMembers: true
 councilSlug: cdoc
 title: CDOC Leadership & Members
