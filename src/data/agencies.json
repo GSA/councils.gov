@@ -34,9 +34,6 @@
       "value": "Central Intelligence Agency"
     },
     {
-      "value": "CFTC"
-    },
-    {
       "value": "Commission of Fine Arts"
     },
     {
@@ -53,12 +50,6 @@
     },
     {
       "value": "Court Services and Offender Supervision Agency"
-    },
-    {
-      "value": "CPSC"
-    },
-    {
-      "value": "CSOSA"
     },
     {
       "value": "Department of Agriculture"
@@ -118,22 +109,10 @@
       "value": "Development Finance Corporation"
     },
     {
-      "value": "DFC"
-    },
-    {
-      "value": "EEOC"
-    },
-    {
       "value": "Environmental Protection Agency"
     },
     {
-      "value": "EPA"
-    },
-    {
       "value": "Equal Employment Opportunity Commission"
-    },
-    {
-      "value": "EXIM"
     },
     {
       "value": "Export Import Bank"
@@ -143,15 +122,6 @@
     },
     {
       "value": "Farm Credit Administration"
-    },
-    {
-      "value": "FCA"
-    },
-    {
-      "value": "FCC"
-    },
-    {
-      "value": "FDIC"
     },
     {
       "value": "Federal Communications Commission"
@@ -193,55 +163,16 @@
       "value": "Federal Trade Commission"
     },
     {
-      "value": "FERC"
-    },
-    {
-      "value": "FHFA"
-    },
-    {
-      "value": "FLRA"
-    },
-    {
-      "value": "FMC"
-    },
-    {
-      "value": "FMCS"
-    },
-    {
-      "value": "FMSHRC"
-    },
-    {
-      "value": "FRTIB"
-    },
-    {
-      "value": "FTC"
-    },
-    {
       "value": "General Services Administration"
     },
     {
-      "value": "GSA"
-    },
-    {
       "value": "Gulf Coast Ecosystem Restoration Council"
-    },
-    {
-      "value": "HHS"
-    },
-    {
-      "value": "HUD"
     },
     {
       "value": "Inter-American Foundation"
     },
     {
       "value": "International Trade Commission"
-    },
-    {
-      "value": "ITC"
-    },
-    {
-      "value": "MCC"
     },
     {
       "value": "Merit Systems Protection Board"
@@ -251,12 +182,6 @@
     },
     {
       "value": "Morris K. Udall Foundation"
-    },
-    {
-      "value": "MSPB"
-    },
-    {
-      "value": "NASA"
     },
     {
       "value": "National Aeronautics and Space Administration"
@@ -289,46 +214,13 @@
       "value": "National Transportation Safety Board"
     },
     {
-      "value": "NCPC"
-    },
-    {
-      "value": "NCUA"
-    },
-    {
-      "value": "NEA"
-    },
-    {
-      "value": "NEH"
-    },
-    {
-      "value": "NMB"
-    },
-    {
-      "value": "NRC"
-    },
-    {
-      "value": "NSF"
-    },
-    {
-      "value": "NTSB"
-    },
-    {
       "value": "Nuclear Regulatory Commission"
     },
     {
       "value": "Nuclear Waste Technical Review Board"
     },
     {
-      "value": "NWTRB"
-    },
-    {
-      "value": "OCC"
-    },
-    {
       "value": "Occupational Safety and Health Review Commission"
-    },
-    {
-      "value": "ODNI"
     },
     {
       "value": "Office of Federal Financial Management"
@@ -358,24 +250,6 @@
       "value": "Office of the Director of National Intelligence"
     },
     {
-      "value": "OGE"
-    },
-    {
-      "value": "OPM"
-    },
-    {
-      "value": "OSC"
-    },
-    {
-      "value": "OSHRC"
-    },
-    {
-      "value": "PBGC"
-    },
-    {
-      "value": "PDSDC"
-    },
-    {
       "value": "Peace Corps"
     },
     {
@@ -385,9 +259,6 @@
       "value": "Postal Regulatory Commission"
     },
     {
-      "value": "PRC"
-    },
-    {
       "value": "Presidio Trust"
     },
     {
@@ -395,15 +266,6 @@
     },
     {
       "value": "Railroad Retirement Board"
-    },
-    {
-      "value": "RRB"
-    },
-    {
-      "value": "SBA"
-    },
-    {
-      "value": "SEC"
     },
     {
       "value": "Securities and Exchange Commission"
@@ -424,15 +286,6 @@
       "value": "Social Security Administration"
     },
     {
-      "value": "SSA"
-    },
-    {
-      "value": "SSS"
-    },
-    {
-      "value": "STB"
-    },
-    {
       "value": "Surface Transportation Board"
     },
     {
@@ -440,9 +293,6 @@
     },
     {
       "value": "The Executive Office of the President"
-    },
-    {
-      "value": "TVA"
     },
     {
       "value": "U.S. Agency for Global Media"
@@ -470,21 +320,6 @@
     },
     {
       "value": "United States Access Board"
-    },
-    {
-      "value": "USAGM"
-    },
-    {
-      "value": "USAID"
-    },
-    {
-      "value": "USCCR"
-    },
-    {
-      "value": "USTDA"
-    },
-    {
-      "value": "VA"
     }
   ]
 }
