@@ -16,10 +16,13 @@ leaders:
     agency: Department of Health and Human Services
     image: /assets/img/leaders/department_of_health_and_human_services_seal_white.png
     imageAlt: HHS Logo
-useCustomOrderForMembers: false
+useCustomOrderForMembers: true
 councilSlug: coffa
 title: COFFA Leadership & Members
 members:
+  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination
+      Council
+    url: https://asc.gov/?state_id=69&state=WV
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer/federal-financial-assistance-policy
   - agency: Department of Commerce
@@ -64,7 +67,4 @@ members:
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
   - agency: Social Security Administration
     url: https://www.ssa.gov/oag/grants/
-  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination
-      Council
-    url: https://asc.gov/?state_id=69&state=WV
 ---
