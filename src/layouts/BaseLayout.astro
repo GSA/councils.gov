@@ -31,6 +31,7 @@ const affiliate = import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'councils-gov';
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
     <Meta title={title} description={description} image={image} noIndex={noIndex} />
+    <slot name="head" />
     <style>
       html.no-js .usa-nav__submenu { display: none; }
     </style>

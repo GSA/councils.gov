@@ -32,6 +32,11 @@ const withBase = (path: string | null | undefined) => {
 <BaseLayout title={title} image={optimizedHero.src} currentPage="home">
   <Fragment slot="head">
     <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
+    <script is:inline>
+      (function () {
+        console.log('Everything you need to run your compliant government website: http://www.cloud.gov/pages/');
+      })();
+    </script>
   </Fragment>
   <main id="main-content" class="home-page">
     <section class="usa-hero usa-hero--hero-img" aria-label="Introduction">
@@ -102,4 +107,3 @@ const withBase = (path: string | null | undefined) => {
     </section>
   </main>
 </BaseLayout>
-
