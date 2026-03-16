@@ -29,7 +29,7 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 
 ## ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives
 
-[ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf)
+![The ICSP's Strategic Goals and Objectives propel the US Federal Statistical System toward our vision of operating as a seamless system - to become more efficient and effective in providing useful, objective, high quality statistical data and meaningfully and safely expanding access to these data for evidence building purposes. Item 1 is to strengthen FSS' roles, responsibilities, and capacity to ensure data quality and accessibility; Item 2 is to create shared infrastructure, tools, and services to broaden safe access to data; Item 3 is to build communications and community outreach to strengthen the value of Federal data for diverse data provider and user needs.](/assets/img/icsp-strategic-goals-objectives-graphic-clean.jpg "ICSP FY25 & 26 Strategic Goals and Objectives")
 
 For the full ICSP Strategic Goals and Objectives, please click [here](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf). 
 
