@@ -129,6 +129,10 @@ collections:
         name: icsp_about
         file: src/content/councils/icsp/about.md
         fields: *about_fields
+      - label: PIC About
+        name: pic_about
+        file: src/content/councils/pic/about.md
+        fields: *about_fields
   - name: council_members_leaders_pages
     label: Members & Leaders
     files:
@@ -273,6 +277,10 @@ collections:
       - label: ICSP Members & Leaders
         name: icsp_members_leaders
         file: src/content/councils/icsp/members-leaders.md
+        fields: *members_leaders_fields
+      - label: PIC Members & Leaders
+        name: pic_members_leaders
+        file: src/content/councils/pic/members-leaders.md
         fields: *members_leaders_fields
   - name: resources
     label: Resources
