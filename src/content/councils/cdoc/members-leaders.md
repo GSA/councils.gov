@@ -70,7 +70,7 @@ members:
     url: https://www.federalreserve.gov/data.htm
     name: Katherine Tom
   - title: ""
-    agency: Bureau of Consumer Financial Protection
+    agency: Consumer Financial Protection Bureau
     url: https://www.consumerfinance.gov/data/
     name: Lance Harris
   - title: ""
