@@ -60,7 +60,7 @@ members:
     url: https://www.abmc.gov/about-us/reports-policy/data/
     name: Jennifer Li
   - title: ""
-    agency: AmeriCorps
+    agency: ""
     name: Andrea Gibbons
   - title: ""
     agency: Barry Goldwater Scholarship and Excellence in Education Foundation
@@ -70,7 +70,7 @@ members:
     url: https://www.federalreserve.gov/data.htm
     name: Katherine Tom
   - title: ""
-    agency: Consumer Financial Protection Bureau
+    agency: Bureau of Consumer Financial Protection
     url: https://www.consumerfinance.gov/data/
     name: Lance Harris
   - title: ""
@@ -121,7 +121,7 @@ members:
   - title: ""
     agency: Department of Housing and Urban Development
     url: https://data.hud.gov/
-    name: Ivo Djoubrailov
+    name: Debajyoti (Dev) Ray
   - title: ""
     agency: Department of Justice
     url: https://www.justice.gov/data
