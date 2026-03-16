@@ -272,17 +272,9 @@ export default function SearchResults() {
       {results.length > 0 && (
         <ul className="usa-collection">
           {results.map((result, i) => {
-            const thumbSrc = sanitizeHref(result.thumbnail_url);
             const linkHref = sanitizeHref(result.url) ?? '#';
             return (
             <li key={`${result.url}-${i}`} className="usa-collection__item">
-              {thumbSrc && (
-                <img
-                  className="usa-collection__img"
-                  src={thumbSrc}
-                  alt=""
-                />
-              )}
               <div className="usa-collection__body">
                 <h4 className="usa-collection__heading">
                   <a
