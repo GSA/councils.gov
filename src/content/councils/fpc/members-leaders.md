@@ -2,7 +2,12 @@
 title: FPC Leadership & Members
 councilName: Federal Privacy Council
 councilSlug: fpc
-intro: The Federal Privacy Council brings together Senior Agency Officials for Privacy (SAOPs) and privacy professionals from across the Federal Government to strengthen privacy practices and protect personal information.
+intro: The Federal Privacy Council brings together Senior Agency Officials for
+  Privacy (SAOPs) and privacy professionals from across the Federal Government
+  to strengthen privacy practices and protect personal information.
+membersIntro: The FPC includes Senior Agency Officials for Privacy and privacy
+  professionals from Federal agencies across the government.
+useCustomOrderForLeaders: true
 leaders:
   - name: Kevin Herms
     title: FPC Chair
@@ -115,7 +120,7 @@ members:
   - name: Zach Whitman
     title: Chief Data Scientist
     agency: General Services Administration
-    url:  https://www.gsa.gov/reference/gsa-privacy-program
+    url: https://www.gsa.gov/reference/gsa-privacy-program
   - name: Jeffrey Seaton
     title: SAOP/CIO
     agency: National Aeronautics and Space Administration
@@ -142,5 +147,4 @@ members:
   - name: Ruth Buckley
     title: SAOP
     agency: U.S. Agency for International Development
-membersIntro: The FPC includes Senior Agency Officials for Privacy and privacy professionals from Federal agencies across the government.
 ---

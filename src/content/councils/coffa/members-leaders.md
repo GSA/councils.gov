@@ -1,11 +1,10 @@
 ---
-title: COFFA Leadership & Members
 councilName: Council on Federal Financial Assistance
-councilSlug: coffa
 intro: ""
 membersIntro: The COFFA includes representatives from major Federal agencies,
   each bringing expertise and perspective to improve government financial
   management.
+useCustomOrderForLeaders: true
 leaders:
   - name: Margaret Pearson
     title: Deputy Controller, Office of Federal Financial Management
@@ -17,6 +16,9 @@ leaders:
     agency: Department of Health and Human Services
     image: /assets/img/leaders/department_of_health_and_human_services_seal_white.png
     imageAlt: HHS Logo
+useCustomOrderForMembers: false
+councilSlug: coffa
+title: COFFA Leadership & Members
 members:
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer/federal-financial-assistance-policy

@@ -1,36 +1,36 @@
 ---
-title: About CIOC
 councilName: Chief Information Officers Council
-councilSlug: cioc
 logoPath: /assets/img/councils/cioc_logo.png
 logoAlt: CIOC Logo
 logoClass: cioc-logo-about
 logoAspect: square
-shortDescription: The Chief Information Officers Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal technology information resources.
+shortDescription: The Chief Information Officers Council is the principal
+  interagency forum for improving agency practices related to the design,
+  acquisition, development, modernization, use, sharing, and performance of
+  Federal technology information resources.
+councilSlug: cioc
+title: About CIOC
 ---
-
 ## Our Purpose
 
 The Chief Information Officers (CIO) Council is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of Federal information resources.
 
 The U.S. CIO and the CIO Council establish standards against which the success of all agency programs can be measured, including:
 
-- Monitoring the year-to-year performance improvement of Federal Government programs
-- Attracting and retaining a high-performance IT workforce
-- Optimizing Federal Government information resources and investments
-- Aligning IT solutions with Federal enterprise business processes
-- Adopting and sharing best IT management practices
-- Managing risk and ensuring privacy and security
-
-You can learn about the policies and priorities we’re currently focused on by browsing our [Policy and Priority Catalog](https://www.cio.gov/policies-and-priorities/).
+* Monitoring the year-to-year performance improvement of Federal Government programs
+* Attracting and retaining a high-performance IT workforce
+* Optimizing Federal Government information resources and investments
+* Aligning IT solutions with Federal enterprise business processes
+* Adopting and sharing best IT management practices
+* Managing risk and ensuring privacy and security
 
 ## Our Statutory Requirements
 
-- Developing recommendations for the Director of OMB on government information resources management policies and requirements;
-- Sharing experiences, ideas, best practices, and innovative approaches related to information resources management;
-- Assisting the Federal CIO in the identification, development, and coordination of multi-agency projects and other innovative initiatives to improve Government performance through the use of information technology;
-- Promoting the development and use of common performances for agency information resources management; and
-- Working with the Office of Personnel Management to assess and address the hiring, training, classification, and professional development of the [Federal IT workforce](https://www.cio.gov/government-technology-jobs/).
+* Developing recommendations for the Director of OMB on government information resources management policies and requirements;
+* Sharing experiences, ideas, best practices, and innovative approaches related to information resources management;
+* Assisting the Federal CIO in the identification, development, and coordination of multi-agency projects and other innovative initiatives to improve Government performance through the use of information technology;
+* Promoting the development and use of common performances for agency information resources management; and
+* Working with the Office of Personnel Management to assess and address the hiring, training, classification, and professional development of the Federal IT workforce.
 
 ## Our Vision
 

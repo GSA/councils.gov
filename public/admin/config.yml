@@ -18,7 +18,7 @@ backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: src/assets/img/
+media_folder: public/assets/img
 public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
@@ -66,9 +66,9 @@ collections:
               name: logoPath,
               widget: image,
               required: false,
-              media_folder: src/assets/img/councils/,
+              media_folder: /public/assets/img/councils,
               public_folder: /assets/img/councils,
-              hint: "Council logo. Stored in src/assets for optimization.",
+              hint: "Council logo.",
             }
           - { label: Logo Alt, name: logoAlt, widget: string, required: false }
           - {
@@ -128,6 +128,10 @@ collections:
       - label: ICSP About
         name: icsp_about
         file: src/content/councils/icsp/about.md
+        fields: *about_fields
+      - label: PIC About
+        name: pic_about
+        file: src/content/councils/pic/about.md
         fields: *about_fields
   - name: council_members_leaders_pages
     label: Members & Leaders
@@ -193,7 +197,7 @@ collections:
                   name: image,
                   widget: image,
                   required: false,
-                  media_folder: src/assets/img/leaders/,
+                  media_folder: /public/assets/img/leaders,
                   public_folder: /assets/img/leaders,
                 }
               - {
@@ -274,6 +278,10 @@ collections:
         name: icsp_members_leaders
         file: src/content/councils/icsp/members-leaders.md
         fields: *members_leaders_fields
+      - label: PIC Members & Leaders
+        name: pic_members_leaders
+        file: src/content/councils/pic/members-leaders.md
+        fields: *members_leaders_fields
   - name: resources
     label: Resources
     files:
@@ -331,7 +339,7 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: /public/docs/
+                media_folder: /public/docs
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
       - label: Focus Areas
