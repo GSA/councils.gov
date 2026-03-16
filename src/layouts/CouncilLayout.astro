@@ -19,6 +19,7 @@ interface Props {
   hasResources?: boolean;
 }
 
+import { getImage } from 'astro:assets';
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
 
@@ -27,11 +28,31 @@ const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
 
+// Optimize council logo for WebP when available in src/assets
+let logoSrc: string | null = null;
+let logoWidth = logoAspect === 'square' ? 250 : 300;
+let logoHeight = logoAspect === 'square' ? 250 : 200;
+if (logoPath && !logoPath.startsWith('http')) {
+  const logoGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../assets/img/councils/*.{png,jpg,webp}');
+  const filename = logoPath.split('/').pop() || '';
+  const globKey = Object.keys(logoGlob).find((k) => k.endsWith(filename));
+  if (globKey) {
+    const mod = await logoGlob[globKey]();
+    const optimized = await getImage({ src: mod.default, width: logoWidth, height: logoHeight });
+    logoSrc = baseUrl && baseUrl !== '/' && !optimized.src.startsWith(baseUrl.replace(/\/$/, ''))
+      ? `${baseUrl.replace(/\/$/, '')}${optimized.src}`
+      : optimized.src;
+  }
+}
+if (!logoSrc && logoPath) {
+  logoSrc = logoPath.startsWith('http') ? logoPath : withBase(logoPath);
+}
+
 const councilQuery = councilAcronym ? `?council=${encodeURIComponent(councilAcronym)}` : '';
-// ICSP one-off: Resources and News & Events both link to statspolicy.gov
-const resourcesHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}resources/${councilQuery}`;
+// ICSP one-off: News & Events links to statspolicy.gov; Resources uses internal page like other councils
+const resourcesHref = `${baseUrl}resources/${councilQuery}`;
 const newsEventsHref = councilSlug === 'icsp' ? 'https://statspolicy.gov/resources/' : `${baseUrl}news-events/${councilQuery}`;
-const resourcesExternal = councilSlug === 'icsp';
+const resourcesExternal = false;
 const newsEventsExternal = councilSlug === 'icsp';
 const allNavItems = [
   { href: `${baseUrl}${councilSlug}/`, label: "About", id: "about" },
@@ -63,10 +84,18 @@ if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources")
     <section class="council-hero usa-section padding-y-3" style={`--council-waves-url: url(${wavesUrl})`}>
       <div class="grid-container">
         <div class={`grid-row grid-gap sidebar-layout${!logoPath ? ' council-hero__row--no-logo' : ''}`}>
-          {logoPath && (
+          {logoSrc && (
             <div class="sidebar-layout__sidebar">
               <div class={`council-hero__logo-container${logoAspect === 'square' ? ' council-hero__logo-container--square' : ''}`}>
-                <img src={withBase(logoPath)} alt={logoAlt || `${councilName} Logo`} class={logoClass || "council-hero__logo"} />
+                <img
+                  src={logoSrc}
+                  alt={logoAlt || `${councilName} Logo`}
+                  class={logoClass || "council-hero__logo"}
+                  width={logoWidth}
+                  height={logoHeight}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
           )}

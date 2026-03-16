@@ -1,13 +1,31 @@
 {
   "options": [
-    { "value": "Executive Order" },
-    { "value": "Guidance" },
-    { "value": "Hyperlink" },
-    { "value": "Legislation" },
-    { "value": "Memorandum" },
-    { "value": "PDF Files" },
-    { "value": "Playbook" },
-    { "value": "Quick Reference" },
-    { "value": "Website" }
+    {
+      "value": "Executive Order"
+    },
+    {
+      "value": "Guidance"
+    },
+    {
+      "value": "Hyperlink"
+    },
+    {
+      "value": "Legislation"
+    },
+    {
+      "value": "Memorandum"
+    },
+    {
+      "value": "PDF File"
+    },
+    {
+      "value": "Playbook"
+    },
+    {
+      "value": "Quick Reference"
+    },
+    {
+      "value": "Website"
+    }
   ]
 }

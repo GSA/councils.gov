@@ -1,14 +1,37 @@
 {
   "options": [
-    { "value": "Data" },
-    { "value": "Data Quality" },
-    { "value": "Evaluation" },
-    { "value": "Federal Financial Assistance" },
-    { "value": "Federal Privacy Programs" },
-    { "value": "Information Technology" },
-    { "value": "Resources" },
-    { "value": "Responsibilities" },
-    { "value": "Uniform Guidance 2 CFR 200" },
-    { "value": "Utilization" }
+    {
+      "value": "Data"
+    },
+    {
+      "value": "Data Quality"
+    },
+    {
+      "value": "Evaluation"
+    },
+    {
+      "value": "Federal Financial Assistance"
+    },
+    {
+      "value": "Federal Privacy Programs"
+    },
+    {
+      "value": "Information Technology"
+    },
+    {
+      "value": "Resources"
+    },
+    {
+      "value": "Responsibilities"
+    },
+    {
+      "value": "Statistical Policy"
+    },
+    {
+      "value": "Uniform Guidance 2 CFR 200"
+    },
+    {
+      "value": "Utilization"
+    }
   ]
 }

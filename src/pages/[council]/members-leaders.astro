@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import CouncilLayout from '../../layouts/CouncilLayout.astro';
 import matter from 'gray-matter';
 import { readFileSync } from 'fs';
@@ -58,7 +59,7 @@ export async function getStaticPaths() {
       );
     }
 
-    // ICSP one-off: always show News & Events and Resources (they link to statspolicy.gov)
+    // ICSP one-off: always show News & Events (links to statspolicy.gov) and Resources (internal page)
     if (councilSlug === 'icsp') {
       hasNewsEvents = true;
       hasResources = true;
@@ -99,9 +100,75 @@ const sortMembersAlphabetically = (
   a: { name?: string; agency?: string; department?: string },
   b: { name?: string; agency?: string; department?: string }
 ) => getMemberSortKey(a).localeCompare(getMemberSortKey(b), 'en-US', { sensitivity: 'base' });
-const sortedLeaders = [...(frontmatter.leaders ?? [])].sort(sortMembersAlphabetically);
+
+const useCustomOrderForLeaders = frontmatter.useCustomOrderForLeaders === true;
+const useCustomOrderForMembers = frontmatter.useCustomOrderForMembers === true;
+
+const leadersList = frontmatter.leaders ?? [];
+const membersList = frontmatter.members ?? [];
+
+/** When custom order is on: use order field (1,2,3) if set; otherwise use list order. */
+const applyCustomOrder = <T extends { order?: number }>(items: T[]) => {
+  const hasExplicitOrder = items.some((item) => item.order != null && item.order > 0);
+  if (!hasExplicitOrder) return [...items]; // use list order as-is (no sort)
+  return [...items].sort((a, b) => {
+    const oa = a.order ?? 9999;
+    const ob = b.order ?? 9999;
+    return oa - ob;
+  });
+};
+
+const sortedLeaders =
+  useCustomOrderForLeaders
+    ? applyCustomOrder(leadersList)
+    : [...leadersList].sort(sortMembersAlphabetically);
 const sortedCoChairs = [...(frontmatter.coChairs ?? [])].sort(sortMembersAlphabetically);
-const sortedMembers = [...(frontmatter.members ?? [])].sort(sortMembersAlphabetically);
+const sortedMembers =
+  useCustomOrderForMembers
+    ? applyCustomOrder(membersList)
+    : [...membersList].sort(sortMembersAlphabetically);
+
+// Build optimized image map for leaders and members (WebP)
+const leaderGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/leaders/*.{png,jpg,jpeg,webp,svg}');
+const memberGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../../assets/img/members/*.{png,jpg,jpeg,gif,webp,svg}');
+const optimizedImageMap = new Map<string, { src: string; width: number; height: number }>();
+
+async function getOptimizedImage(path: string): Promise<{ src: string; width: number; height: number } | null> {
+  const cached = optimizedImageMap.get(path);
+  if (cached) return cached;
+  const filename = path.split('/').pop() || '';
+  const isLeader = path.includes('/leaders/');
+  const glob = isLeader ? leaderGlob : memberGlob;
+  const globKey = Object.keys(glob).find((k) => k.endsWith(filename));
+  if (!globKey) return null;
+  const mod = await glob[globKey]();
+  const optimized = await getImage({ src: mod.default, width: 200, height: 200 });
+  const src = baseUrl && baseUrl !== '/' && !optimized.src.startsWith(baseUrl.replace(/\/$/, ''))
+    ? `${baseUrl.replace(/\/$/, '')}${optimized.src}`
+    : optimized.src;
+  const result = { src, width: 200, height: 200 };
+  optimizedImageMap.set(path, result);
+  return result;
+}
+
+const allImagePaths = new Set<string>();
+[...sortedLeaders, ...sortedCoChairs].forEach((l: any) => l.image && allImagePaths.add(l.image));
+sortedMembers.forEach((m: any) => {
+  const img = getMemberImage(m);
+  if (img) allImagePaths.add(img);
+});
+const optimizedImages = await Promise.all(
+  Array.from(allImagePaths).map(async (path) => {
+    const opt = await getOptimizedImage(path);
+    return [path, opt] as const;
+  })
+);
+const optimizedMap = new Map(optimizedImages.filter(([, o]) => o !== null) as [string, { src: string; width: number; height: number }][]);
+
+function getImageSrc(path: string): { src: string; width: number; height: number } {
+  const opt = optimizedMap.get(path);
+  return opt ?? { src: withBase(path) ?? path, width: 200, height: 200 };
+}
 
 // Function to get member logo image path
 function getMemberImage(member: any): string | null {
@@ -324,7 +391,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={heading} />
+                      <img src={getImageSrc(leader.image).src} alt={heading} width={getImageSrc(leader.image).width} height={getImageSrc(leader.image).height} loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -367,7 +434,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={heading} />
+                      <img src={getImageSrc(leader.image).src} alt={heading} width={getImageSrc(leader.image).width} height={getImageSrc(leader.image).height} loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -410,7 +477,7 @@ function getMemberImage(member: any): string | null {
             {memberImage && (
               <div class="usa-card__media">
                 <div class="usa-card__img">
-                  <img src={withBase(memberImage)} alt={heading} />
+                  <img src={getImageSrc(memberImage).src} alt={heading} width={getImageSrc(memberImage).width} height={getImageSrc(memberImage).height} loading="lazy" decoding="async" />
                 </div>
               </div>
             )}

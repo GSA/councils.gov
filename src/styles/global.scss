@@ -1508,6 +1508,10 @@ footer.usa-footer .footer-grid-container,
   grid-template-columns: 1fr;
   gap: 1rem;
 
+  ul.usa-list li p {
+    margin: 0; 
+  }
+
   @media (min-width: $breakpoint-tablet) {
     grid-template-columns: minmax(14rem, 16rem) 1fr;
 
@@ -1685,11 +1689,12 @@ footer.usa-footer .footer-grid-container,
       object-fit: cover;
       z-index: 0;
       opacity: 0;
-      transition: opacity 0.35s ease-out;
-    }
+      animation: hero-img-fade 0.5s ease-out 0.15s forwards;
 
-    &.is-loaded .usa-hero__bg-img {
-      opacity: 1;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        opacity: 1;
+      }
     }
   }
 
@@ -1700,6 +1705,12 @@ footer.usa-footer .footer-grid-container,
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+}
+
+@keyframes hero-img-fade {
+  to {
+    opacity: 1;
   }
 }
 

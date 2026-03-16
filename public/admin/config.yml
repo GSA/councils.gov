@@ -18,7 +18,7 @@ backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: public/assets/img
+media_folder: src/assets/img/
 public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
@@ -28,6 +28,26 @@ editor:
   preview: false
 
 collections:
+  - name: homepage
+    label: Homepage
+    files:
+      - label: Homepage
+        name: homepage
+        file: src/content/pages/home.md
+        fields:
+          - {
+              label: Hero Heading,
+              name: heroHeading,
+              widget: string,
+              required: false,
+            }
+          - { label: Hero Text, name: heroText, widget: text, required: false }
+          - {
+              label: Intro Text,
+              name: introText,
+              widget: text,
+              required: false,
+            }
   - name: council_about_pages
     label: About
     files:
@@ -42,12 +62,45 @@ collections:
               required: false,
             }
           - {
+              label: Logo,
+              name: logoPath,
+              widget: image,
+              required: false,
+              media_folder: src/assets/img/councils/,
+              public_folder: /assets/img/councils,
+              hint: "Council logo. Stored in src/assets for optimization.",
+            }
+          - { label: Logo Alt, name: logoAlt, widget: string, required: false }
+          - {
+              label: Logo Class,
+              name: logoClass,
+              widget: string,
+              required: false,
+              hint: "CSS class (e.g. council-logo, cioc-logo-about)",
+            }
+          - {
+              label: Logo Aspect,
+              name: logoAspect,
+              widget: select,
+              required: false,
+              options:
+                [
+                  { label: "(default)", value: "" },
+                  { label: "Square", value: "square" },
+                ],
+              hint: "Use 'square' for compact logos (ICSP, CIOC).",
+            }
+          - {
               label: Short Description,
               name: shortDescription,
               widget: text,
               required: false,
             }
           - { label: Body, name: body, widget: markdown, required: false }
+      - label: CAIOC About
+        name: caioc_about
+        file: src/content/councils/caioc/about.md
+        fields: *about_fields
       - label: CFOC About
         name: cfoc_about
         file: src/content/councils/cfoc/about.md
@@ -96,13 +149,28 @@ collections:
               widget: text,
               required: false,
             }
+          - {
+              label: Use custom order for Leaders,
+              name: useCustomOrderForLeaders,
+              widget: boolean,
+              required: false,
+              default: false,
+              hint: "When checked, leaders use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
+            }
           - label: Leaders
             name: leaders
             widget: list
             required: false
+            allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
+              - {
+                  label: Name,
+                  name: name,
+                  widget: string,
+                  required: false,
+                  hint: "Human name only. Leave blank for agency-only entries.",
+                }
               - {
                   label: Title,
                   name: title,
@@ -125,7 +193,7 @@ collections:
                   name: image,
                   widget: image,
                   required: false,
-                  media_folder: /public/assets/img/leaders,
+                  media_folder: src/assets/img/leaders/,
                   public_folder: /assets/img/leaders,
                 }
               - {
@@ -134,14 +202,35 @@ collections:
                   widget: string,
                   required: false,
                 }
+          - {
+              label: Use custom order for Members,
+              name: useCustomOrderForMembers,
+              widget: boolean,
+              required: false,
+              default: false,
+              hint: "When checked, members use the order you set by dragging to reorder. When unchecked, they sort alphabetically.",
+            }
           - label: Members
             name: members
             widget: list
             required: false
+            allow_reorder: true
             summary: "{{fields.name}} - {{fields.agency}}"
             fields:
-              - { label: Name, name: name, widget: string, required: false, hint: "Human name only. Leave blank for agency-only entries." }
-              - { label: Title, name: title, widget: string, required: false, hint: "Role or position (e.g. CIO/SAOP)" }
+              - {
+                  label: Name,
+                  name: name,
+                  widget: string,
+                  required: false,
+                  hint: "Human name only. Leave blank for agency-only entries.",
+                }
+              - {
+                  label: Title,
+                  name: title,
+                  widget: string,
+                  required: false,
+                  hint: "Role or position (e.g. CIO/SAOP)",
+                }
               - label: Agency
                 name: agency
                 widget: relation
@@ -200,12 +289,6 @@ collections:
             fields:
               - { label: ID, name: id, widget: hidden, required: false }
               - { label: Title, name: title, widget: string }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
               - label: Type
                 name: type
                 widget: relation
@@ -248,7 +331,7 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: public/docs
+                media_folder: /public/docs/
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
       - label: Focus Areas

@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SearchResults from '../../components/SearchResults';
+import ReturnToTop from '../../components/ReturnToTop.astro';
+
+const baseUrl = import.meta.env.BASE_URL ?? '/';
+const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+const query = Astro.url.searchParams.get('q') ?? '';
+const affiliate = import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'councils-gov';
+---
+
+<BaseLayout title="Search - Councils.gov" currentPage="search">
+  <main id="main-content" class="filter-page-main">
+    <section class="usa-hero resources-hero" aria-label="Search" style={`--hero-waves-url: url(${wavesUrl})`}>
+      <div class="grid-container">
+        <h1>Search</h1>
+        <p class="usa-intro font-md margin-top-2 margin-bottom-1">
+          Find councils, resources, news, and events across Councils.gov.
+        </p>
+      </div>
+    </section>
+    <section class="grid-container usa-section">
+      <form
+        id="search_form_page"
+        class="usa-search usa-search--large margin-bottom-4"
+        action={`${baseUrl}search/`}
+        method="get"
+        role="search"
+        accept-charset="UTF-8"
+      >
+        <input type="hidden" name="affiliate" value={affiliate} autocomplete="off" />
+        <label class="usa-sr-only" for="search-field-in-page">Search</label>
+        <input
+          class="usa-input usagov-search-autocomplete"
+          id="search-field-in-page"
+          type="search"
+          name="q"
+          placeholder="Search Councils.gov"
+          value={query}
+          autocomplete="off"
+        />
+        <button class="usa-button" type="submit">Search</button>
+      </form>
+
+      <SearchResults client:only="react" />
+    </section>
+    <ReturnToTop />
+  </main>
+</BaseLayout>
