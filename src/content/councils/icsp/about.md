@@ -1,14 +1,14 @@
 ---
+councilName: Interagency Council on Statistical Policy
+logoPath: /assets/img/councils/icsp_logo.png
+logoAlt: ICSP Logo
+logoClass: council-logo
+logoAspect: square
 shortDescription: The ICSP, led by the U.S. Chief Statistician, supports
   implementation of the U.S. Federal statistical system's vision to operate as a
   seamless system in support of evidence-based decision-making.
-logoAspect: square
-councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-logoClass: council-logo
-logoPath: /assets/img/councils/icsp_logo.png
 title: About ICSP
-logoAlt: ICSP Logo
 ---
 ## About Us
 
@@ -30,6 +30,8 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 ## ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives
 
 [ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf)
+
+For the full ICSP Strategic Goals and Objectives, please click [here](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf). 
 
 ## ICSP Subcommittees
 
