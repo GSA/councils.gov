@@ -246,7 +246,7 @@ members:
   - title: ""
     agency: National Credit Union Administration
     url: https://ncua.gov/data
-    name: Amber Gervius
+    name: Amber Gravius
   - title: ""
     agency: National Endowment for the Arts
     url: https://www.arts.gov/data
