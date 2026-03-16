@@ -202,7 +202,7 @@ members:
   - title: ""
     agency: Federal Retirement Thrift Investment Board
     url: https://www.frtib.gov/data/
-    name: Alexander Podplay
+    name: Alexander Podpaly
   - title: ""
     agency: Federal Trade Commission
     url: https://www.ftc.gov/news-events/data-visualizations
@@ -264,7 +264,7 @@ members:
     name: Soloman Gebretensai
   - title: ""
     agency: National Science Foundation
-    name: Michael Hauk
+    name: Michael Hauck
   - title: ""
     agency: National Transportation Safety Board
     url: https://www.ntsb.gov/Pages/data.aspx
