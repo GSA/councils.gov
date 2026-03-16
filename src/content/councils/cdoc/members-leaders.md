@@ -347,7 +347,7 @@ members:
   - title: ""
     agency: U.S. Agency for Global Media (formerly Broadcasting Board of Generals)
     name: Shawn Powers
-  - title: Chief Data Officer
+  - title: Vacant
     agency: U.S. Agency for International Development
   - title: ""
     agency: U.S. Nuclear Regulatory Commission
