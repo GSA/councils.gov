@@ -18,7 +18,7 @@ backend:
 #   name: git-gateway
 # local_backend: true
 
-media_folder: src/assets/img/
+media_folder: public/assets/img
 public_folder: /assets/img
 publish_mode: editorial_workflow
 logo_url: https://pages.cloud.gov/images/logos/pages-logo-blue.svg
@@ -66,9 +66,9 @@ collections:
               name: logoPath,
               widget: image,
               required: false,
-              media_folder: src/assets/img/councils/,
+              media_folder: /public/assets/img/councils,
               public_folder: /assets/img/councils,
-              hint: "Council logo. Stored in src/assets for optimization.",
+              hint: "Council logo.",
             }
           - { label: Logo Alt, name: logoAlt, widget: string, required: false }
           - {
@@ -193,7 +193,7 @@ collections:
                   name: image,
                   widget: image,
                   required: false,
-                  media_folder: src/assets/img/leaders/,
+                  media_folder: /public/assets/img/leaders,
                   public_folder: /assets/img/leaders,
                 }
               - {
@@ -331,7 +331,7 @@ collections:
                 name: link
                 widget: file
                 choose_url: true
-                media_folder: /public/docs/
+                media_folder: /public/docs
                 public_folder: /docs
                 hint: "Upload a PDF or provide an external URL."
       - label: Focus Areas

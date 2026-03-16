@@ -13,8 +13,6 @@ leaders:
   - name: Gregory Barbaccia
     title: Federal Chief Information Officer
     agency: The Executive Office of the President
-    image: /assets/img/leaders/gregory_barbaccia.png
-    imageAlt: Gregory Barbaccia
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
