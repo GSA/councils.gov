@@ -1,31 +1,22 @@
 {
   "options": [
     {
-      "value": "AbilityOne"
-    },
-    {
-      "value": "Access Board"
-    },
-    {
       "value": "American Battle Monuments Commission"
     },
     {
       "value": "AmeriCorps"
     },
     {
-      "value": "Appraisal Subcommittee"
-    },
-    {
       "value": "Appraisal Subcommittee of the Federal Financial Institutions Examination Council"
     },
     {
-      "value": "Barry Goldwater Scholarship"
+      "value": "Barry Goldwater Scholarship and Excellence in Education Foundation"
+    },
+    {
+      "value": "Board of Governors of the Federal Reserve"
     },
     {
       "value": "Board of Governors of the Federal Reserve System"
-    },
-    {
-      "value": "Broadcasting Board of Governors"
     },
     {
       "value": "Bureau of Consumer Financial Protection"
@@ -41,9 +32,6 @@
     },
     {
       "value": "Commodity Futures Trading Commission"
-    },
-    {
-      "value": "Consumer Financial Protection"
     },
     {
       "value": "Consumer Product Safety Commission"
@@ -115,9 +103,6 @@
       "value": "Equal Employment Opportunity Commission"
     },
     {
-      "value": "Export Import Bank"
-    },
-    {
       "value": "Export-Import Bank of the United States"
     },
     {
@@ -148,13 +133,7 @@
       "value": "Federal Mine Safety and Health Review Commission"
     },
     {
-      "value": "Federal Reserve"
-    },
-    {
       "value": "Federal Reserve Board"
-    },
-    {
-      "value": "Federal Reserve System"
     },
     {
       "value": "Federal Retirement Thrift Investment Board"
@@ -277,9 +256,6 @@
       "value": "Small Business Administration"
     },
     {
-      "value": "Smithsonian"
-    },
-    {
       "value": "Smithsonian Institution"
     },
     {
@@ -295,25 +271,16 @@
       "value": "The Executive Office of the President"
     },
     {
-      "value": "U.S. Agency for Global Media"
+      "value": "U.S. Agency for Global Media (formerly Broadcasting Board of Generals)"
     },
     {
       "value": "U.S. Agency for International Development"
     },
     {
-      "value": "U.S. Equal Employment Opportunity Commission"
-    },
-    {
-      "value": "U.S. International Trade Commission"
-    },
-    {
-      "value": "U.S. Securities and Exchange Commission"
+      "value": "U.S. Nuclear Regulatory Commission"
     },
     {
       "value": "U.S. Trade and Development Agency"
-    },
-    {
-      "value": "Udall Foundation"
     },
     {
       "value": "United States AbilityOne Commission"
