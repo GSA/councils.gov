@@ -18,6 +18,7 @@ export interface NavCouncil {
 export interface CouncilForHome {
   title: string;
   acronym: string;
+  slug: string;
   href: string;
   logo: string;
   logoAlt: string;
@@ -106,6 +107,7 @@ export function getCouncilsForHome(): CouncilForHome[] {
   return councilsCache.map((c) => ({
     title: c.councilName,
     acronym: c.acronym,
+    slug: c.slug,
     href: `/${c.slug}/`,
     logo: c.logoPath,
     logoAlt: c.logoAlt,

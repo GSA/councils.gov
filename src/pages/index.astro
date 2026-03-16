@@ -34,18 +34,21 @@ const councilsList = getCouncilsForHome();
 
 // Load council logos for WebP optimization
 const councilLogoGlob = import.meta.glob<{ default: import('astro').ImageMetadata }>('../assets/img/councils/*.{png,jpg,webp}');
+const COMPACT_LOGO_COUNCILS = ['icsp', 'cioc'];
 const councilsWithOptimizedLogos = await Promise.all(
   councilsList.map(async (council) => {
-    if (!council.logo) return { ...council, optimizedLogo: null };
+    if (!council.logo) return { ...council, optimizedLogo: null, compactLogo: false };
+    const compactLogo = COMPACT_LOGO_COUNCILS.includes(council.slug);
     const filename = council.logo.split('/').pop() || '';
     const globKey = Object.keys(councilLogoGlob).find((k) => k.endsWith(filename));
-    if (!globKey) return { ...council, optimizedLogo: null };
+    if (!globKey) return { ...council, optimizedLogo: null, compactLogo };
+    const size = compactLogo ? 200 : 300;
     const mod = await councilLogoGlob[globKey]();
-    const optimized = await getImage({ src: mod.default, width: 200, height: 200 });
+    const optimized = await getImage({ src: mod.default, width: size, height: size });
     const logoSrc = baseUrl && baseUrl !== '/' && !optimized.src.startsWith(baseUrl.replace(/\/$/, ''))
       ? `${baseUrl.replace(/\/$/, '')}${optimized.src}`
       : optimized.src;
-    return { ...council, optimizedLogo: { src: logoSrc, width: 200, height: 200 } };
+    return { ...council, optimizedLogo: { src: logoSrc, width: size, height: size }, compactLogo };
   })
 );
 ---
@@ -95,7 +98,7 @@ const councilsWithOptimizedLogos = await Promise.all(
                   <div class="usa-card__img">
                     <img
                       src={council.optimizedLogo.src}
-                      alt={council.logoAlt || ''}
+                      alt=""
                       class={council.logoClass || 'council-logo'}
                       width={council.optimizedLogo.width}
                       height={council.optimizedLogo.height}
@@ -107,10 +110,10 @@ const councilsWithOptimizedLogos = await Promise.all(
                   <div class="usa-card__img">
                     <img
                       src={withBase(council.logo)}
-                      alt={council.logoAlt || ''}
+                      alt=""
                       class={council.logoClass || 'council-logo'}
-                      width={200}
-                      height={200}
+                      width={council.compactLogo ? 200 : 300}
+                      height={council.compactLogo ? 200 : 300}
                       loading="lazy"
                       decoding="async"
                     />
