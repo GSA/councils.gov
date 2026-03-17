@@ -44,11 +44,12 @@ The Evaluation Officer also oversees or conducts:
 * Assessments of the coverage, quality, methods, effectiveness, objectivity, scientific integrity, and balance of the portfolio of evaluations, policy research, and ongoing evaluation activities of the agency, in consultation with other methodologists, such as the Statistical Official, when appropriate
 * Improvement of agency capacity to support the development and use of evaluation, coordinate and increase technical expertise available for evaluation and related research activities within the agency, and improve the quality of evaluations and knowledge of evaluation methodology and standards; and dissemination of evaluation findings
 * Implementation of OMB Memorandum M-20-12, Phase 4 Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Program Evaluation Standards and Practices
-* Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice. The policy will provide interested parties both internal and external to the agency with a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
+* Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice
+* Provision within the agency evaluation policy to ensure interested parties both internal and external to the agency have a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
 * Required coordination, development, and implementation of the plans required under section 312 of the Evidence Act:
 
-  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan (test)
-  * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review
+  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan (and, beginning with FY27 deliverables, included as part of the new Agency Evidence Plan deliverable established in OMB Circular A-11, August 2025)
+  * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review (also, beginning with FY27 deliverables, included as part of the new Agency Evidence Plan)
   * Capacity Assessment, included as part of the Agency Strategic Plan
 * Development of new, or improvement of existing, processes to integrate evaluation findings into agency decision-making and other functions
 * Management of agency's evaluation policies that uphold and adhere to the program evaluation standards in OMB Memorandum M-20-12 to ensure the scientific integrity, quality, and accountability of the agency's evaluation activities
