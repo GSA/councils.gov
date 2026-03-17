@@ -47,7 +47,7 @@ The Evaluation Officer also oversees or conducts:
 * Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice. The policy will provide interested parties both internal and external to the agency with a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
 * Required coordination, development, and implementation of the plans required under section 312 of the Evidence Act:
 
-  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan
+  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan (test)
   * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review
   * Capacity Assessment, included as part of the Agency Strategic Plan
 * Development of new, or improvement of existing, processes to integrate evaluation findings into agency decision-making and other functions
