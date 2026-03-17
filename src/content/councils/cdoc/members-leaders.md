@@ -27,30 +27,30 @@ leaders:
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
+  - name: Richard Allen
+    title: Large Agency Committee Chair
+    agency: Environmental Protection Agency
+  - name: Brandon Brown
+    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
+    agency: Department of Labor
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
     image: /assets/img/leaders/austin_gerig.png
     imageAlt: Austin Gerig
-  - name: Brandon Brown
+  - name: Michael Hauck
+    title: Business of Data Working Group Co-Chair, Chief Data Officer
+    agency: National Science Foundation
+  - name: Kristen Honey
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Labor
+    agency: Department of Health and Human Services
+  - name: Warren Randolph
+    title: Small Agency Committee Chair, National Transportation Safety Board
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
     image: /assets/img/leaders/jiashen_you.png
     imageAlt: Jiashen You
-  - name: Kristen Honey
-    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Health and Human Services
-  - name: Michael Hauck
-    title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: National Science Foundation
-  - name: Richard Allen
-    title: Large Agency Committee Chair
-    agency: Environmental Protection Agency
-  - name: Warren Randolph
-    title: Small Agency Committee Chair, National Transportation Safety Board
 useCustomOrderForMembers: true
 councilSlug: cdoc
 title: CDOC Leadership & Members
