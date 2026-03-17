@@ -11,11 +11,13 @@ import '../styles/global.scss';
 interface Props {
   title?: string;
   description?: string;
+  /** Optional og:image path or URL for search/social thumbnails */
+  image?: string;
   currentPage?: string;
   noIndex?: boolean;
 }
 
-const { title, description, currentPage, noIndex } = Astro.props;
+const { title, description, image, currentPage, noIndex } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const skipToMainHref = `${Astro.url.pathname}#main-content`;
 const affiliate = import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'councils-gov';
@@ -28,7 +30,8 @@ const affiliate = import.meta.env.PUBLIC_SEARCH_AFFILIATE || 'councils-gov';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
-    <Meta title={title} description={description} noIndex={noIndex} />
+    <Meta title={title} description={description} image={image} noIndex={noIndex} />
+    <slot name="head" />
     <style>
       html.no-js .usa-nav__submenu { display: none; }
     </style>

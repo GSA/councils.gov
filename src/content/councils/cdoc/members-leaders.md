@@ -1,7 +1,5 @@
 ---
-title: CDOC Leadership & Members
 councilName: Chief Data Officers Council
-councilSlug: cdoc
 intro: The Chief Data Officers Council includes Chief Data Officers from CFO Act
   agencies and other designated federal agencies working to advance data
   governance and evidence-based decision-making.
@@ -10,11 +8,6 @@ membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
   evidence-based decision-making.
 useCustomOrderForLeaders: true
 leaders:
-  - name: Dominic Mancini
-    title: Administrator, Office of Information and Regulatory Affairs (or designee)
-    agency: Office of Management and Budget
-    image: /assets/img/leaders/dominic_mancini.png
-    imageAlt: Dominic Mancini
   - name: Kirsten Dalboe
     title: CDO Council Chair, Chief Data Officer
     agency: Federal Energy Regulatory Commission
@@ -25,12 +18,18 @@ leaders:
     agency: U.S. Department of Agriculture
     image: /assets/img/leaders/christopher_alvares.png
     imageAlt: Christopher Alvares
+  - name: Dominic Mancini
+    title: Administrator, Office of Information and Regulatory Affairs (or designee)
+    agency: Office of Management and Budget
+    image: /assets/img/leaders/dominic_mancini.png
+    imageAlt: Dominic Mancini
   - name: Vacant
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
   - name: Richard Allen
-    title: Large Agency Committee, Chair
+    title: Large Agency Committee Chair
+    agency: Environmental Protection Agency
   - name: Brandon Brown
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
@@ -39,117 +38,29 @@ leaders:
     agency: U.S. Securities and Exchange Commission
     image: /assets/img/leaders/austin_gerig.png
     imageAlt: Austin Gerig
-  - name: Michael Hauk
+  - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
   - name: Kristen Honey
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Health and Human Services
   - name: Warren Randolph
-    title: Small Agency Committee, Chair
+    title: Small Agency Committee Chair, National Transportation Safety Board
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
     image: /assets/img/leaders/jiashen_you.png
     imageAlt: Jiashen You
+useCustomOrderForMembers: true
+councilSlug: cdoc
+title: CDOC Leadership & Members
 members:
-  - title: ""
-    agency: Department of Energy
-    name: Bridget Carper
-  - title: ""
-    agency: Department of the Treasury
-    url: https://home.treasury.gov/data/treasury-open-data
-    name: David Ashley
-  - title: ""
-    agency: General Services Administration
-    url: https://www.gsa.gov/governmentwide-initiatives/open-gsa
-    name: Zach Whitman
-  - title: ""
-    agency: Department of Housing and Urban Development
-    url: https://data.hud.gov/
-    name: Ivo Djoubrailov
-  - title: ""
-    agency: Department of Labor
-    url: https://www.dol.gov/data
-    name: Brandon Brown
-  - title: ""
-    agency: Department of Commerce
-    url: https://www.commerce.gov/data-and-reports/data
-    name: Dominique Duval-Diop
-  - title: ""
-    agency: Department of the Interior
-    url: https://www.doi.gov/data
-    name: David Carter
-  - title: ""
-    agency: National Science Foundation
-    name: Michael Hauk
-  - title: ""
-    agency: Department of State
-    url: https://www.state.gov/data/
-    name: Amy Ritualo
-  - title: ""
-    agency: U.S. Department of Agriculture
-    url: https://www.usda.gov/about-usda/reports-and-data/data/usda-open-data-catalog
-    name: Chris Alvares
-  - title: ""
-    agency: Department of Transportation
-    url: https://www.transportation.gov/data
-    name: Brian Brotsos
-  - title: ""
-    agency: National Aeronautics and Space Administration
-    url: https://www.nasa.gov/data/
-    name: Kevin Murphy
-  - title: ""
-    agency: Department of War
-    name: Gavin Kliger
-  - title: ""
-    agency: U.S. Department of Health and Human Services
-    url: https://www.hhs.gov/data/index.html
-    name: Kristen Honey
-  - title: ""
-    agency: Department of Education
-    url: https://www.ed.gov/data
-    name: Ross Santy
-  - title: ""
-    agency: Department of Veterans Affairs
-    url: https://www.data.va.gov/
-    name: Lisa Rosenmerkel
-  - title: Chief Data Officer
-    agency: Office of Personnel Management
-    url: https://www.opm.gov/data/
-    name: Vacant
-  - title: Chief Data Officer
-    agency: U.S. Agency for International Development
-  - title: ""
-    agency: Department of Homeland Security
-    url: https://www.dhs.gov/data
-    name: Vacant
-  - title: ""
-    agency: Department of Justice
-    url: https://www.justice.gov/data
-    name: Vacant
-  - title: ""
-    agency: Social Security Administration
-    url: https://www.ssa.gov/data/
-    name: Vacant
-  - title: ""
-    agency: U.S. Nuclear Regulatory Commission
-    url: https://www.nrc.gov/data/index
-    name: Basai Sall
-  - title: ""
-    agency: Small Business Administration
-    url: https://www.sba.gov/about-sba/open-government/digital-sba
-    name: Anna Maria Calcagno
-  - title: ""
-    agency: Environmental Protection Agency
-    url: https://www.epa.gov/data
-    name: Richard Alllen
   - title: ""
     agency: American Battle Monuments Commission
     url: https://www.abmc.gov/about-us/reports-policy/data/
     name: Jennifer Li
   - title: ""
-    agency: ""
+    agency: AmeriCorps
     name: Andrea Gibbons
   - title: ""
     agency: Barry Goldwater Scholarship and Excellence in Education Foundation
@@ -159,10 +70,7 @@ members:
     url: https://www.federalreserve.gov/data.htm
     name: Katherine Tom
   - title: ""
-    agency: U.S. Agency for Global Media (formerly Broadcasting Board of Generals)
-    name: Shawn Powers
-  - title: ""
-    agency: Bureau of Consumer Financial Protection
+    agency: Consumer Financial Protection Bureau
     url: https://www.consumerfinance.gov/data/
     name: Lance Harris
   - title: ""
@@ -188,8 +96,70 @@ members:
     url: https://www.csosa.gov/data/
     name: Vacant
   - title: ""
+    agency: Department of Agriculture
+    url: https://www.usda.gov/about-usda/reports-and-data/data/usda-open-data-catalog
+    name: Chris Alvares
+  - title: ""
+    agency: Department of Commerce
+    url: https://www.commerce.gov/data-and-reports/data
+    name: Dominique Duval-Diop
+  - title: ""
+    agency: Department of Education
+    url: https://www.ed.gov/data
+    name: Ross Santy
+  - title: ""
+    agency: Department of Energy
+    name: Bridget Carper
+  - title: ""
+    agency: Department of Health and Human Services
+    url: https://www.hhs.gov/data/index.html
+    name: Kristen Honey
+  - title: ""
+    agency: Department of Homeland Security
+    url: https://www.dhs.gov/data
+    name: Vacant
+  - title: ""
+    agency: Department of Housing and Urban Development
+    url: https://data.hud.gov/
+    name: Debajyoti (Dev) Ray
+  - title: ""
+    agency: Department of Justice
+    url: https://www.justice.gov/data
+    name: Vacant
+  - title: ""
+    agency: Department of Labor
+    url: https://www.dol.gov/data
+    name: Brandon Brown
+  - title: ""
+    agency: Department of the Interior
+    url: https://www.doi.gov/data
+    name: David Carter
+  - title: ""
+    agency: Department of the Treasury
+    url: https://home.treasury.gov/data/treasury-open-data
+    name: David Ashley
+  - title: ""
+    agency: Department of Transportation
+    url: https://www.transportation.gov/data
+    name: Brian Brotsos
+  - title: ""
+    agency: Department of State
+    url: https://www.state.gov/data/
+    name: Amy Ritualo
+  - title: ""
+    agency: Department of Veterans Affairs
+    url: https://www.data.va.gov/
+    name: Lisa Rosenmerkel
+  - title: ""
+    agency: Department of War
+    name: Gavin Kliger
+  - title: ""
     agency: Development Finance Corporation
     name: Will Williams
+  - title: ""
+    agency: Environmental Protection Agency
+    url: https://www.epa.gov/data
+    name: Richard Allen
   - title: ""
     agency: Equal Employment Opportunity Commission
     url: https://www.eeoc.gov/data
@@ -232,11 +202,15 @@ members:
   - title: ""
     agency: Federal Retirement Thrift Investment Board
     url: https://www.frtib.gov/data/
-    name: Alexander Podplay
+    name: Alexander Podpaly
   - title: ""
     agency: Federal Trade Commission
     url: https://www.ftc.gov/news-events/data-visualizations
     name: Mark Gray
+  - title: ""
+    agency: General Services Administration
+    url: https://www.gsa.gov/governmentwide-initiatives/open-gsa
+    name: Zach Whitman
   - title: ""
     agency: Gulf Coast Ecosystem Restoration Council
     name: Jeremy Rosenboom
@@ -258,6 +232,10 @@ members:
     agency: Morris K. Udall Foundation
     name: Jerry Carter
   - title: ""
+    agency: National Aeronautics and Space Administration
+    url: https://www.nasa.gov/data/
+    name: Kevin Murphy
+  - title: ""
     agency: National Archives and Records Administration
     url: https://www.archives.gov/data
     name: Ahktar Zaman
@@ -268,7 +246,7 @@ members:
   - title: ""
     agency: National Credit Union Administration
     url: https://ncua.gov/data
-    name: Amber Gervius
+    name: Amber Gravius
   - title: ""
     agency: National Endowment for the Arts
     url: https://www.arts.gov/data
@@ -285,6 +263,9 @@ members:
     url: https://nmb.gov/NMB_Application/index.php/data/
     name: Soloman Gebretensai
   - title: ""
+    agency: National Science Foundation
+    name: Michael Hauck
+  - title: ""
     agency: National Transportation Safety Board
     url: https://www.ntsb.gov/Pages/data.aspx
     name: Warren Randolph
@@ -296,9 +277,6 @@ members:
     agency: Occupational Safety and Health Review Commission
     name: Deborah Hall
   - title: ""
-    agency: Office of the Director of National Intelligence
-    name: Vacant
-  - title: ""
     agency: Office of Government Ethics
     url: https://www.oge.gov/web/oge.nsf/data
     name: Zohair Baig
@@ -306,12 +284,19 @@ members:
     agency: Office of Navajo and Hopi Indian Relocation
     name: Diane Pratte
   - title: ""
+    agency: Office of Personnel Management
+    url: https://www.opm.gov/data/
+    name: Vacant
+  - title: ""
     agency: Office of Special Counsel
     url: https://osc.gov/data
     name: Vacant
   - title: ""
     agency: Office of the Comptroller of the Currency
     name: Kristen Baldwin
+  - title: ""
+    agency: Office of the Director of National Intelligence
+    name: Vacant
   - title: ""
     agency: Peace Corps
     url: https://www.peacecorps.gov/about-the-agency/policies-and-publications/reports-and-documents/
@@ -327,6 +312,10 @@ members:
     agency: Presidio Trust
     name: Manny Guerreiro
   - title: ""
+    agency: Public Defender Service of the District of Columbia
+    url: https://www.pdsdc.org/data
+    name: Janet Mitchell
+  - title: ""
     agency: Railroad Retirement Board
     url: https://rrb.gov/data
     name: Kathleen McGuire
@@ -338,8 +327,16 @@ members:
     agency: Selective Service System
     name: Alma Cruz
   - title: ""
+    agency: Small Business Administration
+    url: https://www.sba.gov/about-sba/open-government/digital-sba
+    name: Anna Maria Calcagno
+  - title: ""
     agency: Smithsonian Institution
     name: Jenny Sue Ross
+  - title: ""
+    agency: Social Security Administration
+    url: https://www.ssa.gov/data/
+    name: Vacant
   - title: ""
     agency: Surface Transportation Board
     url: https://www.stb.gov/data/
@@ -347,6 +344,16 @@ members:
   - title: ""
     agency: Tennessee Valley Authority
     name: Jessica Baker
+  - title: ""
+    agency: U.S. Agency for Global Media (formerly Broadcasting Board of Generals)
+    name: Shawn Powers
+  - title: ""
+    agency: U.S. Agency for International Development
+    name: Vacant
+  - title: ""
+    agency: U.S. Nuclear Regulatory Commission
+    url: https://www.nrc.gov/data/index
+    name: Basai Sall
   - title: ""
     agency: U.S. Trade and Development Agency
     name: Vacant
@@ -356,8 +363,4 @@ members:
   - title: ""
     agency: United States Access Board
     name: Mannan Dasti
-  - title: ""
-    agency: Public Defender Service of the District of Columbia
-    url: https://www.pdsdc.org/data
-    name: Janet Mitchell
 ---

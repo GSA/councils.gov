@@ -1,14 +1,14 @@
 ---
+councilName: Interagency Council on Statistical Policy
+logoPath: /assets/img/councils/icsp_logo.png
+logoAlt: ICSP Logo
+logoClass: council-logo
+logoAspect: square
 shortDescription: The ICSP, led by the U.S. Chief Statistician, supports
   implementation of the U.S. Federal statistical system's vision to operate as a
   seamless system in support of evidence-based decision-making.
-logoAspect: square
-councilName: Interagency Council on Statistical Policy
 councilSlug: icsp
-logoClass: council-logo
-logoPath: /assets/img/councils/icsp_logo.png
 title: About ICSP
-logoAlt: ICSP Logo
 ---
 ## About Us
 
@@ -29,7 +29,9 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 
 ## ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives
 
-[ICSP Fiscal Years 2025 & 2026 Strategic Goals and Objectives chart](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf)
+![The ICSP's Strategic Goals and Objectives propel the US Federal Statistical System toward our vision of operating as a seamless system - to become more efficient and effective in providing useful, objective, high quality statistical data and meaningfully and safely expanding access to these data for evidence building purposes. Item 1 is to strengthen FSS' roles, responsibilities, and capacity to ensure data quality and accessibility; Item 2 is to create shared infrastructure, tools, and services to broaden safe access to data; Item 3 is to build communications and community outreach to strengthen the value of Federal data for diverse data provider and user needs.](/assets/img/icsp-strategic-goals-objectives-graphic-clean.jpg "ICSP FY25 & 26 Strategic Goals and Objectives")
+
+For the full ICSP Strategic Goals and Objectives, please click [here](https://statspolicy.gov/assets/uploads/Fiscal%20Years%202025%20and%202026%20Strategic%20Goals%20and%20Objectives.pdf). 
 
 ## ICSP Subcommittees
 
@@ -39,7 +41,7 @@ The ICSP also charters subcommittees, as well as sponsoring leadership and mento
 * [ICSP Subcommittee–Federal Statistical Research Data Centers (FSRDC) Executive Committee](https://statspolicy.gov/assets/files/FSRDC%20Executive%20Committee%20Charter_%20June%202024.pdf)
 * [ICSP Subcommittee–National Secure Data Service (S-NSDS)](https://statspolicy.gov/assets/files/ICSP%20NSDS%20Subcommittee%20Charter_2-14-24.pdf)
 * [ICSP Subcommittee–Standard Application Process (SAP) Governance Board](https://statspolicy.gov/assets/files/SAP%20Governance%20Board%20Charter.pdf)
-* [ICSP Mentoring Program](https://federalist-a7fd1d32-cf85-41ac-abfd-2fa45dd0f84a.sites.pages.cloud.gov/docs/2025-icsp-mentoring-program-information-page.pdf)
+* [ICSP Mentoring Program](https://www.councils.gov/docs/2025-icsp-mentoring-program-information-page.pdf)
 
 **For more information regarding the Federal statistical system, see [StatsPolicy.gov](https://statspolicy.gov).** 
 

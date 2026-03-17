@@ -16,7 +16,7 @@ leaders:
     agency: Department of Health and Human Services
     image: /assets/img/leaders/department_of_health_and_human_services_seal_white.png
     imageAlt: HHS Logo
-useCustomOrderForMembers: false
+useCustomOrderForMembers: true
 councilSlug: coffa
 title: COFFA Leadership & Members
 members:

@@ -43,7 +43,7 @@ function renderBodyBlock(block: string): string {
 }
 ---
 
-<BaseLayout title={`${item.title} - News & Events - Councils.gov`} currentPage="news-events">
+<BaseLayout title={`${item.title} - News & Events - Councils.gov`} image={item.thumbnail ? `${baseUrl.replace(/\/$/, '')}${item.thumbnail}` : undefined} currentPage="news-events">
   <main id="main-content">
     <nav class="council-breadcrumb" aria-label="Breadcrumb">
       <ol class="usa-breadcrumb__list">
