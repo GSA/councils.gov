@@ -238,7 +238,6 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                         ref={isFirst ? firstItemRef : undefined}
                         className="usa-link font-serif"
                         href={href}
-                        aria-label={item.title}
                       >
                         {item.title}
                       </a>
