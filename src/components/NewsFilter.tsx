@@ -122,10 +122,6 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
   const resultsRangeEnd = Math.min(currentPage * PAGE_SIZE, filteredItems.length);
   const resultsCountText =
     filteredItems.length > 0
-      ? `Showing ${resultsRangeStart}-${resultsRangeEnd} of ${filteredItems.length} results`
-      : null;
-  const resultsCountTextSr =
-    filteredItems.length > 0
       ? `Showing ${resultsRangeStart} to ${resultsRangeEnd} of ${filteredItems.length} results`
       : null;
   const paginatedItems = useMemo(
@@ -214,8 +210,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
         >
           {resultsCountText ? (
             <>
-              <span aria-hidden="true">{resultsCountText}</span>
-              <span className="usa-sr-only">{resultsCountTextSr}</span>
+              <span>{resultsCountText}</span>
             </>
           ) : (
             'No news or events match the selected filters'
