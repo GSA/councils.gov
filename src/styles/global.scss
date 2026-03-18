@@ -284,34 +284,6 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   font-family: var(--font-sans);
 }
 
-/* Banner layout */
-.usa-banner__inner {
-  max-width: var(--max-width);
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  padding: 0 2rem;
-  @media (max-width: $breakpoint-desktop) {
-    padding: 0 1rem;
-  }
-}
-
-.usa-banner__content {
-  max-width: var(--max-width);
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-}
-
-@media (min-width: $breakpoint-tablet) {
-  .usa-banner__content {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
 /* Identifier */
 .usa-identifier__section {
   padding-left: 0;
