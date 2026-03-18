@@ -21,7 +21,7 @@ $councils-gap: 2rem;
   outline: none;
 }
 
-/* Hide outline only when focused by mouse/touch – :focus:not(:focus-visible) does NOT match on keyboard */
+/* Focus outline */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -231,7 +231,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   }
 }
 
-/* Nav submenu flash-of-unstyled-content guard */
+/* Nav accordion */
 .usa-accordion__button {
   &[aria-expanded="false"] + .usa-accordion__content,
   &[aria-expanded="false"] ~ .usa-accordion__content {
@@ -251,7 +251,6 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
     display: block;
   }
 
-  /* Focus-visible only – hide on mouse click, show on keyboard */
   &:focus:not(:focus-visible) {
     outline: none;
   }
@@ -262,7 +261,7 @@ ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(.usa-side
   }
 }
 
-/* Nav primary buttons, menu/close buttons, logo: focus-visible only (no ring on mouse click) */
+/* Nav focus styles */
 .usa-nav__primary button:focus:not(:focus-visible),
 .usa-menu-btn:focus:not(:focus-visible),
 .usa-nav__close:focus:not(:focus-visible),
@@ -509,12 +508,10 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
-/* Placeholder for cards without a logo - preserves spacing */
+/* No-logo card placeholder */
 .councils-grid .usa-card__img--placeholder {
   background: transparent;
 }
-
-$councils-gap: 2rem;
 
 .councils-grid {
   display: flex;
@@ -522,7 +519,6 @@ $councils-gap: 2rem;
   justify-content: center;
   gap: $councils-gap;
 
-  /* Override USWDS .usa-card :last-child margin so the last card matches the others */
   a {
     border-bottom: 6px solid var(--secondary-color);
     display: flex;
@@ -586,7 +582,6 @@ $councils-gap: 2rem;
   border-radius: 0;
 }
 
-/* When focused, hide container border so only the link outline shows (no layering) */
 .councils-grid a:focus-visible .usa-card__container {
   border-color: transparent;
 }
@@ -895,7 +890,7 @@ $councils-gap: 2rem;
   }
 }
 
-/* Members grid: image on top, left-aligned, fixed height so wide seals fit */
+/* Members grid */
 .members-grid .usa-card__container .usa-card__media {
   height: 140px;
   justify-content: flex-start;
@@ -979,7 +974,6 @@ $councils-gap: 2rem;
     border-bottom: 4px solid var(--secondary-color);
   }
 
-  /* When focused, hide container border so only the link outline shows (no layering) */
   &:focus-visible .usa-card__container {
     border-color: transparent;
   }
@@ -1054,7 +1048,7 @@ $councils-gap: 2rem;
   padding-bottom: 2rem;
 }
 
-/* Applied to <main> on Resources and News/Events pages */
+/* Filter page */
 .filter-page-main {
   background-color: var(--color-gray-1);
 }
@@ -1099,7 +1093,7 @@ $councils-gap: 2rem;
   color: var(--color-ink);
 }
 
-/* Active filter pills (selected filters with remove) — same on Resources and News/Events */
+/* Filter pills */
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
@@ -1135,7 +1129,7 @@ $councils-gap: 2rem;
   filter: brightness(0) invert(1);
 }
 
-/* Sidebar + main layout: sidebar has min-width, main area flexes. Used on council pages, resources, news/events. */
+/* Sidebar layout */
 .sidebar-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -1153,7 +1147,6 @@ $councils-gap: 2rem;
     }
   }
 
-  /* When no logo: no grid columns, full width, left aligned */
   &.council-hero__row--no-logo {
     @media (min-width: $breakpoint-tablet) {
       grid-template-columns: 1fr;
@@ -1217,7 +1210,7 @@ $councils-gap: 2rem;
   color: var(--color-ink);
 }
 
-/* Hero: image background, callout on left — min-height and flex only on home */
+/* Hero */
 .usa-hero {
   background-color: var(--primary-color);
   color: var(--color-white);
@@ -1356,7 +1349,6 @@ $councils-gap: 2rem;
   background-size: 30%;
   background-blend-mode: color;
 
-  /* Allow grid children to shrink on mobile (prevents logo overflow on iOS) */
   .sidebar-layout > * {
     min-width: 0;
   }
@@ -1393,7 +1385,6 @@ $councils-gap: 2rem;
     &--square {
       @media (max-width: ($breakpoint-tablet - 0.0625rem)) {
         aspect-ratio: 1;
-        /* Cap size so square fits in viewport; prevents overflow/clipping on small screens */
         max-height: min(180px, 50vw);
         max-width: min(180px, 50vw);
       }
@@ -1626,7 +1617,7 @@ $councils-gap: 2rem;
   background-color: transparent;
 }
 
-/* Below desktop: show only Prev, current page + ellipsis, Next to fit narrow viewports */
+/* Pagination: narrow viewports */
 @media (max-width: ($breakpoint-desktop - 0.0625rem)) {
   .usa-pagination__item.usa-pagination__page-no:not(:has(.usa-current)) {
     display: none;
