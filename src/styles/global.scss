@@ -1,6 +1,6 @@
 $breakpoint-mobile: 30rem;
 $breakpoint-tablet: 40rem;
-$breakpoint-desktop: 64rem;
+$breakpoint-desktop: 63.99rem;
 $breakpoint-desktop-lg: 75rem;
 
 $type-scale: (
@@ -485,25 +485,6 @@ footer.usa-footer .footer-grid-container,
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-}
-
-/* Skip link */
-.usa-skipnav {
-  background: transparent;
-  color: var(--color-ink);
-  left: 0;
-  padding: 1rem 1.5rem;
-  position: absolute;
-  top: -4.2rem;
-  z-index: 100;
-  text-decoration: underline;
-}
-
-.usa-skipnav:focus {
-  background: var(--color-gray-5);
-  left: 0;
-  position: absolute;
-  top: 0;
 }
 
 /* Home: councils grid */
@@ -1455,14 +1436,17 @@ footer.usa-footer .footer-grid-container,
 
 .content-tags .usa-tag {
   border-radius: 16px;
-  display: flex;
-  align-items: center;
+  display: block;
   color: var(--color-ink);
   background-color: var(--color-gray-10);
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
-  flex-shrink: 0;
   margin-right: 0;
+  text-overflow: ellipsis;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 1;
 }
 
 .resource-tags .resource-tag--type,
@@ -2078,18 +2062,6 @@ footer.usa-footer .footer-grid-container,
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
-
-  .usa-tag {
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    color: var(--color-ink);
-    background-color: var(--color-gray-10);
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
-    flex-shrink: 0;
-    margin-right: 0;
-  }
 }
 
 .resource-tags .resource-tag--type,
@@ -2243,6 +2215,18 @@ footer.usa-footer .footer-grid-container,
   background-color: transparent;
 }
 
+/* Below desktop: show only Prev, current page + ellipsis, Next to fit narrow viewports */
+@media (max-width: ($breakpoint-desktop - 0.0625rem)) {
+  .usa-pagination__item.usa-pagination__page-no:not(:has(.usa-current)) {
+    display: none;
+  }
+
+  .usa-pagination__item.usa-pagination__page-no:has(.usa-current) .usa-current::before {
+    content: "Page";
+    margin-right: 0.25em;
+  }
+}
+
 .usa-pagination button.usa-pagination__link,
 .usa-pagination button.usa-pagination__button {
   background-color: transparent;
@@ -2263,6 +2247,10 @@ footer.usa-footer .footer-grid-container,
 
 .usa-pagination button.usa-current {
   background-color: var(--primary-color);
+}
+
+.usa-pagination__arrow {
+  min-width: 10rem;
 }
 
 .usa-pagination__arrow button {

@@ -106,7 +106,7 @@ export function FilterPanel({
                 {selected.focusAreas.length > 0 ? `Focus Area (${selected.focusAreas.length})` : 'Focus Area'}
               </button>
             </h3>
-            <div id="filter-focus-areas" className="usa-accordion__content usa-prose">
+            <div id="filter-focus-areas" className="usa-accordion__content usa-prose" hidden>
               <div className="filter-options">
                 {focusAreas.map((area) => {
                   const id = `filter-focus-area-${slugify(area)}`;
@@ -142,7 +142,7 @@ export function FilterPanel({
                 {selected.types.length > 0 ? `Type (${selected.types.length})` : 'Type'}
               </button>
             </h3>
-            <div id="filter-types" className="usa-accordion__content usa-prose">
+            <div id="filter-types" className="usa-accordion__content usa-prose" hidden>
               <div className="filter-options">
                 {types.map((type) => {
                   const id = `filter-type-${slugify(type)}`;
@@ -176,7 +176,7 @@ export function FilterPanel({
             {selected.years.length > 0 ? `Year (${selected.years.length})` : 'Year'}
           </button>
         </h3>
-        <div id="filter-years" className="usa-accordion__content usa-prose">
+        <div id="filter-years" className="usa-accordion__content usa-prose" hidden>
           <div className="filter-options">
             {years.map((year) => {
               const id = `filter-year-${slugify(year)}`;
