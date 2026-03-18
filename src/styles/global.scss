@@ -1617,20 +1617,6 @@ $councils-gap: 2rem;
   }
 }
 
-.content-tags {
-  margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-}
-
-.resource-tags .resource-tag--type,
-.content-tags .resource-tag--type {
-  font-family: var(--font-sans);
-  background-color: var(--color-gray-10);
-  color: var(--color-ink);
-}
-
 .filter-pills {
   display: flex;
   flex-wrap: wrap;
