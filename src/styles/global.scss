@@ -602,44 +602,6 @@ $councils-gap: 2rem;
   }
 }
 
-.councils-section {
-  width: 100%;
-  padding: 3rem 0 1rem;
-  position: relative;
-}
-
-.councils-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--councils-waves-url);
-  background-size: 30%;
-  background-repeat: repeat;
-  background-blend-mode: multiply;
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.councils-section h2, .home-page .usa-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-}
-
-.home-page .usa-section {
-  padding-top: 3rem;
-  padding-bottom: 0;
-}
-
-.home-page .usa-section hr {
-  width: 60%;
-  background-color: var(--accent-color);
-  height: 4px;
-}
-
 .sidebar-layout__main h2,
 .tablet\:grid-col-9 h2 {
   margin-top: 0;
@@ -1635,13 +1597,13 @@ $councils-gap: 2rem;
     opacity: 0.1;
     z-index: -1;
   }
+}
 
-  h2,
-  .home-page .usa-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-  }
+.councils-section h2,
+.home-page .usa-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .home-page .usa-section {
