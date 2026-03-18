@@ -389,7 +389,7 @@ footer.usa-footer .footer-grid-container,
 .footer-council-card {
   display: block;
   background-color: var(--color-white);
-  border-bottom: 5px solid var(--accent-color);
+  border-bottom: 6px solid var(--accent-color);
   padding: 1.5rem;
   color: var(--color-ink);
   transition:
@@ -524,7 +524,7 @@ $councils-gap: 2rem;
 
   /* Override USWDS .usa-card :last-child margin so the last card matches the others */
   a {
-    border-bottom: 8px solid var(--secondary-color);
+    border-bottom: 6px solid var(--secondary-color);
     display: flex;
     min-height: 0;
     margin-bottom: 0 !important;
@@ -1614,89 +1614,6 @@ $councils-gap: 2rem;
     width: 60%;
     background-color: var(--accent-color);
     height: 4px;
-  }
-}
-
-.councils-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $councils-gap;
-
-  a {
-    border-bottom: 6px solid var(--secondary-color);
-    display: flex;
-    min-height: 0;
-    margin-bottom: 0 !important;
-    flex: 0 0 100%;
-
-    &:last-child {
-      margin-bottom: 0 !important;
-    }
-
-    .usa-card__container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-      border-bottom: 0; 
-    }
-
-    .usa-card__footer {
-      margin-top: auto;
-      padding: 1rem 1.5rem;
-    }
-
-    .usa-card__heading {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-size: 1.5rem;
-      line-height: 1.4;
-    }
-
-    .usa-card__footer .usa-button {
-      background-color: var(--blue-warm-10v);
-      color: var(--color-ink);
-      border: none;
-      padding: 1rem 1.5rem;
-      font-weight: 500;
-    }
-
-    &:hover .usa-button,
-    &:focus-visible .usa-button {
-      background-color: var(--blue-warm-20v);
-    }
-  }
-
-  @media (min-width: $breakpoint-tablet) {
-    a {
-      flex: 0 0 calc((100% - #{$councils-gap}) / 2);
-    }
-  }
-
-  @media (min-width: $breakpoint-desktop) {
-    a {
-      flex: 0 0 calc((100% - #{$councils-gap * 2}) / 3);
-    }
-  }
-
-  .usa-card__container {
-    background-color: var(--color-white);
-    border-radius: 0;
-  }
-
-  .usa-card__media {
-    overflow: hidden;
-  }
-
-  .usa-card__img img {
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
