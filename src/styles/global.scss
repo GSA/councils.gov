@@ -485,7 +485,6 @@ footer.usa-footer .footer-grid-container,
 }
 
 .councils-grid .usa-card__media {
-  min-height: 225px;
   overflow: hidden;
   padding: 1.5rem;
 }
@@ -915,6 +914,20 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+/* Center heading when CMS omits subtext (no <p> in body); :has() avoids affecting h3 + p cards */
+.leadership-grid .usa-card__body:not(:has(p)) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 0.5rem;
+}
+
+.leadership-grid .usa-card__body:not(:has(p)) h3 {
+  margin-bottom: 0;
+}
+
 .members-grid {
   display: grid;
   gap: 1.5rem;
@@ -1220,8 +1233,9 @@ footer.usa-footer .footer-grid-container,
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 300px;
 
-    @media (min-width: $breakpoint-tablet) {
+    @media (min-width: $breakpoint-desktop) {
       min-height: 500px;
       display: flex;
       align-items: center;
@@ -1520,7 +1534,7 @@ footer.usa-footer .footer-grid-container,
 .councils-section h2,
 .home-page .usa-section h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
