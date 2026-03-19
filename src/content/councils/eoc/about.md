@@ -12,11 +12,11 @@ shortDescription: The Evaluation Officer Council advances federal evaluation
 
 The Evaluation Officer Council is comprised of the Evaluation Officers designated by the 24 CFO Act agencies (those identified in the Chief Financial Officers (CFO) Act of 1990). It serves as a forum to:
 
-* advance the mission of the use of analysis, evaluation, and data to improve mission delivery in agencies and government-wide;
-* exchange information;
-* consult with and advise OMB on issues that affect evaluation functions including evaluator competencies, program evaluation practices, and evaluation capacity building;
-* coordinate and collaborate on areas of common interest (including development of deliverables required under Title I of the Evidence Act); and
-* serve in a leadership role for the broader Federal evaluation community.
+* Advance the mission of the use of analysis, evaluation, and data to improve mission delivery in agencies and government-wide
+* Exchange information
+* Consult with and advise OMB on issues that affect evaluation functions including evaluator competencies, program evaluation practices, and evaluation capacity building
+* Coordinate and collaborate on areas of common interest (including development of deliverables required under Title I of the Evidence Act)
+* Serve in a leadership role for the broader Federal evaluation community
 
 ## Members & Leaders
 
@@ -44,11 +44,12 @@ The Evaluation Officer also oversees or conducts:
 * Assessments of the coverage, quality, methods, effectiveness, objectivity, scientific integrity, and balance of the portfolio of evaluations, policy research, and ongoing evaluation activities of the agency, in consultation with other methodologists, such as the Statistical Official, when appropriate
 * Improvement of agency capacity to support the development and use of evaluation, coordinate and increase technical expertise available for evaluation and related research activities within the agency, and improve the quality of evaluations and knowledge of evaluation methodology and standards; and dissemination of evaluation findings
 * Implementation of OMB Memorandum M-20-12, Phase 4 Implementation of the Foundations for Evidence-Based Policymaking Act of 2018: Program Evaluation Standards and Practices
-* Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice. The policy will provide interested parties both internal and external to the agency with a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
+* Establishment and implementation of an agency evaluation policy that affirms the agency’s commitment to conducting evaluations and using evidence from evaluations to inform policy and practice
+* Provision within the agency evaluation policy to ensure interested parties both internal and external to the agency have a clear understanding of the expectations related to key principles, such as evaluation relevance and utility, rigor, independence and objectivity, transparency, and ethics
 * Required coordination, development, and implementation of the plans required under section 312 of the Evidence Act:
 
-  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan
-  * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review
+  * Learning Agenda (evidence-building plan) included as part of the Agency Strategic Plan (and, beginning with FY27 deliverables, included as part of the new Agency Evidence Plan deliverable established in OMB Circular A-11, August 2025)
+  * Annual Evaluation Plan submitted in conjunction with the Annual Performance Plan and Strategic Review (also, beginning with FY27 deliverables, included as part of the new Agency Evidence Plan)
   * Capacity Assessment, included as part of the Agency Strategic Plan
 * Development of new, or improvement of existing, processes to integrate evaluation findings into agency decision-making and other functions
 * Management of agency's evaluation policies that uphold and adhere to the program evaluation standards in OMB Memorandum M-20-12 to ensure the scientific integrity, quality, and accountability of the agency's evaluation activities

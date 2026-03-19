@@ -48,7 +48,6 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
   );
   const [currentPage, setCurrentPage] = useState(1);
   const resultsTopRef = useRef<HTMLDivElement | null>(null);
-  const firstCardRef = useRef<HTMLAnchorElement | null>(null);
   const filterHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const hasMountedRef = useRef(false);
   const paginationInitializedRef = useRef(false);
@@ -91,10 +90,6 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
   const resultsRangeEnd = Math.min(currentPage * PAGE_SIZE, filteredResources.length);
   const resultsCountText =
     filteredResources.length > 0
-      ? `Showing ${resultsRangeStart}-${resultsRangeEnd} of ${filteredResources.length} resources`
-      : null;
-  const resultsCountTextSr =
-    filteredResources.length > 0
       ? `Showing ${resultsRangeStart} to ${resultsRangeEnd} of ${filteredResources.length} resources`
       : null;
   const paginatedResources = useMemo(
@@ -133,11 +128,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
     }
 
     requestAnimationFrame(() => {
-      if (filteredResources.length > 0 && firstCardRef.current) {
-        firstCardRef.current.focus();
-      } else if (resultsTopRef.current) {
-        resultsTopRef.current.focus({ preventScroll: true });
-      }
+      resultsTopRef.current?.focus({ preventScroll: true });
     });
   }, [selectedFilters, filteredResources.length]);
 
@@ -147,11 +138,7 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
       return;
     }
     requestAnimationFrame(() => {
-      if (firstCardRef.current) {
-        firstCardRef.current.focus({ preventScroll: true });
-      } else if (resultsTopRef.current) {
-        resultsTopRef.current.focus({ preventScroll: true });
-      }
+      resultsTopRef.current?.focus({ preventScroll: true });
     });
   }, [currentPage]);
 
@@ -186,8 +173,12 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
         >
           {resultsCountText ? (
             <>
-              <span aria-hidden="true">{resultsCountText}</span>
-              <span className="usa-sr-only">{resultsCountTextSr}</span>
+              <span>
+                {activeFilters.length > 0 && (
+                  <span className="usa-sr-only">Filters applied: </span>
+                )}
+                {resultsCountText}
+              </span>
             </>
           ) : (
             'No resources match the selected filters'
@@ -202,12 +193,10 @@ export default function ResourceFilter({ resources, baseUrl = '' }: ResourceFilt
               const rawHref = resource.link.startsWith('/')
                 ? `${baseUrl.replace(/\/$/, '')}${resource.link}`
                 : resource.link;
-              const href = sanitizeHref(rawHref);
-              const isFirst = paginatedResources[0]?.id === resource.id;
+              const href = sanitizeHref(rawHref) ?? '#';
               return (
               <div key={resource.id} className="tablet:grid-col-6 desktop:grid-col-4">
                 <a
-                  ref={isFirst ? firstCardRef : undefined}
                   href={href}
                   className="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered"
                   target="_blank"

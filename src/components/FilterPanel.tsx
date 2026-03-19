@@ -37,9 +37,6 @@ export function FilterPanel({
 
   const handleReset = () => {
     onReset();
-    requestAnimationFrame(() => {
-      filterHeadingRef?.current?.focus();
-    });
   };
 
   return (
@@ -206,6 +203,8 @@ export function FilterPills({ activeFilters, onRemove, baseUrl = '' }: FilterPil
   const closeIconSrc = `${baseUrl}assets/img/usa-icons/close.svg`.replace(/\/+/g, '/');
   return (
     <div
+      role="group"
+      aria-label="Active filters"
       className={`filter-pills ${
         activeFilters.length === 0 ? 'filter-pills--empty' : ''
       }`}
