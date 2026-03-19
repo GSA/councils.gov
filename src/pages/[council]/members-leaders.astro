@@ -348,7 +348,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={heading} />
+                      <img src={withBase(leader.image)} alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -391,7 +391,7 @@ function getMemberImage(member: any): string | null {
                 {leader.image && (
                   <div class="usa-card__media">
                     <div class="usa-card__img">
-                      <img src={withBase(leader.image)} alt={heading} />
+                      <img src={withBase(leader.image)} alt="" loading="lazy" decoding="async" />
                     </div>
                   </div>
                 )}
@@ -434,7 +434,7 @@ function getMemberImage(member: any): string | null {
             {memberImage && (
               <div class="usa-card__media">
                 <div class="usa-card__img">
-                  <img src={withBase(memberImage)} alt={heading} />
+                  <img src={withBase(memberImage)} alt="" loading="lazy" decoding="async" />
                 </div>
               </div>
             )}

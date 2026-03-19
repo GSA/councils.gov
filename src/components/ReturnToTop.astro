@@ -4,8 +4,9 @@
  * regardless of which element is the scroll container (window, documentElement, or body).
  */
 ---
+
 <div class="grid-container footer-grid-container usa-footer__return-to-top">
-  <a href="#" class="return-to-top" role="button" aria-label="Return to top of page">
+  <a href={`${Astro.url.pathname}#top-of-page`} class="return-to-top" aria-label="Return to top of page">
     Return to top
   </a>
 </div>
