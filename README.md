@@ -122,7 +122,7 @@ Interactive islands use `client:load` (or similar) where needed:
 ## Deploy
 
 - **Build output**: `_site/` (not `dist/`)
-- **Cloud.gov Pages / Federalist**: `npm run federalist` runs the standard build
+- **Cloud.gov Pages**: `npm run pages` runs the standard build
 - Set **`BASEURL`** when the site is not served from domain root
 
 ## Docs in repo
