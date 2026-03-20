@@ -46,6 +46,7 @@ leaders:
     agency: Department of Health and Human Services
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
+    image: /assets/img/leaders/wrandolph-ntsb-linkedin-photo.jpg
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
