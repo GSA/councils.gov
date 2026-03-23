@@ -24,6 +24,20 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 * Adopting and sharing best IT management practices
 * Managing risk and ensuring privacy and security
 
+## 
+Priorities of the Federal CIO
+
+* Architecture-First Procurement
+* Build Bespoke Rarely
+* Design to Reduce Interaction
+* Measure What Matters
+* People & Culture
+* Practical AI Adoption
+* Scale Through Shared Services
+* Simplify, Don't Repackage\
+  \
+  *\*Read more about the priorities here.*
+
 ## Our Statutory Requirements
 
 * Developing recommendations for the Director of OMB on government information resources management policies and requirements;
