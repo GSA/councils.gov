@@ -22,7 +22,7 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 * Optimizing Federal Government information resources and investments
 * Aligning IT solutions with Federal enterprise business processes
 * Adopting and sharing best IT management practices
-* Managing risk and ensuring privacy and security
+* Managing risk and ensuring privacy and security.....
 
 ## Our Statutory Requirements
 
