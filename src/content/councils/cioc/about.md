@@ -33,8 +33,14 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 
   * Most core capabilities are commodities now. Custom systems mean long-term ownership of every bug, every patch, and every compliance requirement. 
 * Design to Reduce Interaction
+
+  * The best digital service is often the one where nothing happens because nothing needed to. Designing to reduce interaction means eliminating unnecessary steps, automating routine processes, and proactively delivering services before people have to ask.
 * Measure What Matters
+
+  * Talent retention and impact. Fewer manual data calls. Fewer duplicative information requests. Measurement should focus on outcomes that matter — not activity metrics that create reporting burden without driving improvement.
 * People & Culture
+
+  * Great tech talent and a strong culture are what turn mission into results - driving innovation, trust and consistent delivery.
 * Practical AI Adoption
 * Scale Through Shared Services
 * Simplify, Don't Repackage\
