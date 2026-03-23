@@ -31,6 +31,7 @@ members:
   - agency: Department of Housing and Urban Development
     url: https://www.hud.gov/
   - agency: Department of the Interior
+    url: https://www.doi.gov/pfm
   - agency: Department of Justice
     url: https://www.ojp.gov/about/offices/office-chief-financial-officer-ocfo
   - agency: Department of Labor
