@@ -27,7 +27,11 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 ## Priorities of the Federal CIO
 
 * Procurement Requirements as Code (PRaC)
+
+  * Technical procurement should start with architecture, not prose. Clear reference architectures, defined in functional terms, get us to better outcomes faster. There should be a shared understanding of what the target state looks like — before any contract is written.
 * Build Bespoke Rarely
+
+  * Most core capabilities are commodities now. Custom systems mean long-term ownership of every bug, every patch, and every compliance requirement. 
 * Design to Reduce Interaction
 * Measure What Matters
 * People & Culture
