@@ -13,6 +13,7 @@ leaders:
     agency: Office of Management and Budget
     image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
     imageAlt: OMB Logo
+useCustomOrderForMembers: true
 members:
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer
@@ -22,8 +23,6 @@ members:
     url: https://www.ed.gov/about/ed-offices/ofo/office-of-finance-and-operations?src=oc
   - agency: Department of Energy
     url: https://www.energy.gov/cfo/office-chief-financial-officer
-  - agency: Department of War
-    url: https://comptroller.war.gov/
   - agency: Department of Health and Human Services
     url: https://www.hhs.gov/about/agencies/asfr/finance/index.html
   - agency: Department of Homeland Security
@@ -44,6 +43,8 @@ members:
     url: https://home.treasury.gov/about/offices/management
   - agency: Department of Veterans Affairs
     url: https://department.va.gov/administrations-and-offices/management/finance/?redirect=1
+  - agency: Department of War
+    url: https://comptroller.war.gov/
   - agency: Environmental Protection Agency
     url: https://www.epa.gov/aboutepa/about-office-financial-operations-management
   - agency: General Services Administration
