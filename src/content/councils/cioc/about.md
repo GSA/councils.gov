@@ -24,8 +24,7 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 * Adopting and sharing best IT management practices
 * Managing risk and ensuring privacy and security
 
-## 
-Priorities of the Federal CIO
+## Priorities of the Federal CIO
 
 * Procurement Requirements as Code (PRaC)
 * Build Bespoke Rarely
