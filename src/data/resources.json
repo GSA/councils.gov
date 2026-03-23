@@ -707,6 +707,21 @@
       "link": "https://www.whitehouse.gov/wp-content/uploads/legacy_drupal_files/omb/circulars/A94/a094.pdf"
     },
     {
+      "title": "Federal Chief Data Officers Council Charter",
+      "type": [
+        "PDF File"
+      ],
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "date": "2025-09-30",
+      "link": "/docs/cdo-council-charter-9.30.25-1-.pdf",
+      "id": "CDOC-1774288567881001"
+    },
+    {
       "id": "CDOC-1",
       "title": "Resources.data.gov",
       "description": "",
@@ -1295,21 +1310,6 @@
         "Statistical Policy"
       ],
       "id": "ICSP-1773432073820001"
-    },
-    {
-      "title": "Federal Chief Data Officers Council Charter",
-      "type": [
-        "PDF File"
-      ],
-      "focusArea": [
-        "Data"
-      ],
-      "councilAcronym": [
-        "CDOC"
-      ],
-      "date": "2025-09-30",
-      "link": "/docs/cdo-council-charter-9.30.25-1-.pdf",
-      "id": "CDOC-1774288567881001"
     }
   ]
 }
