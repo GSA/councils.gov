@@ -29,7 +29,7 @@ The CDO Council was established by statute in the [Foundations for Evidence-Base
 
 ## Charter
 
-In September 2025, the CDO Council updated its Charter which can be found [here](/resources/).
+In September 2025, the CDO Council updated its Charter which can be found [here](https://www.councils.gov/docs/cdo-council-charter-9.30.25-1-.pdf).
 
 ## Vision
 
