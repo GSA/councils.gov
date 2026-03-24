@@ -42,10 +42,16 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 
   * Great tech talent and a strong culture are what turn mission into results - driving innovation, trust and consistent delivery.
 * Practical AI Adoption
+
+  * Every federal employee should have access to baseline AI-enabled productivity tools. Practical AI adoption means moving beyond pilot projects and proof-of-concepts to embed artificial intelligence into everyday government workflows where it delivers measurable value.
 * Scale Through Shared Services
-* Simplify, Don't Repackage\
-  \
-  *\*Read more about the priorities here.*
+
+  * Breaking down silos across identity, data exchange, cybersecurity, and cloud services is how we move faster and spend less. Shared services allow agencies to leverage common platforms, reduce duplicative spending, and deliver consistent experiences across government.
+* Simplify, Don't Repackage
+
+  * Modernization starts with a blank whiteboard and a hard question: what problem are we actually solving? Too often, legacy system replacements replicate existing complexity rather than eliminating it. True modernization means rethinking processes from the ground up.
+
+*\*Read more about the priorities here.*
 
 ## Our Statutory Requirements
 
