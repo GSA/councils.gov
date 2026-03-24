@@ -82,7 +82,7 @@ members:
   - name: Dawn Zimmer
     title: Acting CIO/SAOP
     agency: Department of Energy
-    url: https://www.energy.gov/cio/privacy-program
+    url: ""
   - name: Clark Minor
     title: Acting CIO/SAOP
     agency: Department of Health and Human Services
