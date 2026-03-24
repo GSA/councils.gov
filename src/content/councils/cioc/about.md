@@ -38,6 +38,4 @@ The CIO Council aspires to promote a bright and prosperous future for the United
 
 You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/PLAW-107publ347/pdf/PLAW-107publ347.pdf) in detail or the [CIO Council Charter](https://www.councils.gov/docs/CIOC-Charter-Dec-2020.pdf) to learn more about us.
 
-
-
-### Priorities of the Federal CIO
+## Priorities of the Federal CIO
