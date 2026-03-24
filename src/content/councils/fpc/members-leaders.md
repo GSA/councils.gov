@@ -62,6 +62,12 @@ leaders:
     agency: Department of Agriculture
     image: /assets/img/leaders/janelle_jordan.jpg
     imageAlt: Janelle Jordan
+  - name: Becky Ronayne
+    title: Executive Committee Member
+    agency: Office of Personnel Management
+  - name: Mike O'Rourke
+    title: Executive Committee Member
+    agency: International Trade Commission
 members:
   - name: Samuel Berry
     title: CIO/SAOP
