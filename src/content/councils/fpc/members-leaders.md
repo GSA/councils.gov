@@ -68,6 +68,8 @@ leaders:
   - name: Mike O'Rourke
     title: Executive Committee Member
     agency: International Trade Commission
+    image: /assets/img/leaders/mike-o-rourke-headshot.jpg
+    imageAlt: Mike O'Rourke
 members:
   - name: Samuel Berry
     title: CIO/SAOP
