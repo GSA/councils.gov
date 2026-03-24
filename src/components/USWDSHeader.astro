@@ -37,7 +37,18 @@ const baseUrl = import.meta.env.BASE_URL;
           <ul id="councils-menu" class="usa-nav__submenu">
             {navCouncils.map((council) => (
               <li class="usa-nav__submenu-item">
-                <a href={`${baseUrl}${council.slug}/`}><span>{council.acronym}</span></a>
+                <a
+                  href={council.externalSiteUrl ?? `${baseUrl}${council.slug}/`}
+                  class={council.externalSiteUrl ? "usa-link usa-link--external" : undefined}
+                  {...(council.externalSiteUrl
+                    ? { target: "_blank", rel: "noreferrer noopener" }
+                    : {})}
+                >
+                  <span>{council.acronym}</span>
+                  {council.externalSiteUrl && (
+                    <span class="usa-sr-only"> (opens in a new tab)</span>
+                  )}
+                </a>
               </li>
             ))}
           </ul>

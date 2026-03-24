@@ -618,6 +618,30 @@ $councils-gap: 2rem;
       padding: 1rem 1.5rem;
       font-weight: 500;
     }
+
+    /* External council cards: launch icon sits with the button label (not on the whole card link) */
+    .usa-button.councils-grid__cta--external {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+
+      &::after {
+        content: "";
+        flex-shrink: 0;
+        width: 1.75ex;
+        height: 1.75ex;
+        background-color: currentColor;
+        -webkit-mask-image: url("/assets/img/usa-icons/launch.svg");
+        mask-image: url("/assets/img/usa-icons/launch.svg");
+        -webkit-mask-position: center center;
+        mask-position: center center;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+      }
+    }
   }
 }
 
@@ -1127,6 +1151,29 @@ footer.usa-footer .footer-grid-container,
   &:hover {
     color: var(--color-white);
     text-decoration: underline;
+  }
+}
+
+/* External quick links: same colors as .footer-quick-link (not default .usa-link blue) */
+.footer-quick-link.footer-quick-link--external {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  &::after {
+    content: "";
+    flex-shrink: 0;
+    width: 1.75ex;
+    height: 1.75ex;
+    background-color: currentColor;
+    -webkit-mask-image: url("/assets/img/usa-icons/launch.svg");
+    mask-image: url("/assets/img/usa-icons/launch.svg");
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
   }
 }
 
