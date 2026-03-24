@@ -66,5 +66,3 @@ The U.S. CIO and the CIO Council establish standards against which the success o
 The CIO Council aspires to promote a bright and prosperous future for the United States through the strategic use of Federal Information Technology. It seeks to drive efficiency and effectiveness across Government, spurring innovation, protecting and defending our resources and more effectively bringing Government services to Americans.
 
 You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/PLAW-107publ347/pdf/PLAW-107publ347.pdf) in detail or the [CIO Council Charter](https://www.councils.gov/docs/CIOC-Charter-Dec-2020.pdf) to learn more about us.
-
-## [Priorities of the Federal CIO](https://federalist-a7fd1d32-cf85-41ac-abfd-2fa45dd0f84a.sites.pages.cloud.gov/preview/gsa/councils.gov/cms/resources/resources/docs/priorities-of-the-federal-cio.pdf)
