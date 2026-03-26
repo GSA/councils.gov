@@ -152,7 +152,7 @@ members:
     title: General Counsel and SAOP
     agency: Social Security Administration
     url: ""
-  - name: Ruth Buckley
+  - name: Vacant
     title: SAOP
     agency: U.S. Agency for International Development
 ---
