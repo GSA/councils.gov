@@ -138,10 +138,6 @@ collections:
         name: icsp_about
         file: src/content/councils/icsp/about.md
         fields: *about_fields
-      - label: CHCO About
-        name: chco_about
-        file: src/content/councils/chco/about.md
-        fields: *about_fields
       - label: PIC About
         name: pic_about
         file: src/content/councils/pic/about.md

@@ -911,7 +911,7 @@
         "FPC"
       ],
       "date": "2020-01-01",
-      "link": "https://www.fpc.gov/roles-in-federal-privacy/"
+      "link": "https://vimeo.com/463004806?fl=pl&fe=vl"
     },
     {
       "id": "FPC-3",
@@ -927,7 +927,7 @@
         "FPC"
       ],
       "date": "2020-01-01",
-      "link": "https://www.fpc.gov/privacy-act-1974/"
+      "link": "https://vimeo.com/465761893?fl=pl&fe=vl"
     },
     {
       "id": "FPC-4",
@@ -943,7 +943,7 @@
         "FPC"
       ],
       "date": "2020-01-01",
-      "link": "https://www.fpc.gov/privacy-impact-asessments/"
+      "link": "https://vimeo.com/463006561?fl=pl&fe=vl"
     },
     {
       "id": "FPC-5",
@@ -959,7 +959,7 @@
         "FPC"
       ],
       "date": "2022-01-01",
-      "link": "https://www.fpc.gov/fair-info-practice-principles/"
+      "link": "https://vimeo.com/669614456?fl=pl&fe=vl"
     },
     {
       "id": "FPC-6",
@@ -975,7 +975,7 @@
         "FPC"
       ],
       "date": "2025-01-01",
-      "link": "https://www.fpc.gov/elements-of-federal-privacy-program/"
+      "link": "/docs/elements-of-a-federal-privacy-program_fpc-resource.pdf"
     },
     {
       "id": "FPC-7",
@@ -991,7 +991,7 @@
         "FPC"
       ],
       "date": "2025-01-01",
-      "link": "https://www.fpc.gov/law-library/"
+      "link": "/docs/law-library_fpc-resource.pdf"
     },
     {
       "id": "FPC-8",
@@ -1007,7 +1007,7 @@
         "FPC"
       ],
       "date": "2025-01-01",
-      "link": "https://www.fpc.gov/resources/omb/"
+      "link": "/docs/omb-guidance_fpc-resource.pdf"
     },
     {
       "id": "FPC-9",
@@ -1023,7 +1023,7 @@
         "FPC"
       ],
       "date": "2025-01-01",
-      "link": "https://www.fpc.gov/resources/SORNs/"
+      "link": "/docs/government-wide-sorns_fpc-resource.pdf"
     },
     {
       "id": "FPC-10",
@@ -1039,7 +1039,7 @@
         "FPC"
       ],
       "date": "2025-01-01",
-      "link": "https://www.fpc.gov/resources/glossary/"
+      "link": "/docs/glossary_fpc-resource.pdf"
     },
     {
       "id": "FPC-11",
@@ -1070,8 +1070,8 @@
       "councilAcronym": [
         "FPC"
       ],
-      "date": "2017-01-01",
-      "link": "https://www.fpc.gov/assets/pdf/Privacy-Toolkit-1-13-2017.pdf"
+      "date": "2025-01-01",
+      "link": "/docs/toolkit-for-recruiting-hiring-and-retaining-privacy-professionals-in-the-federal-government_1-13-2017.pdf"
     },
     {
       "id": "FPC-13",
@@ -1086,8 +1086,8 @@
       "councilAcronym": [
         "FPC"
       ],
-      "date": "2022-01-01",
-      "link": "https://www.fpc.gov/assets/pdf/Collaboration%20Index%20for%20Security%20and%20Privacy%20Controls%20FINAL.pdf"
+      "date": "2025-01-01",
+      "link": "/docs/collaboration-index-for-security-and-privacy-controls_10-2022.pdf"
     },
     {
       "id": "FPC-14",
@@ -1102,8 +1102,8 @@
       "councilAcronym": [
         "FPC"
       ],
-      "date": "2023-01-01",
-      "link": "https://www.fpc.gov/assets/pdf/FINAL%20Content%20Placed%20In%20Layout.pdf"
+      "date": "2025-01-01",
+      "link": "/docs/crosswalk-terminology-project_2023.pdf"
     },
     {
       "id": "FPC-15",
@@ -1118,8 +1118,8 @@
       "councilAcronym": [
         "FPC"
       ],
-      "date": "",
-      "link": "https://www.fpc.gov/assets/pdf/Privacy%20for%20CDOs.pdf"
+      "date": "2025-01-01",
+      "link": "/docs/privacy-for-chief-data-officers.pdf"
     },
     {
       "id": "CAIOC-1",

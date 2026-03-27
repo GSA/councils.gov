@@ -62,6 +62,14 @@ leaders:
     agency: Department of Agriculture
     image: /assets/img/leaders/janelle_jordan.jpg
     imageAlt: Janelle Jordan
+  - name: Becky Ronayne
+    title: Executive Committee Member
+    agency: Office of Personnel Management
+  - name: Mike O'Rourke
+    title: Executive Committee Member
+    agency: International Trade Commission
+    image: /assets/img/leaders/mike-o-rourke-headshot.jpg
+    imageAlt: Mike O'Rourke
 members:
   - name: Samuel Berry
     title: CIO/SAOP
@@ -72,11 +80,11 @@ members:
   - name: Frank Miller
     title: Director, Student Privacy Policy Office; Chief Privacy Officer; SAOP
     agency: Department of Education
-    url: https://www.ed.gov/about/ed-overview/required-notices/privacy-program
+    url: ""
   - name: Dawn Zimmer
     title: Acting CIO/SAOP
     agency: Department of Energy
-    url: https://www.energy.gov/cio/privacy-program
+    url: ""
   - name: Clark Minor
     title: Acting CIO/SAOP
     agency: Department of Health and Human Services
@@ -92,25 +100,25 @@ members:
   - name: Braye Cloud (Acting)
     title: Acting Deputy Assistant Secretary for Operations
     agency: Department of Labor
-    url: https://www.energy.gov/cio/privacy-program
+    url: ""
   - name: Timothy Kootz
     title: SAOP
     agency: Department of State
   - name: Paul McInerny
     title: SAOP/CIO
     agency: Department of the Interior
-    url: https://www.doi.gov/privacy/privacy-program
+    url: ""
   - name: Ryan Law
     title: Acting Deputy Assistant Secretary/Acting SAOP
     agency: Department of the Treasury
   - name: Jack Albright
     title: Deputy Chief Information Officer
     agency: Department of Transportation
-    url: https://www.transportation.gov/privacy
+    url: ""
   - name: Paul Lawrence, Ph.D
     title: Deputy Secretary Acting CIO/SAOP
     agency: Department of Veterans Affairs
-    url: https://department.va.gov/privacy/privacy-program-plan/
+    url: ""
   - name: Michael Kremlacek
     title: Acting ATSD(PCLT)/Acting SAOP
     agency: Department of War
@@ -120,31 +128,31 @@ members:
   - name: Zach Whitman
     title: Chief Data Scientist
     agency: General Services Administration
-    url: https://www.gsa.gov/reference/gsa-privacy-program
+    url: ""
   - name: Jeffrey Seaton
     title: SAOP/CIO
     agency: National Aeronautics and Space Administration
   - name: Tom Boger (Acting)
     title: Acting CISO, Acting SAOP
     agency: National Science Foundation
-    url: https://www.nsf.gov/policies/privacy
+    url: ""
   - name: Jonathan Feibus
     title: CISO/SAOP
     agency: Nuclear Regulatory Commission
-    url: https://www.nrc.gov/privacy/index
+    url: ""
   - name: Becky Ronayne (Acting)
     title: Acting SAOP
     agency: Office of Personnel Management
-    url: https://www.opm.gov/privacy/
+    url: ""
   - name: Hartley Caldwell
     title: CIO/SAOP
     agency: Small Business Administration
-    url: https://www.sba.gov/about-sba/open-government/sba-privacy-program
+    url: ""
   - name: Mark Steffensen
     title: General Counsel and SAOP
     agency: Social Security Administration
-    url: https://www.ssa.gov/privacy/
-  - name: Ruth Buckley
+    url: ""
+  - name: Vacant
     title: SAOP
     agency: U.S. Agency for International Development
 ---
