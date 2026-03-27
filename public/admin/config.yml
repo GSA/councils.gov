@@ -68,7 +68,7 @@ collections:
               name: logoPath,
               widget: image,
               required: false,
-              media_folder: public/assets/img/councils,
+              media_folder: /public/assets/img/councils,
               public_folder: /assets/img/councils,
               hint: "Council logo.",
             }
