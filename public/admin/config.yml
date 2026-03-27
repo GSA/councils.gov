@@ -50,11 +50,13 @@ collections:
             }
   - name: council_about_pages
     label: About
+    format: frontmatter
     files:
       - label: CDOC About
         name: cdoc_about
         file: src/content/councils/cdoc/about.md
         fields: &about_fields
+          - { label: Title, name: title, widget: string, required: false }
           - {
               label: Council Name,
               name: councilName,
@@ -95,6 +97,13 @@ collections:
               name: shortDescription,
               widget: text,
               required: false,
+            }
+          - {
+              label: External site URL,
+              name: externalSiteUrl,
+              widget: string,
+              required: false,
+              hint: "If set, this council appears in the header, footer, and home page but links to this URL instead of an on-site About page (opens in a new tab). Leave blank for normal councils."
             }
           - { label: Body, name: body, widget: markdown, required: false }
       - label: CAIOC About
