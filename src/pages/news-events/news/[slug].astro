@@ -5,7 +5,10 @@ import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
 export async function getStaticPaths() {
-  const items = (newsItems as any[]).filter((item) => item.kind === 'news');
+  const allNewsItems = Array.isArray(newsItems)
+    ? (newsItems as any[])
+    : (newsItems.news ?? newsItems.items ?? newsItems.data ?? []);
+  const items = allNewsItems.filter((item) => item.kind === 'news');
   return items.map((item) => ({
     params: { slug: item.slug },
     props: { item },
@@ -15,6 +18,9 @@ export async function getStaticPaths() {
 const { item } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
+const allNewsItems = Array.isArray(newsItems)
+  ? (newsItems as any[])
+  : (newsItems.news ?? newsItems.items ?? newsItems.data ?? []);
 
 const formatDate = (dateString: string) => {
   const parsed = new Date(dateString);
@@ -26,7 +32,9 @@ const formatDate = (dateString: string) => {
   });
 };
 
-const body = Array.isArray(item.body) ? item.body : [];
+const bodyMarkdown = Array.isArray(item.body)
+  ? item.body.join('\n\n')
+  : String(item.body ?? '');
 
 /** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
 function renderBodyBlock(block: string): string {
@@ -48,7 +56,7 @@ const currentCouncils = toArray(item.councilAcronym);
 const sharesCouncil = (i: any) =>
   currentCouncils.length > 0 &&
   toArray(i.councilAcronym).some((c) => currentCouncils.includes(c));
-const relatedItems = (newsItems as any[])
+const relatedItems = allNewsItems
   .filter(
     (i) =>
       i.slug &&
@@ -100,9 +108,9 @@ const relatedItems = (newsItems as any[])
         {item.author && (
           <p class="text-bold">By {item.author}</p>
         )}
-        {body.map((paragraph: string) => (
-          <div set:html={renderBodyBlock(paragraph)} class="news-body-block" />
-        ))}
+        {bodyMarkdown.trim() && (
+          <div set:html={renderBodyBlock(bodyMarkdown)} class="news-body-block" />
+        )}
       </div>
       {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].length > 0 && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">

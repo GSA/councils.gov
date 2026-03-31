@@ -25,20 +25,15 @@
           return;
         }
 
-        window.CMS.registerEventListener({
-        name: "preSave",
-        handler: ({ entry }) => {
-          const data = entry.get("data");
-          const resources = data.get("resources");
-
-          if (!resources || typeof resources.map !== "function") {
-            return entry;
+        const ensureListItemIds = (items, fallbackPrefix) => {
+          if (!items || typeof items.map !== "function") {
+            return items;
           }
 
           const baseTimestamp = Date.now();
           let sequence = 0;
 
-          const updatedResources = resources.map((item) => {
+          return items.map((item) => {
             const existingId = item.get("id");
             if (existingId && String(existingId).trim() !== "") {
               return item;
@@ -49,13 +44,45 @@
               councilValue && typeof councilValue.first === "function"
                 ? councilValue.first()
                 : councilValue;
-            const acronym = String(firstCouncil || "RESOURCE").trim() || "RESOURCE";
+            const prefix = String(firstCouncil || fallbackPrefix).trim() || fallbackPrefix;
             sequence += 1;
             const timestamp = `${baseTimestamp}${String(sequence).padStart(3, "0")}`;
-            return item.set("id", `${acronym}-${timestamp}`);
+            return item.set("id", `${prefix}-${timestamp}`);
           });
+        };
 
-          return entry.set("data", data.set("resources", updatedResources));
+        const slugify = (value) =>
+          String(value || "")
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-")
+            .replace(/^-|-$/g, "");
+
+        window.CMS.registerEventListener({
+        name: "preSave",
+        handler: ({ entry }) => {
+          const data = entry.get("data");
+          const collectionName = entry.get("collection");
+
+          if (collectionName === "resources") {
+            const resources = data.get("resources");
+            const updatedResources = ensureListItemIds(resources, "RESOURCE");
+            return entry.set("data", data.set("resources", updatedResources));
+          }
+
+          if (collectionName === "news_events") {
+            const news = data.get("news");
+            const updatedNews = ensureListItemIds(news, "NEWS").map((item) => {
+              const title = item.get("title");
+              const generatedSlug = slugify(title);
+              return generatedSlug ? item.set("slug", generatedSlug) : item;
+            });
+            return entry.set("data", data.set("news", updatedNews));
+          }
+
+          return entry;
         },
       });
       };

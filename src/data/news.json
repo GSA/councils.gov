@@ -1,44 +1,40 @@
-[
-  {
-    "id": "cdo-summit-2025",
-    "kind": "news",
-    "slug": "2025-cdo-summit",
-    "title": "2025 CDO Summit",
-    "thumbnail": "/assets/img/symposium-thumbnail.jpg",
-    "description": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components.",
-    "date": "2025-09-24",
-    "dateDisplay": "September 24-25, 2025",
-    "tags": [
-      "Event"
-    ],
-    "type": "Event",
-    "councilAcronym": "CDOC",
-    "body": [
-      "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components, alongside GSA strategic partners from TTS and Shared Services, to foster collaboration on accelerating progress through effective data sharing, technology integration, and advancing Zero Trust Architecture (ZTA) and M-25-05 implementation.",
-      "The convening highlighted the power of collective action among Federal Data leaders, reinforcing that while each agency faces unique challenges, no one is working in isolation. Key themes included coalition-building within the Agency C-Suite, practical training on Data.gov and Inventory.data.gov, and a strong commitment to advancing shared priorities across government.",
-      "The event was a resounding success, strengthening connections and laid the groundwork for continued collaboration toward a more open, secure, and effective federal data ecosystem."
-    ]
-  },
-  {
-    "id": "cdo-ciso-zero-trust-2024-10-31",
-    "kind": "news",
-    "slug": "cdo-ciso-zero-trust-data-security-guide",
-    "title": "CDO Council and CISO Council Release Joint Guide on Federal Zero Trust Data Security",
-    "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09.",
-    "date": "2024-10-31",
-    "author": "Kirsten Dalboe, Federal Energy Regulatory Commission CDO, Chair of CDO Council and Steven Hernandez, Department of Education CISO, Co-Chair of CISO Council",    "type": "Guidance",
-    "councilAcronym": "CDOC",
-    "tags": [
-      "News", 
-      "Guides"
-    ],
-    "body": [
-      "Today, the CISO Council and CDO Council released the [Federal Zero Trust (ZT) Data Security Guide](https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf), a first-of-its-kind document and key deliverable of OMB M-22-09, Moving the U.S. Government Towards Zero Trust Cybersecurity Principles. M-22-09 charged the Federal CDO Council and Federal CISO Council to convene a cross-agency working group of data and security experts to develop a data security guide for Federal agencies.",
-      "More than 30 Federal agencies and departments answered the call to author the Federal Zero Trust Data Security Guide. The Guide and companion document will assist practitioners in operationalizing data security using a ZT framework.",
-      "\"To meet the moment of the security paradigm shift to zero trust, the Federal Government is transforming how we work. This is the first time that Federal security teams and data teams are coming together in this way to tackle a challenge of this magnitude.\" – Steven Hernandez, Chief Information Security Officer (Department of Education), Co-Chair of the CISO Council",
-      "\"This guide represents insights from agency practitioners who are in the trenches working to implement zero trust and secure their organization's data. We're building a cooperative relationship between data and cyber to tackle this government-wide challenge and ultimately ensure the public's data is secured.\" – Kirsten Dalboe, Chief Data Officer (Federal Energy Regulatory Commission), Chair of the CDO Council",
-      "Each agency has a unique mission, structure, and budget with varying risk tolerances and levels of cybersecurity maturity. This guide is intended to meet agencies where they are as they work to strengthen their data security architecture and continue on their ZT journey.",
-      "The implementation of ZT principles is paramount for the Federal government to secure its data assets in an increasingly complex and contested cyber environment. By adhering to the core tenets of ZT — never trust, always verify — agencies can ensure that their data is categorized and safeguarded with the utmost precision."
-    ]
-  }
-]
+{
+  "news": [
+    {
+      "body": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components, alongside GSA strategic partners from TTS and Shared Services, to foster collaboration on accelerating progress through effective data sharing, technology integration, and advancing Zero Trust Architecture (ZTA) and M-25-05 implementation.\n\nThe convening highlighted the power of collective action among Federal Data leaders, reinforcing that while each agency faces unique challenges, no one is working in isolation. Key themes included coalition-building within the Agency C-Suite, practical training on Data.gov and Inventory.data.gov, and a strong commitment to advancing shared priorities across government.\n\nThe event was a resounding success, strengthening connections and laid the groundwork for continued collaboration toward a more open, secure, and effective federal data ecosystem.",
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "slug": "2025-cdo-summit",
+      "thumbnail": "/assets/img/symposium-thumbnail.jpg",
+      "date": "2025-09-24",
+      "dateDisplay": "September 24-25, 2025",
+      "kind": "news",
+      "title": "2025 CDO Summit",
+      "tags": [
+        "Event"
+      ],
+      "type": "Event",
+      "id": "cdo-summit-2025",
+      "description": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components."
+    },
+    {
+      "body": "Today, the CISO Council and CDO Council released the [Federal Zero Trust (ZT) Data Security Guide](https://resources.data.gov/assets/documents/Zero-Trust-DataSecurityGuide_RevisedMay2025_CIO.govVersion.pdf), a first-of-its-kind document and key deliverable of OMB M-22-09, Moving the U.S. Government Towards Zero Trust Cybersecurity Principles. M-22-09 charged the Federal CDO Council and Federal CISO Council to convene a cross-agency working group of data and security experts to develop a data security guide for Federal agencies.\n\nMore than 30 Federal agencies and departments answered the call to author the Federal Zero Trust Data Security Guide. The Guide and companion document will assist practitioners in operationalizing data security using a ZT framework.\n\n\"To meet the moment of the security paradigm shift to zero trust, the Federal Government is transforming how we work. This is the first time that Federal security teams and data teams are coming together in this way to tackle a challenge of this magnitude.\" – Steven Hernandez, Chief Information Security Officer (Department of Education), Co-Chair of the CISO Council\n\n\"This guide represents insights from agency practitioners who are in the trenches working to implement zero trust and secure their organization's data. We're building a cooperative relationship between data and cyber to tackle this government-wide challenge and ultimately ensure the public's data is secured.\" – Kirsten Dalboe, Chief Data Officer (Federal Energy Regulatory Commission), Chair of the CDO Council\n\nEach agency has a unique mission, structure, and budget with varying risk tolerances and levels of cybersecurity maturity. This guide is intended to meet agencies where they are as they work to strengthen their data security architecture and continue on their ZT journey.\n\nThe implementation of ZT principles is paramount for the Federal government to secure its data assets in an increasingly complex and contested cyber environment. By adhering to the core tenets of ZT — never trust, always verify — agencies can ensure that their data is categorized and safeguarded with the utmost precision.",
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "author": "Kirsten Dalboe, Federal Energy Regulatory Commission CDO, Chair of CDO Council and Steven Hernandez, Department of Education CISO, Co-Chair of CISO Council",
+      "slug": "cdo-council-and-ciso-council-release-joint-guide-on-federal-zero-trust-data-security",
+      "date": "2024-10-31",
+      "kind": "news",
+      "title": "CDO Council and CISO Council Release Joint Guide on Federal Zero Trust Data Security",
+      "tags": [
+        "News",
+        "Guides"
+      ],
+      "type": "Guidance",
+      "id": "cdo-ciso-zero-trust-2024-10-31",
+      "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09."
+    }
+  ]
+}

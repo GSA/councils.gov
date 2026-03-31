@@ -5,7 +5,10 @@ import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
 
 export async function getStaticPaths() {
-  const items = (newsItems as any[]).filter((item) => item.kind === 'event');
+  const allNewsItems = Array.isArray(newsItems)
+    ? (newsItems as any[])
+    : (newsItems.news ?? newsItems.items ?? newsItems.data ?? []);
+  const items = allNewsItems.filter((item) => item.kind === 'event');
   return items.map((item) => ({
     params: { slug: item.slug },
     props: { item },
@@ -17,13 +20,19 @@ const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
 const dateDisplay = item.dateDisplay || item.date;
+const allNewsItems = Array.isArray(newsItems)
+  ? (newsItems as any[])
+  : (newsItems.news ?? newsItems.items ?? newsItems.data ?? []);
+const bodyMarkdown = Array.isArray(item.body)
+  ? item.body.join('\n\n')
+  : String(item.body ?? '');
 
 /** Related news & events: same council (shares at least one), sorted by date (newest first), limit 5. */
 const currentCouncils = toArray(item.councilAcronym);
 const sharesCouncil = (i: any) =>
   currentCouncils.length > 0 &&
   toArray(i.councilAcronym).some((c) => currentCouncils.includes(c));
-const relatedItems = (newsItems as any[])
+const relatedItems = allNewsItems
   .filter(
     (i) =>
       i.slug &&
@@ -34,9 +43,9 @@ const relatedItems = (newsItems as any[])
   .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
   .slice(0, 5);
 
-/** Render a body block (plain text or markdown) as HTML; prepend baseUrl to internal links. */
-function renderBodyBlock(block: string): string {
-  const html = marked.parse(block, { async: false }) as string;
+/** Render markdown body as HTML; prepend baseUrl to internal links. */
+function renderBodyBlock(markdown: string): string {
+  const html = marked.parse(markdown, { async: false }) as string;
   if (!baseUrl || baseUrl === '/') return html;
   const base = baseUrl.replace(/\/$/, '');
   return html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
@@ -107,10 +116,9 @@ function renderBodyBlock(block: string): string {
         <p>
           <time datetime={item.date}>{dateDisplay}</time>
         </p>
-        {Array.isArray(item.body) &&
-          item.body.map((block: string) => (
-            <div set:html={renderBodyBlock(block)} class="event-body-block" />
-          ))}
+        {bodyMarkdown.trim() && (
+          <div set:html={renderBodyBlock(bodyMarkdown)} class="event-body-block" />
+        )}
       </div>
       {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].length > 0 && (
         <ul class="usa-list usa-list--unstyled margin-top-4 content-tags" aria-label="Topics">
