@@ -37,7 +37,9 @@ export async function getStaticPaths() {
     let hasNewsEvents = false;
     if (fs.existsSync(newsPath)) {
       const newsData = JSON.parse(fs.readFileSync(newsPath, 'utf-8'));
-      const newsItems = Array.isArray(newsData) ? newsData : (newsData.items ?? newsData.data ?? []);
+      const newsItems = Array.isArray(newsData)
+        ? newsData
+        : (newsData.news ?? newsData.items ?? newsData.data ?? []);
       hasNewsEvents = newsItems.some((item: { councilAcronym?: string | string[] }) =>
         toArray(item.councilAcronym).includes(councilAcronym)
       );

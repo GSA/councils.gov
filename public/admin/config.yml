@@ -13,7 +13,7 @@ backend:
 ## Run `npx netlify-cms-proxy-server` to start working locally
 ## In another terminal, start the app with `npm start`
 ## See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
-#
+
 # backend:
 #   name: git-gateway
 # local_backend: true
@@ -364,6 +364,85 @@ collections:
             summary: "{{fields.value}}"
             fields:
               - { label: Value, name: value, widget: string }
+  - name: news_events
+    label: News & Events
+    files:
+      - label: News & Events
+        name: news
+        file: src/data/news.json
+        format: json
+        fields:
+          - label: News Items
+            name: news
+            widget: list
+            summary: "{{fields.kind}} - {{fields.title}}"
+            fields:
+              - { label: ID, name: id, widget: hidden, required: false }
+              - {
+                  label: Kind,
+                  name: kind,
+                  widget: select,
+                  required: true,
+                  options:
+                    [
+                      { label: "News", value: "news" },
+                      { label: "Event", value: "event" },
+                    ],
+                  default: news,
+                }
+              - { label: Title, name: title, widget: string, required: true }
+              - {
+                  label: Thumbnail,
+                  name: thumbnail,
+                  widget: image,
+                  required: false,
+                  media_folder: /public/assets/img,
+                  public_folder: /assets/img,
+                }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: true,
+                }
+              - {
+                  label: Date,
+                  name: date,
+                  widget: datetime,
+                  required: true,
+                  format: "YYYY-MM-DD",
+                  date_format: "YYYY-MM-DD",
+                  time_format: false,
+                }
+              - {
+                  label: Date Display,
+                  name: dateDisplay,
+                  widget: string,
+                  required: false,
+                  hint: "Optional display override (example: September 24-25, 2025).",
+                }
+              - { label: Author, name: author, widget: string, required: false }
+              - label: Tags
+                name: tags
+                widget: list
+                required: false
+                summary: "{{fields.value}}"
+                field: { label: Tag, name: value, widget: string }
+              - label: Council Acronym
+                name: councilAcronym
+                widget: relation
+                collection: lookups
+                file: councils
+                search_fields: ["options.*.value"]
+                display_fields: ["options.*.value"]
+                value_field: "options.*.value"
+                multiple: true
+                required: true
+              - label: Body
+                name: body
+                widget: markdown
+                required: false
+                hint: "Full body content as markdown."
   - name: lookups
     label: Lookups
     hide: true
