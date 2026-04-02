@@ -18,7 +18,11 @@ export async function getStaticPaths() {
     
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const { data: frontmatter, content } = matter(fileContents);
-    
+
+    const externalUrl =
+      frontmatter.externalSiteUrl != null ? String(frontmatter.externalSiteUrl).trim() : '';
+    if (externalUrl) return null;
+
     // Check if this council has any leadership/members content for the side nav
     const membersLeadersPath = join(contentDir, councilSlug, 'members-leaders.md');
     let hasMembersLeaders = false;

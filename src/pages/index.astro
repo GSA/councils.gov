@@ -69,9 +69,16 @@ const withBase = (path: string | null | undefined) => {
         <div class="councils-grid padding-y-4">
         {councilsList.map((council) => (
           <a
-            href={withBase(council.href)}
-            class="usa-card display-block text-no-underline margin-0"
-            aria-label={council.acronym ? `About ${council.title} (${council.acronym})` : `About ${council.title}`}
+            href={council.isExternal ? council.href : withBase(council.href)}
+            class:list={["usa-card", "display-block", "text-no-underline", "margin-0"]}
+            {...(council.isExternal ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+            aria-label={
+              council.isExternal
+                ? undefined
+                : council.acronym
+                  ? `About ${council.title} (${council.acronym})`
+                  : `About ${council.title}`
+            }
           >
             <div class="usa-card__container">
               <div class="usa-card__media">
@@ -96,7 +103,17 @@ const withBase = (path: string | null | undefined) => {
                 <p>{council.description}</p>
               </div> */}
               <div class="usa-card__footer text-center margin-top-2 margin-bottom-1">
-                <span class="usa-button">About {council.acronym}</span>
+                <span
+                  class:list={[
+                    "usa-button",
+                    council.isExternal && "councils-grid__cta--external",
+                  ]}
+                >
+                  {council.isExternal ? `Visit ${council.acronym}` : `About ${council.acronym}`}
+                  {council.isExternal && (
+                    <span class="usa-sr-only"> (opens in a new tab)</span>
+                  )}
+                </span>
               </div>
             </div>
           </a>

@@ -1,7 +1,8 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import { readdirSync } from "fs";
+import matter from "gray-matter";
+import { readFileSync, readdirSync, existsSync } from "fs";
 import { join } from "path";
 
 // If BASEURL env variable exists, update base to the BASEURL
@@ -19,10 +20,26 @@ try {
     .filter((d) => d.isDirectory())
     .map((d) => d.name);
   for (const slug of slugs) {
-    councilRedirects[`/councils/${slug}/about/`] = `/${slug}/`;
-    councilRedirects[`/councils/${slug}/`] = `/${slug}/`;
-    councilRedirects[`/councils/${slug}/members-leaders/`] =
-      `/${slug}/members-leaders/`;
+    const aboutPath = join(contentDir, slug, "about.md");
+    let externalSiteUrl = "";
+    if (existsSync(aboutPath)) {
+      const { data } = matter(readFileSync(aboutPath, "utf-8"));
+      externalSiteUrl =
+        data.externalSiteUrl != null ? String(data.externalSiteUrl).trim() : "";
+    }
+
+    if (externalSiteUrl) {
+      councilRedirects[`/councils/${slug}/about/`] = externalSiteUrl;
+      councilRedirects[`/councils/${slug}/`] = externalSiteUrl;
+      councilRedirects[`/councils/${slug}/members-leaders/`] = externalSiteUrl;
+      councilRedirects[`/${slug}/`] = externalSiteUrl;
+      councilRedirects[`/${slug}/members-leaders/`] = externalSiteUrl;
+    } else {
+      councilRedirects[`/councils/${slug}/about/`] = `/${slug}/`;
+      councilRedirects[`/councils/${slug}/`] = `/${slug}/`;
+      councilRedirects[`/councils/${slug}/members-leaders/`] =
+        `/${slug}/members-leaders/`;
+    }
   }
 } catch {
   // Ignore if content dir doesn't exist (e.g. during config validation)

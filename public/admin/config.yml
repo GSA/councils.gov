@@ -96,6 +96,13 @@ collections:
               widget: text,
               required: false,
             }
+          - {
+              label: External site URL,
+              name: externalSiteUrl,
+              widget: string,
+              required: false,
+              hint: "If set, this council appears in the header, footer, and home page but links to this URL instead of an on-site About page (opens in a new tab). Leave blank for normal councils."
+            }
           - { label: Body, name: body, widget: markdown, required: false }
       - label: CAIOC About
         name: caioc_about

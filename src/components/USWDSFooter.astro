@@ -12,8 +12,20 @@ const baseUrl = import.meta.env.BASE_URL;
           <ul class="footer-quick-links">
             {navCouncils.map((council) => (
               <li>
-                <a href={`${baseUrl}${council.slug}/`} class="footer-quick-link">
+                <a
+                  href={council.externalSiteUrl ?? `${baseUrl}${council.slug}/`}
+                  class:list={[
+                    "footer-quick-link",
+                    council.externalSiteUrl && "footer-quick-link--external",
+                  ]}
+                  {...(council.externalSiteUrl
+                    ? { target: "_blank", rel: "noreferrer noopener" }
+                    : {})}
+                >
                   {council.councilName}
+                  {council.externalSiteUrl && (
+                    <span class="usa-sr-only"> (opens in a new tab)</span>
+                  )}
                 </a>
               </li>
             ))}
