@@ -50,13 +50,11 @@ collections:
             }
   - name: council_about_pages
     label: About
-    format: frontmatter
     files:
       - label: CDOC About
         name: cdoc_about
         file: src/content/councils/cdoc/about.md
         fields: &about_fields
-          - { label: Title, name: title, widget: string, required: false }
           - {
               label: Council Name,
               name: councilName,
