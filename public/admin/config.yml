@@ -101,7 +101,7 @@ collections:
               name: externalSiteUrl,
               widget: string,
               required: false,
-              hint: "If set, this council appears in the header, footer, and home page but links to this URL instead of an on-site About page (opens in a new tab). Leave blank for normal councils."
+              hint: "If set, this council appears in the header, footer, and home page but links to this URL instead of an on-site About page (opens in a new tab). Leave blank for normal councils.",
             }
           - { label: Body, name: body, widget: markdown, required: false }
       - label: CAIOC About
@@ -198,6 +198,7 @@ collections:
                 display_fields: ["options.*.value"]
                 value_field: "options.*.value"
                 required: false
+                options_length: 100
               - { label: URL, name: url, widget: string, required: false }
               - {
                   label: Image,
@@ -251,6 +252,7 @@ collections:
                 display_fields: ["options.*.value"]
                 value_field: "options.*.value"
                 required: false
+                options_length: 100
               - { label: URL, name: url, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
       - label: CAIOC Members & Leaders
@@ -313,6 +315,7 @@ collections:
                 display_fields: ["options.*.value"]
                 value_field: "options.*.value"
                 multiple: true
+                options_length: 100
               - label: Focus Area
                 name: focusArea
                 widget: relation
@@ -323,6 +326,7 @@ collections:
                 value_field: "options.*.value"
                 multiple: true
                 required: false
+                options_length: 100
               - label: Council Acronym
                 name: councilAcronym
                 widget: relation
@@ -332,6 +336,7 @@ collections:
                 display_fields: ["options.*.value"]
                 value_field: "options.*.value"
                 multiple: true
+                options_length: 100
               - {
                   label: Date,
                   name: date,
@@ -445,6 +450,7 @@ collections:
                 value_field: "options.*.value"
                 multiple: true
                 required: true
+                options_length: 100
               - label: Body
                 name: body
                 widget: markdown
