@@ -51,4 +51,12 @@ members:
   - agency: Federal Deposit Insurance Corporation
   - agency: National Archives and Records Administration
   - agency: Office of the Director of National Intelligence
+  - agency: Department of Energy
+  - agency: Department of Justice
+  - agency: Department of Agriculture
+  - agency: Department of Commerce
+  - agency: Department of Education
+  - agency: Department of Homeland Security
+  - agency: Department of Health and Human Services
+  - agency: Department of Housing and Urban Development
 ---
