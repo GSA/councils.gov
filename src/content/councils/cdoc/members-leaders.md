@@ -41,11 +41,12 @@ leaders:
   - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
-  - name: Kristen Honey
-    title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
-    agency: Department of Health and Human Services
+  - name: Dominique Duval-Diop
+    title: Data-Driven Government Working Group Co-Chair, Acting Chief Data Officer
+    agency: Department of Commerce
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
+    agency: National Transportation Safety Board
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
@@ -86,7 +87,7 @@ members:
   - title: ""
     agency: Commodity Futures Trading Commission
     url: https://www.cftc.gov/data
-    name: Edward Wehner
+    name: Jessica Harris
   - title: ""
     agency: Consumer Product Safety Commission
     url: https://www.cpsc.gov/Data
@@ -113,7 +114,7 @@ members:
   - title: ""
     agency: Department of Health and Human Services
     url: https://www.hhs.gov/data/index.html
-    name: Kristen Honey
+    name: David Hong
   - title: ""
     agency: Department of Homeland Security
     url: https://www.dhs.gov/data
@@ -223,7 +224,7 @@ members:
   - title: ""
     agency: Merit Systems Protection Board
     url: https://www.mspb.gov/data/
-    name: William (Bill) Spencer
+    name: Leslie Horne
   - title: ""
     agency: Millennium Challenge Corporation
     url: https://data.mcc.gov/
