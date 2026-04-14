@@ -1,23 +1,6 @@
 {
   "resources": [
     {
-      "title": "2025 Federal CDO Council Survey Results (ppt)",
-      "type": [
-        "PDF File"
-      ],
-      "focusArea": [
-        "Data",
-        "Responsibilities",
-        "Resources"
-      ],
-      "councilAcronym": [
-        "CDOC"
-      ],
-      "date": "2026-03-26",
-      "link": "/docs/2025-cdo-council-survey-results.pdf",
-      "id": "CDOC-1776176110769001"
-    },
-    {
       "id": "CIOC-1",
       "title": "CIO Council Handbook",
       "description": "",
