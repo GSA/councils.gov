@@ -26,6 +26,19 @@
       "description": "Choosing to serve in this office means choosing to build. It means choosing accountability over comfort, clarity over confusion, and outcomes over process. This document outlines the expectations we hold for ourselves—and each other—as we modernize the digital infrastructure of the United States."
     },
     {
+      "body": "The 2025 CDO Council Member Survey offers senior leaders a concise view of how federal Chief Data Officers (CDOs) are advancing enterprise data capabilities while preparing agencies for the accelerating impact of artificial intelligence (AI). With participation from 29 agencies, the findings reflect a maturing federal data leadership community navigating both organizational stability and emerging strategic demands.\n\nEstablished under the Evidence Act, CDOs are responsible for overseeing data governance, management, and strategic data use across their agencies. Survey results indicate increasing role maturity: 80% of respondents have served in their current positions for more than one year, and 61% of agencies have maintained a CDO function for over five years. Leadership demographics show balanced gender representation, while nearly one-third of respondents hold additional professional data or analytics certifications. However, 22% of CDO roles remain filled on an interim basis, signaling continued organizational evolution.\n\nCDOs report primary accountability for mission-critical areas including data governance, analytics, modernization, enterprise data strategy, and open data initiatives. At the same time, responsibilities remain limited in operational domains such as records management, FOIA, geospatial data, and data monetization, highlighting the importance of cross-functional partnerships with CIOs, statistical officials, privacy, security, and evaluation leaders.\n\nA key enhancement to the 2025 survey examined agency readiness for AI adoption. Respondents consistently emphasized that high-quality, well-governed data is the essential foundation for responsible AI. Executives should note recurring priorities identified by CDOs: strengthening data management practices, establishing ethical and testing standards, and improving monitoring for bias and model drift.\n\nLooking forward, CDOs recommended increased cross-agency collaboration, expanded sharing of best practices, centralized AI strategy resources, and targeted pilot programs to accelerate innovation. The survey reinforces a clear executive takeaway: sustained investment in data governance and coordination is critical to unlocking AI value while maintaining public trust and accountability across federal operations.",
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "author": "Federal Chief Data Officers Council",
+      "slug": "2025-federal-cdo-council-member-survey-results",
+      "date": "2026-03-26",
+      "kind": "news",
+      "title": "2025 Federal CDO Council Member Survey Results",
+      "id": "CDOC-1776175650209001",
+      "description": "2025 Federal CDO Council Member Survey Results\n"
+    },
+    {
       "body": "The 2025 CDOC Summit held on September 24-25 at GSA Headquarters was a resounding success! The theme of the Summit was \"Data Without Barriers\" and the event brought together 60 attendees representing 60 Federal Agencies and Components, alongside GSA strategic partners from TTS and Shared Services, to foster collaboration on accelerating progress through effective data sharing, technology integration, and advancing Zero Trust Architecture (ZTA) and M-25-05 implementation.\n\nThe convening highlighted the power of collective action among Federal Data leaders, reinforcing that while each agency faces unique challenges, no one is working in isolation. Key themes included coalition-building within the Agency C-Suite, practical training on Data.gov and Inventory.data.gov, and a strong commitment to advancing shared priorities across government.\n\nThe event was a resounding success, strengthening connections and laid the groundwork for continued collaboration toward a more open, secure, and effective federal data ecosystem.",
       "councilAcronym": [
         "CDOC"
@@ -60,19 +73,6 @@
       "type": "Guidance",
       "id": "cdo-ciso-zero-trust-2024-10-31",
       "description": "Today, the CISO Council and CDO Council released the Federal Zero Trust (ZT) Data Security Guide, a first-of-its-kind document and key deliverable of OMB M-22-09."
-    },
-    {
-      "body": "The 2025 CDO Council Member Survey offers senior leaders a concise view of how federal Chief Data Officers (CDOs) are advancing enterprise data capabilities while preparing agencies for the accelerating impact of artificial intelligence (AI). With participation from 29 agencies, the findings reflect a maturing federal data leadership community navigating both organizational stability and emerging strategic demands.\n\nEstablished under the Evidence Act, CDOs are responsible for overseeing data governance, management, and strategic data use across their agencies. Survey results indicate increasing role maturity: 80% of respondents have served in their current positions for more than one year, and 61% of agencies have maintained a CDO function for over five years. Leadership demographics show balanced gender representation, while nearly one-third of respondents hold additional professional data or analytics certifications. However, 22% of CDO roles remain filled on an interim basis, signaling continued organizational evolution.\n\nCDOs report primary accountability for mission-critical areas including data governance, analytics, modernization, enterprise data strategy, and open data initiatives. At the same time, responsibilities remain limited in operational domains such as records management, FOIA, geospatial data, and data monetization, highlighting the importance of cross-functional partnerships with CIOs, statistical officials, privacy, security, and evaluation leaders.\n\nA key enhancement to the 2025 survey examined agency readiness for AI adoption. Respondents consistently emphasized that high-quality, well-governed data is the essential foundation for responsible AI. Executives should note recurring priorities identified by CDOs: strengthening data management practices, establishing ethical and testing standards, and improving monitoring for bias and model drift.\n\nLooking forward, CDOs recommended increased cross-agency collaboration, expanded sharing of best practices, centralized AI strategy resources, and targeted pilot programs to accelerate innovation. The survey reinforces a clear executive takeaway: sustained investment in data governance and coordination is critical to unlocking AI value while maintaining public trust and accountability across federal operations.",
-      "councilAcronym": [
-        "CDOC"
-      ],
-      "author": "Federal Chief Data Officers Council",
-      "slug": "2025-federal-cdo-council-member-survey-results",
-      "date": "2026-03-26",
-      "kind": "news",
-      "title": "2025 Federal CDO Council Member Survey Results",
-      "id": "CDOC-1776175586965001",
-      "description": "2025 Federal CDO Council Member Survey Results\n"
     }
   ]
 }
