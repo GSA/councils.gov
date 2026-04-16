@@ -7,11 +7,31 @@ import resourcesData from '../data/resources.json';
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 
-const resources = Array.isArray(resourcesData)
+const unsortedResources = Array.isArray(resourcesData)
   ? resourcesData
   : Array.isArray(resourcesData?.resources)
     ? resourcesData.resources
     : [];
+
+const getResourceDateTimestamp = (resource) => {
+  if (typeof resource?.date !== 'string' || resource.date.trim() === '') {
+    return null;
+  }
+
+  const timestamp = Date.parse(resource.date);
+  return Number.isNaN(timestamp) ? null : timestamp;
+};
+
+const resources = [...unsortedResources].sort((a, b) => {
+  const aTimestamp = getResourceDateTimestamp(a);
+  const bTimestamp = getResourceDateTimestamp(b);
+
+  if (aTimestamp === null && bTimestamp === null) return 0;
+  if (aTimestamp === null) return 1;
+  if (bTimestamp === null) return -1;
+
+  return bTimestamp - aTimestamp;
+});
 
 // Ensure resources is always an array (fallback to empty array if parsing fails)
 if (!Array.isArray(resources) || resources.length === 0) {
