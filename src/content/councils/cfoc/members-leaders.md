@@ -35,7 +35,7 @@ members:
     name: Holly Mehringer (Acting)
   - agency: Department of Housing and Urban Development
     url: https://www.hud.gov/
-    name: Irving Dennis
+    name: Vacant
   - agency: Department of the Interior
     url: https://www.doi.gov/pfm
     name: Vacant
