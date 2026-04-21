@@ -40,7 +40,7 @@ members:
     url: https://www.doi.gov/pfm
     name: Vacant
   - agency: Department of Justice
-    url: https://www.ojp.gov/about/offices/office-chief-financial-officer-ocfo
+    url: https://www.justice.gov/jmd
     name: Jolene Lauria
   - agency: Department of Labor
     url: https://www.dol.gov/agencies/ocfo
