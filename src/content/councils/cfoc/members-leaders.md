@@ -73,7 +73,7 @@ members:
     name: Caitlyn Fife (Acting)
   - agency: Nuclear Regulatory Commission
     url: https://www.nrc.gov/about-nrc/organization/ocfofuncdesc
-    name: Chris Carroll (Acting)
+    name: Chris Carroll
   - agency: Office of Personnel Management
     url: https://www.opm.gov/
     name: Katie McGuiness
