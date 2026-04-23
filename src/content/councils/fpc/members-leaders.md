@@ -136,8 +136,8 @@ members:
     title: Acting CISO, Acting SAOP
     agency: National Science Foundation
     url: ""
-  - name: Jonathan Feibus
-    title: CISO/SAOP
+  - name: Garo Nalabandian
+    title: SAOP
     agency: Nuclear Regulatory Commission
     url: ""
   - name: Becky Ronayne (Acting)
