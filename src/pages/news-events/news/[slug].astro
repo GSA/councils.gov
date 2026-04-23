@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { toArray } from '../../../components/filters';
 import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
+import { prefixRootRelativeUrls } from '../../../utils/prefixBasePath';
 
 export async function getStaticPaths() {
   const allNewsItems = Array.isArray(newsItems)
@@ -44,11 +45,7 @@ function renderBodyBlock(block: string): string {
     (_, href, rest, content) =>
       `<a href="${href}"${rest} class="usa-link usa-link--external" target="_blank" rel="noreferrer noopener">${content}<span class="usa-sr-only"> (opens in a new tab)</span></a>`
   );
-  const base = baseUrl?.replace(/\/$/, '') || '';
-  if (base && base !== '/') {
-    html = html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
-  }
-  return html;
+  return prefixRootRelativeUrls(html, baseUrl);
 }
 
 /** Related news & events: same council (shares at least one), sorted by date (newest first), limit 5. */
@@ -109,7 +106,7 @@ const relatedItems = allNewsItems
           <p class="text-bold">By {item.author}</p>
         )}
         {bodyMarkdown.trim() && (
-          <div set:html={renderBodyBlock(bodyMarkdown)} class="news-body-block" />
+          <div set:html={renderBodyBlock(bodyMarkdown)} class="news-body-block usa-prose" />
         )}
       </div>
       {[...new Set([...toArray(item.councilAcronym), ...(item.tags ?? [])])].length > 0 && (

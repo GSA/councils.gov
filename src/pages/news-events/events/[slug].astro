@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { toArray } from '../../../components/filters';
 import { marked } from 'marked';
 import newsItems from '../../../data/news.json';
+import { prefixRootRelativeUrls } from '../../../utils/prefixBasePath';
 
 export async function getStaticPaths() {
   const allNewsItems = Array.isArray(newsItems)
@@ -46,9 +47,7 @@ const relatedItems = allNewsItems
 /** Render markdown body as HTML; prepend baseUrl to internal links. */
 function renderBodyBlock(markdown: string): string {
   const html = marked.parse(markdown, { async: false }) as string;
-  if (!baseUrl || baseUrl === '/') return html;
-  const base = baseUrl.replace(/\/$/, '');
-  return html.replace(/\bhref="(\/[^"]*)"/g, (_, path) => `href="${base}${path}"`);
+  return prefixRootRelativeUrls(html, baseUrl);
 }
 ---
 
