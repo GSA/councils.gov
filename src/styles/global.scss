@@ -187,15 +187,6 @@ textarea {
   background-color: var(--primary-color);
 }
 
-ul:not(.usa-nav__primary):not(.usa-nav__submenu):not(.usa-sidenav):not(
-    .usa-sidenav__sublist
-  ):not(.usa-list):not(.usa-footer__primary-content):not(
-    .usa-identifier__required-links-list
-  ) {
-  padding-left: 0;
-  margin: 0;
-}
-
 #main-content {
   .grid-container {
     max-width: var(--max-width);
