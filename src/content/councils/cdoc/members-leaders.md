@@ -45,7 +45,7 @@ leaders:
   - name: Dominique Duval-Diop
     title: Data-Driven Government Working Group Co-Chair, Acting Chief Data Officer
     agency: Department of Commerce
-    image: /assets/img/leaders/dominique_duval-diop_headshot.jpg
+    image: /assets/img/leaders/untitled-document.png
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
