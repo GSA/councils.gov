@@ -33,6 +33,7 @@ leaders:
   - name: Brandon Brown
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
+    image: /assets/img/leaders/official-photo-brown-2020-3-.jpg
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
@@ -44,6 +45,7 @@ leaders:
   - name: Dominique Duval-Diop
     title: Data-Driven Government Working Group Co-Chair, Acting Chief Data Officer
     agency: Department of Commerce
+    image: /assets/img/leaders/dominique_duval-diop_headshot.jpg
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
