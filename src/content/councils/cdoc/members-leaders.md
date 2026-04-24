@@ -47,6 +47,7 @@ leaders:
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
+    image: /assets/img/leaders/warren-randolph.png
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
@@ -308,7 +309,7 @@ members:
     name: Melanie Carter
   - title: ""
     agency: Postal Regulatory Commission
-    name: Alexandra Porter
+    name: Vacant
   - title: ""
     agency: Presidio Trust
     name: Manny Guerreiro
@@ -326,7 +327,7 @@ members:
     name: Austin Gerig
   - title: ""
     agency: Selective Service System
-    name: Alma Cruz
+    name: Zak Schwartz
   - title: ""
     agency: Small Business Administration
     url: https://www.sba.gov/about-sba/open-government/digital-sba
