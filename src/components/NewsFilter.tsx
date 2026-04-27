@@ -242,7 +242,7 @@ export default function NewsFilter({ items, baseUrl = '' }: NewsFilterProps) {
                   </h3>
                   <div className="resource-date margin-bottom-2">
                     <time dateTime={item.date}>
-                      {item.dateDisplay ?? formatDate(item.date)}
+                      {item.dateDisplay || formatDate(item.date)}
                     </time>
                   </div>
                   {[
