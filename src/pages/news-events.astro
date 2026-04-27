@@ -6,9 +6,12 @@ import newsData from '../data/news.json';
 
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
-const newsItems = Array.isArray(newsData)
+const unsortedNewsItems = Array.isArray(newsData)
   ? (newsData as NewsItem[])
   : ((newsData.news ?? newsData.items ?? newsData.data ?? []) as NewsItem[]);
+const newsItems = [...unsortedNewsItems].sort((a, b) =>
+  (b.date || '').localeCompare(a.date || '')
+);
 ---
 
 <BaseLayout title="News & Events - Councils.gov" currentPage="news-events">
