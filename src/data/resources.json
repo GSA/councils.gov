@@ -759,7 +759,7 @@
       "title": "2024 Annual CDOC Survey - Anonymized Responses",
       "description": "",
       "type": [
-        "PDF Files"
+        "Quick Reference"
       ],
       "focusArea": [
         "Data"
@@ -775,7 +775,7 @@
       "title": "2024 Annual CDOC Survey - Survey Instrument",
       "description": "",
       "type": [
-        "PDF Files"
+        "PDF File"
       ],
       "focusArea": [
         "Data"
@@ -791,7 +791,7 @@
       "title": "2024 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
       "type": [
-        "PDF Files"
+        "PDF File"
       ],
       "focusArea": [
         "Data"
@@ -807,7 +807,7 @@
       "title": "2023 Annual CDOC Survey - Anonymized Responses",
       "description": "",
       "type": [
-        "PDF Files"
+        "Quick Reference"
       ],
       "focusArea": [
         "Data"
@@ -823,7 +823,7 @@
       "title": "2023 Annual CDOC Survey - Survey Instrument",
       "description": "",
       "type": [
-        "PDF Files"
+        "PDF File"
       ],
       "focusArea": [
         "Data"
@@ -839,7 +839,7 @@
       "title": "2023 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
       "type": [
-        "PDF Files"
+        "PDF File"
       ],
       "focusArea": [
         "Data"
@@ -871,7 +871,7 @@
       "title": "2022 Annual CDOC Survey - Survey Instrument",
       "description": "",
       "type": [
-        "PDF Files"
+        "Quick Reference"
       ],
       "focusArea": [
         "Data"
@@ -887,7 +887,7 @@
       "title": "2022 Annual CDOC Survey - Slides Analyzing the Data",
       "description": "",
       "type": [
-        "PDF Files"
+        "PDF File"
       ],
       "focusArea": [
         "Data"
@@ -1327,6 +1327,36 @@
         "Statistical Policy"
       ],
       "id": "ICSP-1773432073820001"
+    },
+    {
+      "title": "2021 Annual CDOC Survey - Survey Instrument",
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "type": [
+        "PDF File"
+      ],
+      "date": "2021-01-01",
+      "link": "/docs/cdo_council_-_january_2021_survey.pdf",
+      "id": "CDOC-1777404805216001"
+    },
+    {
+      "title": "2021 Annual CDOC Survey - Anonymized Responses",
+      "focusArea": [
+        "Data"
+      ],
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "date": "2021-01-01",
+      "link": "/docs/cdo-survey-january-2021-public-file.xlsx",
+      "type": [
+        "Quick Reference"
+      ],
+      "id": "CDOC-1777404805216002"
     }
   ]
 }
