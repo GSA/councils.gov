@@ -33,7 +33,7 @@ leaders:
   - name: Brandon Brown
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
-    image: /assets/img/leaders/official-photo-brown-2020-3-.jpg
+    image: /assets/img/leaders/brandon-brown-round.png
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
