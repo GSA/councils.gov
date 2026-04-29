@@ -89,7 +89,7 @@ members:
     agency: National Science Foundation
   - name: Doris Lewis*
     agency: Nuclear Regulatory Commission
-  - name: Safaa Amer*
+  - name: Gayle Reznik*
     agency: Social Security Administration
     title: Office of Research, Evaluation, and Statistics
   - name: Ozie Foster*
