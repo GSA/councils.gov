@@ -61,6 +61,19 @@
       "title": "Readout of the White House Convening on Artificial Intelligence for Cyber Defense Optimization",
       "id": "CIOC-1776874821226001",
       "description": "Artificial intelligence presents a critical opportunity for cybersecurity teams across the Federal Government to transform cyber defense by enabling faster detection, predictive insight, and targeted response at machine speed. As adversaries increasingly use automation and artificial intelligence (AI) to scale cyberattacks that outpace traditional defenses, agencies must accelerate readiness and enhance capabilities to shift the advantage back to cyber defense."
+    },
+    {
+      "body": "The federal Chief Data Officers (CDOs) position and the CDO Council were established by the Foundations for Evidence-Based Policymaking Act of 2018. Each year, the CDO Council conducts a survey to gauge data management/governance progress across the federal enterprise.  The 2025 CDO Council Member Survey offers a concise view of how federal Chief Data Officers (CDOs) are advancing enterprise data capabilities while preparing agencies for the accelerating adoption of artificial intelligence (AI). With participation from 29 CFO & Non-CFO Act agencies, the findings reflect a maturing federal data leadership community navigating both organizational stability and emerging strategic demands.\n\nThe [survey results](https://www.councils.gov/docs/2025-cdo-council-survey-results.pdf) indicate increasing CDO role maturity: 80% of respondents have served in their current positions for more than one year, and 61% of agencies have maintained a CDO function for over five years. Additionally, leadership demographics show nearly one-third of respondents hold additional professional data or analytics certifications. However, 22% of CDO roles remain filled on an interim basis, signaling continued organizational evolution.\n\nFurthermore, CDOs report primary accountability for mission-critical areas including data governance, analytics, modernization, enterprise data strategy, and open data initiatives. At the same time, responsibilities remain limited in operational domains such as records management, FOIA, geospatial data, and data monetization, highlighting the importance of cross-functional partnerships with CIOs, Chief AI Officers, statistical officials, privacy, security, Geospatial Information Officers and evaluation leaders.\n\nA key enhancement to the 2025 survey examined agency readiness for AI adoption. Respondents consistently emphasized that high-quality, well-governed data is the essential foundation for responsible AI. \n\nLooking forward, CDOs recommend 1.) increased cross-agency collaboration, 2.) expanded sharing of best practices, 3.) centralized AI strategy resources, and 4.) targeted pilot programs to accelerate innovation. The survey reinforces the need for sustained investment in data governance and coordination as a critical part to unlocking AI value while maintaining public trust and accountability across federal operations.",
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "author": "Federal Chief Data Officers Council",
+      "slug": "2025-cdo-council-member-survey-results",
+      "date": "2026-05-01",
+      "kind": "news",
+      "title": "2025 CDO Council Member Survey Results",
+      "id": "CDOC-1777892464020001",
+      "description": "Summary of 2025 Federal Chief Data Officers Council survey results."
     }
   ]
 }
