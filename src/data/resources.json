@@ -177,7 +177,7 @@
         "COFFA"
       ],
       "date": "2024-01-01",
-      "link": "https://www.coffa.gov/assets/files/2-CFR-Crosswalk-2024.xlsx"
+      "link": "/docs/2-cfr-crosswalk-2024.xlsx"
     },
     {
       "id": "COFFA-7",
@@ -193,7 +193,7 @@
         "COFFA"
       ],
       "date": "2020-01-01",
-      "link": "https://www.coffa.gov/assets/files/2-CFR-Crosswalk_20201106.xlsx"
+      "link": "/docs/2-cfr-crosswalk-2020.xlsx"
     },
     {
       "id": "COFFA-8",
@@ -209,7 +209,7 @@
         "COFFA"
       ],
       "date": "2021-01-01",
-      "link": "https://www.coffa.gov/assets/files/2CFR-FrequentlyAskedQuestions_2021050321.pdf"
+      "link": "/docs/2cfr-frequentlyaskedquestions_2021050321.pdf"
     },
     {
       "id": "COFFA-9",
@@ -225,7 +225,7 @@
         "COFFA"
       ],
       "date": "2020-01-01",
-      "link": "https://www.coffa.gov/assets/files/2CFR-FrequentlyAskedQuestions_2021050321.pdf"
+      "link": "https://www.federalregister.gov/documents/2020/08/13/2020-17468/guidance-for-grants-and-agreements"
     },
     {
       "id": "COFFA-10",
@@ -245,7 +245,7 @@
     },
     {
       "id": "COFFA-11",
-      "title": "The PMA Playbook for Federal Awarding Agencies Info Sharing Platform",
+      "title": "The PMA Playbook for Federal Awarding Agencies",
       "description": "",
       "type": [
         "Playbook"
@@ -256,8 +256,8 @@
       "councilAcronym": [
         "COFFA"
       ],
-      "date": "2020-01-01",
-      "link": "https://www.coffa.gov/assets/files/Managing-for-Results-Performance-Management-Playbook-for-Federal-Awarding-Agencies.pdf"
+      "date": "2020-04-01",
+      "link": "/docs/managing-for-results-performance-management-playbook-for-federal-awarding-agencies.pdf"
     },
     {
       "id": "FRPC-1",
