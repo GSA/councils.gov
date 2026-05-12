@@ -118,7 +118,7 @@ members:
   - title: ""
     agency: Department of Health and Human Services
     url: https://www.hhs.gov/data/index.html
-    name: Armin Sharma
+    name: Arman Sharma
   - title: ""
     agency: Department of Homeland Security
     url: https://www.dhs.gov/data
