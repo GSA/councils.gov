@@ -36,6 +36,12 @@ const formatDate = (dateString: string) => {
 const bodyMarkdown = Array.isArray(item.body)
   ? item.body.join('\n\n')
   : String(item.body ?? '');
+const thumbnail = typeof item.thumbnail === 'string'
+  ? item.thumbnail
+  : item.thumbnail?.thumbnail;
+const thumbnailCaption = typeof item.thumbnail === 'object'
+  ? (item.thumbnail?.caption ?? item.thumbnail?.['caption-text'])
+  : (item.caption ?? item['caption-text']);
 
 /** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
 function renderBodyBlock(block: string): string {
@@ -65,7 +71,7 @@ const relatedItems = allNewsItems
   .slice(0, 5);
 ---
 
-<BaseLayout title={`${item.title} - News & Events - Councils.gov`} image={item.thumbnail ? `${baseUrl.replace(/\/$/, '')}${item.thumbnail}` : undefined} currentPage="news-events">
+<BaseLayout title={`${item.title} - News & Events - Councils.gov`} image={thumbnail ? `${baseUrl.replace(/\/$/, '')}${thumbnail}` : undefined} currentPage="news-events">
   <main id="main-content">
     <nav class="council-breadcrumb" aria-label="Breadcrumb">
       <ol class="usa-breadcrumb__list">
@@ -93,10 +99,15 @@ const relatedItems = allNewsItems
     <article class="grid-container padding-top-4 usa-section">
       <div class="grid-row grid-gap grid-gap-6">
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
-      {item.thumbnail && (
-        <div class="news-item-thumbnail margin-y-2">
-          <img src={`${baseUrl.replace(/\/$/, '')}${item.thumbnail}`} alt="" />
-        </div>
+      {thumbnail && (
+        <figure class="news-item-thumbnail margin-y-2">
+          <img src={`${baseUrl.replace(/\/$/, '')}${thumbnail}`} alt="" />
+          {thumbnailCaption && (
+            <figcaption class="font-sans-3xs text-italic margin-top-1">
+              {thumbnailCaption}
+            </figcaption>
+          )}
+        </figure>
       )}
       <div class="maxw-72 margin-bottom-4">
         <p class="text-gray-50">

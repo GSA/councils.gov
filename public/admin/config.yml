@@ -404,12 +404,18 @@ collections:
                 }
               - { label: Title, name: title, widget: string, required: true }
               - {
-                  label: Thumbnail,
+                  label: Thumbnail Image,
                   name: thumbnail,
                   widget: image,
                   required: false,
                   media_folder: /public/assets/img,
                   public_folder: /assets/img,
+                }
+              - {
+                  label: Caption Text,
+                  name: caption,
+                  widget: text,
+                  required: false,
                 }
               - {
                   label: Description,
