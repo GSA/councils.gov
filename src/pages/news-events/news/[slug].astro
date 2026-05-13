@@ -40,8 +40,8 @@ const thumbnail = typeof item.thumbnail === 'string'
   ? item.thumbnail
   : item.thumbnail?.thumbnail;
 const thumbnailCaption = typeof item.thumbnail === 'object'
-  ? (item.thumbnail?.caption ?? item.thumbnail?.['caption-text'])
-  : (item.caption ?? item['caption-text']);
+  ? item.thumbnail?.caption
+  : item.caption;
 
 /** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
 function renderBodyBlock(block: string): string {
