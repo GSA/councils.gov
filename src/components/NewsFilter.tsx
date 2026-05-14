@@ -26,6 +26,10 @@ export interface NewsItem extends FilterableItem {
   tags?: string[];
   /** Optional thumbnail image path (e.g. /assets/img/symposium-thumbnail.jpg) */
   thumbnail?: string;
+  /** Optional alt text for the thumbnail image */
+  thumbnailAlt?: string;
+  /** Optional caption for the thumbnail image */
+  caption?: string;
 }
 
 interface NewsFilterProps {
