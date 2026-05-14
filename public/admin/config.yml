@@ -1,12 +1,12 @@
 ## Production backend
-backend:
-  name: github
-  repo: GSA/councils.gov
-  base_url: https://pages.cloud.gov
-  auth_endpoint: external/auth/github
-  preview_context: pages/build
-  branch: main
-  use_graphql: true
+# backend:
+#   name: github
+#   repo: GSA/councils.gov
+#   base_url: https://pages.cloud.gov
+#   auth_endpoint: external/auth/github
+#   preview_context: pages/build
+#   branch: main
+#   use_graphql: true
 
 ##
 ## Local development with Decap proxy backend
@@ -14,9 +14,9 @@ backend:
 ## In another terminal, start the app with `npm start`
 ## See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 
-# backend:
-#   name: git-gateway
-# local_backend: true
+backend:
+  name: git-gateway
+local_backend: true
 
 media_folder: public/assets/img
 public_folder: /assets/img
