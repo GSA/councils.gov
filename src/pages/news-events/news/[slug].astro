@@ -36,12 +36,9 @@ const formatDate = (dateString: string) => {
 const bodyMarkdown = Array.isArray(item.body)
   ? item.body.join('\n\n')
   : String(item.body ?? '');
-const thumbnail = typeof item.thumbnail === 'string'
-  ? item.thumbnail
-  : item.thumbnail?.thumbnail;
-const thumbnailCaption = typeof item.thumbnail === 'object'
-  ? item.thumbnail?.caption
-  : item.caption;
+const thumbnail = item.thumbnail;
+const thumbnailCaption = item.caption;
+const thumbnailAlt = item.thumbnailAlt || thumbnailCaption || '';
 
 /** Render body block (supports markdown); external links get target="_blank" and usa-link--external. */
 function renderBodyBlock(block: string): string {
@@ -100,8 +97,8 @@ const relatedItems = allNewsItems
       <div class="grid-row grid-gap grid-gap-6">
         <div class={relatedItems.length > 0 ? 'tablet:grid-col-9' : 'tablet:grid-col-12'}>
       {thumbnail && (
-        <figure class="news-item-thumbnail margin-y-2">
-          <img src={`${baseUrl.replace(/\/$/, '')}${thumbnail}`} alt="" />
+        <figure class="news-item-thumbnail margin-x-0 margin-y-2">
+          <img src={`${baseUrl.replace(/\/$/, '')}${thumbnail}`} alt={thumbnailAlt} />
           {thumbnailCaption && (
             <figcaption class="font-sans-3xs text-italic margin-top-1">
               {thumbnailCaption}

@@ -412,6 +412,12 @@ collections:
                   public_folder: /assets/img,
                 }
               - {
+                  label: Thumbnail Alt Text,
+                  name: thumbnailAlt,
+                  widget: string,
+                  required: false,
+                }
+              - {
                   label: Caption Text,
                   name: caption,
                   widget: text,
