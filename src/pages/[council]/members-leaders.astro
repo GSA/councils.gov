@@ -429,7 +429,11 @@ function getMemberImage(member: any): string | null {
   )}
 
   <h2 class="margin-top-4">Members</h2>
-  
+  {frontmatter.membersIntro && (
+  <p class="usa-intro margin-top-0 margin-bottom-4">
+    {frontmatter.membersIntro}
+  </p>
+  )}
   {sortedMembers.length > 0 && (
     <div class="members-grid margin-top-2">
       {sortedMembers.map((member: any) => {
