@@ -11,17 +11,17 @@ leaders:
   - name: Kirsten Dalboe
     title: CDO Council Chair, Chief Data Officer
     agency: Federal Energy Regulatory Commission
-    image: /assets/img/leaders/kirsten_dalboe.jpg
+    image: /assets/img/leaders/kd_headshots-seals.png
     imageAlt: Kirsten Dalboe
   - name: Christopher Alvares
     title: CDO Council Vice Chair, Chief Data Officer
     agency: U.S. Department of Agriculture
-    image: /assets/img/leaders/christopher_alvares.png
+    image: /assets/img/leaders/ca_headshots-seals.png
     imageAlt: Christopher Alvares
   - name: Dominic Mancini
     title: Administrator, Office of Information and Regulatory Affairs (or designee)
     agency: Office of Management and Budget
-    image: /assets/img/leaders/dominic_mancini.png
+    image: /assets/img/leaders/dm_headshots-seals.png
     imageAlt: Dominic Mancini
   - name: Vacant
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
@@ -38,7 +38,7 @@ leaders:
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
-    image: /assets/img/leaders/austin_gerig.png
+    image: /assets/img/leaders/ag_headshots-seals.png
     imageAlt: Austin Gerig
   - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
@@ -50,11 +50,11 @@ leaders:
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
-    image: /assets/img/leaders/warren-randolph.png
+    image: /assets/img/leaders/wr_headshots-seals.png
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: U.S. Equal Employment Opportunity Commission
-    image: /assets/img/leaders/jiashen_you.png
+    image: /assets/img/leaders/jy_headshots-seals.png
     imageAlt: Jiashen You
 useCustomOrderForMembers: true
 councilSlug: cdoc
