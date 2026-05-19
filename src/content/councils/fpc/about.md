@@ -5,10 +5,13 @@ councilSlug: fpc
 logoPath: /assets/img/councils/fpc_logo.png
 logoAlt: FPC Logo
 logoClass: council-logo
-shortDescription: The Federal Privacy Council is the principal interagency forum to improve the privacy practices of agencies and strengthen protections of personal information and privacy rights across the Federal Government.
+shortDescription: The Federal Privacy Council is the principal interagency forum
+  to improve the privacy practices of agencies and strengthen protections of
+  personal information and privacy rights across the Federal Government.
 ---
-
 ## Federal Privacy Council
+
+The Federal Privacy Council is the principal interagency forum to improve the privacy practices of federal agencies and entities acting on their behalf. Established by Executive Order 13719 in February 2016, the Council works to reinforce the essential work that agency privacy officials undertake every day to protect privacy by facilitating better coordination and collaboration, educating the Federal workforce, and exchanging best practices.
 
 ### Vision
 
@@ -22,10 +25,10 @@ Build on Existing Interagency Efforts to Protect Privacy.
 
 The Federal Privacy Council is the principal interagency forum to improve the privacy practices of agencies and entities acting on their behalf. The work of the Federal Privacy Council shall strengthen protections of people's personal information and privacy rights across the Federal Government. To achieve this purpose, the Federal Privacy Council shall:
 
-- Support interagency efforts to protect privacy and provide expertise and assistance to agencies
-- Expand the skill and career development opportunities of agency privacy professionals
-- Improve the management of agency privacy programs by identifying and sharing lessons learned and best practices
-- Promote collaboration between and among agency privacy professionals to reduce unnecessary duplication of efforts and to ensure the effective, efficient, and consistent implementation of privacy policy government-wide
+* Support interagency efforts to protect privacy and provide expertise and assistance to agencies
+* Expand the skill and career development opportunities of agency privacy professionals
+* Improve the management of agency privacy programs by identifying and sharing lessons learned and best practices
+* Promote collaboration between and among agency privacy professionals to reduce unnecessary duplication of efforts and to ensure the effective, efficient, and consistent implementation of privacy policy government-wide
 
 ## Committees, Working Groups, and Communities of Practice
 
