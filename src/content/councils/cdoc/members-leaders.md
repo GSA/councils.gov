@@ -77,7 +77,7 @@ members:
   - title: ""
     agency: Consumer Financial Protection Bureau
     url: https://www.consumerfinance.gov/data/
-    name: Lance Harris
+    name: Lance Harris, Acting
   - title: ""
     agency: Central Intelligence Agency
     name: Vacant
@@ -95,7 +95,7 @@ members:
   - title: ""
     agency: Consumer Product Safety Commission
     url: https://www.cpsc.gov/Data
-    name: Bryan Burnett
+    name: Beth Puckhek
   - title: ""
     agency: Court Services and Offender Supervision Agency
     url: https://www.csosa.gov/data/
@@ -107,7 +107,7 @@ members:
   - title: ""
     agency: Department of Commerce
     url: https://www.commerce.gov/data-and-reports/data
-    name: Dominique Duval-Diop
+    name: Dominique Duval-Diop, Acting
   - title: ""
     agency: Department of Education
     url: https://www.ed.gov/data
@@ -130,7 +130,7 @@ members:
   - title: ""
     agency: Department of Justice
     url: https://www.justice.gov/data
-    name: Vacant
+    name: Dr. Nikki Collier
   - title: ""
     agency: Department of Labor
     url: https://www.dol.gov/data
@@ -142,15 +142,15 @@ members:
   - title: ""
     agency: Department of the Treasury
     url: https://home.treasury.gov/data/treasury-open-data
-    name: David Ashley
+    name: David Ashley, Acting
   - title: ""
     agency: Department of Transportation
     url: https://www.transportation.gov/data
-    name: Brian Brotsos
+    name: Brian Brotsos, Acting
   - title: ""
     agency: Department of State
     url: https://www.state.gov/data/
-    name: Amy Ritualo
+    name: Amy Ritualo, Acting
   - title: ""
     agency: Department of Veterans Affairs
     url: https://www.data.va.gov/
@@ -171,7 +171,7 @@ members:
     name: Jiashen You
   - title: ""
     agency: Export-Import Bank of the United States
-    name: Roberto Williams
+    name: Roberto Williams, Acting
   - title: ""
     agency: Farm Credit Administration
     url: https://www.fca.gov/required-notices/fca-and-the-open-gov-initiative
@@ -269,7 +269,7 @@ members:
     name: Soloman Gebretensai
   - title: ""
     agency: National Science Foundation
-    name: Michael Hauck
+    name: Michael Hauck, Acting
   - title: ""
     agency: National Transportation Safety Board
     url: https://www.ntsb.gov/Pages/data.aspx
@@ -345,7 +345,7 @@ members:
   - title: ""
     agency: Surface Transportation Board
     url: https://www.stb.gov/data/
-    name: Phil Maynard
+    name: Phil Maynard, Acting
   - title: ""
     agency: Tennessee Valley Authority
     name: Jessica Baker
@@ -367,5 +367,5 @@ members:
     name: Rosa Criggedorn
   - title: ""
     agency: United States Access Board
-    name: Mannan Dasti
+    name: Mannan Dasti, Acting
 ---
