@@ -92,8 +92,9 @@ members:
   - name: Gayle Reznik*
     agency: Social Security Administration
     title: Office of Research, Evaluation, and Statistics
-  - name: Ozie Foster*
+  - name: Lance Harris
     agency: Office of Personnel Management
+    title: "*Statistical Official"
   - name: Anna Maria Calcagno*
     title: ""
     agency: Small Business Administration
