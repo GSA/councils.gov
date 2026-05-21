@@ -649,6 +649,7 @@ footer.usa-footer .footer-grid-container,
 
 .councils-grid .usa-card__container {
   background-color: var(--color-white);
+  border-bottom: 0;
   border-radius: 0;
 }
 
@@ -903,6 +904,7 @@ footer.usa-footer .footer-grid-container,
   }
 
   .usa-card__container {
+    border-bottom: 0;
     border-radius: 0;
     background-color: white;
 
@@ -1279,6 +1281,16 @@ footer.usa-footer .footer-grid-container,
   margin-bottom: 1rem;
 }
 
+.article-body-width {
+  max-width: 88ex;
+}
+
+.article-body-width.usa-prose > *,
+.article-body-width .usa-prose > *,
+.article-body-width .event-body-block > * {
+  max-width: 88ex;
+}
+
 .news-body-block:last-child {
   margin-bottom: 0;
 }
@@ -1287,6 +1299,14 @@ footer.usa-footer .footer-grid-container,
   width: 100%;
   height: auto;
   display: block;
+}
+
+.news-item-thumbnail figcaption {
+  line-height: 1.5;
+}
+
+.news-body-block .news-item-thumbnail {
+  margin-bottom: 2rem;
 }
 
 .news-tags.content-tags .usa-tag {
