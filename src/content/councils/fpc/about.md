@@ -11,7 +11,7 @@ shortDescription: The Federal Privacy Council is the principal interagency forum
 ---
 ## Federal Privacy Council
 
-The Federal Privacy Council is the principal interagency forum to improve the privacy practices of federal agencies and entities acting on their behalf. Established by Executive Order 13719 in February 2016, the Council works to reinforce the essential work that agency privacy officials undertake every day to protect privacy by facilitating better coordination and collaboration, educating the Federal workforce, and exchanging best practices.
+The Federal Privacy Council is the principal interagency forum to improve the privacy practices of Federal agencies and entities acting on their behalf. Established by Executive Order 13719 in February 2016, the Council works to reinforce the essential work that agency privacy officials undertake every day to protect privacy by facilitating better coordination and collaboration, educating the Federal workforce, and exchanging best practices.
 
 ### Vision
 
