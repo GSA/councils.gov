@@ -1369,6 +1369,30 @@
       "link": "/docs/ca-a-136-revised-afr-deadlines-3-.pdf",
       "date": "2025-11-21",
       "id": "CFO-1779796871247001"
+    },
+    {
+      "title": "CA 25-02, All Federal Agencies are Required to Adopt GO.gov",
+      "type": [
+        "Controller Alerts"
+      ],
+      "councilAcronym": [
+        "CFO"
+      ],
+      "link": "/docs/offm-controller-alert-ca-25-02-go.gov.pdf",
+      "date": "2025-07-31",
+      "id": "CFO-1779797538671001"
+    },
+    {
+      "title": "CA-24-03 Reminder – Agencies Required to Adopt Government Invoicing (G‐Invoicing) for Intragovernmental Transactions NLT 10-1-2025",
+      "type": [
+        "Controller Alerts"
+      ],
+      "councilAcronym": [
+        "CFO"
+      ],
+      "date": "2024-07-15",
+      "link": "/docs/20240715-g-invoicing-controller-alert.pdf",
+      "id": "CFO-1779797538671002"
     }
   ]
 }
