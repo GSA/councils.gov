@@ -1427,6 +1427,50 @@
       ],
       "link": "https://fiscal.treasury.gov/reports-statements/financial-report/",
       "id": "CFO-1779797987989003"
+    },
+    {
+      "title": "Financial Report of the United States Government - Previous Reports",
+      "type": [
+        "Website"
+      ],
+      "councilAcronym": [
+        "CFO"
+      ],
+      "link": "https://fiscal.treasury.gov/reports-statements/financial-report/previous-reports.html",
+      "id": "CFO-1779798586591001"
+    },
+    {
+      "title": "CFO Act of 1990",
+      "type": [
+        "Legislation"
+      ],
+      "councilAcronym": [
+        "CFO"
+      ],
+      "link": "https://www.congress.gov/101/statute/STATUTE-104/STATUTE-104-Pg2838.pdf",
+      "id": "CFO-1779798586591002"
+    },
+    {
+      "title": "Federal Financial Reports - Agency Performance and Accountability Reports (PAR)/Agency Financial Reports (AFR)",
+      "type": [
+        "Website"
+      ],
+      "councilAcronym": [
+        "CFO"
+      ],
+      "link": "https://fasab.gov/resources/federal-financial-reports/",
+      "id": "CFO-1779798586591003"
+    },
+    {
+      "title": "USASpending.gov",
+      "type": [
+        "Website"
+      ],
+      "link": "https://www.usaspending.gov/",
+      "councilAcronym": [
+        "CFO"
+      ],
+      "id": "CFO-1779798586591004"
     }
   ]
 }
