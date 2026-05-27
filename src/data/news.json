@@ -76,6 +76,18 @@
       "title": "2025 CDO Council Member Survey Results",
       "id": "CDOC-1777892464020001",
       "description": "Summary of 2025 Federal Chief Data Officers Council survey results."
+    },
+    {
+      "kind": "news",
+      "title": "DCAT-US Schema 3.0 Is Published!",
+      "date": "2026-05-26",
+      "councilAcronym": [
+        "CDOC"
+      ],
+      "body": "On May 1, GSA’s Data.gov team published the official [DCAT-US Schema v3.0](https://resources.data.gov/resources/dcat-us3/). This release was the result of collaboration among the CDO Council’s Customer Experience Working Group (CXWG), GSA, and OMB.\n\nThe schema is a flexible, open standard that supports agency compliance with OMB guidance, including [M-25-05](https://bidenwhitehouse.archives.gov/wp-content/uploads/2025/01/M-25-05-Phase-2-Implementation-of-the-Foundations-for-Evidence-Based-Policymaking-Act-of-2018-Open-Government-Data-Access-and-Management-Guidance.pdf). The full schema is available [here](https://resources.data.gov/resources/dcat-us3/).",
+      "description": "Announcement of the publication for Data Catalogue U.S. (DCAT-US) 3.0 schema to resources.data.gov.",
+      "id": "CDOC-1779903705369001",
+      "slug": "dcat-us-schema-30-is-published"
     }
   ]
 }
