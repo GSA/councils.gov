@@ -44,10 +44,20 @@
     }
 
     function toggleCardAccordion(button, options) {
-      button.setAttribute(
-        'aria-expanded',
-        button.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
-      );
+      const willExpand = button.getAttribute('aria-expanded') !== 'true';
+      const cardGroup = button.closest('.usa-card-group');
+
+      if (willExpand && cardGroup) {
+        cardGroup
+          .querySelectorAll('[data-card-accordion-button][aria-expanded="true"]')
+          .forEach(function(openButton) {
+            if (openButton === button) return;
+            openButton.setAttribute('aria-expanded', 'false');
+            syncCardAccordion(openButton);
+          });
+      }
+
+      button.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
       syncCardAccordion(button, options);
     }
 
