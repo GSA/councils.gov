@@ -3,8 +3,10 @@
   const END_COMMENT = "<!-- uswds-card-group:end -->";
   const CARD_GROUP_PATTERN =
     /<!--\s*uswds-card-group:start\s*-->[\s\S]*?<!--\s*uswds-card-group:end\s*-->/m;
-  const DEFAULT_CARD_CLASS = "usa-card desktop:grid-col-6";
-  const DEFAULT_GROUP_CLASS = "usa-card-group grid-gap";
+  const DEFAULT_CARD_CLASS =
+    "usa-card display-block text-no-underline resource-card-link resource-card-link--bordered";
+  const DEFAULT_CARD_GRID_CLASS = "desktop:grid-col-6";
+  const DEFAULT_GROUP_CLASS = "usa-card-group grid-row grid-gap resource-cards-grid";
   const DEFAULT_HEADING_LEVEL = "h3";
 
   const {
@@ -99,12 +101,12 @@ ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
     const footerMarkup = card.fullContent
       ? `
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="${escapeAttribute(accordionId)}" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">${escapeHtml(card.buttonText || "Read more")}</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="${escapeAttribute(accordionId)}" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">${escapeHtml(card.buttonText || "Read more")}</span></button>
       </div>`
       : card.buttonUrl && card.buttonText && buttonIsSafe
         ? `
       <div class="usa-card__footer">
-        <a class="usa-button" href="${escapeAttribute(card.buttonUrl)}">${escapeHtml(card.buttonText)}</a>
+        <a class="usa-link font-sans-sm" href="${escapeAttribute(card.buttonUrl)}">${escapeHtml(card.buttonText)}</a>
       </div>`
         : "";
 
@@ -114,8 +116,10 @@ ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
       ? `${DEFAULT_CARD_CLASS} usa-card--clickable`
       : DEFAULT_CARD_CLASS;
 
-    return `  <li class="${cardClass}"${card.fullContent ? ' tabindex="-1"' : ""}>
-    <div class="usa-card__container">${headerMarkup}${imageMarkup}${bodyMarkup}${footerMarkup}
+    return `  <li class="${DEFAULT_CARD_GRID_CLASS}" data-card-grid-item>
+    <div class="${cardClass}"${card.fullContent ? ' tabindex="-1"' : ""}>
+      <div class="usa-card__container">${headerMarkup}${imageMarkup}${bodyMarkup}${footerMarkup}
+      </div>
     </div>
   </li>`;
   };

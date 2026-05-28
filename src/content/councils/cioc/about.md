@@ -41,9 +41,10 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
 ## CIO Council Priorities
 
 <!-- uswds-card-group:start -->
-<ul class="usa-card-group grid-gap usa-accordion">
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+<ul class="usa-card-group grid-row grid-gap resource-cards-grid usa-accordion">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">People &amp; Culture</h3>
       </div>
@@ -57,12 +58,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-1-people-culture-nsl1da" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-1-people-culture-nsl1da" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Simplify, Don&#39;t Repackage</h3>
       </div>
@@ -77,12 +80,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-2-simplify-dont-repackage-pyu1s3" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-2-simplify-dont-repackage-pyu1s3" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Build Bespoke Rarely</h3>
       </div>
@@ -97,12 +102,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-3-build-bespoke-rarely-5cl1o1" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-3-build-bespoke-rarely-5cl1o1" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Architecture-First Procurement</h3>
       </div>
@@ -117,12 +124,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-4-architecture-first-procurement-sbeo1f" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-4-architecture-first-procurement-sbeo1f" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Design to Reduce Interaction</h3>
       </div>
@@ -137,12 +146,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-5-design-to-reduce-interaction-chfys6" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-5-design-to-reduce-interaction-chfys6" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Scale Through Shared Services</h3>
       </div>
@@ -157,12 +168,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-6-scale-through-shared-services-hlcnw7" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-6-scale-through-shared-services-hlcnw7" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Practical AI Adoption</h3>
       </div>
@@ -177,12 +190,14 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-7-practical-ai-adoption-p1zhto" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-7-practical-ai-adoption-p1zhto" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
-    <div class="usa-card__container">
+  <li class="desktop:grid-col-6" data-card-grid-item>
+    <div class="usa-card display-block text-no-underline resource-card-link resource-card-link--bordered usa-card--clickable" tabindex="-1">
+      <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Measure What Matters</h3>
       </div>
@@ -197,7 +212,8 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
         </div>
       </div>
       <div class="usa-card__footer">
-        <button type="button" class="usa-button usa-accordion__button usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-8-measure-what-matters-5p2hzj" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="uswds-card-accordion-8-measure-what-matters-5p2hzj" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">Read more</span></button>
+      </div>
       </div>
     </div>
   </li>
