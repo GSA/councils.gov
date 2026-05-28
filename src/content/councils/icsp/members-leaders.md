@@ -24,82 +24,84 @@ leaders:
     agency: Office of Management and Budget
     image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
 members:
-  - name: Alice Volz^
-    title: Microeconomic Surveys Unit
+  - name: Alice Volz
+    title: "Recognized Statistical Unit: Microeconomic Surveys Unit"
     agency: Board of Governors of the Federal Reserve System
-  - name: George Cook^*
-    title: Bureau of the Census
+  - name: George Cook, Statistical Official
+    title: "Recognized Statistical Agency: Bureau of the Census"
     agency: Department of Commerce
   - name: Vipin Arora, Recognized Statistical Agency Head
     title: Bureau of Economic Analysis
     agency: Department of Commerce
-  - name: Kevin Scott^*
-    title: Bureau of Justice Statistics
+  - name: Kevin Scott, Statistical Official
+    title: "Recognized Statistical Agency: Bureau of Justice Statistics"
     agency: Department of Justice
-  - name: William Wiatrowski^*
+  - name: William Wiatrowski, Statistical Official
     agency: Department of Labor
-    title: Bureau of Labor Statistics
-  - name: Ed Strocko^*
-    title: Bureau of Transportation Statistics
+    title: "Recognized Statistical Agency: Bureau of Labor Statistics"
+  - name: Ed Strocko, Statistical Official
+    title: "Recognized Statistical Agency: Bureau of Transportation Statistics"
     agency: Department of Transportation
-  - name: Christopher Jones^
-    title: Center for Behavioral Health Statistics and Quality
+  - name: Christopher Jones
+    title: "Recognized Statistical Agency: Center for Behavioral Health Statistics
+      and Quality"
     agency: Department of Health and Human Services
-  - name: Marc Rosenblum*
+  - name: Marc Rosenblum, Statistical Official
     agency: Department of Homeland Security
     title: ""
-  - name: George Carter* and Lydia Taghavi*
+  - name: George Carter and Lydia Taghavi, Statistical Officials
     agency: Department of Housing and Urban Development
-  - name: Kawa Ng*
+  - name: Kawa Ng, Statistical Official
     title: ""
     agency: Department of the Interior
-  - name: Gio Altamirano Rayo*
+  - name: Gio Altamirano Rayo, Statistical Official
     agency: Department of State
-  - name: Eddie Thomas*
+  - name: Eddie Thomas, Statistical Official
     agency: Department of Veterans Affairs
-  - name: Cameron Stanley*
+  - name: Cameron Stanley, Statistical Official
     agency: Department of War
-  - name: Kelly Maguire^
+  - name: Kelly Maguire
     agency: Department of Agriculture
-    title: Economic Research Service
-  - name: Tristan Abbey^*
-    title: Energy Information Administration
+    title: "Recognized Statistical Agency: Economic Research Service"
+  - name: Tristan Abbey, Statistical Official
+    title: "Recognized Statistical Agency: Energy Information Administration"
     agency: Department of Energy
-  - name: Alex Marten*
+  - name: Alex Marten, Statistical Official
     agency: Environmental Protection Agency
-  - name: Todd Coleman*
+  - name: Todd Coleman, Statistical Official
     title: ""
     agency: General Services Administration
-  - name: Andrea Beam^
-    title: National Animal Health Monitoring System
+  - name: Andrea Beam
+    title: "Recognized Statistical Unit: National Animal Health Monitoring System"
     agency: Department of Agriculture
-  - name: Chris Andall*
+  - name: Chris Andall, Statistical Official
     agency: National Aeronautics and Space Administration
-  - name: Joe Parsons^*
-    title: National Agricultural Statistics Service
+  - name: Joe Parsons, Statistical Official
+    title: "Recognized Statistical Unit: National Agricultural Statistics Service"
     agency: Department of Agriculture
-  - name: Matthew Soldner^*
-    title: National Center for Education Statistics
+  - name: Matthew Soldner, Statistical Official
+    title: "Recognized Statistical Agency: National Center for Education Statistics"
     agency: Department of Education
-  - name: Carolyn Greene^*
+  - name: Carolyn Greene, Statistical Official
     agency: Department of Health and Human Services
-    title: National Center for Health Statistics
-  - name: Emilda Rivers^*
-    title: National Center for Science and Engineering Statistics
+    title: "Recognized Statistical Agency: National Center for Health Statistics"
+  - name: Emilda Rivers, Statistical Official
+    title: "Recognized Statistical Agency: National Center for Science and
+      Engineering Statistics"
     agency: National Science Foundation
-  - name: Doris Lewis*
+  - name: Doris Lewis, Statistical Official
     agency: Nuclear Regulatory Commission
-  - name: Gayle Reznik*
+  - name: Gayle Reznik, Statistical Official
     agency: Social Security Administration
     title: Office of Research, Evaluation, and Statistics
-  - name: Lance Harris*
+  - name: Lance Harris, Statistical Official
     agency: Office of Personnel Management
     title: ""
-  - name: Anna Maria Calcagno*
+  - name: Anna Maria Calcagno, Statistical Official
     title: ""
     agency: Small Business Administration
-  - name: Mark Xu^*
-    title: Statistics of Income
+  - name: Mark Xu, Statistical Official
+    title: "Recognized Statistical Unit: Statistics of Income"
     agency: Department of the Treasury
   - name: Vacant
     agency: U.S. Agency for International Development
