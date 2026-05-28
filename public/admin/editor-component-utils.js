@@ -20,25 +20,6 @@
 
   const normalizeTextContent = (value) => valueToString(value).replace(/\s+/g, ' ');
 
-  const encodeBase64 = (value) => {
-    const bytes = new TextEncoder().encode(String(value || ''));
-    let binary = '';
-    bytes.forEach((byte) => {
-      binary += String.fromCharCode(byte);
-    });
-    return window.btoa(binary);
-  };
-
-  const decodeBase64 = (value) => {
-    try {
-      const binary = window.atob(String(value || ''));
-      const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-      return new TextDecoder().decode(bytes);
-    } catch (error) {
-      return '';
-    }
-  };
-
   const slugify = (value) =>
     valueToString(value)
       .toLowerCase()
@@ -230,8 +211,6 @@
     decodeHtml,
     valueToString,
     normalizeTextContent,
-    encodeBase64,
-    decodeBase64,
     slugify,
     hashString,
     isSafeUrl,
