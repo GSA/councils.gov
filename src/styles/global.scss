@@ -880,7 +880,21 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-card-group .usa-card {
+  display: flex;
   min-height: 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: 2rem;
+  }
+}
+
+.usa-card-group.usa-accordion > .usa-card,
+.usa-card-group.usa-accordion > .usa-card:last-child {
+  margin-bottom: 2.5rem;
+
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: 2rem;
+  }
 }
 
 .usa-card-group .usa-card__container {
@@ -888,8 +902,12 @@ footer.usa-footer .footer-grid-container,
   border-bottom: 6px solid var(--secondary-color);
   border-radius: 0;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
+  height: auto;
   min-height: 0;
+  position: relative;
+  width: 100%;
 }
 
 .usa-card-group .usa-card__heading {
@@ -900,7 +918,6 @@ footer.usa-footer .footer-grid-container,
 }
 
 .usa-card-group .usa-card__header {
-  text-align: center;
   padding-top: 0.5rem;
 }
 
@@ -918,9 +935,108 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+.usa-card-group .usa-card__accordion-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-image: none;
+
+  &[aria-expanded] {
+    background-image: none;
+  }
+}
+
+.usa-card-group .usa-card--expanded .usa-card__header {
+  padding-right: 4rem;
+}
+
+.usa-card-group .usa-card--expanded .usa-card__footer {
+  margin: 0;
+  min-height: 0;
+  padding: 0;
+}
+
+.usa-card-group .usa-card__accordion-button[aria-expanded="true"] {
+  background-color: transparent;
+  color: transparent;
+  font-size: 0;
+  height: 2.75rem;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 2.75rem;
+  z-index: 1;
+
+  &::before {
+    background-color: var(--color-ink);
+    content: "";
+    display: block;
+    height: 1.5rem;
+    -webkit-mask-image: url("/assets/img/usa-icons/close.svg");
+    mask-image: url("/assets/img/usa-icons/close.svg");
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    width: 1.5rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+  }
+}
+
+.usa-card-group .usa-card__accordion-button-text {
+  font-family: inherit;
+}
+
+.usa-card-group .usa-card__full-content.usa-accordion__content {
+  background-color: transparent;
+  color: var(--color-ink);
+  padding: 0;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.usa-card-group
+  .usa-card:has(.usa-card__accordion-button[aria-expanded="true"]) {
+  width: 100%;
+}
+
+.usa-card-group
+  .usa-card:has(.usa-card__accordion-button[aria-expanded="true"])
+  .usa-card__description {
+  display: none;
+}
+
 .usa-card-group .usa-card:hover .usa-button,
 .usa-card-group .usa-card:focus-within .usa-button {
   background-color: var(--blue-warm-20v);
+}
+
+.usa-card-group
+  .usa-card--expanded:hover
+  .usa-card__accordion-button[aria-expanded="true"],
+.usa-card-group
+  .usa-card--expanded:focus-within
+  .usa-card__accordion-button[aria-expanded="true"] {
+  background-color: transparent;
+
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+  }
+}
+
+.usa-card-group .usa-card--expanded .usa-card__body {
+  padding-bottom: 2rem;
 }
 
 .usa-card.display-block {
