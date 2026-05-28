@@ -42,7 +42,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
 
 <!-- uswds-card-group:start -->
 <ul class="usa-card-group grid-gap usa-accordion">
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">People &amp; Culture</h3>
@@ -61,7 +61,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Simplify, Don&#39;t Repackage</h3>
@@ -81,7 +81,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Build Bespoke Rarely</h3>
@@ -101,7 +101,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Architecture-First Procurement</h3>
@@ -121,7 +121,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Design to Reduce Interaction</h3>
@@ -141,7 +141,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Scale Through Shared Services</h3>
@@ -161,7 +161,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Practical AI Adoption</h3>
@@ -181,7 +181,7 @@ You can review [our statutory requirements](https://www.govinfo.gov/content/pkg/
       </div>
     </div>
   </li>
-  <li class="usa-card desktop:grid-col-6" tabindex="-1">
+  <li class="usa-card desktop:grid-col-6 usa-card--clickable" tabindex="-1">
     <div class="usa-card__container">
       <div class="usa-card__header">
         <h3 class="usa-card__heading">Measure What Matters</h3>

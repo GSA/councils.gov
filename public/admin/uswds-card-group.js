@@ -108,7 +108,13 @@ ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
       </div>`
         : "";
 
-    return `  <li class="${DEFAULT_CARD_CLASS}"${card.fullContent ? ' tabindex="-1"' : ""}>
+    const cardIsClickable =
+      card.fullContent || (card.buttonUrl && card.buttonText && buttonIsSafe);
+    const cardClass = cardIsClickable
+      ? `${DEFAULT_CARD_CLASS} usa-card--clickable`
+      : DEFAULT_CARD_CLASS;
+
+    return `  <li class="${cardClass}"${card.fullContent ? ' tabindex="-1"' : ""}>
     <div class="usa-card__container">${headerMarkup}${imageMarkup}${bodyMarkup}${footerMarkup}
     </div>
   </li>`;

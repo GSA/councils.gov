@@ -888,6 +888,10 @@ footer.usa-footer .footer-grid-container,
   }
 }
 
+.usa-card-group .usa-card--clickable:not(.usa-card--expanded) .usa-card__container {
+  cursor: pointer;
+}
+
 .usa-card-group.usa-accordion > .usa-card,
 .usa-card-group.usa-accordion > .usa-card:last-child {
   margin-bottom: 2.5rem;
