@@ -30,7 +30,7 @@ members:
   - name: George Cook^*
     title: Bureau of the Census
     agency: Department of Commerce
-  - name: Vipin Arora^
+  - name: Vipin Arora, Recognized Statistical Agency Head
     title: Bureau of Economic Analysis
     agency: Department of Commerce
   - name: Kevin Scott^*
