@@ -49,13 +49,30 @@
           card.buttonText,
       );
 
-  const getAccordionId = (card, index) => {
+  const getCardGroupHash = (cards) =>
+    hashString(
+      cards
+        .map((card) =>
+          [
+            card.header,
+            card.image,
+            card.imageAlt,
+            card.description,
+            card.fullContent,
+            card.buttonUrl,
+            card.buttonText,
+          ].join("\u001f"),
+        )
+        .join("\u001e"),
+    );
+
+  const getAccordionId = (card, index, groupHash) => {
     const slug = slugify(card.header) || `card-${index + 1}`;
     const hash = hashString(`${index}:${card.header}:${card.fullContent}`);
-    return `uswds-card-accordion-${index + 1}-${slug}-${hash}`;
+    return `uswds-card-accordion-${groupHash}-${index + 1}-${slug}-${hash}`;
   };
 
-  const buildCardMarkup = (card, index, previewOptions) => {
+  const buildCardMarkup = (card, index, groupHash, previewOptions) => {
     const resolvedImage =
       previewOptions && previewOptions.getAsset
         ? getPreviewAsset(
@@ -84,24 +101,26 @@
         </div>
       </div>`
         : "";
-    const accordionId = card.fullContent ? getAccordionId(card, index) : "";
+    const accordionId = card.fullContent
+      ? getAccordionId(card, index, groupHash)
+      : "";
     const fullContentMarkup = card.fullContent
       ? `
-        <div class="usa-card__full-content usa-accordion__content usa-prose" id="${escapeAttribute(accordionId)}" hidden>
+      <div class="usa-card__full-content usa-accordion__content usa-prose" id="${escapeAttribute(accordionId)}" hidden>
 ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
-        </div>`
+      </div>`
       : "";
     const bodyMarkup =
-      card.description || card.fullContent
+      card.description
         ? `
-      <div class="usa-card__body">
-        ${card.description ? `<p class="usa-card__description">${escapeHtml(card.description)}</p>` : ""}${fullContentMarkup}
+      <div class="usa-card__body${card.fullContent ? " order-1" : ""}">
+        <p class="usa-card__description">${escapeHtml(card.description)}</p>${fullContentMarkup}
       </div>`
         : "";
     const footerMarkup = card.fullContent
       ? `
-      <div class="usa-card__footer">
-        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="${escapeAttribute(accordionId)}" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">${escapeHtml(card.buttonText || "Read more")}</span></button>
+      <div class="usa-card__footer order-2">
+        <button type="button" class="usa-link font-sans-sm usa-card__accordion-button" aria-expanded="false" aria-controls="${escapeAttribute(accordionId)}" aria-label="${escapeAttribute(`${card.buttonText || "Read more"}: ${card.header}`)}" data-card-accordion-button data-card-accordion-close-label="Close details"><span class="usa-card__accordion-button-text">${escapeHtml(card.buttonText || "Read more")}</span></button>
       </div>`
       : card.buttonUrl && card.buttonText && buttonIsSafe
         ? `
@@ -118,7 +137,7 @@ ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
 
     return `  <li class="${DEFAULT_CARD_GRID_CLASS}" data-card-grid-item>
     <div class="${cardClass}"${card.fullContent ? ' tabindex="-1"' : ""}>
-      <div class="usa-card__container">${headerMarkup}${imageMarkup}${bodyMarkup}${footerMarkup}
+      <div class="usa-card__container${card.fullContent ? " display-flex flex-column" : ""}">${headerMarkup}${imageMarkup}${footerMarkup}${bodyMarkup}
       </div>
     </div>
   </li>`;
@@ -126,11 +145,14 @@ ${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
 
   const buildCardGroupMarkup = (data, previewOptions) => {
     const cards = normalizeCards(getValue(data, "cards"));
+    const groupHash = getCardGroupHash(cards);
     const groupClass = cards.some((card) => card.fullContent)
       ? `${DEFAULT_GROUP_CLASS} usa-accordion`
       : DEFAULT_GROUP_CLASS;
     const cardMarkup = cards
-      .map((card, index) => buildCardMarkup(card, index, previewOptions))
+      .map((card, index) =>
+        buildCardMarkup(card, index, groupHash, previewOptions),
+      )
       .join("\n");
 
     return `${START_COMMENT}
@@ -271,14 +293,14 @@ ${END_COMMENT}`;
               name: "buttonUrl",
               widget: "string",
               required: false,
-              hint: "Use a site-relative URL like /resources/, an asset path, http(s) URL, or page hash. Unsafe URLs are omitted.",
+              hint: "Only applies when Full content is empty. Use a site-relative URL like /resources/, an asset path, http(s) URL, or page hash. Unsafe URLs are omitted.",
             },
             {
               label: "Button text",
               name: "buttonText",
               widget: "string",
               required: false,
-              hint: 'Use specific link text that makes sense out of context, such as "View council resources".',
+              hint: 'Use specific button or link text that makes sense out of context, such as "View council resources".',
             },
           ],
         },

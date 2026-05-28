@@ -218,9 +218,7 @@
     collectionToArray,
     findImageField,
     getPreviewAsset,
-    renderInlineMarkdown,
     renderMarkdownToHtml,
-    renderHtmlInlineAsMarkdown,
     renderHtmlBlockAsMarkdown,
     indentLines,
   };

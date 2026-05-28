@@ -26,20 +26,22 @@
         button.dataset.cardAccordionLabel = button.textContent.trim();
       }
 
+      const heading = card.querySelector('.usa-card__heading');
+      const headingText = heading ? heading.textContent.trim() : '';
+
       if (isExpanded) {
-        const heading = card.querySelector('.usa-card__heading');
-        const headingText = heading ? heading.textContent.trim() : '';
         const closeLabel = button.dataset.cardAccordionCloseLabel || 'Close details';
         button.setAttribute(
           'aria-label',
           headingText ? `${closeLabel}: ${headingText}` : closeLabel
         );
       } else {
-        button.removeAttribute('aria-label');
-      }
-
-      if (isExpanded && options && options.focusCard) {
-        card.focus();
+        button.setAttribute(
+          'aria-label',
+          headingText
+            ? `${button.dataset.cardAccordionLabel}: ${headingText}`
+            : button.dataset.cardAccordionLabel
+        );
       }
     }
 
@@ -96,7 +98,7 @@
       if (button) {
         event.preventDefault();
         event.stopPropagation();
-        toggleCardAccordion(button, { focusCard: true });
+        toggleCardAccordion(button);
         return;
       }
 
