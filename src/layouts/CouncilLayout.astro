@@ -18,12 +18,15 @@ interface Props {
   hasNewsEvents?: boolean;
   /** When false, the "Resources" side nav item is hidden. */
   hasResources?: boolean;
+  /** Enables accordion behavior for CMS-authored USWDS card groups in the page body. */
+  hasUswdsCardGroup?: boolean;
 }
 
 import BaseLayout from './BaseLayout.astro';
 import ReturnToTop from '../components/ReturnToTop.astro';
+import USWDSCardGroupAccordion from '../components/USWDSCardGroupAccordion.astro';
 
-const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true, hasResources = true } = Astro.props;
+const { title, currentPage = "about", councilName, councilSlug, councilAcronym, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders = true, hasNewsEvents = true, hasResources = true, hasUswdsCardGroup = false } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 const wavesUrl = `${baseUrl}assets/img/backgrounds/waves_2.svg`;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
@@ -115,6 +118,6 @@ if (!hasResources) navItems = navItems.filter((item) => item.id !== "resources")
     </div>
     <ReturnToTop />
   </main>
+  {hasUswdsCardGroup && <USWDSCardGroupAccordion />}
 </BaseLayout>
-
 

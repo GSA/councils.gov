@@ -3,7 +3,7 @@
   const END_COMMENT = '<!-- uswds-card-group:end -->';
   const CARD_GROUP_PATTERN =
     /<!--\s*uswds-card-group:start\s*-->[\s\S]*?<!--\s*uswds-card-group:end\s*-->/m;
-  const DEFAULT_CARD_CLASS = 'usa-card tablet:grid-col-6';
+  const DEFAULT_CARD_CLASS = 'usa-card desktop:grid-col-6';
   const DEFAULT_GROUP_CLASS = 'usa-card-group grid-gap';
   const DEFAULT_HEADING_LEVEL = 'h3';
   const FULL_CONTENT_MARKDOWN_PREFIX = 'uswds-card-full-content-markdown:';

@@ -1,0 +1,69 @@
+<script>
+  (function() {
+    'use strict';
+
+    function syncCardAccordion(button, options) {
+      const card = button.closest('.usa-card');
+      if (!card) return;
+
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      card.classList.toggle('desktop:grid-col-6', !isExpanded);
+      card.classList.toggle('usa-card--expanded', isExpanded);
+
+      if (!button.dataset.cardAccordionLabel) {
+        button.dataset.cardAccordionLabel = button.textContent.trim();
+      }
+
+      if (isExpanded) {
+        const heading = card.querySelector('.usa-card__heading');
+        const headingText = heading ? heading.textContent.trim() : '';
+        const closeLabel = button.dataset.cardAccordionCloseLabel || 'Close details';
+        button.setAttribute(
+          'aria-label',
+          headingText ? `${closeLabel}: ${headingText}` : closeLabel
+        );
+      } else {
+        button.removeAttribute('aria-label');
+      }
+
+      if (isExpanded && options && options.focusCard) {
+        card.focus();
+      }
+    }
+
+    function syncCardAccordions(root) {
+      (root || document)
+        .querySelectorAll('[data-card-accordion-button]')
+        .forEach(syncCardAccordion);
+    }
+
+    document.addEventListener('click', function(event) {
+      const button = event.target.closest('[data-card-accordion-button]');
+      if (!button) return;
+
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+        syncCardAccordion(button, { focusCard: true });
+      }, 0);
+    });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        syncCardAccordions(document);
+      });
+    } else {
+      syncCardAccordions(document);
+    }
+
+    document.addEventListener('astro:after-swap', function() {
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+      }, 0);
+    });
+    document.addEventListener('astro:page-load', function() {
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+      }, 0);
+    });
+  })();
+</script>

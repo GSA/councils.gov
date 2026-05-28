@@ -81,12 +81,14 @@ export async function getStaticPaths() {
     };
     
     const htmlContent = marked(content, { renderer });
+    const hasUswdsCardGroup = content.includes('<!-- uswds-card-group:start -->');
     
     return {
       params: { council: councilSlug },
       props: {
         frontmatter,
         htmlContent,
+        hasUswdsCardGroup,
         hasMembersLeaders,
         hasNewsEvents,
         hasResources,
@@ -95,7 +97,7 @@ export async function getStaticPaths() {
   }).filter(Boolean);
 }
 
-const { frontmatter, htmlContent, hasMembersLeaders, hasNewsEvents, hasResources } = Astro.props;
+const { frontmatter, htmlContent, hasUswdsCardGroup, hasMembersLeaders, hasNewsEvents, hasResources } = Astro.props;
 const councilAcronym = (frontmatter.logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 let htmlWithBaseUrl = prefixRootRelativeUrls(htmlContent, baseUrl);
@@ -132,6 +134,7 @@ htmlWithBaseUrl = htmlWithBaseUrl.replace(
   hasMembersLeaders={hasMembersLeaders}
   hasNewsEvents={hasNewsEvents}
   hasResources={hasResources}
+  hasUswdsCardGroup={hasUswdsCardGroup}
 >
   <div set:html={htmlWithBaseUrl} />
 </CouncilLayout>

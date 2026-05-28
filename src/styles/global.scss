@@ -932,6 +932,11 @@ footer.usa-footer .footer-grid-container,
     border: none;
     padding: 1rem 1.5rem;
     font-weight: 500;
+    width: 100%;
+
+    @media (min-width: $breakpoint-tablet) {
+      width: auto;
+    }
   }
 }
 
@@ -939,7 +944,6 @@ footer.usa-footer .footer-grid-container,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
   background-image: none;
 
   &[aria-expanded] {
@@ -961,12 +965,12 @@ footer.usa-footer .footer-grid-container,
   background-color: transparent;
   color: transparent;
   font-size: 0;
-  height: 2.75rem;
+  height: auto;
   padding: 0;
   position: absolute;
   right: 1rem;
   top: 1rem;
-  width: 2.75rem;
+  width: auto;
   z-index: 1;
 
   &::before {
