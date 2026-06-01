@@ -1100,6 +1100,17 @@ footer.usa-footer .footer-grid-container,
   font-weight: 500;
 }
 
+.resource-cards-grid .resource-card-link .usa-card__heading {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.resource-cards-grid .usa-card__full-content h4 {
+  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
 .resource-card-link .usa-card__body {
   display: flex;
   flex-direction: column;
@@ -1113,7 +1124,9 @@ footer.usa-footer .footer-grid-container,
   font-family: var(--font-sans);
 }
 
-.usa-card-group .usa-card--clickable:not(.usa-card--expanded) .usa-card__container {
+.usa-card-group
+  .usa-card--clickable:not(.usa-card--expanded)
+  .usa-card__container {
   cursor: pointer;
 }
 

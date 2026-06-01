@@ -6,7 +6,8 @@
   const DEFAULT_CARD_CLASS =
     "usa-card display-block text-no-underline resource-card-link resource-card-link--bordered";
   const DEFAULT_CARD_GRID_CLASS = "desktop:grid-col-6";
-  const DEFAULT_GROUP_CLASS = "usa-card-group grid-row grid-gap resource-cards-grid";
+  const DEFAULT_GROUP_CLASS =
+    "usa-card-group grid-row grid-gap resource-cards-grid";
   const DEFAULT_HEADING_LEVEL = "h3";
 
   const {
@@ -72,6 +73,9 @@
     return `uswds-card-accordion-${groupHash}-${index + 1}-${slug}-${hash}`;
   };
 
+  const renderFullContentMarkdownToHtml = (markdown) =>
+    renderMarkdownToHtml(markdown).replace(/<(\/?)h[1-6]>/g, "<$1h4>");
+
   const buildCardMarkup = (card, index, groupHash, previewOptions) => {
     const resolvedImage =
       previewOptions && previewOptions.getAsset
@@ -107,16 +111,15 @@
     const fullContentMarkup = card.fullContent
       ? `
       <div class="usa-card__full-content usa-accordion__content usa-prose" id="${escapeAttribute(accordionId)}" hidden>
-${indentLines(renderMarkdownToHtml(card.fullContent), 10)}
+${indentLines(renderFullContentMarkdownToHtml(card.fullContent), 10)}
       </div>`
       : "";
-    const bodyMarkup =
-      card.description
-        ? `
+    const bodyMarkup = card.description
+      ? `
       <div class="usa-card__body${card.fullContent ? " order-1" : ""}">
         <p class="usa-card__description">${escapeHtml(card.description)}</p>${fullContentMarkup}
       </div>`
-        : "";
+      : "";
     const footerMarkup = card.fullContent
       ? `
       <div class="usa-card__footer order-2">
