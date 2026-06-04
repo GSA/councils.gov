@@ -1,0 +1,194 @@
+<script>
+  (function() {
+    'use strict';
+
+    const desktopCardsQuery = window.matchMedia('(min-width: 64em)');
+
+    function getCardGridItems(cardGroup) {
+      if (!cardGroup) return [];
+
+      return Array.from(cardGroup.children).filter(function(child) {
+        return child.matches('[data-card-grid-item]');
+      });
+    }
+
+    function resetCardGridOrder(cardGroup) {
+      getCardGridItems(cardGroup).forEach(function(gridItem) {
+        gridItem.style.order = '';
+        gridItem.classList.remove(
+          'usa-card-grid-item--expanded-from-right',
+          'usa-card-grid-item--deferred'
+        );
+      });
+    }
+
+    function syncCardGroupOrder(cardGroup) {
+      resetCardGridOrder(cardGroup);
+
+      if (!desktopCardsQuery.matches || !cardGroup) return;
+
+      const openButton = cardGroup.querySelector(
+        '[data-card-accordion-button][aria-expanded="true"]'
+      );
+      const openCard = openButton ? openButton.closest('.usa-card') : null;
+      const openGridItem = openCard ? openCard.closest('[data-card-grid-item]') : null;
+      const gridItems = getCardGridItems(cardGroup);
+      const openIndex = gridItems.indexOf(openGridItem);
+
+      if (openIndex < 1 || openIndex % 2 === 0) return;
+
+      gridItems.forEach(function(gridItem, index) {
+        gridItem.style.order = String(index);
+      });
+
+      openGridItem.style.order = String(openIndex - 1);
+      openGridItem.classList.add('usa-card-grid-item--expanded-from-right');
+
+      const precedingGridItem = gridItems[openIndex - 1];
+      precedingGridItem.style.order = String(openIndex);
+      precedingGridItem.classList.add('usa-card-grid-item--deferred');
+    }
+
+    function syncCardAccordion(button, options) {
+      const card = button.closest('.usa-card');
+      if (!card) return;
+
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      const contentId = button.getAttribute('aria-controls');
+      const content = contentId ? document.getElementById(contentId) : null;
+      const gridItem = card.closest('[data-card-grid-item]');
+
+      if (content) {
+        content.hidden = !isExpanded;
+      }
+
+      if (gridItem) {
+        gridItem.classList.toggle('desktop:grid-col-6', !isExpanded);
+        gridItem.classList.toggle('usa-card-grid-item--expanded', isExpanded);
+      }
+
+      card.classList.toggle('usa-card--expanded', isExpanded);
+
+      if (!button.dataset.cardAccordionLabel) {
+        button.dataset.cardAccordionLabel = button.textContent.trim();
+      }
+
+      const heading = card.querySelector('.usa-card__heading');
+      const headingText = heading ? heading.textContent.trim() : '';
+
+      if (isExpanded) {
+        const closeLabel = button.dataset.cardAccordionCloseLabel || 'Close details';
+        button.setAttribute(
+          'aria-label',
+          headingText ? `${closeLabel}: ${headingText}` : closeLabel
+        );
+      } else {
+        button.setAttribute(
+          'aria-label',
+          headingText
+            ? `${button.dataset.cardAccordionLabel}: ${headingText}`
+            : button.dataset.cardAccordionLabel
+        );
+      }
+    }
+
+    function toggleCardAccordion(button, options) {
+      const willExpand = button.getAttribute('aria-expanded') !== 'true';
+      const cardGroup = button.closest('.usa-card-group');
+
+      if (willExpand && cardGroup) {
+        cardGroup
+          .querySelectorAll('[data-card-accordion-button][aria-expanded="true"]')
+          .forEach(function(openButton) {
+            if (openButton === button) return;
+            openButton.setAttribute('aria-expanded', 'false');
+            syncCardAccordion(openButton);
+          });
+      }
+
+      button.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
+      syncCardAccordion(button, options);
+      syncCardGroupOrder(cardGroup);
+    }
+
+    function syncCardAccordions(root) {
+      const target = root || document;
+      const cardGroups = new Set();
+
+      target
+        .querySelectorAll('[data-card-accordion-button]')
+        .forEach(function(button) {
+          syncCardAccordion(button);
+          const cardGroup = button.closest('.usa-card-group');
+          if (cardGroup) cardGroups.add(cardGroup);
+        });
+
+      cardGroups.forEach(syncCardGroupOrder);
+    }
+
+    function getCardAction(card) {
+      return card.querySelector('[data-card-accordion-button], .usa-card__footer a[href]');
+    }
+
+    function shouldIgnoreCardClick(event, card) {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return true;
+      }
+
+      if (card.classList.contains('usa-card--expanded')) {
+        return true;
+      }
+
+      if (event.target.closest('a, button, input, select, textarea, label')) {
+        return true;
+      }
+
+      if (window.getSelection && String(window.getSelection()).trim()) {
+        return true;
+      }
+
+      return false;
+    }
+
+    document.addEventListener('click', function(event) {
+      const button = event.target.closest('[data-card-accordion-button]');
+      if (button) {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleCardAccordion(button);
+        return;
+      }
+
+      const card = event.target.closest('.usa-card-group .usa-card--clickable');
+      if (!card || shouldIgnoreCardClick(event, card)) return;
+
+      const action = getCardAction(card);
+      if (action) action.click();
+    }, true);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        syncCardAccordions(document);
+      });
+    } else {
+      syncCardAccordions(document);
+    }
+
+    document.addEventListener('astro:after-swap', function() {
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+      }, 0);
+    });
+    document.addEventListener('astro:page-load', function() {
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+      }, 0);
+    });
+
+    window.addEventListener('resize', function() {
+      window.setTimeout(function() {
+        syncCardAccordions(document);
+      }, 0);
+    });
+  })();
+</script>

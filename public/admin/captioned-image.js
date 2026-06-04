@@ -7,21 +7,13 @@
     'm'
   );
 
-  const escapeHtml = (value) =>
-    String(value || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-
-  const escapeAttribute = escapeHtml;
-
-  const decodeHtml = (value) => {
-    const textarea = document.createElement('textarea');
-    textarea.innerHTML = String(value || '');
-    return textarea.value;
-  };
+  const {
+    escapeHtml,
+    escapeAttribute,
+    decodeHtml,
+    findImageField,
+    getPreviewAsset,
+  } = window.CouncilsAdminEditorUtils;
 
   const registerCaptionedImage = () => {
     if (!window.CMS || typeof window.CMS.registerEditorComponent !== 'function') {
@@ -81,11 +73,8 @@
 </figure>`;
       },
       toPreview: ({ image, alt, caption }, getAsset, fields) => {
-        const imageField =
-          fields && typeof fields.find === 'function'
-            ? fields.find((field) => field.get('widget') === 'image')
-            : undefined;
-        const src = getAsset ? getAsset(image, imageField) : image;
+        const imageField = findImageField(fields);
+        const src = getPreviewAsset(image, getAsset, imageField);
         const captionMarkup = caption
           ? `<figcaption class="font-sans-3xs text-italic margin-top-1">${escapeHtml(caption)}</figcaption>`
           : '';
