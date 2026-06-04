@@ -64,30 +64,30 @@
             .replace(/^-|-$/g, "");
 
         window.CMS.registerEventListener({
-        name: "preSave",
-        handler: ({ entry }) => {
-          const data = entry.get("data");
-          const collectionName = entry.get("collection");
+          name: "preSave",
+          handler: ({ entry }) => {
+            const data = entry.get("data");
+            const collectionName = entry.get("collection");
 
-          if (collectionName === "resources") {
-            const resources = data.get("resources");
-            const updatedResources = ensureListItemIds(resources, "RESOURCE");
-            return entry.set("data", data.set("resources", updatedResources));
-          }
+            if (collectionName === "resources") {
+              const resources = data.get("resources");
+              const updatedResources = ensureListItemIds(resources, "RESOURCE");
+              return data.set("resources", updatedResources);
+            }
 
-          if (collectionName === "news_events") {
-            const news = data.get("news");
-            const updatedNews = ensureListItemIds(news, "NEWS").map((item) => {
-              const title = item.get("title");
-              const generatedSlug = slugify(title);
-              return generatedSlug ? item.set("slug", generatedSlug) : item;
-            });
-            return entry.set("data", data.set("news", updatedNews));
-          }
+            if (collectionName === "news_events") {
+              const news = data.get("news");
+              const updatedNews = ensureListItemIds(news, "NEWS").map((item) => {
+                const title = item.get("title");
+                const generatedSlug = slugify(title);
+                return generatedSlug ? item.set("slug", generatedSlug) : item;
+              });
+              return data.set("news", updatedNews);
+            }
 
-          return entry;
-        },
-      });
+            return data;
+          },
+        });
       };
 
       if (window.CMS && typeof window.CMS.registerEventListener === "function") {
