@@ -334,7 +334,7 @@ members:
   - title: ""
     agency: Small Business Administration
     url: https://www.sba.gov/about-sba/open-government/digital-sba
-    name: Anna Maria Calcagno
+    name: Doug Robertson, Acting
   - title: ""
     agency: Smithsonian Institution
     name: Jenny Sue Ross
