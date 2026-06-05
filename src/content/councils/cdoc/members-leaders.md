@@ -43,10 +43,6 @@ leaders:
   - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
-  - name: Dominique Duval-Diop
-    title: Data-Driven Government Working Group Co-Chair, Acting Chief Data Officer
-    agency: Department of Commerce
-    image: /assets/img/leaders/dominique-duval-diop_circle-headshot.png
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
