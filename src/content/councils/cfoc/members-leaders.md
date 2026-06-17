@@ -26,7 +26,7 @@ members:
     name: Casey Sacks, Ph.D.
   - agency: Department of Energy
     url: https://www.energy.gov/cfo/office-chief-financial-officer
-    name: Tina Pierce
+    name: Vacant
   - agency: Department of Health and Human Services
     url: https://www.hhs.gov/about/agencies/asfr/finance/index.html
     name: Gustav Chiarello
