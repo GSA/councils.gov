@@ -1471,6 +1471,22 @@
         "CFO"
       ],
       "id": "CFO-1779798586591004"
+    },
+    {
+      "title": "ICSP Charter",
+      "type": [
+        "PDF File",
+        "Quick Reference"
+      ],
+      "focusArea": [
+        "Statistical Policy"
+      ],
+      "councilAcronym": [
+        "ICSP"
+      ],
+      "date": "2026-06-18",
+      "link": "/docs/icsp-charter_june-2026.pdf",
+      "id": "ICSP-1781797383567001"
     }
   ]
 }
