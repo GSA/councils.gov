@@ -27,7 +27,7 @@ According to the authorizing statutes, the ICSP was established to assist and ad
 * Assessing statistical agency, unit, and program budgets to ensure they are consistent with system-wide priorities for maintaining and improving the quality of Federal statistics.
 * Coordinating the United States participation in international statistical activities, among other functions.
 
-
+**For more information, see the [ICSP Charter.](https://www.councils.gov/docs/icsp-charter_june-2026.pdf)** 
 
 ## ICSP Subcommittees
 
