@@ -1488,6 +1488,55 @@
       "date": "2026-06-18",
       "link": "/docs/icsp-charter_june-2026.pdf",
       "id": "ICSP-1781797383567001"
+    },
+    {
+      "title": "FY 2024 Revisions to 2 CFR: Federal Agency Implementation",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance",
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
+      "date": "2024-08-15",
+      "link": "/docs/fy-2024-revisions-to-2-cfr-supplementary-information-for-federal-agency-implementation.pdf",
+      "id": "COFFA-1782212182822001"
+    },
+    {
+      "title": "2 CFR Implementation and Flexibilities For Emergencies or Major Disasters",
+      "type": [
+        "Guidance",
+        "Memorandum"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance",
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
+      "date": "2025-01-15",
+      "link": "/docs/2-cfr-supplemental-information-1-30-25.pdf",
+      "id": "COFFA-1782212925988001"
+    },
+    {
+      "title": "2 CFR Revisions 2024: Unofficial Comparison Version",
+      "type": [
+        "Guidance"
+      ],
+      "focusArea": [
+        "Federal Financial Assistance",
+        "Uniform Guidance 2 CFR 200"
+      ],
+      "councilAcronym": [
+        "COFFA"
+      ],
+      "date": "2024-01-01",
+      "link": "/docs/2-cfr-revisions-2024-redline.pdf",
+      "id": "COFFA-1782212925988002"
     }
   ]
 }
