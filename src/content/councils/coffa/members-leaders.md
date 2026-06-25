@@ -87,8 +87,7 @@ members:
   - agency: Social Security Administration
     url: https://www.ssa.gov/oag/grants/
     name: Brenda Monch
-  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination
-      Council
+  - agency: Appraisal Subcommittee
     url: https://asc.gov/
     name: Regeane "Rae" Frederique
     title: Small Agency Representative
