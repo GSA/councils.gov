@@ -92,4 +92,7 @@ members:
     url: https://asc.gov/
     name: Regeane "Rae" Frederique
     title: Small Agency Representative
+  - name: Richard Brundage
+    title: Small Agency Representative
+    agency: National Endowment for the Humanities
 ---
