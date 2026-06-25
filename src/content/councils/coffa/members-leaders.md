@@ -28,7 +28,7 @@ members:
     name: Molly Shea
   - agency: Department of Education
     url: https://www.ed.gov/grants-and-programs/apply-grant/grants-overview-us-department-of-education?src=pn
-    name: Jessica Remakis
+    name: Jessica Ramakis
   - agency: Department of Energy
     url: https://www.energy.gov/management/financial-assistance
     name: Jason Passaro
@@ -40,13 +40,13 @@ members:
     name: Dale Bell
   - agency: Department of Homeland Security
     url: https://www.dhs.gov/dhs-financial-assistance
-    name: Michael Pellegrino
+    name: Stephen McHale
   - agency: Department of Housing and Urban Development
     url: https://www.hud.gov
-    name: Melajo Kubacki
+    name: Katherine Darling
   - agency: Department of the Interior
     url: https://www.doi.gov/pfm/cfo
-    name: Cara Whitehead
+    name: Katherine Spomer
   - agency: Department of Justice
     url: https://www.justice.gov/grants
     name: Maureen Henneberg
@@ -55,7 +55,7 @@ members:
     name: Thomas Kodiak
   - agency: Department of State
     url: https://www.state.gov/bureaus-offices/under-secretary-for-management/bureau-of-the-comptroller-and-global-financial-services/
-    name: Jeffrey Johnson
+    name: Jay Thompson
   - agency: Department of Transportation
     name: Matthew Hawkins
   - agency: Department of the Treasury
@@ -87,8 +87,8 @@ members:
   - agency: Social Security Administration
     url: https://www.ssa.gov/oag/grants/
     name: Brenda Monch
-  - agency: Appraisal Subcommittee of the Federal Financial Institutions Examination
-      Council
+  - agency: ""
     url: https://asc.gov/?state_id=69&state=WV
     name: Regeane "Rae" Frederique
+    title: Small Agency Representative
 ---
