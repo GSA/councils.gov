@@ -88,7 +88,7 @@ members:
     url: https://www.ssa.gov/oag/grants/
     name: Brenda Monch
   - agency: ""
-    url: https://asc.gov/?state_id=69&state=WV
+    url: https://asc.gov/
     name: Regeane "Rae" Frederique
     title: Small Agency Representative
 ---
