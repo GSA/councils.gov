@@ -87,7 +87,7 @@ members:
   - name: Emilda Rivers^*
     title: National Center for Science and Engineering Statistics
     agency: National Science Foundation
-  - name: Doris Lewis*
+  - name: Shaun Anderson*
     agency: Nuclear Regulatory Commission
   - name: Gayle Reznik*
     agency: Social Security Administration
