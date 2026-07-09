@@ -24,6 +24,11 @@ leaders:
     agency: General Services Administration
     image: /assets/img/leaders/david_shive.png
     imageAlt: David Shive
+  - name: Thomas Flagg
+    title: Deputy Federal Chief Information Officer
+    imageAlt: Thomas Flagg
+    image: /assets/img/leaders/thomas-flagg.jpeg
+    agency: The Executive Office of the President
   - name: Michael Duffy
     title: Acting Federal Chief Information Security Officer
     agency: The Executive Office of the President
