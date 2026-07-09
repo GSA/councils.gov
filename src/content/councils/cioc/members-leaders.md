@@ -1,7 +1,5 @@
 ---
-title: CIOC Leadership & Members
 councilName: Chief Information Officers Council
-councilSlug: cioc
 intro: The CIOC is composed of Chief Information Officers and senior IT
   executives from Federal agencies who work together to improve government IT
   practices.
@@ -29,6 +27,9 @@ leaders:
     agency: The Executive Office of the President
     image: /assets/img/leaders/michael_duffy.png
     imageAlt: Michael Duffy
+useCustomOrderForMembers: true
+councilSlug: cioc
+title: CIOC Leadership & Members
 members:
   - agency: Department of Labor
   - agency: Department of State
