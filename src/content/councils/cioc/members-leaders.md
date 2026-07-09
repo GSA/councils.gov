@@ -19,11 +19,6 @@ leaders:
     imageAlt: Thomas Flagg
     image: /assets/img/leaders/thomas-flagg.jpeg
     agency: The Executive Office of the President
-  - name: Jay Teitelbaum
-    title: Acting Deputy Federal Chief Information Officer
-    agency: The Executive Office of the President
-    image: /assets/img/leaders/jay_teitelbaum.png
-    imageAlt: Jay Teitelbaum
   - name: David Shive
     title: Vice Chair, Chief Information Officer
     agency: General Services Administration
