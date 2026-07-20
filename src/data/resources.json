@@ -1537,6 +1537,21 @@
       "date": "2024-01-01",
       "link": "/docs/2-cfr-revisions-2024-redline.pdf",
       "id": "COFFA-1782212925988002"
+    },
+    {
+      "title": "The Fair Information Practice Principles (FIPPs)",
+      "type": [
+        "PDF File"
+      ],
+      "focusArea": [
+        "Resources"
+      ],
+      "councilAcronym": [
+        "FPC"
+      ],
+      "date": "2026-07-20",
+      "link": "/docs/fipps_fpc-resource.pdf",
+      "id": "FPC-1784564616948001"
     }
   ]
 }
