@@ -129,8 +129,8 @@ members:
     title: Chief Data Scientist
     agency: General Services Administration
     url: ""
-  - name: Jeffrey Seaton
-    title: SAOP/CIO
+  - name: Sean Gallagher
+    title: CIO/SAOP
     agency: National Aeronautics and Space Administration
   - name: Tom Boger (Acting)
     title: Acting CISO, Acting SAOP
