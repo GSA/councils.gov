@@ -1,8 +1,31 @@
 ---
 councilName: Chief Data Officers Council
-intro: The Chief Data Officers Council includes Chief Data Officers from CFO Act
-  agencies and other designated federal agencies working to advance data
-  governance and evidence-based decision-making.
+intro: >-
+  The Chief Data Officers Council includes Chief Data Officers from both CFO Act
+  and Non-CFO Act agencies and other designated federal agencies working to
+  advance data governance and evidence-based decision-making.
+
+
+  MEMBERSHIP
+
+  - Chief Data Officers of each agency* serving as a member per legislation
+
+  - Council Chair
+
+  - The Administrator of the Office of eGovernment shall serve as a member of the Council (or designee) the Administrator of the Office of Information and Regulatory Affairs ( or designee )
+
+  - Ex officio members: The CDOC Chair shall appoint a representative from other Executive Council in accordance with the Council Charter.
+
+
+  *The CDO Council definition of “Agency” comes from 44 USC 3502.  Under the definitions in that section the term Agency means:(1)the term “agency” means any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include—
+
+  (A)the Government Accountability Office;
+
+  (B)Federal Election Commission;
+
+  (C)the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or
+
+  (D)Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities;
 membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
   other designated federal agencies working to advance data governance and
   evidence-based decision-making.
