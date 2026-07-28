@@ -39,15 +39,15 @@ members:
   - name: William Wiatrowski^*
     agency: Department of Labor
     title: Bureau of Labor Statistics
+  - name: Thomas Woermer*
+    agency: Department of Homeland Security
+    title: ""
   - name: Ed Strocko^*
     title: Bureau of Transportation Statistics
     agency: Department of Transportation
   - name: Christopher Jones^
     title: Center for Behavioral Health Statistics and Quality
     agency: Department of Health and Human Services
-  - name: Marc Rosenblum*
-    agency: Department of Homeland Security
-    title: ""
   - name: George Carter* and Lydia Taghavi*
     agency: Department of Housing and Urban Development
   - name: Kawa Ng*
