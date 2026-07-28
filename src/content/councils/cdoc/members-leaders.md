@@ -1,9 +1,9 @@
 ---
 councilName: Chief Data Officers Council
 intro: >-
-  The Chief Data Officers Council includes Chief Data Officers from both CFO Act
-  and Non-CFO Act agencies and other designated federal agencies working to
-  advance data governance and evidence-based decision-making.
+  <p>The Chief Data Officers Council includes Chief Data Officers from both CFO
+  Act and Non-CFO Act agencies and other designated federal agencies working to
+  advance data governance and evidence-based decision-making.<p>
 
 
 
