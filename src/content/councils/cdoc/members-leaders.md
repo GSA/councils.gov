@@ -1,9 +1,9 @@
 ---
 councilName: Chief Data Officers Council
 intro: >-
-  <p>The Chief Data Officers Council includes Chief Data Officers from both CFO
-  Act and Non-CFO Act agencies and other designated federal agencies working to
-  advance data governance and evidence-based decision-making.<p>
+  The Chief Data Officers Council includes Chief Data Officers from both CFO Act
+  and Non-CFO Act agencies and other designated federal agencies working to
+  advance data governance and evidence-based decision-making.
 
 
 
@@ -40,11 +40,6 @@ leaders:
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
     image: /assets/img/leaders/brandon-brown_circle-headshot-1-.png
-  - name: David Ashley
-    title: Data-Driven Government Working Group, Co-Chair, Acting Chief Data Officer
-    agency: Department of the Treasury
-    image: /assets/img/leaders/david-ashley_circle-headshot.jpg
-    imageAlt: David Ashley
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
@@ -53,15 +48,15 @@ leaders:
   - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
-  - name: Jiashen You
-    title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: ""
-    image: /assets/img/leaders/jy_headshots-seals.png
-    imageAlt: Jiashen You
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
     image: /assets/img/leaders/wr_headshots-seals.png
+  - name: Jiashen You
+    title: Business of Data Working Group Co-Chair, Chief Data Officer
+    agency: U.S. Equal Employment Opportunity Commission
+    image: /assets/img/leaders/jy_headshots-seals.png
+    imageAlt: Jiashen You
 useCustomOrderForMembers: true
 councilSlug: cdoc
 title: CDOC Leadership & Members
