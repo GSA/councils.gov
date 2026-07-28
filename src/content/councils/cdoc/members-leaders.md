@@ -54,9 +54,14 @@ leaders:
     image: /assets/img/leaders/wr_headshots-seals.png
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: U.S. Equal Employment Opportunity Commission
+    agency: ""
     image: /assets/img/leaders/jy_headshots-seals.png
     imageAlt: Jiashen You
+  - name: David Ashley
+    title: Data-Driven Government Working Group, Co-Chair, Acting Chief Data Officer
+    agency: Department of the Treasury
+    image: /assets/img/leaders/david-ashley_circle-headshot.jpg
+    imageAlt: David Ashley
 useCustomOrderForMembers: true
 councilSlug: cdoc
 title: CDOC Leadership & Members
