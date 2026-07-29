@@ -1,9 +1,11 @@
 ---
 import CouncilLayout from '../../layouts/CouncilLayout.astro';
 import matter from 'gray-matter';
+import { marked } from 'marked';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { toArray } from '../../components/filters';
+import { prefixRootRelativeUrls } from '../../utils/prefixBasePath';
 
 // Get all council members-leaders pages
 export async function getStaticPaths() {
@@ -94,6 +96,18 @@ const { frontmatter, logoPath, logoAlt, logoClass, logoAspect, hasMembersLeaders
 const councilAcronym = (logoAlt as string)?.replace(/\s*Logo\s*$/i, '').trim() || (frontmatter.councilSlug as string)?.toUpperCase() || '';
 const baseUrl = import.meta.env.BASE_URL;
 const withBase = (path?: string) => (path && path.startsWith('/') ? `${baseUrl}${path.slice(1)}` : path);
+const renderMarkdown = (value: unknown) =>
+  value
+    ? prefixRootRelativeUrls(
+        marked.parse(String(value), {
+          async: false,
+          breaks: true,
+        }) as string,
+        baseUrl
+      )
+    : '';
+const introHtml = renderMarkdown(frontmatter.intro);
+const membersIntroHtml = renderMarkdown(frontmatter.membersIntro);
 
 const getLastName = (name: string) => {
   const withoutParens = name.replace(/\s*\([^)]*\)\s*$/, '').trim();
@@ -338,9 +352,9 @@ function getMemberImage(member: any): string | null {
   hasResources={hasResources}
 >
 
-  <p class="usa-intro margin-top-0">
-    {frontmatter.intro}
-  </p>
+  {introHtml && (
+    <div class="usa-intro usa-prose margin-top-0 margin-bottom-4" set:html={introHtml} />
+  )}
 
   {sortedLeaders.length > 0 && (
     <>
@@ -429,10 +443,11 @@ function getMemberImage(member: any): string | null {
   )}
 
   <h2 class="margin-top-4">Members</h2>
-  {frontmatter.membersIntro && (
-  <p class="usa-intro margin-top-0 margin-bottom-4">
-    {frontmatter.membersIntro}
-  </p>
+  {membersIntroHtml && (
+    <div
+      class="usa-intro usa-prose margin-top-0 margin-bottom-4"
+      set:html={membersIntroHtml}
+    />
   )}
   {sortedMembers.length > 0 && (
     <div class="members-grid margin-top-2">

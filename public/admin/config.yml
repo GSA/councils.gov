@@ -153,12 +153,19 @@ collections:
               widget: string,
               required: false,
             }
-          - { label: Intro, name: intro, widget: text, required: false }
+          - {
+              label: Intro,
+              name: intro,
+              widget: markdown,
+              required: false,
+              hint: "Supports multiple paragraphs, line breaks, links, lists, and other Markdown formatting.",
+            }
           - {
               label: Members Intro,
               name: membersIntro,
-              widget: text,
+              widget: markdown,
               required: false,
+              hint: "Supports multiple paragraphs, line breaks, links, lists, and other Markdown formatting.",
             }
           - {
               label: Use custom order for Leaders,
