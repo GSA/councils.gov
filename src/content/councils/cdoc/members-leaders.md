@@ -1,11 +1,16 @@
 ---
 councilName: Chief Data Officers Council
-intro: The Chief Data Officers Council includes Chief Data Officers from CFO Act
-  agencies and other designated federal agencies working to advance data
-  governance and evidence-based decision-making.
-membersIntro: The CDOC includes Chief Data Officers from CFO Act agencies and
-  other designated federal agencies working to advance data governance and
-  evidence-based decision-making.
+intro: >-
+  <p>The Chief Data Officers Council includes Chief Data Officers from both CFO
+  Act and Non-CFO Act agencies and other designated federal agencies working to
+  advance data governance and evidence-based decision-making.<p>
+
+
+
+  *The CDO Council definition of “Agency” comes from 44 USC 3502.  Under the definitions in that section the term Agency means:(1)the term “agency” means any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include the following: (A)the Government Accountability Office; (B)Federal Election Commission; (C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or (D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.
+membersIntro: The CDOC includes Chief Data Officers from both CFO Act and
+  Non-CFO Act agencies and other designated federal agencies working to advance
+  data governance and evidence-based decision-making.
 useCustomOrderForLeaders: true
 leaders:
   - name: Kirsten Dalboe
@@ -35,6 +40,11 @@ leaders:
     title: Data-Driven Government Working Group Co-Chair, Chief Data Officer
     agency: Department of Labor
     image: /assets/img/leaders/brandon-brown_circle-headshot-1-.png
+  - name: David Ashley
+    title: Data-Driven Government Working Group, Co-Chair, Acting Chief Data Officer
+    agency: Department of the Treasury
+    image: /assets/img/leaders/updated-david-ashley.png
+    imageAlt: David Ashley
   - name: Austin Gerig
     title: Customer Experience Working Group, Chief Data Officer
     agency: U.S. Securities and Exchange Commission
@@ -43,15 +53,15 @@ leaders:
   - name: Michael Hauck
     title: Business of Data Working Group Co-Chair, Chief Data Officer
     agency: National Science Foundation
+  - name: Jiashen You
+    title: Business of Data Working Group Co-Chair, Chief Data Officer
+    agency: ""
+    image: /assets/img/leaders/jy_headshots-seals.png
+    imageAlt: Jiashen You
   - name: Warren Randolph
     title: Small Agency Committee Chair, National Transportation Safety Board
     agency: National Transportation Safety Board
     image: /assets/img/leaders/wr_headshots-seals.png
-  - name: Jiashen You
-    title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: U.S. Equal Employment Opportunity Commission
-    image: /assets/img/leaders/jy_headshots-seals.png
-    imageAlt: Jiashen You
 useCustomOrderForMembers: true
 councilSlug: cdoc
 title: CDOC Leadership & Members
@@ -365,3 +375,14 @@ members:
     agency: United States Access Board
     name: Mannan Dasti, Acting
 ---
+The Chief Data Officers Council includes Chief Data Officers from both CFO Act and Non-CFO Act agencies and other designated federal agencies working to advance data governance and evidence-based decision-making.
+
+The CDO Council definition of “Agency” comes from 44 USC 3502.  Under the definitions in that section the term Agency means: (1)the term “agency” means any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include the following: 
+
+(A)the Government Accountability Office; 
+
+(B)Federal Election Commission; 
+
+(C) the governments of the District of Columbia and of the territories and possessions of the United States, and their various subdivisions; or 
+
+(D) Government-owned contractor-operated facilities, including laboratories engaged in national defense research and production activities.
