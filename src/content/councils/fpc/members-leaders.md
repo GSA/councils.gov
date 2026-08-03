@@ -104,7 +104,7 @@ members:
   - name: Timothy Kootz
     title: SAOP
     agency: Department of State
-  - name: Paul McInerny
+  - name: Eric Sidle
     title: SAOP/CIO
     agency: Department of the Interior
     url: ""
