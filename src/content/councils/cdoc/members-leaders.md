@@ -6,7 +6,7 @@ intro: >-
   advance data governance and evidence-based decision-making.
 
 
-  \*The CDO Council definition of “Agency” comes from 44 USC 3502.  Under the definitions in that section the term Agency means:(1)the term “agency” means any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include the following: 
+  The CDO Council definition of “Agency” comes from 44 USC 3502.  Under the definitions in that section the term Agency means:(1)the term “agency” means any executive department, military department, Government corporation, Government controlled corporation, or other establishment in the executive branch of the Government (including the Executive Office of the President), or any independent regulatory agency, but does not include the following: 
 
 
   (A)the Government Accountability Office; 
