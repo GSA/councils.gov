@@ -385,6 +385,9 @@ members:
   - title: ""
     agency: United States Access Board
     name: Mannan Dasti, Acting
+  - name: Kristen Baldwin
+    title: ""
+    agency: Office of the Comptroller of the Currency
 ---
 The Chief Data Officers Council includes Chief Data Officers from both CFO Act and Non-CFO Act agencies and other designated federal agencies working to advance data governance and evidence-based decision-making.
 
