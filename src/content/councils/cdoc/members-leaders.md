@@ -385,9 +385,6 @@ members:
   - title: ""
     agency: United States Access Board
     name: Mannan Dasti, Acting
-  - name: Kristen Baldwin
-    title: ""
-    agency: Office of the Comptroller of the Currency
   - name: Jena Whitley
     agency: Treasury Inspector General for Tax Administration
 ---
