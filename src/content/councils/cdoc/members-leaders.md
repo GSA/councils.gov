@@ -241,7 +241,7 @@ members:
     name: Raquel Gomes
   - title: ""
     agency: International Trade Commission
-    name: Jeremy Wise
+    name: Maureen Letostak
   - title: ""
     agency: Merit Systems Protection Board
     url: https://www.mspb.gov/data/
