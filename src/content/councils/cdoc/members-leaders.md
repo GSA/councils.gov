@@ -124,7 +124,7 @@ members:
   - title: ""
     agency: Department of Commerce
     url: https://www.commerce.gov/data-and-reports/data
-    name: Dominique Duval-Diop, Acting
+    name: Lindsay Monte, Acting
   - title: ""
     agency: Department of Education
     url: https://www.ed.gov/data
@@ -241,7 +241,7 @@ members:
     name: Raquel Gomes
   - title: ""
     agency: International Trade Commission
-    name: Jeremy Wise
+    name: Maureen Letostak
   - title: ""
     agency: Merit Systems Protection Board
     url: https://www.mspb.gov/data/
