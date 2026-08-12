@@ -36,7 +36,7 @@ members:
   - name: Kevin Scott^*
     title: Bureau of Justice Statistics
     agency: Department of Justice
-  - name: William Wiatrowski^*
+  - name: Brett Matsumoto^*
     agency: Department of Labor
     title: Bureau of Labor Statistics
   - name: Thomas Woermer*
