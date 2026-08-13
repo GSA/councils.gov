@@ -36,7 +36,7 @@ members:
   - name: Kevin Scott^*
     title: Bureau of Justice Statistics
     agency: Department of Justice
-  - name: William Wiatrowski^*
+  - name: Brett Matsumoto^*
     agency: Department of Labor
     title: Bureau of Labor Statistics
   - name: Thomas Woermer*
@@ -53,7 +53,7 @@ members:
   - name: Kawa Ng*
     title: ""
     agency: Department of the Interior
-  - name: Gio Altamirano Rayo*
+  - name: Vacant*
     agency: Department of State
   - name: Eddie Thomas*
     agency: Department of Veterans Affairs
