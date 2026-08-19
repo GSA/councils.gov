@@ -49,6 +49,9 @@ export default defineConfig({
   outDir: "_site",
   site: "https://www.councils.gov",
   base,
+  // Preserve Astro 5/6's HTML-aware whitespace behavior after Astro 7 changed
+  // the default to JSX-style whitespace stripping.
+  compressHTML: true,
   trailingSlash: "always",
   redirects: councilRedirects,
   integrations: [react(), sitemap()],

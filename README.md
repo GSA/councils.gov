@@ -4,7 +4,7 @@ Static site for **Federal Executive Councils** ([councils.gov](https://www.counc
 
 ## Requirements
 
-- **Node.js** (LTS recommended)
+- **Node.js 22.19.0 or newer**
 - **npm**
 
 ## Scripts
@@ -21,7 +21,7 @@ Static site for **Federal Executive Councils** ([councils.gov](https://www.counc
 
 | Layer | Stack |
 |-------|--------|
-| Framework | [Astro](https://astro.build/) 5.x (static output, `outDir: _site`) |
+| Framework | [Astro](https://astro.build/) 7.x (static output, `outDir: _site`) |
 | UI system | [USWDS](https://designsystem.digital.gov/) 3.x (`@uswds/uswds`) |
 | Interactivity | [React](https://react.dev/) 18 (`@astrojs/react`) — filter UIs, search, pagination |
 | Styles | [Sass](https://sass-lang.com/) (`global.scss`), CSS variables (`variables.css`, `fonts.css`) |
