@@ -53,7 +53,7 @@ members:
   - name: Kawa Ng*
     title: ""
     agency: Department of the Interior
-  - name: Vacant*
+  - name: Margaret Callahan*
     agency: Department of State
   - name: Eddie Thomas*
     agency: Department of Veterans Affairs
