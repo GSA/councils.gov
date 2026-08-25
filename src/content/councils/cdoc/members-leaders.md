@@ -70,7 +70,7 @@ leaders:
     image: /assets/img/leaders/jy_headshots-seals.png
     imageAlt: Jiashen You
   - name: Warren Randolph
-    title: Small Agency Committee Chair, National Transportation Safety Board
+    title: Small Agency Committee Chair, Chief Data Officer
     agency: National Transportation Safety Board
     image: /assets/img/leaders/wr_headshots-seals.png
 useCustomOrderForMembers: true
