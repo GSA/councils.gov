@@ -66,7 +66,7 @@ leaders:
     agency: National Science Foundation
   - name: Jiashen You
     title: Business of Data Working Group Co-Chair, Chief Data Officer
-    agency: ""
+    agency: Equal Employment Opportunity Commission
     image: /assets/img/leaders/jy_headshots-seals.png
     imageAlt: Jiashen You
   - name: Warren Randolph
