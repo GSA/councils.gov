@@ -94,8 +94,8 @@ members:
   - name: Priscilla Clark
     title: SAOP
     agency: Department of Housing and Urban Development
-  - name: Peter Winn
-    title: Chief Privacy and Civil Liberties Officer (Acting)
+  - name: Laurence Rothenberg
+    title: Chief Privacy and Civil Liberties Officer
     agency: Department of Justice
   - name: Braye Cloud (Acting)
     title: Acting Deputy Assistant Secretary for Operations
