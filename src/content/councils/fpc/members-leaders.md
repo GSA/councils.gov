@@ -85,8 +85,8 @@ members:
     title: Acting CIO/SAOP
     agency: Department of Energy
     url: ""
-  - name: Clark Minor
-    title: Acting CIO/SAOP
+  - name: David Hong
+    title: SAOP
     agency: Department of Health and Human Services
   - name: Roman Jankowski
     title: Chief Privacy Officer and SAOP
