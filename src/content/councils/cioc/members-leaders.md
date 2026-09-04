@@ -7,11 +7,6 @@ membersIntro: The CIOC includes representatives from major Federal agencies,
   each bringing expertise and perspective to improve government IT management.
 useCustomOrderForLeaders: true
 leaders:
-  - name: Gregory Barbaccia
-    title: Federal Chief Information Officer
-    agency: The Executive Office of the President
-    image: /assets/img/leaders/gregory_barbaccia.png
-    imageAlt: Gregory Barbaccia
   - name: Thomas Flagg
     title: Deputy Federal Chief Information Officer
     imageAlt: Thomas Flagg
