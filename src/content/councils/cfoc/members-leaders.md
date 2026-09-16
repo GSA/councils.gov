@@ -80,7 +80,7 @@ members:
   - agency: General Services Administration
     url: https://www.gsa.gov/about-us/organization/office-of-the-chief-financial-officer
     name: CFO Nimisha Agarwal
-    title: DCFO Evan Farley
+    title: "DCFO Evan Farley "
   - agency: National Aeronautics and Space Administration
     url: https://www.nasa.gov/ocfo/
     name: CFO Sydney Schmidt (Acting)
