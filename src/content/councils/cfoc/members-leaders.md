@@ -17,7 +17,8 @@ useCustomOrderForMembers: true
 members:
   - agency: Department of Agriculture
     url: https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-financial-officer
-    name: Vacant
+    name: CFO Vacant
+    title: DCFO Lynn Moaney
   - agency: Department of Commerce
     url: http://commerce.gov/bureaus-and-offices/os/cfo-asa
     name: Jennifer Hesch (Acting)
