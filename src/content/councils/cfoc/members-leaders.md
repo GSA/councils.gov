@@ -33,7 +33,8 @@ members:
     title: DCFO Christopher Johns
   - agency: Department of Health and Human Services
     url: https://www.hhs.gov/about/agencies/asfr/finance/index.html
-    name: Gustav Chiarello
+    name: CFO Gustav Chiarello
+    title: DCFO Teresa Miranda
   - agency: Department of Homeland Security
     url: https://www.dhs.gov/office-chief-financial-officer
     name: Holly Mehringer (Acting)
