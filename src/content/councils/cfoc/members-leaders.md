@@ -83,7 +83,8 @@ members:
     title: DCFO Evan Farley
   - agency: National Aeronautics and Space Administration
     url: https://www.nasa.gov/ocfo/
-    name: Sydney Schmidt (Acting)
+    name: CFO Sydney Schmidt (Acting)
+    title: DCFO Vacant
   - agency: National Science Foundation
     name: Caitlyn Fife (Acting)
   - agency: Nuclear Regulatory Commission
