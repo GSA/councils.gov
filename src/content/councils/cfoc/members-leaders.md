@@ -48,7 +48,8 @@ members:
     title: DCFO Brent Stevenson (Acting)
   - agency: Department of Justice
     url: https://www.justice.gov/jmd
-    name: Jolene Lauria
+    name: CFO Jolene Lauria
+    title: DCFO Christopher Alvarez
   - agency: Department of Labor
     url: https://www.dol.gov/agencies/ocfo
     name: David Castillo
