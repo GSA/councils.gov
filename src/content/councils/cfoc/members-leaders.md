@@ -86,7 +86,8 @@ members:
     name: CFO Sydney Schmidt (Acting)
     title: DCFO Vacant
   - agency: National Science Foundation
-    name: Caitlyn Fife (Acting)
+    name: CFO Caitlyn Fife (Acting)
+    title: DCFO Jesse Simons
   - agency: Nuclear Regulatory Commission
     url: https://www.nrc.gov/about-nrc/organization/ocfofuncdesc
     name: Chris Carroll
