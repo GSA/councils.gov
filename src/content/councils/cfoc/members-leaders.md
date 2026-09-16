@@ -67,7 +67,8 @@ members:
     title: DCFO Carole Banks
   - agency: Department of Veterans Affairs
     url: https://department.va.gov/administrations-and-offices/management/finance/?redirect=1
-    name: Richard Topping
+    name: CFO Richard Topping
+    title: DCFO Edward Murray
   - agency: Department of War
     url: https://comptroller.war.gov/
     name: Jules Hurst
