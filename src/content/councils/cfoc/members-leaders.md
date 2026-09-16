@@ -52,7 +52,8 @@ members:
     title: DCFO Christopher Alvarez
   - agency: Department of Labor
     url: https://www.dol.gov/agencies/ocfo
-    name: David Castillo
+    name: CFO David Castillo
+    title: DCFO Kevin Brown
   - agency: Department of State
     url: https://www.state.gov/bureaus-offices/under-secretary-for-management/bureau-of-the-comptroller-and-global-financial-services/
     name: Doug Pitkin (Acting)
