@@ -71,7 +71,8 @@ members:
     title: DCFO Edward Murray
   - agency: Department of War
     url: https://comptroller.war.gov/
-    name: Jules Hurst
+    name: CFO Jules Hurst
+    title: DCFO Thomas Harker
   - agency: Environmental Protection Agency
     url: https://www.epa.gov/aboutepa/about-office-financial-operations-management
     name: Paige Hanson
