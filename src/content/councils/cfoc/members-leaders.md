@@ -40,7 +40,8 @@ members:
     name: Holly Mehringer (Acting)
   - agency: Department of Housing and Urban Development
     url: https://www.hud.gov/
-    name: Vacant
+    name: CFO Irving Dennis
+    title: DCFO Daniel Ballard
   - agency: Department of the Interior
     url: https://www.doi.gov/pfm
     name: Vacant
