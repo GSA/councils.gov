@@ -98,7 +98,8 @@ members:
     title: DCFO Kelly DeGraff
   - agency: Small Business Administration
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
-    name: Nathan Davis
+    name: CFO Nathan Davis
+    title: DCFO Nauman Ansari (Acting)
   - agency: Social Security Administration
     url: https://www.ssa.gov/
     name: Sean Brune
