@@ -94,7 +94,8 @@ members:
     title: DCFO David D'Abate
   - agency: Office of Personnel Management
     url: https://www.opm.gov/
-    name: Katie McGuiness
+    name: CFO Katie McGuiness
+    title: DCFO Kelly DeGraff
   - agency: Small Business Administration
     url: https://www.sba.gov/about-sba/sba-locations/headquarters-offices/office-performance-planning-chief-financial-officer
     name: Nathan Davis
