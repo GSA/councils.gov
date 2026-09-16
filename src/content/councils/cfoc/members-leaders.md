@@ -102,5 +102,6 @@ members:
     title: DCFO Nauman Ansari (Acting)
   - agency: Social Security Administration
     url: https://www.ssa.gov/
-    name: Sean Brune
+    name: CFO Sean Brune
+    title: DCFO Sean Brune
 ---
