@@ -44,7 +44,8 @@ members:
     title: DCFO Daniel Ballard
   - agency: Department of the Interior
     url: https://www.doi.gov/pfm
-    name: Vacant
+    name: CFO Troy Finnegan (Acting)
+    title: DCFO Brent Stevenson (Acting)
   - agency: Department of Justice
     url: https://www.justice.gov/jmd
     name: Jolene Lauria
