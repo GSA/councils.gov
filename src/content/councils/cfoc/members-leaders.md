@@ -25,7 +25,8 @@ members:
     title: DCFO George Jenkins
   - agency: Department of Education
     url: https://www.ed.gov/about/ed-offices/ofo/office-of-finance-and-operations?src=oc
-    name: Casey Sacks, Ph.D.
+    name: CFO Casey Sacks, Ph.D.
+    title: DCFO Mark Washington (Acting)
   - agency: Department of Energy
     url: https://www.energy.gov/cfo/office-chief-financial-officer
     name: Vacant
