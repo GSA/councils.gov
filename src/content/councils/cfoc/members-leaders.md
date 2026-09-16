@@ -63,7 +63,8 @@ members:
     title: DCFO Daniel King
   - agency: Department of the Treasury
     url: https://home.treasury.gov/about/offices/management
-    name: John York
+    name: CFO John York
+    title: DCFO Carole Banks
   - agency: Department of Veterans Affairs
     url: https://department.va.gov/administrations-and-offices/management/finance/?redirect=1
     name: Richard Topping
