@@ -90,7 +90,8 @@ members:
     title: DCFO Jesse Simons
   - agency: Nuclear Regulatory Commission
     url: https://www.nrc.gov/about-nrc/organization/ocfofuncdesc
-    name: Chris Carroll
+    name: CFO Chris Carroll
+    title: DCFO David D'Abate
   - agency: Office of Personnel Management
     url: https://www.opm.gov/
     name: Katie McGuiness
