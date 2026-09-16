@@ -75,7 +75,8 @@ members:
     title: DCFO Thomas Harker
   - agency: Environmental Protection Agency
     url: https://www.epa.gov/aboutepa/about-office-financial-operations-management
-    name: Paige Hanson
+    name: CFO Paige Hanson
+    title: DCFO Greg Treml
   - agency: General Services Administration
     url: https://www.gsa.gov/about-us/organization/office-of-the-chief-financial-officer
     name: Nimisha Agarwal
