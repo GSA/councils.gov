@@ -29,7 +29,8 @@ members:
     title: DCFO Mark Washington (Acting)
   - agency: Department of Energy
     url: https://www.energy.gov/cfo/office-chief-financial-officer
-    name: Vacant
+    name: CFO Vacant
+    title: DCFO Christopher Johns
   - agency: Department of Health and Human Services
     url: https://www.hhs.gov/about/agencies/asfr/finance/index.html
     name: Gustav Chiarello
