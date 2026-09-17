@@ -37,7 +37,8 @@ members:
     title: DCFO Teresa Miranda
   - agency: Department of Homeland Security
     url: https://www.dhs.gov/office-chief-financial-officer
-    name: Holly Mehringer (Acting)
+    name: CFO Holly Mehringer (Acting)
+    title: DCFO Vacant
   - agency: Department of Housing and Urban Development
     url: https://www.hud.gov/
     name: CFO Irving Dennis
