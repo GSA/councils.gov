@@ -57,7 +57,8 @@ members:
     title: DCFO Kevin Brown
   - agency: Department of State
     url: https://www.state.gov/bureaus-offices/under-secretary-for-management/bureau-of-the-comptroller-and-global-financial-services/
-    name: CFO Doug Pitkin (Acting)
+    name: Compt. Doug Pitkin (Acting)
+    title: Dep. Compt. William Davisson
   - agency: Department of Transportation
     url: https://www.transportation.gov/budget/about-cfo
     name: CFO Vacant
