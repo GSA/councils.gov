@@ -105,5 +105,5 @@ members:
   - agency: Social Security Administration
     url: https://www.ssa.gov/
     name: CFO Sean Brune
-    title: DCFO Sean Brune
+    title: DCFO Christian Hellie
 ---
