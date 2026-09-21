@@ -85,8 +85,8 @@ members:
     title: DCFO Evan Farley
   - agency: National Aeronautics and Space Administration
     url: https://www.nasa.gov/ocfo/
-    name: CFO Vacant
-    title: DCFO Vacant
+    name: CFO Anna Irvine (Acting)
+    title: DCFO Anna Irvine
   - agency: National Science Foundation
     name: CFO Caitlyn Fife (Acting)
     title: DCFO Jesse Simons
