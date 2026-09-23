@@ -94,7 +94,7 @@ members:
   - title: ""
     agency: Consumer Financial Protection Bureau
     url: https://www.consumerfinance.gov/data/
-    name: Lance Harris, Acting
+    name: Chris Chilbert
   - title: ""
     agency: Central Intelligence Agency
     name: Vacant
@@ -308,7 +308,7 @@ members:
   - title: ""
     agency: Office of Personnel Management
     url: https://www.opm.gov/data/
-    name: Vacant
+    name: Lance Harris
   - title: ""
     agency: Office of Special Counsel
     url: https://osc.gov/data
