@@ -143,7 +143,7 @@ members:
   - title: ""
     agency: Department of Housing and Urban Development
     url: https://data.hud.gov/
-    name: Debajyoti (Dev) Ray
+    name: Eric Ku, Acting
   - title: ""
     agency: Department of Justice
     url: https://www.justice.gov/data
