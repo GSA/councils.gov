@@ -71,7 +71,7 @@ leaders:
     image: /assets/img/leaders/mike-o-rourke-headshot.jpg
     imageAlt: Mike O'Rourke
 members:
-  - name: Samuel Berry
+  - name: Tony Brannum
     title: CIO/SAOP
     agency: Department of Agriculture
   - name: Nicholas Cormier
