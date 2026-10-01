@@ -14,7 +14,14 @@ if (process.env.BASEURL) {
 
 // Redirect old /councils/{slug}/about/ and /councils/{slug}/ URLs to new structure
 const contentDir = join(process.cwd(), "src/content/councils");
-const councilRedirects = {};
+// Preserve bookmarked council URLs after the CAIOC → CSIOC rename.
+const councilRedirects = {
+  "/caioc/": "/csioc/",
+  "/caioc/members-leaders/": "/csioc/members-leaders/",
+  "/councils/caioc/": "/csioc/",
+  "/councils/caioc/about/": "/csioc/",
+  "/councils/caioc/members-leaders/": "/csioc/members-leaders/",
+};
 try {
   const slugs = readdirSync(contentDir, { withFileTypes: true })
     .filter((d) => d.isDirectory())
