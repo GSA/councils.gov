@@ -4,9 +4,9 @@ councilName: Chief Super Intelligence Officers Council
 councilSlug: csioc
 intro: The CSIOC is composed of Chief Super Intelligence Officers from Federal
   agencies who work together to improve government IT and SI practices. The CSIO
-  Council is chaired by the Federal Chief Super Intelligence Officer. Its
-  membership comprises agency Chief SI Officers, representatives from the White
-  House Office of Science and Technology Policy, the Office of the Director of
+  Council is chaired by the Federal Chief Information Officer. Its membership
+  comprises agency Chief SI Officers, representatives from the White House
+  Office of Science and Technology Policy, the Office of the Director of
   National Intelligence, and other agencies or Ex-Officio members as designated
   by the Chair.
 leaders: []
