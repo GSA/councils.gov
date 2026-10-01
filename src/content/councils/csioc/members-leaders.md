@@ -1,7 +1,7 @@
 ---
-title: CAIOC Leadership & Members
+title: CSIOC Leadership & Members
 councilName: Chief Super Intelligence Officers Council
-councilSlug: caioc
+councilSlug: csioc
 intro: The CSIOC is composed of Chief Super Intelligence Officers from Federal
   agencies who work together to improve government IT and SI practices. The CSIO
   Council is chaired by the Federal Chief Super Intelligence Officer. Its

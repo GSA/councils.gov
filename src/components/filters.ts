@@ -32,7 +32,9 @@ export const createEmptyFilters = (): Filters => ({
  */
 export const getInitialFiltersFromUrl = (allowedCouncils: string[]): Filters => {
   if (typeof window === 'undefined') return createEmptyFilters();
-  const council = new URLSearchParams(window.location.search).get('council')?.trim();
+  const requestedCouncil = new URLSearchParams(window.location.search).get('council')?.trim();
+  // Keep pre-rename resource and news bookmarks filtered to the renamed council.
+  const council = requestedCouncil === 'CAIOC' ? 'CSIOC' : requestedCouncil;
   if (!council || allowedCouncils.length === 0) return createEmptyFilters();
   const allowedSet = new Set(allowedCouncils.map((c) => c.trim()).filter(Boolean));
   if (!allowedSet.has(council)) return createEmptyFilters();

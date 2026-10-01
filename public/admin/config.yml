@@ -104,9 +104,9 @@ collections:
               hint: "If set, this council appears in the header, footer, and home page but links to this URL instead of an on-site About page (opens in a new tab). Leave blank for normal councils.",
             }
           - { label: Body, name: body, widget: markdown, required: false }
-      - label: CAIOC About
-        name: caioc_about
-        file: src/content/councils/caioc/about.md
+      - label: CSIOC About
+        name: csioc_about
+        file: src/content/councils/csioc/about.md
         fields: *about_fields
       - label: CFOC About
         name: cfoc_about
@@ -262,9 +262,9 @@ collections:
                 options_length: 100
               - { label: URL, name: url, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
-      - label: CAIOC Members & Leaders
-        name: caioc_members_leaders
-        file: src/content/councils/caioc/members-leaders.md
+      - label: CSIOC Members & Leaders
+        name: csioc_members_leaders
+        file: src/content/councils/csioc/members-leaders.md
         fields: *members_leaders_fields
       - label: CFOC Members & Leaders
         name: cfoc_members_leaders

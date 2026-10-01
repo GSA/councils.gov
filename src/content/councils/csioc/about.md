@@ -1,7 +1,7 @@
 ---
-title: About CAIOC
+title: About CSIOC
 councilName: Chief Super Intelligence Officers Council
-councilSlug: caioc
+councilSlug: csioc
 logoPath: /assets/img/councils/csioc_logo.png
 logoAlt: CSIOC Logo
 logoClass: council-logo
