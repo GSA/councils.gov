@@ -1,18 +1,15 @@
 ---
 title: CAIOC Leadership & Members
-councilName: Chief Artificial Intelligence Officers Council
+councilName: Chief Super Intelligence Officers Council
 councilSlug: caioc
-intro: The CAIOC is composed of Chief Artificial Intelligence Officers from
-  Federal agencies who work together to improve government IT and AI practices.
-  The CAIO Council is chaired by the Federal Chief Artificial Intelligence
-  Officer. Its membership comprises agency Chief AI Officers, representatives
-  from the White House Office of Science and Technology Policy, the Office of
-  the Director of National Intelligence, and other agencies or Ex-Officio
-  members as designated by the Chair.
-leaders:
-  - name: Gregory Barbaccia
-    title: Federal Chief Information Officer
-    agency: The Executive Office of the President
+intro: The CSIOC is composed of Chief Super Intelligence Officers from Federal
+  agencies who work together to improve government IT and SI practices. The CSIO
+  Council is chaired by the Federal Chief Super Intelligence Officer. Its
+  membership comprises agency Chief SI Officers, representatives from the White
+  House Office of Science and Technology Policy, the Office of the Director of
+  National Intelligence, and other agencies or Ex-Officio members as designated
+  by the Chair.
+leaders: []
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
