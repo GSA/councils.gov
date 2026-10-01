@@ -2,7 +2,7 @@
 title: About CAIOC
 councilName: Chief Super Intelligence Officers Council
 councilSlug: caioc
-logoPath: /assets/img/councils/caioc_logo.png
+logoPath: /assets/img/councils/csioc_logo.png
 logoAlt: CAIOC Logo
 logoClass: council-logo
 shortDescription: The Chief Super Intelligence Officers Council serves as a
