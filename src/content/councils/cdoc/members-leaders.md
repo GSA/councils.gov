@@ -39,7 +39,7 @@ leaders:
     agency: Office of Management and Budget
     image: /assets/img/leaders/dm_headshots-seals.png
     imageAlt: Dominic Mancini
-  - name: Vacant
+  - name: Thomas Flagg
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
