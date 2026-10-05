@@ -43,6 +43,7 @@ leaders:
     title: Deputy Federal Chief Information Officer, Office of the Federal Chief
       Information Officer (OFCIO)
     agency: Office of Management and Budget
+    image: /assets/img/leaders/thomas-flagg-circle-headshot.jpg
   - name: Richard Allen
     title: Large Agency Committee Chair
     agency: Environmental Protection Agency
