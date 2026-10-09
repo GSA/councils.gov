@@ -156,7 +156,7 @@ members:
   - title: ""
     agency: Department of the Interior
     url: https://www.doi.gov/data
-    name: David Carter
+    name: Dev Ray
   - title: ""
     agency: Department of the Treasury
     url: https://home.treasury.gov/data/treasury-open-data
