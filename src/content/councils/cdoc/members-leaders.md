@@ -200,7 +200,7 @@ members:
   - title: ""
     agency: Federal Deposit Insurance Corporation
     url: https://www.fdic.gov/about/open-data-fdic
-    name: Geoffrey Nieboer
+    name: Shannon Dahn
   - title: ""
     agency: Federal Energy Regulatory Commission
     url: https://data.ferc.gov/
