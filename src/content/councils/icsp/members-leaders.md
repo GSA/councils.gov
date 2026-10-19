@@ -95,7 +95,7 @@ members:
   - name: Lance Harris*
     agency: Office of Personnel Management
     title: ""
-  - name: Anna Maria Calcagno*
+  - name: Travis Dorsey*
     title: ""
     agency: Small Business Administration
   - name: Mark Xu^*
