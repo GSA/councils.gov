@@ -42,7 +42,7 @@ members:
   - name: Thomas Woermer*
     agency: Department of Homeland Security
     title: ""
-  - name: Ed Strocko^*
+  - name: Stephanie Lawrence^*
     title: Bureau of Transportation Statistics
     agency: Department of Transportation
   - name: Christopher Jones^
