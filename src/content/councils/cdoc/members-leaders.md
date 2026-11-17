@@ -53,8 +53,9 @@ leaders:
     agency: Department of Labor
     image: /assets/img/leaders/brandon-brown_circle-headshot-1-.png
   - name: David Ashley
-    title: Data-Driven Government Working Group, Co-Chair, Acting Chief Data Officer
-    agency: Department of the Treasury
+    title: Data-Driven Government Working Group, Co-Chair, Senior Advisor for Data
+      Management and Analytics
+    agency: Department of War
     image: /assets/img/leaders/updated-david-ashley.png
     imageAlt: David Ashley
   - name: Austin Gerig
