@@ -7,6 +7,10 @@ membersIntro: The CIOC includes representatives from major Federal agencies,
   each bringing expertise and perspective to improve government IT management.
 useCustomOrderForLeaders: true
 leaders:
+  - name: Carter Farmer
+    title: Federal Chief Information Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/carter-farmer.jpg
   - name: Thomas Flagg
     title: Deputy Federal Chief Information Officer
     imageAlt: Thomas Flagg
@@ -22,10 +26,6 @@ leaders:
     agency: The Executive Office of the President
     image: /assets/img/leaders/michael_duffy.png
     imageAlt: Michael Duffy
-  - name: Carter Farmer
-    title: Federal Chief Information Officer
-    agency: The Executive Office of the President
-    image: /assets/img/leaders/carter-farmer.jpg
 useCustomOrderForMembers: true
 councilSlug: cioc
 title: CIOC Leadership & Members
