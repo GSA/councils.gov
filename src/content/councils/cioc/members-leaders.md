@@ -22,6 +22,10 @@ leaders:
     agency: The Executive Office of the President
     image: /assets/img/leaders/michael_duffy.png
     imageAlt: Michael Duffy
+  - name: Carter Farmer
+    title: Federal Chief Information Officer
+    agency: The Executive Office of the President
+    image: /assets/img/leaders/carter-farmer.jpg
 useCustomOrderForMembers: true
 councilSlug: cioc
 title: CIOC Leadership & Members
