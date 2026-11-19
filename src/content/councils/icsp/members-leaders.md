@@ -45,7 +45,7 @@ members:
   - name: Stephanie Lawrence^*
     title: Bureau of Transportation Statistics
     agency: Department of Transportation
-  - name: Christopher Jones^
+  - name: Sue Lin^
     title: Center for Behavioral Health Statistics and Quality
     agency: Department of Health and Human Services
   - name: George Carter* and Lydia Taghavi*
