@@ -7,17 +7,18 @@ intro: The FRPC brings together senior real property officials from across the
 membersIntro: The FRPC includes representatives from Federal agencies with
   significant real property portfolios.
 leaders:
+  - name: Margaret Pearson
+    title: Chairperson; Deputy Controller, Office of Federal Financial Management
+    agency: Office of Management and Budget
+    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
+    imageAlt: OMB Logo
   - name: William Garrett
     title: Acting FRPC Executive Director; Office of Asset and Transportation
       Management, Office of Government-wide Policy
     agency: General Services Administration
     image: /assets/img/leaders/gsa-seal.png
     imageAlt: GSA Logo
-  - name: Margaret Pearson
-    title: Chairperson; Deputy Controller, Office of Federal Financial Management
-    agency: Office of Management and Budget
-    image: /assets/img/leaders/us-officeofmanagementandbudget-seal.svg
-    imageAlt: OMB Logo
+useCustomOrderForMembers: true
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
