@@ -1,11 +1,10 @@
 ---
-title: FRPC Leadership & Members
 councilName: Federal Real Property Council
-councilSlug: frpc
 intro: The FRPC brings together senior real property officials from across the
   Federal Government to drive consistent policy and performance.
 membersIntro: The FRPC includes representatives from Federal agencies with
   significant real property portfolios.
+useCustomOrderForLeaders: true
 leaders:
   - name: Margaret Pearson
     title: Chairperson; Deputy Controller, Office of Federal Financial Management
@@ -19,6 +18,8 @@ leaders:
     image: /assets/img/leaders/gsa-seal.png
     imageAlt: GSA Logo
 useCustomOrderForMembers: true
+councilSlug: frpc
+title: FRPC Leadership & Members
 members:
   - agency: Department of Agriculture
   - agency: Department of Commerce
